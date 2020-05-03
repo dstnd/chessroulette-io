@@ -1,0 +1,1 @@
+{"version":3,"file":"PeerMessagingPayload.js","sourceRoot":"","sources":["../src/records/PeerMessagingPayload.ts"],"names":[],"mappings":";;AAAA,0BAA4B;AAEf,QAAA,WAAW,GAAG,EAAE,CAAC,IAAI,CAAC;IACjC,UAAU,EAAE,EAAE,CAAC,MAAM;IACrB,QAAQ,EAAE,EAAE,CAAC,MAAM;IACnB,OAAO,EAAE,EAAE,CAAC,MAAM;IAElB,yBAAyB;IACzB,SAAS,EAAE,EAAE,CAAC,MAAM;CACrB,CAAC,CAAC"}
