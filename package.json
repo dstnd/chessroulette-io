@@ -1,10 +1,14 @@
 {
   "name": "dstnd-io",
   "version": "0.0.1",
-  "main": "index.js",
   "author": "Gabriel C. Troia <catalin.troia@gmail.com>",
   "license": "MIT",
   "dependencies": {
     "io-ts": "^2.2.1"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "devDependencies": {
+    "typescript": "^3.8.3"
   }
 }
