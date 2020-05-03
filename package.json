@@ -1,0 +1,10 @@
+{
+  "name": "dstnd-io",
+  "version": "0.0.1",
+  "main": "index.js",
+  "author": "Gabriel C. Troia <catalin.troia@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "io-ts": "^2.2.1"
+  }
+}
