@@ -1,1 +1,0 @@
-{"version":3,"file":"HttpPayload.js","sourceRoot":"","sources":["../src/records/HttpPayload.ts"],"names":[],"mappings":";;AAAA,0BAA4B;AAC5B,uDAAsE;AAEtE,8BAA8B;AACjB,QAAA,sBAAsB,GAAG,EAAE,CAAC,IAAI,CAAC;IAC5C,OAAO,EAAE,EAAE,CAAC,MAAM;IAClB,OAAO,EAAE,EAAE,CAAC,MAAM;CACnB,CAAC,CAAC;AAEU,QAAA,uBAAuB,GAAG,mDAAgC,CAAC"}
