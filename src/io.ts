@@ -12,18 +12,8 @@ const deserialize = <
   serialized: string,
 ): Result<
   TRecord, 
-  // | 'BadSerialized'
   | { type: 'BadEncoding', reasons: ioTs.ValidationError[] }
 > => {
-  // try {
-  //   let payload;
-  //   if (typeof serialized === 'string') {
-  //     payload = JSON.parse(serialized);;
-  //   } else {`
-  //     // Add other types if needed
-  //     payload = serialized;
-  //   }
-    
   const decoded = codec.decode(serialized) as Left<ioTs.Errors> | Right<TRecord>;
 
   if (isLeft(decoded)) {
@@ -34,9 +24,6 @@ const deserialize = <
   }
 
   return new Ok(decoded.right);
-  // } catch (e) {
-  //   return new Err('BadSerialized')
-  // }
 }
 
 const serialize = <

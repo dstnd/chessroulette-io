@@ -21,17 +21,8 @@ export const connectionOpenedPayload = io.type({
 });
 export type ConnectionOpenedPayload = io.TypeOf<typeof connectionOpenedPayload>;
 
-// @deprecat in favor of roomStatsPaylaod
-// export const peerNetworkRefreshPayloadContent = io.type({
-//   me: io.string,
-//   count: io.number,
-//   peers: io.record(io.string, io.string),
-//   all_rooms: io.record(io.string, io.null),
-//   joined_room: io.union([roomRecord, io.null]),
-// });
-
 // TODO: Not sure this is still needed
-// TODO: @deprecate in favor of roomStatsPayload
+// TODO: @deprecate in favor of roomStatsPayload?
 export const peerJoinedRoomPayload = io.type({
   msg_type: io.literal('peer_joined_room'),
   content: io.type({
