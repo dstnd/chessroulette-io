@@ -3,47 +3,39 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var io = require("io-ts");
 var records_1 = require("../records");
 exports.myStatsPayload = io.type({
-    msg_type: io.literal('my_stats'),
+    kind: io.literal('myStats'),
     content: records_1.peerRecord,
 });
 exports.roomStatsPayload = io.type({
-    msg_type: io.literal('room_stats'),
+    kind: io.literal('roomStats'),
     content: records_1.roomStatsRecord,
 });
 exports.connectionOpenedPayload = io.type({
-    msg_type: io.literal('connection_opened'),
+    kind: io.literal('connectionOpened'),
     content: io.type({
         me: records_1.peerRecord,
     }),
 });
-// @deprecat in favor of roomStatsPaylaod
-// export const peerNetworkRefreshPayloadContent = io.type({
-//   me: io.string,
-//   count: io.number,
-//   peers: io.record(io.string, io.string),
-//   all_rooms: io.record(io.string, io.null),
-//   joined_room: io.union([roomRecord, io.null]),
-// });
 // TODO: Not sure this is still needed
-// TODO: @deprecate in favor of roomStatsPayload
+// TODO: @deprecate in favor of roomStatsPayload?
 exports.peerJoinedRoomPayload = io.type({
-    msg_type: io.literal('peer_joined_room'),
+    kind: io.literal('peerJoinedRoom'),
     content: io.type({
-        room_id: io.string,
-        peer_id: io.string,
+        roomId: io.string,
+        peerId: io.string,
     }),
 });
 // This is different b/c the client is like a client request
 //  while the others are server responses. 
 //  Not sure I need to make a distinction between them (yet).
 exports.joinRoomRequestPayload = io.type({
-    msg_type: io.literal('join_room_request'),
+    kind: io.literal('joinRoomRequest'),
     content: io.type({
-        room_id: io.string,
+        roomId: io.string,
     }),
 });
 exports.joinRoomSuccessPayload = io.type({
-    msg_type: io.literal('join_room_success'),
+    kind: io.literal('joinRoomSuccess'),
     content: io.type({
         room: records_1.roomStatsRecord,
         me: records_1.peerRecord,

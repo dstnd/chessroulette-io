@@ -2,19 +2,19 @@ import * as io from 'io-ts';
 import { peerRecord, roomStatsRecord } from '../records';
 
 export const myStatsPayload = io.type({
-  msg_type: io.literal('my_stats'),
+  kind: io.literal('myStats'),
   content: peerRecord,
 });
 export type MyStatsPayload = io.TypeOf<typeof myStatsPayload>;
 
 export const roomStatsPayload = io.type({
-  msg_type: io.literal('room_stats'),
+  kind: io.literal('roomStats'),
   content: roomStatsRecord,
 });
 export type RoomStatsPayload = io.TypeOf<typeof roomStatsPayload>;
 
 export const connectionOpenedPayload = io.type({
-  msg_type: io.literal('connection_opened'),
+  kind: io.literal('connectionOpened'),
   content: io.type({
     me: peerRecord,
   }),
@@ -24,10 +24,10 @@ export type ConnectionOpenedPayload = io.TypeOf<typeof connectionOpenedPayload>;
 // TODO: Not sure this is still needed
 // TODO: @deprecate in favor of roomStatsPayload?
 export const peerJoinedRoomPayload = io.type({
-  msg_type: io.literal('peer_joined_room'),
+  kind: io.literal('peerJoinedRoom'),
   content: io.type({
-    room_id: io.string,
-    peer_id: io.string,
+    roomId: io.string,
+    peerId: io.string,
   }),
 });
 export type PeerJoinedRoomPayload = io.TypeOf<typeof peerJoinedRoomPayload>; 
@@ -36,15 +36,15 @@ export type PeerJoinedRoomPayload = io.TypeOf<typeof peerJoinedRoomPayload>;
 //  while the others are server responses. 
 //  Not sure I need to make a distinction between them (yet).
 export const joinRoomRequestPayload = io.type({
-  msg_type: io.literal('join_room_request'),
+  kind: io.literal('joinRoomRequest'),
   content: io.type({
-    room_id: io.string,
+    roomId: io.string,
   }),
 });
 export type JoinRoomRequestPayload = io.TypeOf<typeof joinRoomRequestPayload>;
 
 export const joinRoomSuccessPayload = io.type({
-  msg_type: io.literal('join_room_success'),
+  kind: io.literal('joinRoomSuccess'),
   content: io.type({
     room: roomStatsRecord,
     me: peerRecord,
