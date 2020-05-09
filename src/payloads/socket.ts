@@ -1,6 +1,12 @@
 import * as io from 'io-ts';
 import { peerRecord, roomStatsRecord } from '../records';
 
+export const pingPayload = io.type({
+  kind: io.literal('ping'),
+  content: io.string,
+});
+export type PingPayload = io.TypeOf<typeof pingPayload>;
+
 export const myStatsPayload = io.type({
   kind: io.literal('myStats'),
   content: peerRecord,
@@ -52,7 +58,19 @@ export const joinRoomSuccessPayload = io.type({
 });
 export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
 
+// export const leaveRoomRequestPayload = io.type({
+//   kind: io.literal('leaveRoomRequest'),
+//   content: io.type({
+//     room: roomStatsRecord,
+//     me: peerRecord,
+//   }),
+// });
+// export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
+
 export const socketPayload = io.union([
+  pingPayload,
+
+  // Business Logic
   connectionOpenedPayload,
   myStatsPayload,
   roomStatsPayload,

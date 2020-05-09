@@ -2,6 +2,10 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var io = require("io-ts");
 var records_1 = require("../records");
+exports.pingPayload = io.type({
+    kind: io.literal('ping'),
+    content: io.string,
+});
 exports.myStatsPayload = io.type({
     kind: io.literal('myStats'),
     content: records_1.peerRecord,
@@ -41,7 +45,17 @@ exports.joinRoomSuccessPayload = io.type({
         me: records_1.peerRecord,
     }),
 });
+// export const leaveRoomRequestPayload = io.type({
+//   kind: io.literal('leaveRoomRequest'),
+//   content: io.type({
+//     room: roomStatsRecord,
+//     me: peerRecord,
+//   }),
+// });
+// export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
 exports.socketPayload = io.union([
+    exports.pingPayload,
+    // Business Logic
     exports.connectionOpenedPayload,
     exports.myStatsPayload,
     exports.roomStatsPayload,

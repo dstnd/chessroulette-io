@@ -1,4 +1,9 @@
 import * as io from 'io-ts';
+export declare const pingPayload: io.TypeC<{
+    kind: io.LiteralC<"ping">;
+    content: io.StringC;
+}>;
+export declare type PingPayload = io.TypeOf<typeof pingPayload>;
 export declare const myStatsPayload: io.TypeC<{
     kind: io.LiteralC<"myStats">;
     content: io.TypeC<{
@@ -65,6 +70,9 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
 }>;
 export declare type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
 export declare const socketPayload: io.UnionC<[io.TypeC<{
+    kind: io.LiteralC<"ping">;
+    content: io.StringC;
+}>, io.TypeC<{
     kind: io.LiteralC<"connectionOpened">;
     content: io.TypeC<{
         me: io.TypeC<{
