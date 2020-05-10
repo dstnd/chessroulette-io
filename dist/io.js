@@ -14,8 +14,15 @@ var deserialize = function (codec, serialized) {
 };
 var serialize = function (_, // used only to map the record type to it for now
 record) { return record; };
+exports.toResult = function (either) {
+    if (Either_1.isLeft(either)) {
+        return new ts_results_1.Err(either.left);
+    }
+    return new ts_results_1.Ok(either.right);
+};
 exports.io = {
     serialize: serialize,
-    deserialize: deserialize
+    deserialize: deserialize,
+    toResult: exports.toResult,
 };
 //# sourceMappingURL=io.js.map

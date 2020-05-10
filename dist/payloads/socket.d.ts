@@ -14,7 +14,7 @@ export declare const myStatsPayload: io.TypeC<{
 export declare type MyStatsPayload = io.TypeOf<typeof myStatsPayload>;
 export declare const roomStatsPayload: io.TypeC<{
     kind: io.LiteralC<"roomStats">;
-    content: io.TypeC<{
+    content: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         name: io.StringC;
         peersCount: io.NumberC;
@@ -22,7 +22,12 @@ export declare const roomStatsPayload: io.TypeC<{
             id: io.StringC;
             name: io.StringC;
         }>>;
-    }>;
+    }>, io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"public">;
+    }>, io.TypeC<{
+        type: io.LiteralC<"private">;
+        code: io.StringC;
+    }>]>]>;
 }>;
 export declare type RoomStatsPayload = io.TypeOf<typeof roomStatsPayload>;
 export declare const connectionOpenedPayload: io.TypeC<{
@@ -47,13 +52,14 @@ export declare const joinRoomRequestPayload: io.TypeC<{
     kind: io.LiteralC<"joinRoomRequest">;
     content: io.TypeC<{
         roomId: io.StringC;
+        code: io.UnionC<[io.StringC, io.UndefinedC]>;
     }>;
 }>;
 export declare type JoinRoomRequestPayload = io.TypeOf<typeof joinRoomRequestPayload>;
 export declare const joinRoomSuccessPayload: io.TypeC<{
     kind: io.LiteralC<"joinRoomSuccess">;
     content: io.TypeC<{
-        room: io.TypeC<{
+        room: io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             name: io.StringC;
             peersCount: io.NumberC;
@@ -61,7 +67,12 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
             }>>;
-        }>;
+        }>, io.UnionC<[io.TypeC<{
+            type: io.LiteralC<"public">;
+        }>, io.TypeC<{
+            type: io.LiteralC<"private">;
+            code: io.StringC;
+        }>]>]>;
         me: io.TypeC<{
             id: io.StringC;
             name: io.StringC;
@@ -69,6 +80,15 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
     }>;
 }>;
 export declare type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
+export declare const joinRoomFailurePayload: io.TypeC<{
+    kind: io.LiteralC<"joinRoomFailure">;
+    content: io.KeyofC<{
+        WrongCode: null;
+        InexistentRoom: null;
+        InexistentPeer: null;
+    }>;
+}>;
+export declare type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
 export declare const socketPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"ping">;
     content: io.StringC;
@@ -88,7 +108,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
     }>;
 }>, io.TypeC<{
     kind: io.LiteralC<"roomStats">;
-    content: io.TypeC<{
+    content: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         name: io.StringC;
         peersCount: io.NumberC;
@@ -96,7 +116,12 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             id: io.StringC;
             name: io.StringC;
         }>>;
-    }>;
+    }>, io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"public">;
+    }>, io.TypeC<{
+        type: io.LiteralC<"private">;
+        code: io.StringC;
+    }>]>]>;
 }>, io.TypeC<{
     kind: io.LiteralC<"peerJoinedRoom">;
     content: io.TypeC<{
@@ -107,11 +132,12 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"joinRoomRequest">;
     content: io.TypeC<{
         roomId: io.StringC;
+        code: io.UnionC<[io.StringC, io.UndefinedC]>;
     }>;
 }>, io.TypeC<{
     kind: io.LiteralC<"joinRoomSuccess">;
     content: io.TypeC<{
-        room: io.TypeC<{
+        room: io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             name: io.StringC;
             peersCount: io.NumberC;
@@ -119,7 +145,12 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
             }>>;
-        }>;
+        }>, io.UnionC<[io.TypeC<{
+            type: io.LiteralC<"public">;
+        }>, io.TypeC<{
+            type: io.LiteralC<"private">;
+            code: io.StringC;
+        }>]>]>;
         me: io.TypeC<{
             id: io.StringC;
             name: io.StringC;

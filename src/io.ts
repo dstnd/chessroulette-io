@@ -1,5 +1,5 @@
 import * as PayloadCodecs from './payloads';
-import { isLeft, Left, Right } from 'fp-ts/lib/Either';
+import { isLeft, Left, Right, Either } from 'fp-ts/lib/Either';
 import { Err, Ok, Result } from './ts-results';
 import * as ioTs from 'io-ts';
 
@@ -35,7 +35,16 @@ const serialize = <
   record: TRecord
 ) => record;
 
+export const toResult = <T, E>(either: Either<E, T>): Result<T, E> => {
+  if (isLeft(either)) {
+    return new Err(either.left);
+  }
+
+  return new Ok(either.right);
+};
+
 export const io = {
   serialize,
-  deserialize
-}
+  deserialize,
+  toResult,
+};

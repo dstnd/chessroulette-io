@@ -5,3 +5,21 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.TypeC<{
     peersCount: io.NumberC;
 }>>;
 export declare type PublicRoomsResponsePayload = io.TypeOf<typeof publicRoomsResponsePayload>;
+export declare const createRoomRequest: io.TypeC<{
+    nickname: io.UnionC<[io.StringC, io.UndefinedC]>;
+    peerId: io.StringC;
+    type: io.KeyofC<{
+        public: null;
+        private: null;
+    }>;
+}>;
+export declare type CreateRoomRequest = io.TypeOf<typeof createRoomRequest>;
+export declare const createRoomResponse: io.UnionC<[io.TypeC<{
+    id: io.StringC;
+    type: io.LiteralC<"private">;
+    code: io.StringC;
+}>, io.TypeC<{
+    id: io.StringC;
+    type: io.LiteralC<"public">;
+}>]>;
+export declare type CreateRoomResponse = io.TypeOf<typeof createRoomResponse>;

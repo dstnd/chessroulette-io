@@ -36,6 +36,7 @@ exports.joinRoomRequestPayload = io.type({
     kind: io.literal('joinRoomRequest'),
     content: io.type({
         roomId: io.string,
+        code: io.union([io.string, io.undefined]),
     }),
 });
 exports.joinRoomSuccessPayload = io.type({
@@ -43,6 +44,14 @@ exports.joinRoomSuccessPayload = io.type({
     content: io.type({
         room: records_1.roomStatsRecord,
         me: records_1.peerRecord,
+    }),
+});
+exports.joinRoomFailurePayload = io.type({
+    kind: io.literal('joinRoomFailure'),
+    content: io.keyof({
+        WrongCode: null,
+        InexistentRoom: null,
+        InexistentPeer: null,
     }),
 });
 // export const leaveRoomRequestPayload = io.type({

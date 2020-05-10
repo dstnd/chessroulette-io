@@ -45,6 +45,7 @@ export const joinRoomRequestPayload = io.type({
   kind: io.literal('joinRoomRequest'),
   content: io.type({
     roomId: io.string,
+    code: io.union([io.string, io.undefined]),
   }),
 });
 export type JoinRoomRequestPayload = io.TypeOf<typeof joinRoomRequestPayload>;
@@ -57,6 +58,16 @@ export const joinRoomSuccessPayload = io.type({
   }),
 });
 export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
+
+export const joinRoomFailurePayload = io.type({
+  kind: io.literal('joinRoomFailure'),
+  content: io.keyof({
+    WrongCode: null,
+    InexistentRoom: null,
+    InexistentPeer: null,
+  }),
+});
+export type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
 
 // export const leaveRoomRequestPayload = io.type({
 //   kind: io.literal('leaveRoomRequest'),
