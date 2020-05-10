@@ -23,6 +23,10 @@ exports.createRoomResponse = io.union([
         type: io.literal('public'),
     }),
 ]);
+exports.createChallengeRequest = io.type({
+    peerId: io.string,
+});
+exports.createChallengeResponse = exports.createRoomResponse;
 // export const joinRoomRequest = io.type({
 //   id: io.string,
 //   peerId: io.string,

@@ -28,6 +28,16 @@ export const createRoomResponse = io.union([
 ]);
 export type CreateRoomResponse = io.TypeOf<typeof createRoomResponse>;
 
+export const createChallengeRequest = io.type({
+  peerId: io.string,
+});
+export type CreateChallengeRequest = io.TypeOf<typeof createChallengeRequest>;
+
+export const createChallengeResponse = createRoomResponse;
+export type CreateChallengeResponse = CreateRoomResponse;
+
+
+
 // export const joinRoomRequest = io.type({
 //   id: io.string,
 //   peerId: io.string,
