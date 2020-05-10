@@ -5,7 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "io-ts": "2.2.2",
-    "io-ts-isodatetime": "https://github.com/GabrielCTroia/io-ts-isodatetime.git#v1"
+    "io-ts-isodatetime": "https://github.com/GabrielCTroia/io-ts-isodatetime.git#v0.0.2"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
