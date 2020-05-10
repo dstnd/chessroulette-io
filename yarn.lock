@@ -2,10 +2,28 @@
 # yarn lockfile v1
 
 
-io-ts@^2.2.1:
-  version "2.2.1"
-  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.1.tgz#d8cb21a23cf8fbe697d78445a65bab42c0eb467f"
-  integrity sha512-RufppkTV58MfDKF2gXlHVBvi+WIyL7nUcAQMkJ1O3SiQcqwlxf6dBOJP/LV19UxHRkGKJZ6ImSj7LqYcELIejQ==
+date-fns@^2.13.0:
+  version "2.13.0"
+  resolved "https://registry.yarnpkg.com/date-fns/-/date-fns-2.13.0.tgz#d7b8a0a2d392e8d88a8024d0a46b980bbfdbd708"
+  integrity sha512-xm0c61mevGF7f0XpCGtDTGpzEFC/1fpLXHbmFpxZZQJuvByIK2ozm6cSYuU+nxFYOPh2EuCfzUwlTEFwKG+h5w==
+
+"io-ts-isodatetime@https://github.com/GabrielCTroia/io-ts-isodatetime.git#v1":
+  version "1.0.0"
+  resolved "https://github.com/GabrielCTroia/io-ts-isodatetime.git#c7e00e6d671a9b888079a0638bbc2b5dd6648b7f"
+  dependencies:
+    date-fns "^2.13.0"
+    io-ts "^2.2.2"
+    io-ts-types "^0.5.6"
+
+io-ts-types@^0.5.6:
+  version "0.5.6"
+  resolved "https://registry.yarnpkg.com/io-ts-types/-/io-ts-types-0.5.6.tgz#4d9afdf7220d865c5bf74f30d9b2fcf1d51f11e3"
+  integrity sha512-E8mClvIN6sotGqICJQMyt8nMG9VkwejRYwOcKjAj5hndlWib9o8MRmP3HiyVK4Mn1lrpY6bB/B3LrMcV/HcWGQ==
+
+io-ts@2.2.2, io-ts@^2.2.2:
+  version "2.2.2"
+  resolved "https://registry.yarnpkg.com/io-ts/-/io-ts-2.2.2.tgz#82b9ef96d95a3fb27a1abf5f29f59b07cc9b8cca"
+  integrity sha512-cXXIL4CR5/sWfKw/Ssc/cbZJGG13J4pJv9/RN6SlWJyh+foAPEUE0I9sWTX1kG24dvhiCM9fpO4F+2AsP+WzaQ==
 
 typescript@^3.8.3:
   version "3.8.3"

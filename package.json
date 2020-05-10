@@ -4,7 +4,8 @@
   "author": "Gabriel C. Troia <catalin.troia@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "io-ts": "^2.2.1"
+    "io-ts": "2.2.2",
+    "io-ts-isodatetime": "https://github.com/GabrielCTroia/io-ts-isodatetime.git#v1"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
