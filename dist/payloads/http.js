@@ -2,27 +2,26 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var io = require("io-ts");
 var records_1 = require("../records");
-exports.publicRoomsResponsePayload = io.array(io.type({
-    id: io.string,
-    name: io.string,
-    peersCount: io.number,
-}));
+exports.publicRoomResponsePayload = io.intersection([
+    records_1.roomStatsRecord,
+    io.type({
+        type: io.literal('public'),
+    }),
+]);
+exports.publicRoomsResponsePayload = io.array(records_1.roomStatsRecord);
+exports.privateRoomResponsePayload = io.intersection([
+    records_1.roomStatsRecord,
+    io.type({
+        type: io.literal('private'),
+    }),
+]);
+;
 exports.createRoomRequest = io.type({
     nickname: io.union([io.string, io.undefined]),
     peerId: io.string,
     type: records_1.roomType,
 });
-exports.createRoomResponse = io.union([
-    io.type({
-        id: io.string,
-        type: io.literal('private'),
-        code: io.string,
-    }),
-    io.type({
-        id: io.string,
-        type: io.literal('public'),
-    }),
-]);
+exports.createRoomResponse = records_1.roomStatsRecord;
 exports.createChallengeRequest = io.type({
     peerId: io.string,
 });

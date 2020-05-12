@@ -54,6 +54,10 @@ exports.joinRoomFailurePayload = io.type({
         InexistentPeer: null,
     }),
 });
+exports.whoAmIRequestPayload = io.type({
+    kind: io.literal('whoami'),
+    content: io.unknown,
+});
 // export const leaveRoomRequestPayload = io.type({
 //   kind: io.literal('leaveRoomRequest'),
 //   content: io.type({
@@ -71,5 +75,7 @@ exports.socketPayload = io.union([
     exports.peerJoinedRoomPayload,
     exports.joinRoomRequestPayload,
     exports.joinRoomSuccessPayload,
+    exports.joinRoomFailurePayload,
+    exports.whoAmIRequestPayload,
 ]);
 //# sourceMappingURL=socket.js.map

@@ -1,12 +1,24 @@
 import * as io from 'io-ts';
-import { roomType } from '../records';
+import { roomType, roomStatsRecord } from '../records';
 
-export const publicRoomsResponsePayload = io.array(io.type({
-  id: io.string,
-  name: io.string,
-  peersCount: io.number,
-}));
+export const publicRoomResponsePayload = io.intersection([
+  roomStatsRecord,
+  io.type({
+    type: io.literal('public'),
+  }),
+]);
+export type PublicRoomResponsePayload = io.TypeOf<typeof publicRoomResponsePayload>;
+
+export const publicRoomsResponsePayload = io.array(roomStatsRecord);
 export type PublicRoomsResponsePayload = io.TypeOf<typeof publicRoomsResponsePayload>;
+
+export const privateRoomResponsePayload = io.intersection([
+  roomStatsRecord,
+  io.type({
+    type: io.literal('private'),
+  }),
+]);;
+export type PrivateRoomResponsePayload = io.TypeOf<typeof privateRoomResponsePayload>;
 
 export const createRoomRequest = io.type({
   nickname: io.union([io.string, io.undefined]),
@@ -15,17 +27,7 @@ export const createRoomRequest = io.type({
 });
 export type CreateRoomRequest = io.TypeOf<typeof createRoomRequest>;
 
-export const createRoomResponse = io.union([
-  io.type({
-    id: io.string,
-    type: io.literal('private'),
-    code: io.string,
-  }), 
-  io.type({
-    id: io.string,
-    type: io.literal('public'),
-  }),
-]);
+export const createRoomResponse = roomStatsRecord;
 export type CreateRoomResponse = io.TypeOf<typeof createRoomResponse>;
 
 export const createChallengeRequest = io.type({

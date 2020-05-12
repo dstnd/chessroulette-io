@@ -89,6 +89,11 @@ export declare const joinRoomFailurePayload: io.TypeC<{
     }>;
 }>;
 export declare type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
+export declare const whoAmIRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"whoami">;
+    content: io.UnknownC;
+}>;
+export declare type WhoAmIRequestPayload = io.TypeOf<typeof whoAmIRequestPayload>;
 export declare const socketPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"ping">;
     content: io.StringC;
@@ -156,5 +161,15 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             name: io.StringC;
         }>;
     }>;
+}>, io.TypeC<{
+    kind: io.LiteralC<"joinRoomFailure">;
+    content: io.KeyofC<{
+        WrongCode: null;
+        InexistentRoom: null;
+        InexistentPeer: null;
+    }>;
+}>, io.TypeC<{
+    kind: io.LiteralC<"whoami">;
+    content: io.UnknownC;
 }>]>;
 export declare type SocketPayload = io.TypeOf<typeof socketPayload>;

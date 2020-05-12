@@ -69,6 +69,12 @@ export const joinRoomFailurePayload = io.type({
 });
 export type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
 
+export const whoAmIRequestPayload = io.type({
+  kind: io.literal('whoami'),
+  content: io.unknown,
+});
+export type WhoAmIRequestPayload = io.TypeOf<typeof whoAmIRequestPayload>;
+
 // export const leaveRoomRequestPayload = io.type({
 //   kind: io.literal('leaveRoomRequest'),
 //   content: io.type({
@@ -88,5 +94,7 @@ export const socketPayload = io.union([
   peerJoinedRoomPayload,
   joinRoomRequestPayload,
   joinRoomSuccessPayload,
+  joinRoomFailurePayload,
+  whoAmIRequestPayload,
 ]);
 export type SocketPayload = io.TypeOf<typeof socketPayload>;
