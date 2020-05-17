@@ -26,6 +26,13 @@ exports.createChallengeRequest = io.type({
     peerId: io.string,
 });
 exports.createChallengeResponse = exports.createRoomResponse;
+exports.iceServerRecord = io.type({
+    url: io.string,
+    urls: io.string,
+    credential: io.union([io.string, io.undefined]),
+    username: io.union([io.string, io.undefined]),
+});
+exports.iceServersResponse = io.array(exports.iceServerRecord);
 // export const joinRoomRequest = io.type({
 //   id: io.string,
 //   peerId: io.string,
