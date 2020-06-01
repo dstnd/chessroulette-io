@@ -1,6 +1,6 @@
 {
   "name": "dstnd-io",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "author": "Gabriel C. Troia <catalin.troia@gmail.com>",
   "license": "MIT",
   "dependencies": {
