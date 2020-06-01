@@ -24,3 +24,8 @@ export declare const roomType: io.KeyofC<{
     private: null;
 }>;
 export declare type RoomType = io.TypeOf<typeof roomType>;
+export declare const userRecord: io.TypeC<{
+    id: io.StringC;
+    name: io.StringC;
+}>;
+export declare type UserRecord = io.TypeOf<typeof userRecord>;

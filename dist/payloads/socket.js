@@ -2,6 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 var io = require("io-ts");
 var records_1 = require("../records");
+exports.userIdentificationPayload = io.type({
+    kind: io.literal('userIdentification'),
+    content: io.type({
+        userId: io.string,
+    }),
+});
 exports.pingPayload = io.type({
     kind: io.literal('ping'),
     content: io.string,
@@ -67,6 +73,7 @@ exports.whoAmIRequestPayload = io.type({
 // });
 // export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
 exports.socketPayload = io.union([
+    exports.userIdentificationPayload,
     exports.pingPayload,
     // Business Logic
     exports.connectionOpenedPayload,

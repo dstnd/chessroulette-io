@@ -24,4 +24,5 @@ exports.roomType = io.keyof({
     public: null,
     private: null,
 });
+exports.userRecord = exports.peerRecord;
 //# sourceMappingURL=index.js.map

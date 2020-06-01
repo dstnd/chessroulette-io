@@ -28,3 +28,6 @@ export const roomType = io.keyof({
   private: null,
 });
 export type RoomType = io.TypeOf<typeof roomType>;
+
+export const userRecord = peerRecord;
+export type UserRecord = io.TypeOf<typeof userRecord>;

@@ -1,4 +1,11 @@
 import * as io from 'io-ts';
+export declare const userIdentificationPayload: io.TypeC<{
+    kind: io.LiteralC<"userIdentification">;
+    content: io.TypeC<{
+        userId: io.StringC;
+    }>;
+}>;
+export declare type UserIdentificationPayload = io.TypeOf<typeof userIdentificationPayload>;
 export declare const pingPayload: io.TypeC<{
     kind: io.LiteralC<"ping">;
     content: io.StringC;
@@ -95,6 +102,11 @@ export declare const whoAmIRequestPayload: io.TypeC<{
 }>;
 export declare type WhoAmIRequestPayload = io.TypeOf<typeof whoAmIRequestPayload>;
 export declare const socketPayload: io.UnionC<[io.TypeC<{
+    kind: io.LiteralC<"userIdentification">;
+    content: io.TypeC<{
+        userId: io.StringC;
+    }>;
+}>, io.TypeC<{
     kind: io.LiteralC<"ping">;
     content: io.StringC;
 }>, io.TypeC<{

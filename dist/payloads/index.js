@@ -6,4 +6,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __export(require("./http"));
 __export(require("./signaling"));
 __export(require("./socket"));
+__export(require("./user"));
 //# sourceMappingURL=index.js.map
