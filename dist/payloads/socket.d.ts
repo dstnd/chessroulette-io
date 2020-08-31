@@ -15,7 +15,11 @@ export declare const myStatsPayload: io.TypeC<{
     kind: io.LiteralC<"myStats">;
     content: io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>;
 }>;
 export declare type MyStatsPayload = io.TypeOf<typeof myStatsPayload>;
@@ -27,7 +31,11 @@ export declare const roomStatsPayload: io.TypeC<{
         peersCount: io.NumberC;
         peers: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
         }>>;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
@@ -42,7 +50,11 @@ export declare const connectionOpenedPayload: io.TypeC<{
     content: io.TypeC<{
         me: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
         }>;
     }>;
 }>;
@@ -72,7 +84,11 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
             peersCount: io.NumberC;
             peers: io.RecordC<io.StringC, io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>>;
         }>, io.UnionC<[io.TypeC<{
             type: io.LiteralC<"public">;
@@ -82,7 +98,11 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
         }>]>]>;
         me: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
         }>;
     }>;
 }>;
@@ -114,14 +134,22 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
     content: io.TypeC<{
         me: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
         }>;
     }>;
 }>, io.TypeC<{
     kind: io.LiteralC<"myStats">;
     content: io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>;
 }>, io.TypeC<{
     kind: io.LiteralC<"roomStats">;
@@ -131,7 +159,11 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         peersCount: io.NumberC;
         peers: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
         }>>;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
@@ -160,7 +192,11 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             peersCount: io.NumberC;
             peers: io.RecordC<io.StringC, io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>>;
         }>, io.UnionC<[io.TypeC<{
             type: io.LiteralC<"public">;
@@ -170,7 +206,11 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         }>]>]>;
         me: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
         }>;
     }>;
 }>, io.TypeC<{

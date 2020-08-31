@@ -1,7 +1,17 @@
 import * as io from 'io-ts';
-export declare const peerRecord: io.TypeC<{
+export declare const userInfoRecord: io.TypeC<{
     id: io.StringC;
     name: io.StringC;
+    avatarId: io.StringC;
+}>;
+export declare type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
+export declare const peerRecord: io.TypeC<{
+    id: io.StringC;
+    user: io.TypeC<{
+        id: io.StringC;
+        name: io.StringC;
+        avatarId: io.StringC;
+    }>;
 }>;
 export declare type PeerRecord = io.TypeOf<typeof peerRecord>;
 export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
@@ -10,7 +20,11 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
     peersCount: io.NumberC;
     peers: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
@@ -24,8 +38,3 @@ export declare const roomType: io.KeyofC<{
     private: null;
 }>;
 export declare type RoomType = io.TypeOf<typeof roomType>;
-export declare const userRecord: io.TypeC<{
-    id: io.StringC;
-    name: io.StringC;
-}>;
-export declare type UserRecord = io.TypeOf<typeof userRecord>;

@@ -1,10 +1,10 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.createUserResponsePayload = exports.createUserRequestPayload = void 0;
-var io = require("io-ts");
-var records_1 = require("../records");
-exports.createUserRequestPayload = io.type({
-    name: io.string,
-});
-exports.createUserResponsePayload = records_1.userRecord;
+// import * as io from 'io-ts';
+// import { userRecord } from '../records';
+// export const createUserRequestPayload = io.type({
+//   name: io.string,
+// });
+// export type CreateUserRequestPayload = io.TypeOf<typeof createUserRequestPayload>;
+// export const createUserResponsePayload = userRecord;
+// export type CreateUserResponsePayload = io.TypeOf<typeof createUserResponsePayload>;
 //# sourceMappingURL=user.js.map

@@ -1,8 +1,16 @@
 import * as io from 'io-ts';
 
-export const peerRecord = io.type({
+export const userInfoRecord = io.type({
   id: io.string,
   name: io.string,
+  avatarId: io.string,
+  // Add any other pertinent details here if needed!
+});
+export type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
+
+export const peerRecord = io.type({
+  id: io.string,
+  user: userInfoRecord,
 });
 export type PeerRecord = io.TypeOf<typeof peerRecord>;
 
@@ -29,5 +37,5 @@ export const roomType = io.keyof({
 });
 export type RoomType = io.TypeOf<typeof roomType>;
 
-export const userRecord = peerRecord;
-export type UserRecord = io.TypeOf<typeof userRecord>;
+// export const userRecord = peerRecord;
+// export type UserRecord = io.TypeOf<typeof userRecord>;

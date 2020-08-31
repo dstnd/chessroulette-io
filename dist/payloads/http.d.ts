@@ -5,7 +5,11 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
     peersCount: io.NumberC;
     peers: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
@@ -22,7 +26,11 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
     peersCount: io.NumberC;
     peers: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
@@ -37,7 +45,11 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
     peersCount: io.NumberC;
     peers: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
@@ -63,7 +75,11 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
     peersCount: io.NumberC;
     peers: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
@@ -82,7 +98,11 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
     peersCount: io.NumberC;
     peers: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        user: io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>;
     }>>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;

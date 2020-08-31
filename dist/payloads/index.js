@@ -13,5 +13,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./http"), exports);
 __exportStar(require("./signaling"), exports);
 __exportStar(require("./socket"), exports);
-__exportStar(require("./user"), exports);
+__exportStar(require("./peer"), exports);
 //# sourceMappingURL=index.js.map

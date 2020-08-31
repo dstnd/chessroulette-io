@@ -1,10 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.userRecord = exports.roomType = exports.roomStatsRecord = exports.peerRecord = void 0;
+exports.roomType = exports.roomStatsRecord = exports.peerRecord = exports.userInfoRecord = void 0;
 var io = require("io-ts");
-exports.peerRecord = io.type({
+exports.userInfoRecord = io.type({
     id: io.string,
     name: io.string,
+    avatarId: io.string,
+});
+exports.peerRecord = io.type({
+    id: io.string,
+    user: exports.userInfoRecord,
 });
 exports.roomStatsRecord = io.intersection([
     io.type({
@@ -25,5 +30,6 @@ exports.roomType = io.keyof({
     public: null,
     private: null,
 });
-exports.userRecord = exports.peerRecord;
+// export const userRecord = peerRecord;
+// export type UserRecord = io.TypeOf<typeof userRecord>;
 //# sourceMappingURL=index.js.map
