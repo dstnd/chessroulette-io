@@ -4,6 +4,7 @@
   "author": "Gabriel C. Troia <catalin.troia@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "fp-ts": "^2.8.2",
     "io-ts": "2.2.2",
     "io-ts-isodatetime": "https://github.com/GabrielCTroia/io-ts-isodatetime.git#v0.0.2"
   },

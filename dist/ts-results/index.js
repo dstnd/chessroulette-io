@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Results = exports.Ok = exports.Err = void 0;
 var Err = /** @class */ (function () {
     function Err(val) {
         this.val = val;

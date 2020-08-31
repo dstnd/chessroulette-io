@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.userRecord = exports.roomType = exports.roomStatsRecord = exports.peerRecord = void 0;
 var io = require("io-ts");
 exports.peerRecord = io.type({
     id: io.string,

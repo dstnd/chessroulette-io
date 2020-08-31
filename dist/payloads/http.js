@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.iceServersResponse = exports.iceServerRecord = exports.createChallengeResponse = exports.createChallengeRequest = exports.createRoomResponse = exports.createRoomRequest = exports.privateRoomResponsePayload = exports.publicRoomsResponsePayload = exports.publicRoomResponsePayload = void 0;
 var io = require("io-ts");
 var records_1 = require("../records");
 exports.publicRoomResponsePayload = io.intersection([

@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.socketPayload = exports.whoAmIRequestPayload = exports.joinRoomFailurePayload = exports.joinRoomSuccessPayload = exports.joinRoomRequestPayload = exports.peerJoinedRoomPayload = exports.connectionOpenedPayload = exports.roomStatsPayload = exports.myStatsPayload = exports.pingPayload = exports.userIdentificationPayload = void 0;
 var io = require("io-ts");
 var records_1 = require("../records");
 exports.userIdentificationPayload = io.type({

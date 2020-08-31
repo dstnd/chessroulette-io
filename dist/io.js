@@ -1,5 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.io = exports.toResult = void 0;
 var Either_1 = require("fp-ts/lib/Either");
 var ts_results_1 = require("./ts-results");
 var deserialize = function (codec, serialized) {
