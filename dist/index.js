@@ -13,4 +13,5 @@ Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./records"), exports);
 __exportStar(require("./payloads"), exports);
 __exportStar(require("./io"), exports);
+exports.ChessGame = require("./chessGame");
 //# sourceMappingURL=index.js.map

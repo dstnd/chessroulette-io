@@ -14,4 +14,5 @@ __exportStar(require("./http"), exports);
 __exportStar(require("./signaling"), exports);
 __exportStar(require("./socket"), exports);
 __exportStar(require("./peer"), exports);
+__exportStar(require("./user"), exports);
 //# sourceMappingURL=index.js.map

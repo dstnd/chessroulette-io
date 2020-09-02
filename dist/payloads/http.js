@@ -1,8 +1,9 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.iceServersResponse = exports.iceServerRecord = exports.createChallengeResponse = exports.createChallengeRequest = exports.createRoomResponse = exports.createRoomRequest = exports.privateRoomResponsePayload = exports.publicRoomsResponsePayload = exports.publicRoomResponsePayload = void 0;
+exports.iceServersResponse = exports.iceServerRecord = exports.createChallengeResponse = exports.createChallengeRequest = exports.createRoomResponse = exports.createRoomRequest = exports.gameInitConfig = exports.privateRoomResponsePayload = exports.publicRoomsResponsePayload = exports.publicRoomResponsePayload = void 0;
 var io = require("io-ts");
 var records_1 = require("../records");
+var ChessGame = require("../chessGame");
 exports.publicRoomResponsePayload = io.intersection([
     records_1.roomStatsRecord,
     io.type({
@@ -17,14 +18,19 @@ exports.privateRoomResponsePayload = io.intersection([
     }),
 ]);
 ;
+exports.gameInitConfig = io.type({
+    timeLimit: ChessGame.chessGameTimeLimit,
+});
 exports.createRoomRequest = io.type({
     nickname: io.union([io.string, io.undefined]),
     peerId: io.string,
     type: records_1.roomType,
+    game: exports.gameInitConfig,
 });
 exports.createRoomResponse = records_1.roomStatsRecord;
 exports.createChallengeRequest = io.type({
     peerId: io.string,
+    game: exports.gameInitConfig,
 });
 exports.createChallengeResponse = exports.createRoomResponse;
 exports.iceServerRecord = io.type({

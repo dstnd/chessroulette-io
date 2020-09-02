@@ -1,5 +1,6 @@
 import * as io from 'io-ts';
 import { roomType, roomStatsRecord } from '../records';
+import * as ChessGame from '../chessGame';
 
 export const publicRoomResponsePayload = io.intersection([
   roomStatsRecord,
@@ -20,10 +21,16 @@ export const privateRoomResponsePayload = io.intersection([
 ]);;
 export type PrivateRoomResponsePayload = io.TypeOf<typeof privateRoomResponsePayload>;
 
+export const gameInitConfig = io.type({
+  timeLimit: ChessGame.chessGameTimeLimit,
+});
+export type GameInitConfig = io.TypeOf<typeof gameInitConfig>;
+
 export const createRoomRequest = io.type({
   nickname: io.union([io.string, io.undefined]),
   peerId: io.string,
   type: roomType,
+  game: gameInitConfig,
 });
 export type CreateRoomRequest = io.TypeOf<typeof createRoomRequest>;
 
@@ -32,6 +39,7 @@ export type CreateRoomResponse = io.TypeOf<typeof createRoomResponse>;
 
 export const createChallengeRequest = io.type({
   peerId: io.string,
+  game: gameInitConfig,
 });
 export type CreateChallengeRequest = io.TypeOf<typeof createChallengeRequest>;
 

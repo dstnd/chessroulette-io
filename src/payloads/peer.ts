@@ -3,7 +3,7 @@ import { peerRecord, userInfoRecord } from '../records';
 // import { userRecord } from '../records';
 
 export const registerPeerRequestPayload = io.type({
-  userInfo: userInfoRecord,
+  userId: io.string,
 });
 export type RegisterPeerRequestPayload = io.TypeOf<typeof registerPeerRequestPayload>;
 

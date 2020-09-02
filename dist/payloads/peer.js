@@ -5,7 +5,7 @@ var io = require("io-ts");
 var records_1 = require("../records");
 // import { userRecord } from '../records';
 exports.registerPeerRequestPayload = io.type({
-    userInfo: records_1.userInfoRecord,
+    userId: io.string,
 });
 exports.registerPeerResponsePayload = records_1.peerRecord;
 //# sourceMappingURL=peer.js.map

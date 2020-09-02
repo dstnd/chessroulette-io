@@ -1,10 +1,6 @@
 "use strict";
-// import * as io from 'io-ts';
-// import { userRecord } from '../records';
-// export const createUserRequestPayload = io.type({
-//   name: io.string,
-// });
-// export type CreateUserRequestPayload = io.TypeOf<typeof createUserRequestPayload>;
-// export const createUserResponsePayload = userRecord;
-// export type CreateUserResponsePayload = io.TypeOf<typeof createUserResponsePayload>;
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.registerUserResponsePayload = void 0;
+var records_1 = require("../records");
+exports.registerUserResponsePayload = records_1.userRecord;
 //# sourceMappingURL=user.js.map
