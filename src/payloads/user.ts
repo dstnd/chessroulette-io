@@ -1,4 +1,4 @@
-import { userRecord } from '../records';
+import { userRecord } from '../records/userRecord';
 import * as io from 'io-ts';
 
 export const registerUserResponsePayload = userRecord;

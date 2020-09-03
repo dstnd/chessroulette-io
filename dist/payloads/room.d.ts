@@ -1,98 +1,5 @@
 import * as io from 'io-ts';
-export declare const userIdentificationPayload: io.TypeC<{
-    kind: io.LiteralC<"userIdentification">;
-    content: io.TypeC<{
-        userId: io.StringC;
-    }>;
-}>;
-export declare type UserIdentificationPayload = io.TypeOf<typeof userIdentificationPayload>;
-export declare const pingPayload: io.TypeC<{
-    kind: io.LiteralC<"ping">;
-    content: io.StringC;
-}>;
-export declare type PingPayload = io.TypeOf<typeof pingPayload>;
-export declare const connectionOpenedPayload: io.TypeC<{
-    kind: io.LiteralC<"connectionOpened">;
-    content: io.TypeC<{
-        me: io.TypeC<{
-            id: io.StringC;
-            user: io.UnionC<[io.IntersectionC<[io.TypeC<{
-                id: io.StringC;
-                name: io.StringC;
-                avatarId: io.StringC;
-            }>, io.TypeC<{
-                isGuest: io.LiteralC<false>;
-            }>]>, io.IntersectionC<[io.TypeC<{
-                id: io.StringC;
-                name: io.StringC;
-                avatarId: io.StringC;
-            }>, io.TypeC<{
-                isGuest: io.LiteralC<true>;
-            }>]>]>;
-        }>;
-    }>;
-}>;
-export declare type ConnectionOpenedPayload = io.TypeOf<typeof connectionOpenedPayload>;
-export declare const whoAmIRequestPayload: io.TypeC<{
-    kind: io.LiteralC<"whoami">;
-    content: io.UnknownC;
-}>;
-export declare type WhoAmIRequestPayload = io.TypeOf<typeof whoAmIRequestPayload>;
-export declare const genericFailureResponsePayload: io.TypeC<{
-    kind: io.LiteralC<"genericRequestFailure">;
-    content: io.UnknownC;
-}>;
-export declare type GenericFailureResponsePayload = io.TypeOf<typeof genericFailureResponsePayload>;
-export declare const socketPayload: io.UnionC<[io.TypeC<{
-    kind: io.LiteralC<"userIdentification">;
-    content: io.TypeC<{
-        userId: io.StringC;
-    }>;
-}>, io.TypeC<{
-    kind: io.LiteralC<"ping">;
-    content: io.StringC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"genericRequestFailure">;
-    content: io.UnknownC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"connectionOpened">;
-    content: io.TypeC<{
-        me: io.TypeC<{
-            id: io.StringC;
-            user: io.UnionC<[io.IntersectionC<[io.TypeC<{
-                id: io.StringC;
-                name: io.StringC;
-                avatarId: io.StringC;
-            }>, io.TypeC<{
-                isGuest: io.LiteralC<false>;
-            }>]>, io.IntersectionC<[io.TypeC<{
-                id: io.StringC;
-                name: io.StringC;
-                avatarId: io.StringC;
-            }>, io.TypeC<{
-                isGuest: io.LiteralC<true>;
-            }>]>]>;
-        }>;
-    }>;
-}>, io.TypeC<{
-    kind: io.LiteralC<"myStats">;
-    content: io.TypeC<{
-        id: io.StringC;
-        user: io.UnionC<[io.IntersectionC<[io.TypeC<{
-            id: io.StringC;
-            name: io.StringC;
-            avatarId: io.StringC;
-        }>, io.TypeC<{
-            isGuest: io.LiteralC<false>;
-        }>]>, io.IntersectionC<[io.TypeC<{
-            id: io.StringC;
-            name: io.StringC;
-            avatarId: io.StringC;
-        }>, io.TypeC<{
-            isGuest: io.LiteralC<true>;
-        }>]>]>;
-    }>;
-}>, io.TypeC<{
+export declare const roomStatsPayload: io.TypeC<{
     kind: io.LiteralC<"roomStats">;
     content: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
@@ -402,19 +309,17 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         type: io.LiteralC<"private">;
         code: io.StringC;
     }>]>]>;
-}>, io.TypeC<{
-    kind: io.LiteralC<"peerJoinedRoom">;
-    content: io.TypeC<{
-        roomId: io.StringC;
-        peerId: io.StringC;
-    }>;
-}>, io.TypeC<{
+}>;
+export declare type RoomStatsPayload = io.TypeOf<typeof roomStatsPayload>;
+export declare const joinRoomRequestPayload: io.TypeC<{
     kind: io.LiteralC<"joinRoomRequest">;
     content: io.TypeC<{
         roomId: io.StringC;
         code: io.UnionC<[io.StringC, io.UndefinedC]>;
     }>;
-}>, io.TypeC<{
+}>;
+export declare type JoinRoomRequestPayload = io.TypeOf<typeof joinRoomRequestPayload>;
+export declare const joinRoomSuccessPayload: io.TypeC<{
     kind: io.LiteralC<"joinRoomSuccess">;
     content: io.TypeC<{
         room: io.IntersectionC<[io.TypeC<{
@@ -742,166 +647,22 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>]>]>;
         }>;
     }>;
-}>, io.TypeC<{
+}>;
+export declare type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
+export declare const joinRoomFailurePayload: io.TypeC<{
     kind: io.LiteralC<"joinRoomFailure">;
     content: io.KeyofC<{
         WrongCode: null;
         InexistentRoom: null;
         InexistentPeer: null;
     }>;
-}>, io.TypeC<{
-    kind: io.LiteralC<"whoami">;
-    content: io.UnknownC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameJoinRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameDrawOfferingRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameMoveRequest">;
+}>;
+export declare type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
+export declare const peerJoinedRoomPayload: io.TypeC<{
+    kind: io.LiteralC<"peerJoinedRoom">;
     content: io.TypeC<{
-        from: io.KeyofC<{
-            a8: undefined;
-            b8: undefined;
-            c8: undefined;
-            d8: undefined;
-            e8: undefined;
-            f8: undefined;
-            g8: undefined;
-            h8: undefined;
-            a7: undefined;
-            b7: undefined;
-            c7: undefined;
-            d7: undefined;
-            e7: undefined;
-            f7: undefined;
-            g7: undefined;
-            h7: undefined;
-            a6: undefined;
-            b6: undefined;
-            c6: undefined;
-            d6: undefined;
-            e6: undefined;
-            f6: undefined;
-            g6: undefined;
-            h6: undefined;
-            a5: undefined;
-            b5: undefined;
-            c5: undefined;
-            d5: undefined;
-            e5: undefined;
-            f5: undefined;
-            g5: undefined;
-            h5: undefined;
-            a4: undefined;
-            b4: undefined;
-            c4: undefined;
-            d4: undefined;
-            e4: undefined;
-            f4: undefined;
-            g4: undefined;
-            h4: undefined;
-            a3: undefined;
-            b3: undefined;
-            c3: undefined;
-            d3: undefined;
-            e3: undefined;
-            f3: undefined;
-            g3: undefined;
-            h3: undefined;
-            a2: undefined;
-            b2: undefined;
-            c2: undefined;
-            d2: undefined;
-            e2: undefined;
-            f2: undefined;
-            g2: undefined;
-            h2: undefined;
-            a1: undefined;
-            b1: undefined;
-            c1: undefined;
-            d1: undefined;
-            e1: undefined;
-            f1: undefined;
-            g1: undefined;
-            h1: undefined;
-        }>;
-        to: io.KeyofC<{
-            a8: undefined;
-            b8: undefined;
-            c8: undefined;
-            d8: undefined;
-            e8: undefined;
-            f8: undefined;
-            g8: undefined;
-            h8: undefined;
-            a7: undefined;
-            b7: undefined;
-            c7: undefined;
-            d7: undefined;
-            e7: undefined;
-            f7: undefined;
-            g7: undefined;
-            h7: undefined;
-            a6: undefined;
-            b6: undefined;
-            c6: undefined;
-            d6: undefined;
-            e6: undefined;
-            f6: undefined;
-            g6: undefined;
-            h6: undefined;
-            a5: undefined;
-            b5: undefined;
-            c5: undefined;
-            d5: undefined;
-            e5: undefined;
-            f5: undefined;
-            g5: undefined;
-            h5: undefined;
-            a4: undefined;
-            b4: undefined;
-            c4: undefined;
-            d4: undefined;
-            e4: undefined;
-            f4: undefined;
-            g4: undefined;
-            h4: undefined;
-            a3: undefined;
-            b3: undefined;
-            c3: undefined;
-            d3: undefined;
-            e3: undefined;
-            f3: undefined;
-            g3: undefined;
-            h3: undefined;
-            a2: undefined;
-            b2: undefined;
-            c2: undefined;
-            d2: undefined;
-            e2: undefined;
-            f2: undefined;
-            g2: undefined;
-            h2: undefined;
-            a1: undefined;
-            b1: undefined;
-            c1: undefined;
-            d1: undefined;
-            e1: undefined;
-            f1: undefined;
-            g1: undefined;
-            h1: undefined;
-        }>;
-        promotion: io.UnionC<[io.UndefinedC, io.KeyofC<{
-            n: undefined;
-            b: undefined;
-            r: undefined;
-            q: undefined;
-        }>]>;
+        roomId: io.StringC;
+        peerId: io.StringC;
     }>;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameResignationRequest">;
-    content: io.UndefinedC;
-}>]>;
-export declare type SocketPayload = io.TypeOf<typeof socketPayload>;
+}>;
+export declare type PeerJoinedRoomPayload = io.TypeOf<typeof peerJoinedRoomPayload>;

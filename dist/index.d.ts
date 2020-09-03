@@ -1,4 +1,6 @@
-export * from './records';
+export * from './records/userRecord';
+export * from './records/roomStatsRecord';
+export * from './records/peerRecord';
 export * from './payloads';
 export * from './io';
-export * as ChessGame from './chessGame';
+export * from './chessGame';

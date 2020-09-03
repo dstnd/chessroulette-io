@@ -1,2 +1,3 @@
 export * from './records';
-export { actions } from './chessGameStateReducer';
+export * from './boardRecords';
+export { actions as chessGameActions } from './chessGameStateReducer';

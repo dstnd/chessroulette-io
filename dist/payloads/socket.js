@@ -1,8 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.socketPayload = exports.whoAmIRequestPayload = exports.joinRoomFailurePayload = exports.joinRoomSuccessPayload = exports.joinRoomRequestPayload = exports.peerJoinedRoomPayload = exports.connectionOpenedPayload = exports.roomStatsPayload = exports.myStatsPayload = exports.pingPayload = exports.userIdentificationPayload = void 0;
+exports.socketPayload = exports.genericFailureResponsePayload = exports.whoAmIRequestPayload = exports.connectionOpenedPayload = exports.pingPayload = exports.userIdentificationPayload = void 0;
 var io = require("io-ts");
-var records_1 = require("../records");
+var peerRecord_1 = require("../records/peerRecord");
+var game_1 = require("./game");
+var peer_1 = require("./peer");
+var room_1 = require("./room");
 exports.userIdentificationPayload = io.type({
     kind: io.literal('userIdentification'),
     content: io.type({
@@ -13,56 +16,18 @@ exports.pingPayload = io.type({
     kind: io.literal('ping'),
     content: io.string,
 });
-exports.myStatsPayload = io.type({
-    kind: io.literal('myStats'),
-    content: records_1.peerRecord,
-});
-exports.roomStatsPayload = io.type({
-    kind: io.literal('roomStats'),
-    content: records_1.roomStatsRecord,
-});
 exports.connectionOpenedPayload = io.type({
     kind: io.literal('connectionOpened'),
     content: io.type({
-        me: records_1.peerRecord,
-    }),
-});
-// TODO: Not sure this is still needed
-// TODO: @deprecate in favor of roomStatsPayload?
-exports.peerJoinedRoomPayload = io.type({
-    kind: io.literal('peerJoinedRoom'),
-    content: io.type({
-        roomId: io.string,
-        peerId: io.string,
-    }),
-});
-// This is different b/c the client is like a client request
-//  while the others are server responses. 
-//  Not sure I need to make a distinction between them (yet).
-exports.joinRoomRequestPayload = io.type({
-    kind: io.literal('joinRoomRequest'),
-    content: io.type({
-        roomId: io.string,
-        code: io.union([io.string, io.undefined]),
-    }),
-});
-exports.joinRoomSuccessPayload = io.type({
-    kind: io.literal('joinRoomSuccess'),
-    content: io.type({
-        room: records_1.roomStatsRecord,
-        me: records_1.peerRecord,
-    }),
-});
-exports.joinRoomFailurePayload = io.type({
-    kind: io.literal('joinRoomFailure'),
-    content: io.keyof({
-        WrongCode: null,
-        InexistentRoom: null,
-        InexistentPeer: null,
+        me: peerRecord_1.peerRecord,
     }),
 });
 exports.whoAmIRequestPayload = io.type({
     kind: io.literal('whoami'),
+    content: io.unknown,
+});
+exports.genericFailureResponsePayload = io.type({
+    kind: io.literal('genericRequestFailure'),
     content: io.unknown,
 });
 // export const leaveRoomRequestPayload = io.type({
@@ -76,14 +41,19 @@ exports.whoAmIRequestPayload = io.type({
 exports.socketPayload = io.union([
     exports.userIdentificationPayload,
     exports.pingPayload,
+    exports.genericFailureResponsePayload,
     // Business Logic
     exports.connectionOpenedPayload,
-    exports.myStatsPayload,
-    exports.roomStatsPayload,
-    exports.peerJoinedRoomPayload,
-    exports.joinRoomRequestPayload,
-    exports.joinRoomSuccessPayload,
-    exports.joinRoomFailurePayload,
+    peer_1.myStatsPayload,
+    room_1.roomStatsPayload,
+    room_1.peerJoinedRoomPayload,
+    room_1.joinRoomRequestPayload,
+    room_1.joinRoomSuccessPayload,
+    room_1.joinRoomFailurePayload,
     exports.whoAmIRequestPayload,
+    game_1.gameJoinRequestPayload,
+    game_1.gameDrawOfferingRequestPayload,
+    game_1.gameMoveRequestPayload,
+    game_1.gameResignationRequestPayload,
 ]);
 //# sourceMappingURL=socket.js.map

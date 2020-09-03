@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { roomType, roomStatsRecord } from '../records';
+import { roomType, roomStatsRecord } from '../records/roomStatsRecord';
 import * as ChessGame from '../chessGame';
 
 export const publicRoomResponsePayload = io.intersection([

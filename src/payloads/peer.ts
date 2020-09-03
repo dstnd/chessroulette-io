@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { peerRecord, userInfoRecord } from '../records';
+import { peerRecord } from '../records/peerRecord';
 // import { userRecord } from '../records';
 
 export const registerPeerRequestPayload = io.type({
@@ -9,3 +9,9 @@ export type RegisterPeerRequestPayload = io.TypeOf<typeof registerPeerRequestPay
 
 export const registerPeerResponsePayload = peerRecord;
 export type RegisterPeerResponsePayload = io.TypeOf<typeof registerPeerResponsePayload>;
+
+export const myStatsPayload = io.type({
+  kind: io.literal('myStats'),
+  content: peerRecord,
+});
+export type MyStatsPayload = io.TypeOf<typeof myStatsPayload>;

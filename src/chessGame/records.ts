@@ -1,18 +1,30 @@
 import * as io from 'io-ts';
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
+import { userInfoRecord } from '../records/userRecord';
+
+// export const userInfoRecord = io.type({
+//   id: io.string,
+//   name: io.string,
+//   avatarId: io.string,
+//   // Add any other pertinent details here if needed!
+// });
+// export const userInfoRecord = io.type({
+//   id: io.string,
+//   name: io.string,
+//   avatarId: io.string,
+//   // Add any other pertinent details here if needed!
+// });
 
 export const chessPlayerWhite = io.type({
   color: io.literal('white'),
-  id: io.string,
-  name: io.string,
+  user: userInfoRecord,
 });
 export type ChessPlayerWhite = io.TypeOf<typeof chessPlayerWhite>;
 
 export const chessPlayerBlack = io.type({
   color: io.literal('black'),
-  id: io.string,
-  name: io.string,
+  user: userInfoRecord,
 });
 export type ChessPlayerBlack = io.TypeOf<typeof chessPlayerBlack>;
 
@@ -81,19 +93,26 @@ export type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySi
 export const chessGameStateWaitingForOpponent = io.type({
   state: io.literal('waitingForOpponent'),
   timeLimit: chessGameTimeLimit,
-  // @deprecate
-  players: io.union([
-    io.type({
-      white: chessPlayerWhite,
-      black: io.undefined,
-    }),
-    io.type({
-      white: io.undefined,
-      black: chessPlayerBlack,
-    }),
-  ]),
-  playersBySide: partialChessPlayersBySide,
-  homeColor: chessGameColor,
+  // players: io.union([
+  //   io.type({
+  //     white: chessPlayerWhite,
+  //     black: io.undefined,
+  //   }),
+  //   io.type({
+  //     white: io.undefined,
+  //     black: chessPlayerBlack,
+  //   }),
+  // ]),
+  // playersIdToColor: io.record(io.string, io.keyof({
+  //   'white': undefined,
+  //   'black': undefined,
+  // })),
+  players: io.tuple([chessPlayer]),
+  // colors: io.tuple([chessGameColor]),
+  // playersInfo: io.record(io.string, userRecord),
+  // playersBySide: partialChessPlayersBySide,
+  // homeColor: chessGameColor,
+  // playersByColor: {},
   timeLeft: io.undefined,
   pgn: io.undefined,
   winner: io.undefined,
@@ -107,12 +126,12 @@ export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWa
 export const chessGameStatePending = io.type({
   state: io.literal('pending'),
   timeLimit: chessGameTimeLimit,
-  players: io.type({
-    white: chessPlayerWhite,
-    black: chessPlayerBlack,
-  }),
-  playersBySide: chessPlayersBySide,
-  homeColor: chessGameColor,
+  // players: chessPlayers,
+  players: io.tuple([chessPlayer, chessPlayer]),
+  // colors: io.tuple([chessGameColor, chessGameColor]),
+  // playersBySide: chessPlayersBySide,
+  // playersInfo: io.record(io.string, userRecord),
+  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -129,12 +148,11 @@ export type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
 export const chessGameStateNeverStarted = io.type({
   state: io.literal('neverStarted'),
   timeLimit: chessGameTimeLimit,
-  players: io.type({
-    white: chessPlayerWhite,
-    black: chessPlayerBlack,
-  }),
-  playersBySide: chessPlayersBySide,
-  homeColor: chessGameColor,
+  players: io.tuple([chessPlayer, chessPlayer]),
+  // players: chessPlayers,
+  // playersBySide: chessPlayersBySide,
+  // playersInfo: io.record(io.string, userRecord),
+  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -152,12 +170,11 @@ export type ChessGameStateNeverStarted = io.TypeOf<typeof chessGameStateNeverSta
 export const chessGameStateStarted = io.type({
   timeLimit: chessGameTimeLimit,
   state: io.literal('started'),
-  players: io.type({
-    white: chessPlayerWhite,
-    black: chessPlayerBlack,
-  }),
-  playersBySide: chessPlayersBySide,
-  homeColor: chessGameColor,
+  players: io.tuple([chessPlayer, chessPlayer]),
+  // players: chessPlayers,
+  // playersBySide: chessPlayersBySide,
+  // playersInfo: io.record(io.string, userRecord),
+  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -175,12 +192,11 @@ export type ChessGameStateStarted = io.TypeOf<typeof chessGameStateStarted>;
 export const chessGameStateFinished = io.type({
   state: io.literal('finished'),
   timeLimit: chessGameTimeLimit,
-  players: io.type({
-    white: chessPlayerWhite,
-    black: chessPlayerBlack,
-  }),
-  playersBySide: chessPlayersBySide,
-  homeColor: chessGameColor,
+  players: io.tuple([chessPlayer, chessPlayer]),
+  // players: chessPlayers,
+  // playersBySide: chessPlayersBySide,
+  // playersInfo: io.record(io.string, userRecord),
+  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,

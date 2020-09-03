@@ -15,4 +15,6 @@ __exportStar(require("./signaling"), exports);
 __exportStar(require("./socket"), exports);
 __exportStar(require("./peer"), exports);
 __exportStar(require("./user"), exports);
+__exportStar(require("./game"), exports);
+__exportStar(require("./room"), exports);
 //# sourceMappingURL=index.js.map

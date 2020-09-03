@@ -11,6 +11,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./records"), exports);
+__exportStar(require("./boardRecords"), exports);
 var chessGameStateReducer_1 = require("./chessGameStateReducer");
-Object.defineProperty(exports, "actions", { enumerable: true, get: function () { return chessGameStateReducer_1.actions; } });
+Object.defineProperty(exports, "chessGameActions", { enumerable: true, get: function () { return chessGameStateReducer_1.actions; } });
 //# sourceMappingURL=index.js.map

@@ -27,45 +27,21 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             blitz: null;
             rapid: null;
         }>;
-        players: io.UnionC<[io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            black: io.UndefinedC;
         }>, io.TypeC<{
-            white: io.UndefinedC;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-            away: io.UndefinedC;
-        }>, io.TypeC<{
-            home: io.UndefinedC;
-            away: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>]>]>;
         timeLeft: io.UndefinedC;
         pgn: io.UndefinedC;
         winner: io.UndefinedC;
@@ -80,42 +56,35 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -133,42 +102,35 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             rapid: null;
         }>;
         state: io.LiteralC<"started">;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -178,26 +140,38 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -208,42 +182,35 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -253,26 +220,38 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -283,42 +262,35 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -366,45 +338,21 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             blitz: null;
             rapid: null;
         }>;
-        players: io.UnionC<[io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            black: io.UndefinedC;
         }>, io.TypeC<{
-            white: io.UndefinedC;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-            away: io.UndefinedC;
-        }>, io.TypeC<{
-            home: io.UndefinedC;
-            away: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>]>]>;
         timeLeft: io.UndefinedC;
         pgn: io.UndefinedC;
         winner: io.UndefinedC;
@@ -419,42 +367,35 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -472,42 +413,35 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             rapid: null;
         }>;
         state: io.LiteralC<"started">;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -517,26 +451,38 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -547,42 +493,35 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -592,26 +531,38 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -622,42 +573,35 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -703,45 +647,21 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             blitz: null;
             rapid: null;
         }>;
-        players: io.UnionC<[io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            black: io.UndefinedC;
         }>, io.TypeC<{
-            white: io.UndefinedC;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-            away: io.UndefinedC;
-        }>, io.TypeC<{
-            home: io.UndefinedC;
-            away: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>]>]>;
         timeLeft: io.UndefinedC;
         pgn: io.UndefinedC;
         winner: io.UndefinedC;
@@ -756,42 +676,35 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -809,42 +722,35 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             rapid: null;
         }>;
         state: io.LiteralC<"started">;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -854,26 +760,38 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -884,42 +802,35 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -929,26 +840,38 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -959,42 +882,35 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1068,45 +984,21 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.UnionC<[io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            black: io.UndefinedC;
         }>, io.TypeC<{
-            white: io.UndefinedC;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-            away: io.UndefinedC;
-        }>, io.TypeC<{
-            home: io.UndefinedC;
-            away: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>]>]>;
         timeLeft: io.UndefinedC;
         pgn: io.UndefinedC;
         winner: io.UndefinedC;
@@ -1121,42 +1013,35 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1174,42 +1059,35 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             rapid: null;
         }>;
         state: io.LiteralC<"started">;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1219,26 +1097,38 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -1249,42 +1139,35 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1294,26 +1177,38 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -1324,42 +1219,35 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1417,45 +1305,21 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.UnionC<[io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            black: io.UndefinedC;
         }>, io.TypeC<{
-            white: io.UndefinedC;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-            away: io.UndefinedC;
-        }>, io.TypeC<{
-            home: io.UndefinedC;
-            away: io.UnionC<[io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>, io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>]>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>]>]>;
         timeLeft: io.UndefinedC;
         pgn: io.UndefinedC;
         winner: io.UndefinedC;
@@ -1470,42 +1334,35 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1523,42 +1380,35 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             rapid: null;
         }>;
         state: io.LiteralC<"started">;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1568,26 +1418,38 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -1598,42 +1460,35 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;
@@ -1643,26 +1498,38 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
             black: io.TypeC<{
                 color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                user: io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>;
             }>;
         }>;
     }>, io.TypeC<{
@@ -1673,42 +1540,35 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             blitz: null;
             rapid: null;
         }>;
-        players: io.TypeC<{
-            white: io.TypeC<{
-                color: io.LiteralC<"white">;
+        players: io.TupleC<[io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
-            }>;
-            black: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        playersBySide: io.UnionC<[io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"white">;
-                id: io.StringC;
-                name: io.StringC;
-            }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"black">;
-                id: io.StringC;
-                name: io.StringC;
+                avatarId: io.StringC;
             }>;
         }>, io.TypeC<{
-            home: io.TypeC<{
-                color: io.LiteralC<"black">;
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-            away: io.TypeC<{
-                color: io.LiteralC<"white">;
+        }>]>, io.UnionC<[io.TypeC<{
+            color: io.LiteralC<"black">;
+            user: io.TypeC<{
                 id: io.StringC;
                 name: io.StringC;
+                avatarId: io.StringC;
             }>;
-        }>]>;
-        homeColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>, io.TypeC<{
+            color: io.LiteralC<"white">;
+            user: io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>;
+        }>]>]>;
         timeLeft: io.TypeC<{
             white: io.NumberC;
             black: io.NumberC;

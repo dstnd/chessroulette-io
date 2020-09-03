@@ -21,46 +21,45 @@ var timeLimitMsMap = {
     rapid: util_1.minutes(15),
     untimed: -1,
 };
-var getRandomChessColor = function () { return util_1.shuffle(['white', 'black'])[0]; };
-var getPlayerSideColor = function (homeColor, players) {
-    if (homeColor === 'random') {
-        var _a = util_1.shuffle([players.home, players.away]), white = _a[0], black = _a[1];
+// export type GamePlayer = UserInfoRecord;
+// // TODO: This should probably jsut be the ChessGamePlayersBySide
+// //  but that uses the extra color Prop which probably isn't needed anyway!
+// export type GamePlayersBySide = {
+//   home: GamePlayer;
+//   away: GamePlayer;
+// }
+var getRandomChessColor = function () {
+    return util_1.shuffle(["white", "black"])[0];
+};
+var getPlayerSideColor = function (homeColor, playersBySide) {
+    if (homeColor === "random") {
+        var _a = util_1.shuffle([playersBySide.home, playersBySide.away]), white = _a[0], black = _a[1];
         return { white: white, black: black };
     }
-    if (homeColor === 'black') {
+    if (homeColor === "black") {
         return {
-            white: players.away,
-            black: players.home,
+            white: playersBySide.away,
+            black: playersBySide.home,
         };
     }
     return {
-        white: players.home,
-        black: players.away,
+        white: playersBySide.home,
+        black: playersBySide.away,
     };
 };
 exports.prepareGameAction = function (_a) {
-    var playersBySide = _a.playersBySide, _b = _a.timeLimit, timeLimit = _b === void 0 ? 'rapid' : _b, _c = _a.homeColor, homeColor = _c === void 0 ? 'random' : _c, _d = _a.pgn, pgn = _d === void 0 ? '' : _d;
-    var realHomeColor = homeColor === 'random'
-        ? getRandomChessColor()
-        : homeColor;
-    if (!('away' in playersBySide)) {
-        var playerByColor = realHomeColor === 'white' ?
-            {
-                white: __assign(__assign({}, playersBySide.home), { color: 'white' }),
-                black: undefined,
-            } : {
-            black: __assign(__assign({}, playersBySide.home), { color: 'black' }),
-            white: undefined,
-        };
+    var players = _a.players, timeLimit = _a.timeLimit, _b = _a.preferredColor, preferredColor = _b === void 0 ? "random" : _b, _c = _a.pgn, pgn = _c === void 0 ? "" : _c;
+    var firstPlayerColor = preferredColor === "random" ? getRandomChessColor() : preferredColor;
+    if (!players[1]) {
         var waitingForOpponentGameState = {
-            state: 'waitingForOpponent',
+            state: "waitingForOpponent",
             timeLimit: timeLimit,
-            players: playerByColor,
-            playersBySide: {
-                home: __assign(__assign({}, playersBySide.home), { color: realHomeColor }),
-                away: undefined,
-            },
-            homeColor: realHomeColor,
+            players: [
+                {
+                    color: firstPlayerColor,
+                    user: players[0],
+                },
+            ],
             timeLeft: undefined,
             lastMoveAt: undefined,
             lastMoveBy: undefined,
@@ -70,19 +69,19 @@ exports.prepareGameAction = function (_a) {
         };
         return waitingForOpponentGameState;
     }
-    var playersByColor = getPlayerSideColor(realHomeColor, playersBySide);
     var pendingGameState = {
-        state: 'pending',
+        state: "pending",
         timeLimit: timeLimit,
-        players: {
-            white: __assign({ color: 'white' }, playersByColor.white),
-            black: __assign({ color: 'black' }, playersByColor.black),
-        },
-        playersBySide: {
-            home: __assign(__assign({}, playersBySide.home), { color: realHomeColor }),
-            away: __assign(__assign({}, playersBySide.away), { color: util_1.otherChessColor(realHomeColor) })
-        },
-        homeColor: realHomeColor,
+        players: [
+            {
+                color: firstPlayerColor,
+                user: players[0],
+            },
+            {
+                color: util_1.otherChessColor(firstPlayerColor),
+                user: players[1],
+            },
+        ],
         timeLeft: {
             white: timeLimitMsMap[timeLimit],
             black: timeLimitMsMap[timeLimit],
@@ -99,35 +98,52 @@ exports.prepareGameAction = function (_a) {
     }
     return pendingGameState;
 };
+var joinGameAction = function (prev, opponent) {
+    // This could maybe be tested more and
+    //  Just need to make sure the player positions/colors
+    // stay the same
+    return exports.prepareGameAction({
+        players: [prev.players[0].user, opponent],
+        preferredColor: prev.players[0].color,
+        timeLimit: prev.timeLimit,
+    });
+};
 var moveAction = function (prev, next) {
     var _a;
     // Default it to black so when the game just starts
     //  it sets the 1st move to white
-    var _b = prev.lastMoved, prevLastMoved = _b === void 0 ? 'black' : _b;
+    var _b = prev.lastMoved, prevLastMoved = _b === void 0 ? "black" : _b;
     var currentLastMovedBy = util_1.otherChessColor(prevLastMoved);
     var instance = sdk_1.getNewChessGame();
-    instance.load_pgn(next.pgn);
+    var pgn = ("pgn" in next ? next.pgn : prev.pgn) || "";
+    // Load the nnext or prev pgn
+    instance.load_pgn(pgn);
+    // If there is a move make it
+    if ("move" in next) {
+        instance.move(next.move);
+    }
     // const prevLastMove = prev.lastMoveAt && new Date() || now;
     var now = new Date();
     var moveElapsedMs = prev.lastMoveAt !== undefined
         ? now.getTime() - new Date(prev.lastMoveAt).getTime()
         : 0; // Zero if first move;
     if (instance.game_over()) {
-        return __assign(__assign({}, prev), { state: 'finished', winner: instance.in_draw() ? '1/2' : currentLastMovedBy, pgn: next.pgn, lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy });
+        return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
-    return __assign(__assign({}, prev), { state: 'started', pgn: next.pgn, lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
+    return __assign(__assign({}, prev), { state: "started", pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
 };
 var timerFinishedAction = function (prev, 
 // @deprecated
 next) {
-    if (prev.state === 'pending') {
-        return __assign(__assign({}, prev), { state: 'neverStarted' });
+    if (prev.state === "pending") {
+        return __assign(__assign({}, prev), { state: "neverStarted" });
     }
-    return __assign(__assign({}, prev), { state: 'finished', winner: util_1.otherChessColor(prev.lastMoveBy) });
+    return __assign(__assign({}, prev), { state: "finished", winner: util_1.otherChessColor(prev.lastMoveBy) });
 };
 exports.actions = {
     prepareGame: exports.prepareGameAction,
+    joinGame: joinGameAction,
     move: moveAction,
     timerFinished: timerFinishedAction,
 };
