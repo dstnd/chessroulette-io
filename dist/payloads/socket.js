@@ -52,8 +52,9 @@ exports.socketPayload = io.union([
     room_1.joinRoomFailurePayload,
     exports.whoAmIRequestPayload,
     game_1.gameJoinRequestPayload,
-    game_1.gameDrawOfferingRequestPayload,
     game_1.gameMoveRequestPayload,
+    game_1.gameDrawOfferingRequestPayload,
     game_1.gameResignationRequestPayload,
+    game_1.gameAbortionRequestPayload,
 ]);
 //# sourceMappingURL=socket.js.map

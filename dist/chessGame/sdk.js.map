@@ -1,1 +1,1 @@
-{"version":3,"file":"sdk.js","sourceRoot":"","sources":["../../src/chessGame/sdk.ts"],"names":[],"mappings":";;;AACA,gCAAkC;AAErB,QAAA,eAAe,GAAG,UAAC,GAAY;IAC1C,OAAO,IAAK,KAAa,CAAC,GAAG,CAAkB,CAAC;AAClD,CAAC,CAAC"}
+{"version":3,"file":"sdk.js","sourceRoot":"","sources":["../../src/chessGame/sdk.ts"],"names":[],"mappings":";;;AAAA,qCAA0D;AAC1D,iCAAmC;AAEtB,QAAA,eAAe,GAAG,UAAC,GAAY;IAC1C,OAAO,IAAI,CAAC,gBAAM,IAAI,MAAM,CAAC,CAAC,GAAG,CAAkB,CAAC;AACtD,CAAC,CAAC"}

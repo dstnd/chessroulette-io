@@ -11,6 +11,7 @@ import {
   ChessGameStateWaitingForOpponent,
   ChessPlayersBySide,
   ChessPlayer,
+  ChessGameStateStopped,
 } from "./records";
 import { otherChessColor, shuffle, minutes } from "./util";
 import { getNewChessGame } from "./sdk";
@@ -91,7 +92,10 @@ export const prepareGameAction = ({
           user: players[0],
         },
       ],
-      timeLeft: undefined,
+      timeLeft: {
+        white: timeLimitMsMap[timeLimit],
+        black: timeLimitMsMap[timeLimit],
+      },
       lastMoveAt: undefined,
       lastMoveBy: undefined,
       lastMoved: undefined,
@@ -216,24 +220,47 @@ const moveAction = (
 };
 
 const timerFinishedAction = (
-  prev: ChessGameStateStarted | ChessGameStatePending,
+  prev: ChessGameStateStarted,
 
   // @deprecated
   next?: {
     loser: ChessGameColor;
   }
-): ChessGameStateNeverStarted | ChessGameStateFinished => {
-  if (prev.state === "pending") {
-    return {
-      ...prev,
-      state: "neverStarted",
-    };
-  }
-
+): ChessGameStateFinished => {
   return {
     ...prev,
     state: "finished",
     winner: otherChessColor(prev.lastMoveBy),
+  };
+};
+
+const abortAction = (
+  prev: ChessGameStatePending | ChessGameStateWaitingForOpponent,
+): ChessGameStateNeverStarted => {
+  return {
+    ...prev,
+    state: 'neverStarted',
+  };
+};
+
+const resignAction = (
+  prev: ChessGameStateStarted,
+  resigningColor: ChessGameColor,
+): ChessGameStateStopped => {
+  return {
+    ...prev,
+    state: "stopped",
+    winner: otherChessColor(resigningColor),
+  };
+};
+
+const drawAction = (
+  prev: ChessGameStateStarted,
+): ChessGameStateStopped => {
+  return {
+    ...prev,
+    state: "stopped",
+    winner: '1/2',
   };
 };
 
@@ -242,4 +269,7 @@ export const actions = {
   joinGame: joinGameAction,
   move: moveAction,
   timerFinished: timerFinishedAction,
+  resign: resignAction,
+  draw: drawAction,
+  abort: abortAction,
 };

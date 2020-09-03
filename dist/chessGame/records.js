@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessGameState = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
+exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
 var io = require("io-ts");
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
@@ -61,34 +61,14 @@ exports.partialChessPlayersBySide = io.union([
         away: exports.chessPlayer,
     }),
 ]);
-// const c: PartialChessPlayersBySide;
-// if (c.home) {
-//   c.away
-// }
 exports.chessGameStateWaitingForOpponent = io.type({
     state: io.literal('waitingForOpponent'),
     timeLimit: exports.chessGameTimeLimit,
-    // players: io.union([
-    //   io.type({
-    //     white: chessPlayerWhite,
-    //     black: io.undefined,
-    //   }),
-    //   io.type({
-    //     white: io.undefined,
-    //     black: chessPlayerBlack,
-    //   }),
-    // ]),
-    // playersIdToColor: io.record(io.string, io.keyof({
-    //   'white': undefined,
-    //   'black': undefined,
-    // })),
     players: io.tuple([exports.chessPlayer]),
-    // colors: io.tuple([chessGameColor]),
-    // playersInfo: io.record(io.string, userRecord),
-    // playersBySide: partialChessPlayersBySide,
-    // homeColor: chessGameColor,
-    // playersByColor: {},
-    timeLeft: io.undefined,
+    timeLeft: io.type({
+        white: io.number,
+        black: io.number,
+    }),
     pgn: io.undefined,
     winner: io.undefined,
     lastMoveBy: io.undefined,
@@ -99,12 +79,7 @@ exports.chessGameStateWaitingForOpponent = io.type({
 exports.chessGameStatePending = io.type({
     state: io.literal('pending'),
     timeLimit: exports.chessGameTimeLimit,
-    // players: chessPlayers,
     players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
-    // colors: io.tuple([chessGameColor, chessGameColor]),
-    // playersBySide: chessPlayersBySide,
-    // playersInfo: io.record(io.string, userRecord),
-    // homeColor: chessGameColor,
     timeLeft: io.type({
         white: io.number,
         black: io.number,
@@ -119,11 +94,10 @@ exports.chessGameStatePending = io.type({
 exports.chessGameStateNeverStarted = io.type({
     state: io.literal('neverStarted'),
     timeLimit: exports.chessGameTimeLimit,
-    players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
-    // players: chessPlayers,
-    // playersBySide: chessPlayersBySide,
-    // playersInfo: io.record(io.string, userRecord),
-    // homeColor: chessGameColor,
+    players: io.union([
+        io.tuple([exports.chessPlayer, exports.chessPlayer]),
+        io.tuple([exports.chessPlayer]),
+    ]),
     timeLeft: io.type({
         white: io.number,
         black: io.number,
@@ -140,10 +114,6 @@ exports.chessGameStateStarted = io.type({
     timeLimit: exports.chessGameTimeLimit,
     state: io.literal('started'),
     players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
-    // players: chessPlayers,
-    // playersBySide: chessPlayersBySide,
-    // playersInfo: io.record(io.string, userRecord),
-    // homeColor: chessGameColor,
     timeLeft: io.type({
         white: io.number,
         black: io.number,
@@ -159,10 +129,21 @@ exports.chessGameStateFinished = io.type({
     state: io.literal('finished'),
     timeLimit: exports.chessGameTimeLimit,
     players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
-    // players: chessPlayers,
-    // playersBySide: chessPlayersBySide,
-    // playersInfo: io.record(io.string, userRecord),
-    // homeColor: chessGameColor,
+    timeLeft: io.type({
+        white: io.number,
+        black: io.number,
+    }),
+    pgn: exports.chessGameStatePgn,
+    winner: io.union([exports.chessGameColor, io.literal('1/2')]),
+    lastMoveBy: io.keyof(exports.chessPlayers.props),
+    lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    /* @deprecated */
+    lastMoved: io.keyof(exports.chessPlayers.props),
+});
+exports.chessGameStateStopped = io.type({
+    state: io.literal('stopped'),
+    timeLimit: exports.chessGameTimeLimit,
+    players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
     timeLeft: io.type({
         white: io.number,
         black: io.number,
@@ -180,5 +161,6 @@ exports.chessGameState = io.union([
     exports.chessGameStateStarted,
     exports.chessGameStateFinished,
     exports.chessGameStateNeverStarted,
+    exports.chessGameStateStopped,
 ]);
 //# sourceMappingURL=records.js.map

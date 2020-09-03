@@ -60,7 +60,10 @@ exports.prepareGameAction = function (_a) {
                     user: players[0],
                 },
             ],
-            timeLeft: undefined,
+            timeLeft: {
+                white: timeLimitMsMap[timeLimit],
+                black: timeLimitMsMap[timeLimit],
+            },
             lastMoveAt: undefined,
             lastMoveBy: undefined,
             lastMoved: undefined,
@@ -136,15 +139,24 @@ var moveAction = function (prev, next) {
 var timerFinishedAction = function (prev, 
 // @deprecated
 next) {
-    if (prev.state === "pending") {
-        return __assign(__assign({}, prev), { state: "neverStarted" });
-    }
     return __assign(__assign({}, prev), { state: "finished", winner: util_1.otherChessColor(prev.lastMoveBy) });
+};
+var abortAction = function (prev) {
+    return __assign(__assign({}, prev), { state: 'neverStarted' });
+};
+var resignAction = function (prev, resigningColor) {
+    return __assign(__assign({}, prev), { state: "stopped", winner: util_1.otherChessColor(resigningColor) });
+};
+var drawAction = function (prev) {
+    return __assign(__assign({}, prev), { state: "stopped", winner: '1/2' });
 };
 exports.actions = {
     prepareGame: exports.prepareGameAction,
     joinGame: joinGameAction,
     move: moveAction,
     timerFinished: timerFinishedAction,
+    resign: resignAction,
+    draw: drawAction,
+    abort: abortAction,
 };
 //# sourceMappingURL=chessGameStateReducer.js.map

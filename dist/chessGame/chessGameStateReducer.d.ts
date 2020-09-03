@@ -1,4 +1,4 @@
-import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent } from "./records";
+import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent, ChessGameStateStopped } from "./records";
 import { ChessMove } from "./boardRecords";
 import { UserInfoRecord } from "../records/userRecord";
 export declare const prepareGameAction: ({ players, timeLimit, preferredColor, pgn, }: {
@@ -18,21 +18,24 @@ export declare const actions: {
         state: "waitingForOpponent";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "black";
-            user: {
-                id: string;
-                name: string;
-                avatarId: string;
-            };
-        } | {
             color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
+        } | {
+            color: "black";
+            user: {
+                id: string;
+                name: string;
+                avatarId: string;
+            };
         }];
-        timeLeft: undefined;
+        timeLeft: {
+            white: number;
+            black: number;
+        };
         pgn: undefined;
         winner: undefined;
         lastMoveBy: undefined;
@@ -42,28 +45,28 @@ export declare const actions: {
         state: "pending";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
@@ -83,28 +86,28 @@ export declare const actions: {
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         state: "started";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
@@ -124,28 +127,28 @@ export declare const actions: {
         state: "finished";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
@@ -167,7 +170,10 @@ export declare const actions: {
     } | {
         pgn: ChessGameStatePgn;
     }) => ChessGameStateStarted | ChessGameStateFinished;
-    timerFinished: (prev: ChessGameStateStarted | ChessGameStatePending, next?: {
+    timerFinished: (prev: ChessGameStateStarted, next?: {
         loser: ChessGameColor;
-    } | undefined) => ChessGameStateNeverStarted | ChessGameStateFinished;
+    } | undefined) => ChessGameStateFinished;
+    resign: (prev: ChessGameStateStarted, resigningColor: ChessGameColor) => ChessGameStateStopped;
+    draw: (prev: ChessGameStateStarted) => ChessGameStateStopped;
+    abort: (prev: ChessGameStatePending | ChessGameStateWaitingForOpponent) => ChessGameStateNeverStarted;
 };

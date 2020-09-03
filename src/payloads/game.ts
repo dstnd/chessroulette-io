@@ -1,5 +1,6 @@
 import * as io from 'io-ts';
 import { chessMove } from '../chessGame/boardRecords';
+import { chessGameColor } from '../chessGame';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
@@ -15,9 +16,17 @@ export type GameDrawOfferingRequestPayload = io.TypeOf<typeof gameDrawOfferingRe
 
 export const gameResignationRequestPayload = io.type({
   kind: io.literal('gameResignationRequest'),
-  content: io.undefined,
+  content: io.type({
+    resigningColor: chessGameColor,
+  }),
 });
 export type GameResignationRequestPayload = io.TypeOf<typeof gameResignationRequestPayload>;
+
+export const gameAbortionRequestPayload = io.type({
+  kind: io.literal('gameAbortionRequest'),
+  content: io.undefined,
+});
+export type GameAbortionRequestPayload = io.TypeOf<typeof gameAbortionRequestPayload>;
 
 export const gameMoveRequestPayload = io.type({
   kind: io.literal('gameMoveRequest'),

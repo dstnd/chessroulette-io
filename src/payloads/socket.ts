@@ -5,6 +5,7 @@ import {
   gameDrawOfferingRequestPayload, 
   gameMoveRequestPayload, 
   gameResignationRequestPayload,
+  gameAbortionRequestPayload,
 } from './game';
 import { myStatsPayload } from './peer';
 import { 
@@ -73,8 +74,9 @@ export const socketPayload = io.union([
   whoAmIRequestPayload,
 
   gameJoinRequestPayload,
-  gameDrawOfferingRequestPayload,
   gameMoveRequestPayload,
+  gameDrawOfferingRequestPayload,
   gameResignationRequestPayload,
+  gameAbortionRequestPayload,
 ]);
 export type SocketPayload = io.TypeOf<typeof socketPayload>;

@@ -84,36 +84,14 @@ export const partialChessPlayersBySide = io.union([
 ]);
 export type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySide>;
 
-// const c: PartialChessPlayersBySide;
-
-// if (c.home) {
-//   c.away
-// }
-
 export const chessGameStateWaitingForOpponent = io.type({
   state: io.literal('waitingForOpponent'),
   timeLimit: chessGameTimeLimit,
-  // players: io.union([
-  //   io.type({
-  //     white: chessPlayerWhite,
-  //     black: io.undefined,
-  //   }),
-  //   io.type({
-  //     white: io.undefined,
-  //     black: chessPlayerBlack,
-  //   }),
-  // ]),
-  // playersIdToColor: io.record(io.string, io.keyof({
-  //   'white': undefined,
-  //   'black': undefined,
-  // })),
   players: io.tuple([chessPlayer]),
-  // colors: io.tuple([chessGameColor]),
-  // playersInfo: io.record(io.string, userRecord),
-  // playersBySide: partialChessPlayersBySide,
-  // homeColor: chessGameColor,
-  // playersByColor: {},
-  timeLeft: io.undefined,
+  timeLeft: io.type({
+    white: io.number,
+    black: io.number,
+  }),
   pgn: io.undefined,
   winner: io.undefined,
   lastMoveBy: io.undefined,
@@ -126,12 +104,7 @@ export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWa
 export const chessGameStatePending = io.type({
   state: io.literal('pending'),
   timeLimit: chessGameTimeLimit,
-  // players: chessPlayers,
   players: io.tuple([chessPlayer, chessPlayer]),
-  // colors: io.tuple([chessGameColor, chessGameColor]),
-  // playersBySide: chessPlayersBySide,
-  // playersInfo: io.record(io.string, userRecord),
-  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -148,11 +121,10 @@ export type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
 export const chessGameStateNeverStarted = io.type({
   state: io.literal('neverStarted'),
   timeLimit: chessGameTimeLimit,
-  players: io.tuple([chessPlayer, chessPlayer]),
-  // players: chessPlayers,
-  // playersBySide: chessPlayersBySide,
-  // playersInfo: io.record(io.string, userRecord),
-  // homeColor: chessGameColor,
+  players: io.union([
+    io.tuple([chessPlayer, chessPlayer]),
+    io.tuple([chessPlayer]),
+  ]),
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -171,10 +143,6 @@ export const chessGameStateStarted = io.type({
   timeLimit: chessGameTimeLimit,
   state: io.literal('started'),
   players: io.tuple([chessPlayer, chessPlayer]),
-  // players: chessPlayers,
-  // playersBySide: chessPlayersBySide,
-  // playersInfo: io.record(io.string, userRecord),
-  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -193,10 +161,6 @@ export const chessGameStateFinished = io.type({
   state: io.literal('finished'),
   timeLimit: chessGameTimeLimit,
   players: io.tuple([chessPlayer, chessPlayer]),
-  // players: chessPlayers,
-  // playersBySide: chessPlayersBySide,
-  // playersInfo: io.record(io.string, userRecord),
-  // homeColor: chessGameColor,
   timeLeft: io.type({
     white: io.number,
     black: io.number,
@@ -211,11 +175,30 @@ export const chessGameStateFinished = io.type({
 });
 export type ChessGameStateFinished = io.TypeOf<typeof chessGameStateFinished>;
 
+export const chessGameStateStopped = io.type({
+  state: io.literal('stopped'),
+  timeLimit: chessGameTimeLimit,
+  players: io.tuple([chessPlayer, chessPlayer]),
+  timeLeft: io.type({
+    white: io.number,
+    black: io.number,
+  }),
+  pgn: chessGameStatePgn,
+  winner: io.union([chessGameColor, io.literal('1/2')]),
+
+  lastMoveBy: io.keyof(chessPlayers.props),
+  lastMoveAt: isoDateTimeFromIsoString,
+  /* @deprecated */
+  lastMoved: io.keyof(chessPlayers.props),
+});
+export type ChessGameStateStopped = io.TypeOf<typeof chessGameStateStopped>;
+
 export const chessGameState = io.union([
   chessGameStateWaitingForOpponent,
   chessGameStatePending,
   chessGameStateStarted,
   chessGameStateFinished,
   chessGameStateNeverStarted,
+  chessGameStateStopped,
 ]);
 export type ChessGameState = io.TypeOf<typeof chessGameState>;

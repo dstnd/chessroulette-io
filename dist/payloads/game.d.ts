@@ -11,9 +11,16 @@ export declare const gameDrawOfferingRequestPayload: io.TypeC<{
 export declare type GameDrawOfferingRequestPayload = io.TypeOf<typeof gameDrawOfferingRequestPayload>;
 export declare const gameResignationRequestPayload: io.TypeC<{
     kind: io.LiteralC<"gameResignationRequest">;
-    content: io.UndefinedC;
+    content: io.TypeC<{
+        resigningColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+    }>;
 }>;
 export declare type GameResignationRequestPayload = io.TypeOf<typeof gameResignationRequestPayload>;
+export declare const gameAbortionRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameAbortionRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameAbortionRequestPayload = io.TypeOf<typeof gameAbortionRequestPayload>;
 export declare const gameMoveRequestPayload: io.TypeC<{
     kind: io.LiteralC<"gameMoveRequest">;
     content: io.TypeC<{
