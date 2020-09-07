@@ -9,11 +9,19 @@ export declare const gameDrawOfferingRequestPayload: io.TypeC<{
     content: io.UndefinedC;
 }>;
 export declare type GameDrawOfferingRequestPayload = io.TypeOf<typeof gameDrawOfferingRequestPayload>;
+export declare const gameDrawAcceptRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameDrawAcceptRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameDrawAcceptRequestPayload = io.TypeOf<typeof gameDrawAcceptRequestPayload>;
+export declare const gameDrawDenyRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameDrawDenyRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameDrawDenyRequestPayload = io.TypeOf<typeof gameDrawDenyRequestPayload>;
 export declare const gameResignationRequestPayload: io.TypeC<{
     kind: io.LiteralC<"gameResignationRequest">;
-    content: io.TypeC<{
-        resigningColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
-    }>;
+    content: io.UndefinedC;
 }>;
 export declare type GameResignationRequestPayload = io.TypeOf<typeof gameResignationRequestPayload>;
 export declare const gameAbortionRequestPayload: io.TypeC<{
@@ -165,3 +173,18 @@ export declare const gameMoveRequestPayload: io.TypeC<{
     }>;
 }>;
 export declare type GameMoveRequestPayload = io.TypeOf<typeof gameMoveRequestPayload>;
+export declare const gameRematchOfferingRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameRematchOfferingRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameRematchOfferingRequestPayload = io.TypeOf<typeof gameRematchOfferingRequestPayload>;
+export declare const gameRematchAcceptRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameRematchAcceptRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameRematchAcceptRequestPayload = io.TypeOf<typeof gameRematchAcceptRequestPayload>;
+export declare const gameRematchDenyRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameRematchDenyRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameRematchDenyRequestPayload = io.TypeOf<typeof gameRematchDenyRequestPayload>;

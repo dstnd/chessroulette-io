@@ -11,6 +11,7 @@ exports.roomStatsRecord = io.intersection([
         peersCount: io.number,
         peers: io.record(io.string, peerRecord_1.peerRecord),
         game: chessGame_1.chessGameState,
+        gameOffer: chessGame_1.chessGameOffer,
     }),
     io.union([
         io.type({ type: io.literal('public') }),

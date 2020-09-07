@@ -141,6 +141,32 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
     }>]>;
 }>]>;
 export declare type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySide>;
+export declare const chessGameDrawOffer: io.TypeC<{
+    type: io.LiteralC<"draw">;
+    content: io.TypeC<{
+        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+    }>;
+}>;
+export declare type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
+export declare const chessGameRematchOffer: io.TypeC<{
+    type: io.LiteralC<"rematch">;
+    content: io.TypeC<{
+        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+    }>;
+}>;
+export declare type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
+export declare const chessGameOffer: io.UnionC<[io.TypeC<{
+    type: io.LiteralC<"draw">;
+    content: io.TypeC<{
+        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+    }>;
+}>, io.TypeC<{
+    type: io.LiteralC<"rematch">;
+    content: io.TypeC<{
+        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+    }>;
+}>, io.UndefinedC]>;
+export declare type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
 export declare const chessGameStateWaitingForOpponent: io.TypeC<{
     state: io.LiteralC<"waitingForOpponent">;
     timeLimit: io.KeyofC<{

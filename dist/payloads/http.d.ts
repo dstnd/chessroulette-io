@@ -398,6 +398,17 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             }>;
         }>;
     }>]>;
+    gameOffer: io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"draw">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"rematch">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -806,6 +817,17 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             }>;
         }>;
     }>]>;
+    gameOffer: io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"draw">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"rematch">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -1212,6 +1234,17 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             }>;
         }>;
     }>]>;
+    gameOffer: io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"draw">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"rematch">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -1646,6 +1679,17 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             }>;
         }>;
     }>]>;
+    gameOffer: io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"draw">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"rematch">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -2064,6 +2108,17 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             }>;
         }>;
     }>]>;
+    gameOffer: io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"draw">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"rematch">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{

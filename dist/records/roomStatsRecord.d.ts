@@ -398,6 +398,17 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
             }>;
         }>;
     }>]>;
+    gameOffer: io.UnionC<[io.TypeC<{
+        type: io.LiteralC<"draw">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"rematch">;
+        content: io.TypeC<{
+            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        }>;
+    }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{

@@ -1,5 +1,3 @@
-// import { toISODateTime } from 'src/lib/date/ISODateTime';
-// import { UserInfoRecord } from 'dstnd-io';
 import {
   ChessGameStatePgn,
   ChessGameColor,
@@ -9,8 +7,6 @@ import {
   ChessGameStateNeverStarted,
   ChessGameTimeLimit,
   ChessGameStateWaitingForOpponent,
-  ChessPlayersBySide,
-  ChessPlayer,
   ChessGameStateStopped,
 } from "./records";
 import { otherChessColor, shuffle, minutes } from "./util";
@@ -25,15 +21,6 @@ const timeLimitMsMap: { [key in ChessGameTimeLimit]: number } = {
   rapid: minutes(15),
   untimed: -1,
 };
-
-// export type GamePlayer = UserInfoRecord;
-
-// // TODO: This should probably jsut be the ChessGamePlayersBySide
-// //  but that uses the extra color Prop which probably isn't needed anyway!
-// export type GamePlayersBySide = {
-//   home: GamePlayer;
-//   away: GamePlayer;
-// }
 
 const getRandomChessColor = () =>
   shuffle(["white", "black"])[0] as ChessGameColor;
@@ -180,8 +167,6 @@ const moveAction = (
   if ("move" in next) {
     instance.move(next.move);
   }
-
-  // const prevLastMove = prev.lastMoveAt && new Date() || now;
 
   const now = new Date();
   const moveElapsedMs =

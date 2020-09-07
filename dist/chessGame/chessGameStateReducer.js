@@ -21,13 +21,6 @@ var timeLimitMsMap = {
     rapid: util_1.minutes(15),
     untimed: -1,
 };
-// export type GamePlayer = UserInfoRecord;
-// // TODO: This should probably jsut be the ChessGamePlayersBySide
-// //  but that uses the extra color Prop which probably isn't needed anyway!
-// export type GamePlayersBySide = {
-//   home: GamePlayer;
-//   away: GamePlayer;
-// }
 var getRandomChessColor = function () {
     return util_1.shuffle(["white", "black"])[0];
 };
@@ -125,7 +118,6 @@ var moveAction = function (prev, next) {
     if ("move" in next) {
         instance.move(next.move);
     }
-    // const prevLastMove = prev.lastMoveAt && new Date() || now;
     var now = new Date();
     var moveElapsedMs = prev.lastMoveAt !== undefined
         ? now.getTime() - new Date(prev.lastMoveAt).getTime()

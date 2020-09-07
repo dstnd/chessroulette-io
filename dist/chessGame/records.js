@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
+exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
 var io = require("io-ts");
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
@@ -60,6 +60,23 @@ exports.partialChessPlayersBySide = io.union([
         home: io.undefined,
         away: exports.chessPlayer,
     }),
+]);
+exports.chessGameDrawOffer = io.type({
+    type: io.literal('draw'),
+    content: io.type({
+        by: exports.chessGameColor,
+    }),
+});
+exports.chessGameRematchOffer = io.type({
+    type: io.literal('rematch'),
+    content: io.type({
+        by: exports.chessGameColor,
+    }),
+});
+exports.chessGameOffer = io.union([
+    exports.chessGameDrawOffer,
+    exports.chessGameRematchOffer,
+    io.undefined,
 ]);
 exports.chessGameStateWaitingForOpponent = io.type({
     state: io.literal('waitingForOpponent'),

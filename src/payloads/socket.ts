@@ -3,9 +3,14 @@ import { peerRecord } from '../records/peerRecord';
 import { 
   gameJoinRequestPayload, 
   gameDrawOfferingRequestPayload, 
+  gameDrawAcceptRequestPayload,
   gameMoveRequestPayload, 
   gameResignationRequestPayload,
   gameAbortionRequestPayload,
+  gameRematchOfferingRequestPayload,
+  gameRematchAcceptRequestPayload,
+  gameRematchDenyRequestPayload,
+  gameDrawDenyRequestPayload,
 } from './game';
 import { myStatsPayload } from './peer';
 import { 
@@ -73,10 +78,16 @@ export const socketPayload = io.union([
   joinRoomFailurePayload,
   whoAmIRequestPayload,
 
+  // Game Actions
   gameJoinRequestPayload,
   gameMoveRequestPayload,
   gameDrawOfferingRequestPayload,
+  gameDrawAcceptRequestPayload,
+  gameDrawDenyRequestPayload,
   gameResignationRequestPayload,
   gameAbortionRequestPayload,
+  gameRematchOfferingRequestPayload,
+  gameRematchAcceptRequestPayload,
+  gameRematchDenyRequestPayload,
 ]);
 export type SocketPayload = io.TypeOf<typeof socketPayload>;

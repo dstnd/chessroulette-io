@@ -84,6 +84,29 @@ export const partialChessPlayersBySide = io.union([
 ]);
 export type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySide>;
 
+export const chessGameDrawOffer = io.type({
+  type: io.literal('draw'),
+  content: io.type({
+    by: chessGameColor,
+  }),
+});
+export type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
+
+export const chessGameRematchOffer = io.type({
+  type: io.literal('rematch'),
+  content: io.type({
+    by: chessGameColor,
+  }),
+});
+export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
+
+export const chessGameOffer = io.union([
+  chessGameDrawOffer,
+  chessGameRematchOffer,
+  io.undefined,
+]);
+export type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
+
 export const chessGameStateWaitingForOpponent = io.type({
   state: io.literal('waitingForOpponent'),
   timeLimit: chessGameTimeLimit,

@@ -493,6 +493,17 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 }>;
             }>;
         }>]>;
+        gameOffer: io.UnionC<[io.TypeC<{
+            type: io.LiteralC<"draw">;
+            content: io.TypeC<{
+                by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+            }>;
+        }>, io.TypeC<{
+            type: io.LiteralC<"rematch">;
+            content: io.TypeC<{
+                by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+            }>;
+        }>, io.UndefinedC]>;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
     }>, io.TypeC<{
@@ -913,6 +924,17 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     }>;
                 }>;
             }>]>;
+            gameOffer: io.UnionC<[io.TypeC<{
+                type: io.LiteralC<"draw">;
+                content: io.TypeC<{
+                    by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+                }>;
+            }>, io.TypeC<{
+                type: io.LiteralC<"rematch">;
+                content: io.TypeC<{
+                    by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+                }>;
+            }>, io.UndefinedC]>;
         }>, io.UnionC<[io.TypeC<{
             type: io.LiteralC<"public">;
         }>, io.TypeC<{
@@ -1095,12 +1117,25 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"gameDrawOfferingRequest">;
     content: io.UndefinedC;
 }>, io.TypeC<{
+    kind: io.LiteralC<"gameDrawAcceptRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameDrawDenyRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
     kind: io.LiteralC<"gameResignationRequest">;
-    content: io.TypeC<{
-        resigningColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
-    }>;
+    content: io.UndefinedC;
 }>, io.TypeC<{
     kind: io.LiteralC<"gameAbortionRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameRematchOfferingRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameRematchAcceptRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameRematchDenyRequest">;
     content: io.UndefinedC;
 }>]>;
 export declare type SocketPayload = io.TypeOf<typeof socketPayload>;

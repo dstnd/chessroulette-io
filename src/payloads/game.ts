@@ -1,6 +1,5 @@
 import * as io from 'io-ts';
 import { chessMove } from '../chessGame/boardRecords';
-import { chessGameColor } from '../chessGame';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
@@ -14,11 +13,21 @@ export const gameDrawOfferingRequestPayload = io.type({
 });
 export type GameDrawOfferingRequestPayload = io.TypeOf<typeof gameDrawOfferingRequestPayload>;
 
+export const gameDrawAcceptRequestPayload = io.type({
+  kind: io.literal('gameDrawAcceptRequest'),
+  content: io.undefined,
+});
+export type GameDrawAcceptRequestPayload = io.TypeOf<typeof gameDrawAcceptRequestPayload>;
+
+export const gameDrawDenyRequestPayload = io.type({
+  kind: io.literal('gameDrawDenyRequest'),
+  content: io.undefined,
+});
+export type GameDrawDenyRequestPayload = io.TypeOf<typeof gameDrawDenyRequestPayload>;
+
 export const gameResignationRequestPayload = io.type({
   kind: io.literal('gameResignationRequest'),
-  content: io.type({
-    resigningColor: chessGameColor,
-  }),
+  content: io.undefined,
 });
 export type GameResignationRequestPayload = io.TypeOf<typeof gameResignationRequestPayload>;
 
@@ -34,3 +43,20 @@ export const gameMoveRequestPayload = io.type({
 });
 export type GameMoveRequestPayload = io.TypeOf<typeof gameMoveRequestPayload>;
 
+export const gameRematchOfferingRequestPayload = io.type({
+  kind: io.literal('gameRematchOfferingRequest'),
+  content: io.undefined,
+});
+export type GameRematchOfferingRequestPayload = io.TypeOf<typeof gameRematchOfferingRequestPayload>;
+
+export const gameRematchAcceptRequestPayload = io.type({
+  kind: io.literal('gameRematchAcceptRequest'),
+  content: io.undefined,
+});
+export type GameRematchAcceptRequestPayload = io.TypeOf<typeof gameRematchAcceptRequestPayload>;
+
+export const gameRematchDenyRequestPayload = io.type({
+  kind: io.literal('gameRematchDenyRequest'),
+  content: io.undefined,
+});
+export type GameRematchDenyRequestPayload = io.TypeOf<typeof gameRematchDenyRequestPayload>;

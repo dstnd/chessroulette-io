@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { chessGameState } from '../chessGame';
+import { chessGameState, chessGameOffer } from '../chessGame';
 import { peerRecord } from './peerRecord';
 
 export const roomStatsRecord = io.intersection([
@@ -9,6 +9,7 @@ export const roomStatsRecord = io.intersection([
     peersCount: io.number,
     peers: io.record(io.string, peerRecord),
     game: chessGameState,
+    gameOffer: chessGameOffer,
   }),
   io.union([
     io.type({ type: io.literal('public')}),
