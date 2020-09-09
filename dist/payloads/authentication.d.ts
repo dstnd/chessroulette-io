@@ -1,4 +1,4 @@
-import * as io from "io-ts";
+import * as io from 'io-ts';
 export declare const authenticationRedirectUrlResponsePayload: io.TypeC<{
     redirectUrl: io.StringC;
 }>;
@@ -112,6 +112,16 @@ export declare const authenticationResponsePayload: io.TypeC<{
     }>]>]>;
 }>;
 export declare type AuthenticationResponsePayload = io.TypeOf<typeof authenticationResponsePayload>;
+export declare const guestAuthenticationRequestPayload: io.TypeC<{
+    guestUser: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        id: io.StringC;
+        name: io.StringC;
+        avatarId: io.StringC;
+    }>, io.TypeC<{
+        isGuest: io.LiteralC<true>;
+    }>]>, io.UndefinedC]>;
+}>;
+export declare type GuestAuthenticationRequestPayload = io.TypeOf<typeof guestAuthenticationRequestPayload>;
 export declare const guestAuthenticationResponsePayload: io.TypeC<{
     guest: io.IntersectionC<[io.TypeC<{
         id: io.StringC;

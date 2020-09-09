@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.guestAuthenticationResponsePayload = exports.authenticationResponsePayload = exports.authenticationRequestPayload = exports.authenticationViaExistentUserRequestPayload = exports.authenticationViaExternalAccountRequestPayload = exports.getLichessUserResponsePayload = exports.getLichessUserRequestPayload = exports.authenticationRedirectUrlResponsePayload = void 0;
+exports.guestAuthenticationResponsePayload = exports.guestAuthenticationRequestPayload = exports.authenticationResponsePayload = exports.authenticationRequestPayload = exports.authenticationViaExistentUserRequestPayload = exports.authenticationViaExternalAccountRequestPayload = exports.getLichessUserResponsePayload = exports.getLichessUserRequestPayload = exports.authenticationRedirectUrlResponsePayload = void 0;
 var io = require("io-ts");
 var lichessRecords_1 = require("../records/lichessRecords");
 var userRecord_1 = require("../records/userRecord");
@@ -27,8 +27,10 @@ exports.authenticationRequestPayload = io.union([
 exports.authenticationResponsePayload = io.type({
     user: userRecord_1.userRecord,
 });
+exports.guestAuthenticationRequestPayload = io.type({
+    guestUser: io.union([userRecord_1.guestUserRecord, io.undefined]),
+});
 exports.guestAuthenticationResponsePayload = io.type({
     guest: userRecord_1.guestUserRecord,
 });
-// export const guestAuthenticationResponsePayload
 //# sourceMappingURL=authentication.js.map
