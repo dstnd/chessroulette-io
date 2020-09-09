@@ -15,34 +15,10 @@ exports.actions = exports.prepareGameAction = void 0;
 var util_1 = require("./util");
 var sdk_1 = require("./sdk");
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
-var timeLimitMsMap = {
-    bullet: util_1.minutes(1),
-    blitz: util_1.minutes(5),
-    rapid: util_1.minutes(15),
-    untimed: -1,
-};
-var getRandomChessColor = function () {
-    return util_1.shuffle(["white", "black"])[0];
-};
-var getPlayerSideColor = function (homeColor, playersBySide) {
-    if (homeColor === "random") {
-        var _a = util_1.shuffle([playersBySide.home, playersBySide.away]), white = _a[0], black = _a[1];
-        return { white: white, black: black };
-    }
-    if (homeColor === "black") {
-        return {
-            white: playersBySide.away,
-            black: playersBySide.home,
-        };
-    }
-    return {
-        white: playersBySide.home,
-        black: playersBySide.away,
-    };
-};
+var game_1 = require("../metadata/game");
 exports.prepareGameAction = function (_a) {
     var players = _a.players, timeLimit = _a.timeLimit, _b = _a.preferredColor, preferredColor = _b === void 0 ? "random" : _b, _c = _a.pgn, pgn = _c === void 0 ? "" : _c;
-    var firstPlayerColor = preferredColor === "random" ? getRandomChessColor() : preferredColor;
+    var firstPlayerColor = preferredColor === "random" ? util_1.getRandomChessColor() : preferredColor;
     if (!players[1]) {
         var waitingForOpponentGameState = {
             state: "waitingForOpponent",
@@ -54,8 +30,8 @@ exports.prepareGameAction = function (_a) {
                 },
             ],
             timeLeft: {
-                white: timeLimitMsMap[timeLimit],
-                black: timeLimitMsMap[timeLimit],
+                white: game_1.chessGameTimeLimitMsMap[timeLimit],
+                black: game_1.chessGameTimeLimitMsMap[timeLimit],
             },
             lastMoveAt: undefined,
             lastMoveBy: undefined,
@@ -79,8 +55,8 @@ exports.prepareGameAction = function (_a) {
             },
         ],
         timeLeft: {
-            white: timeLimitMsMap[timeLimit],
-            black: timeLimitMsMap[timeLimit],
+            white: game_1.chessGameTimeLimitMsMap[timeLimit],
+            black: game_1.chessGameTimeLimitMsMap[timeLimit],
         },
         pgn: undefined,
         winner: undefined,
@@ -134,13 +110,13 @@ next) {
     return __assign(__assign({}, prev), { state: "finished", winner: util_1.otherChessColor(prev.lastMoveBy) });
 };
 var abortAction = function (prev) {
-    return __assign(__assign({}, prev), { state: 'neverStarted' });
+    return __assign(__assign({}, prev), { state: "neverStarted" });
 };
 var resignAction = function (prev, resigningColor) {
     return __assign(__assign({}, prev), { state: "stopped", winner: util_1.otherChessColor(resigningColor) });
 };
 var drawAction = function (prev) {
-    return __assign(__assign({}, prev), { state: "stopped", winner: '1/2' });
+    return __assign(__assign({}, prev), { state: "stopped", winner: "1/2" });
 };
 exports.actions = {
     prepareGame: exports.prepareGameAction,

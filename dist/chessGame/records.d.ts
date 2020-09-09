@@ -52,12 +52,28 @@ export declare const chessPlayers: io.TypeC<{
     }>;
 }>;
 export declare type ChessPlayers = io.TypeOf<typeof chessPlayers>;
-export declare const chessColorWhite: io.LiteralC<"white">;
+export declare const chessColorWhite: io.KeyofC<{
+    white: null;
+}>;
 export declare type ChessColorWhite = io.TypeOf<typeof chessColorWhite>;
-export declare const chessColorBlack: io.LiteralC<"black">;
+export declare const chessColorBlack: io.KeyofC<{
+    black: null;
+}>;
 export declare type ChessColorBlack = io.TypeOf<typeof chessColorBlack>;
-export declare const chessGameColor: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+export declare const chessGameColor: io.UnionC<[io.KeyofC<{
+    white: null;
+}>, io.KeyofC<{
+    black: null;
+}>]>;
 export declare type ChessGameColor = io.TypeOf<typeof chessGameColor>;
+export declare const chessPreferredColorOption: io.UnionC<[io.KeyofC<{
+    black: null;
+}>, io.KeyofC<{
+    white: null;
+}>, io.KeyofC<{
+    random: null;
+}>]>;
+export declare type ChessPrefferedColorOption = io.TypeOf<typeof chessPreferredColorOption>;
 export declare const chessGameStateFen: io.StringC;
 export declare type ChessGameStateFen = io.TypeOf<typeof chessGameStateFen>;
 export declare const chessGameStatePgn: io.StringC;
@@ -144,26 +160,42 @@ export declare type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPla
 export declare const chessGameDrawOffer: io.TypeC<{
     type: io.LiteralC<"draw">;
     content: io.TypeC<{
-        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        by: io.UnionC<[io.KeyofC<{
+            white: null;
+        }>, io.KeyofC<{
+            black: null;
+        }>]>;
     }>;
 }>;
 export declare type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
 export declare const chessGameRematchOffer: io.TypeC<{
     type: io.LiteralC<"rematch">;
     content: io.TypeC<{
-        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        by: io.UnionC<[io.KeyofC<{
+            white: null;
+        }>, io.KeyofC<{
+            black: null;
+        }>]>;
     }>;
 }>;
 export declare type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
 export declare const chessGameOffer: io.UnionC<[io.TypeC<{
     type: io.LiteralC<"draw">;
     content: io.TypeC<{
-        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        by: io.UnionC<[io.KeyofC<{
+            white: null;
+        }>, io.KeyofC<{
+            black: null;
+        }>]>;
     }>;
 }>, io.TypeC<{
     type: io.LiteralC<"rematch">;
     content: io.TypeC<{
-        by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+        by: io.UnionC<[io.KeyofC<{
+            white: null;
+        }>, io.KeyofC<{
+            black: null;
+        }>]>;
     }>;
 }>, io.UndefinedC]>;
 export declare type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
@@ -435,7 +467,11 @@ export declare const chessGameStateFinished: io.TypeC<{
         black: io.NumberC;
     }>;
     pgn: io.StringC;
-    winner: io.UnionC<[io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>, io.LiteralC<"1/2">]>;
+    winner: io.UnionC<[io.UnionC<[io.KeyofC<{
+        white: null;
+    }>, io.KeyofC<{
+        black: null;
+    }>]>, io.LiteralC<"1/2">]>;
     lastMoveBy: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -517,7 +553,11 @@ export declare const chessGameStateStopped: io.TypeC<{
         black: io.NumberC;
     }>;
     pgn: io.StringC;
-    winner: io.UnionC<[io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>, io.LiteralC<"1/2">]>;
+    winner: io.UnionC<[io.UnionC<[io.KeyofC<{
+        white: null;
+    }>, io.KeyofC<{
+        black: null;
+    }>]>, io.LiteralC<"1/2">]>;
     lastMoveBy: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -757,7 +797,11 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         black: io.NumberC;
     }>;
     pgn: io.StringC;
-    winner: io.UnionC<[io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>, io.LiteralC<"1/2">]>;
+    winner: io.UnionC<[io.UnionC<[io.KeyofC<{
+        white: null;
+    }>, io.KeyofC<{
+        black: null;
+    }>]>, io.LiteralC<"1/2">]>;
     lastMoveBy: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -897,7 +941,11 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         black: io.NumberC;
     }>;
     pgn: io.StringC;
-    winner: io.UnionC<[io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>, io.LiteralC<"1/2">]>;
+    winner: io.UnionC<[io.UnionC<[io.KeyofC<{
+        white: null;
+    }>, io.KeyofC<{
+        black: null;
+    }>]>, io.LiteralC<"1/2">]>;
     lastMoveBy: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;

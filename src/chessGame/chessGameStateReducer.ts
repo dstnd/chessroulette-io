@@ -9,47 +9,12 @@ import {
   ChessGameStateWaitingForOpponent,
   ChessGameStateStopped,
 } from "./records";
-import { otherChessColor, shuffle, minutes } from "./util";
+import { otherChessColor, getRandomChessColor } from "./util";
 import { getNewChessGame } from "./sdk";
 import { toISODateTime } from "io-ts-isodatetime";
 import { ChessMove } from "./boardRecords";
 import { UserInfoRecord } from "../records/userRecord";
-
-const timeLimitMsMap: { [key in ChessGameTimeLimit]: number } = {
-  bullet: minutes(1),
-  blitz: minutes(5),
-  rapid: minutes(15),
-  untimed: -1,
-};
-
-const getRandomChessColor = () =>
-  shuffle(["white", "black"])[0] as ChessGameColor;
-
-const getPlayerSideColor = <TPlayer>(
-  homeColor: ChessGameColor | "random",
-  playersBySide: {
-    home: TPlayer;
-    away: TPlayer;
-  }
-) => {
-  if (homeColor === "random") {
-    const [white, black] = shuffle([playersBySide.home, playersBySide.away]);
-
-    return { white, black };
-  }
-
-  if (homeColor === "black") {
-    return {
-      white: playersBySide.away,
-      black: playersBySide.home,
-    };
-  }
-
-  return {
-    white: playersBySide.home,
-    black: playersBySide.away,
-  };
-};
+import { chessGameTimeLimitMsMap } from "../metadata/game";
 
 export const prepareGameAction = ({
   players,
@@ -80,8 +45,8 @@ export const prepareGameAction = ({
         },
       ],
       timeLeft: {
-        white: timeLimitMsMap[timeLimit],
-        black: timeLimitMsMap[timeLimit],
+        white: chessGameTimeLimitMsMap[timeLimit],
+        black: chessGameTimeLimitMsMap[timeLimit],
       },
       lastMoveAt: undefined,
       lastMoveBy: undefined,
@@ -107,8 +72,8 @@ export const prepareGameAction = ({
       },
     ],
     timeLeft: {
-      white: timeLimitMsMap[timeLimit],
-      black: timeLimitMsMap[timeLimit],
+      white: chessGameTimeLimitMsMap[timeLimit],
+      black: chessGameTimeLimitMsMap[timeLimit],
     },
     pgn: undefined,
     winner: undefined,
@@ -220,17 +185,17 @@ const timerFinishedAction = (
 };
 
 const abortAction = (
-  prev: ChessGameStatePending | ChessGameStateWaitingForOpponent,
+  prev: ChessGameStatePending | ChessGameStateWaitingForOpponent
 ): ChessGameStateNeverStarted => {
   return {
     ...prev,
-    state: 'neverStarted',
+    state: "neverStarted",
   };
 };
 
 const resignAction = (
   prev: ChessGameStateStarted,
-  resigningColor: ChessGameColor,
+  resigningColor: ChessGameColor
 ): ChessGameStateStopped => {
   return {
     ...prev,
@@ -239,13 +204,11 @@ const resignAction = (
   };
 };
 
-const drawAction = (
-  prev: ChessGameStateStarted,
-): ChessGameStateStopped => {
+const drawAction = (prev: ChessGameStateStarted): ChessGameStateStopped => {
   return {
     ...prev,
     state: "stopped",
-    winner: '1/2',
+    winner: "1/2",
   };
 };
 

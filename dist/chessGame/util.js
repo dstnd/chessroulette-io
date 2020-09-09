@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.milliseconds = exports.second = exports.seconds = exports.minutes = exports.hours = exports.shuffle = exports.otherChessColor = void 0;
+exports.getRandomChessColor = exports.shuffle = exports.otherChessColor = void 0;
 function otherChessColor(c) {
     return c === 'white' ? 'black' : 'white';
 }
@@ -22,9 +22,5 @@ function shuffle(a) {
     return a;
 }
 exports.shuffle = shuffle;
-exports.hours = function (int) { return int * exports.minutes(60); };
-exports.minutes = function (int) { return int * exports.seconds(60); };
-exports.seconds = function (int) { return int * exports.second(); };
-exports.second = function () { return 1000; };
-exports.milliseconds = function (int) { return int; };
+exports.getRandomChessColor = function () { return shuffle(['white', 'black'])[0]; };
 //# sourceMappingURL=util.js.map

@@ -17,4 +17,5 @@ __exportStar(require("./records/lichessRecords"), exports);
 __exportStar(require("./payloads"), exports);
 __exportStar(require("./io"), exports);
 __exportStar(require("./chessGame"), exports);
+exports.metadata = require("./metadata");
 //# sourceMappingURL=index.js.map

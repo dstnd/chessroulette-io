@@ -20,6 +20,7 @@ exports.privateRoomResponsePayload = io.intersection([
 ;
 exports.gameInitConfig = io.type({
     timeLimit: ChessGame.chessGameTimeLimit,
+    preferredColor: ChessGame.chessPreferredColorOption,
 });
 exports.createRoomRequest = io.type({
     nickname: io.union([io.string, io.undefined]),

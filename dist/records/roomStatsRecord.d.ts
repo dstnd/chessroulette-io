@@ -254,7 +254,11 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
             black: io.NumberC;
         }>;
         pgn: io.StringC;
-        winner: io.UnionC<[io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>, io.LiteralC<"1/2">]>;
+        winner: io.UnionC<[io.UnionC<[io.KeyofC<{
+            white: null;
+        }>, io.KeyofC<{
+            black: null;
+        }>]>, io.LiteralC<"1/2">]>;
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -394,7 +398,11 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
             black: io.NumberC;
         }>;
         pgn: io.StringC;
-        winner: io.UnionC<[io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>, io.LiteralC<"1/2">]>;
+        winner: io.UnionC<[io.UnionC<[io.KeyofC<{
+            white: null;
+        }>, io.KeyofC<{
+            black: null;
+        }>]>, io.LiteralC<"1/2">]>;
         lastMoveBy: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -436,12 +444,20 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
     gameOffer: io.UnionC<[io.TypeC<{
         type: io.LiteralC<"draw">;
         content: io.TypeC<{
-            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+            by: io.UnionC<[io.KeyofC<{
+                white: null;
+            }>, io.KeyofC<{
+                black: null;
+            }>]>;
         }>;
     }>, io.TypeC<{
         type: io.LiteralC<"rematch">;
         content: io.TypeC<{
-            by: io.UnionC<[io.LiteralC<"white">, io.LiteralC<"black">]>;
+            by: io.UnionC<[io.KeyofC<{
+                white: null;
+            }>, io.KeyofC<{
+                black: null;
+            }>]>;
         }>;
     }>, io.UndefinedC]>;
 }>, io.UnionC<[io.TypeC<{

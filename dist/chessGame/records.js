@@ -1,22 +1,10 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
+exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
 var io = require("io-ts");
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var userRecord_1 = require("../records/userRecord");
-// export const userInfoRecord = io.type({
-//   id: io.string,
-//   name: io.string,
-//   avatarId: io.string,
-//   // Add any other pertinent details here if needed!
-// });
-// export const userInfoRecord = io.type({
-//   id: io.string,
-//   name: io.string,
-//   avatarId: io.string,
-//   // Add any other pertinent details here if needed!
-// });
 exports.chessPlayerWhite = io.type({
     color: io.literal('white'),
     user: userRecord_1.userInfoRecord,
@@ -30,9 +18,14 @@ exports.chessPlayers = io.type({
     white: exports.chessPlayerWhite,
     black: exports.chessPlayerBlack,
 });
-exports.chessColorWhite = io.literal('white');
-exports.chessColorBlack = io.literal('black');
+exports.chessColorWhite = io.keyof({ white: null });
+exports.chessColorBlack = io.keyof({ black: null });
 exports.chessGameColor = io.union([exports.chessColorWhite, exports.chessColorBlack]);
+exports.chessPreferredColorOption = io.union([
+    exports.chessColorBlack,
+    exports.chessColorWhite,
+    io.keyof({ random: null }),
+]);
 exports.chessGameStateFen = io.string;
 exports.chessGameStatePgn = io.string;
 exports.chessGameTimeLimit = io.keyof({
@@ -73,11 +66,7 @@ exports.chessGameRematchOffer = io.type({
         by: exports.chessGameColor,
     }),
 });
-exports.chessGameOffer = io.union([
-    exports.chessGameDrawOffer,
-    exports.chessGameRematchOffer,
-    io.undefined,
-]);
+exports.chessGameOffer = io.union([exports.chessGameDrawOffer, exports.chessGameRematchOffer, io.undefined]);
 exports.chessGameStateWaitingForOpponent = io.type({
     state: io.literal('waitingForOpponent'),
     timeLimit: exports.chessGameTimeLimit,
@@ -111,10 +100,7 @@ exports.chessGameStatePending = io.type({
 exports.chessGameStateNeverStarted = io.type({
     state: io.literal('neverStarted'),
     timeLimit: exports.chessGameTimeLimit,
-    players: io.union([
-        io.tuple([exports.chessPlayer, exports.chessPlayer]),
-        io.tuple([exports.chessPlayer]),
-    ]),
+    players: io.union([io.tuple([exports.chessPlayer, exports.chessPlayer]), io.tuple([exports.chessPlayer])]),
     timeLeft: io.type({
         white: io.number,
         black: io.number,

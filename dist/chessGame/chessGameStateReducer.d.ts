@@ -4,14 +4,14 @@ import { UserInfoRecord } from "../records/userRecord";
 export declare const prepareGameAction: ({ players, timeLimit, preferredColor, pgn, }: {
     players: [UserInfoRecord] | [UserInfoRecord, UserInfoRecord];
     timeLimit: ChessGameTimeLimit;
-    preferredColor?: "black" | "white" | "random" | undefined;
+    preferredColor?: "white" | "black" | "random" | undefined;
     pgn?: string | undefined;
 }) => ChessGameStateWaitingForOpponent | ChessGameStatePending | ChessGameStateStarted | ChessGameStateFinished;
 export declare const actions: {
     prepareGame: ({ players, timeLimit, preferredColor, pgn, }: {
         players: [UserInfoRecord] | [UserInfoRecord, UserInfoRecord];
         timeLimit: ChessGameTimeLimit;
-        preferredColor?: "black" | "white" | "random" | undefined;
+        preferredColor?: "white" | "black" | "random" | undefined;
         pgn?: string | undefined;
     }) => ChessGameStateWaitingForOpponent | ChessGameStatePending | ChessGameStateStarted | ChessGameStateFinished;
     joinGame: (prev: ChessGameStateWaitingForOpponent, opponent: UserInfoRecord) => {
@@ -120,9 +120,9 @@ export declare const actions: {
         };
         pgn: string;
         winner: undefined;
-        lastMoveBy: "black" | "white";
+        lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-        lastMoved: "black" | "white";
+        lastMoved: "white" | "black";
     } | {
         state: "finished";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
@@ -160,10 +160,10 @@ export declare const actions: {
             black: number;
         };
         pgn: string;
-        winner: "black" | "white" | "1/2";
-        lastMoveBy: "black" | "white";
+        winner: "white" | "black" | "1/2";
+        lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-        lastMoved: "black" | "white";
+        lastMoved: "white" | "black";
     };
     move: (prev: ChessGameStatePending | ChessGameStateStarted, next: {
         move: ChessMove;

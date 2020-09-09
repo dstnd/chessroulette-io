@@ -23,6 +23,7 @@ export type PrivateRoomResponsePayload = io.TypeOf<typeof privateRoomResponsePay
 
 export const gameInitConfig = io.type({
   timeLimit: ChessGame.chessGameTimeLimit,
+  preferredColor: ChessGame.chessPreferredColorOption,
 });
 export type GameInitConfig = io.TypeOf<typeof gameInitConfig>;
 

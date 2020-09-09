@@ -3,19 +3,6 @@ import * as io from 'io-ts';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import { userInfoRecord } from '../records/userRecord';
 
-// export const userInfoRecord = io.type({
-//   id: io.string,
-//   name: io.string,
-//   avatarId: io.string,
-//   // Add any other pertinent details here if needed!
-// });
-// export const userInfoRecord = io.type({
-//   id: io.string,
-//   name: io.string,
-//   avatarId: io.string,
-//   // Add any other pertinent details here if needed!
-// });
-
 export const chessPlayerWhite = io.type({
   color: io.literal('white'),
   user: userInfoRecord,
@@ -37,13 +24,20 @@ export const chessPlayers = io.type({
 });
 export type ChessPlayers = io.TypeOf<typeof chessPlayers>;
 
-export const chessColorWhite = io.literal('white');
+export const chessColorWhite = io.keyof({ white: null });
 export type ChessColorWhite = io.TypeOf<typeof chessColorWhite>;
-export const chessColorBlack = io.literal('black');
+export const chessColorBlack = io.keyof({ black: null });
 export type ChessColorBlack = io.TypeOf<typeof chessColorBlack>;
 
 export const chessGameColor = io.union([chessColorWhite, chessColorBlack]);
 export type ChessGameColor = io.TypeOf<typeof chessGameColor>;
+
+export const chessPreferredColorOption = io.union([
+  chessColorBlack,
+  chessColorWhite,
+  io.keyof({ random: null }),
+]);
+export type ChessPrefferedColorOption = io.TypeOf<typeof chessPreferredColorOption>;
 
 export const chessGameStateFen = io.string;
 export type ChessGameStateFen = io.TypeOf<typeof chessGameStateFen>;
@@ -100,11 +94,7 @@ export const chessGameRematchOffer = io.type({
 });
 export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
 
-export const chessGameOffer = io.union([
-  chessGameDrawOffer,
-  chessGameRematchOffer,
-  io.undefined,
-]);
+export const chessGameOffer = io.union([chessGameDrawOffer, chessGameRematchOffer, io.undefined]);
 export type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
 
 export const chessGameStateWaitingForOpponent = io.type({
@@ -144,10 +134,7 @@ export type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
 export const chessGameStateNeverStarted = io.type({
   state: io.literal('neverStarted'),
   timeLimit: chessGameTimeLimit,
-  players: io.union([
-    io.tuple([chessPlayer, chessPlayer]),
-    io.tuple([chessPlayer]),
-  ]),
+  players: io.union([io.tuple([chessPlayer, chessPlayer]), io.tuple([chessPlayer])]),
   timeLeft: io.type({
     white: io.number,
     black: io.number,
