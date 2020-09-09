@@ -17,4 +17,6 @@ __exportStar(require("./peer"), exports);
 __exportStar(require("./user"), exports);
 __exportStar(require("./game"), exports);
 __exportStar(require("./room"), exports);
+__exportStar(require("./lichess"), exports);
+__exportStar(require("./authentication"), exports);
 //# sourceMappingURL=index.js.map

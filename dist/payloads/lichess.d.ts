@@ -1,15 +1,6 @@
 import * as io from 'io-ts';
-export declare const registerUserResponsePayload: io.UnionC<[io.IntersectionC<[io.TypeC<{
-    id: io.StringC;
-    name: io.StringC;
-    avatarId: io.StringC;
-}>, io.TypeC<{
-    isGuest: io.LiteralC<false>;
-    email: io.StringC;
-}>, io.TypeC<{
-    externalAccountType: io.LiteralC<"lichess">;
-    externalAccountId: io.StringC;
-    externalAccountInfo: io.TypeC<{
+export declare const lichessUserResponsePayload: io.TypeC<{
+    user: io.TypeC<{
         email: io.StringC;
         id: io.StringC;
         username: io.StringC;
@@ -40,11 +31,4 @@ export declare const registerUserResponsePayload: io.UnionC<[io.IntersectionC<[i
             }>;
         }>;
     }>;
-}>]>, io.IntersectionC<[io.TypeC<{
-    id: io.StringC;
-    name: io.StringC;
-    avatarId: io.StringC;
-}>, io.TypeC<{
-    isGuest: io.LiteralC<true>;
-}>]>]>;
-export declare type RegisterUserResponsePayload = io.TypeOf<typeof registerUserResponsePayload>;
+}>;

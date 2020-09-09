@@ -1,4 +1,5 @@
-import * as io from 'io-ts';
+import * as io from "io-ts";
+import { lichessUserRecord } from "./lichessRecords";
 
 export const userInfoRecord = io.type({
   id: io.string,
@@ -8,14 +9,23 @@ export const userInfoRecord = io.type({
 });
 export type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
 
+export const userExternalAccountOpts = io.type({
+  externalAccountType: io.literal('lichess'),
+  externalAccountId: io.string,
+  externalAccountInfo: lichessUserRecord,
+});
+export type UserExternalAccountOpts = io.TypeOf<typeof userExternalAccountOpts>;
+
 export const registeredUserRecord = io.intersection([
   userInfoRecord,
   io.type({
     isGuest: io.literal(false),
+    email: io.string,
   }),
+  userExternalAccountOpts,
 ]);
 
-export type RegisterdUserRecord = io.TypeOf<typeof registeredUserRecord>;
+export type RegisteredUserRecord = io.TypeOf<typeof registeredUserRecord>;
 
 export const guestUserRecord = io.intersection([
   userInfoRecord,
