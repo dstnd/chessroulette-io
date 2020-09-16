@@ -5,14 +5,19 @@
   "license": "MIT",
   "dependencies": {
     "@types/chess.js": "^0.10.1",
+    "@types/jest": "^26.0.13",
     "chess.js": "^0.11.0",
     "fp-ts": "^2.8.2",
     "io-ts": "2.2.10",
-    "io-ts-isodatetime": "https://github.com/GabrielCTroia/io-ts-isodatetime.git#v0.0.3"
+    "io-ts-isodatetime": "https://github.com/GabrielCTroia/io-ts-isodatetime.git#v0.0.3",
+    "jest": "^26.4.2",
+    "ts-results": "^3.0.0"
   },
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
   "devDependencies": {
+    "conditional-type-checks": "^1.0.5",
+    "ts-jest": "^26.3.0",
     "typescript": "^3.8.3"
   }
 }
