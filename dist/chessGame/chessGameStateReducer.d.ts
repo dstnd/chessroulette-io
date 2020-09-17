@@ -18,14 +18,14 @@ export declare const actions: {
         state: "waitingForOpponent";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
@@ -45,28 +45,28 @@ export declare const actions: {
         state: "pending";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
@@ -86,28 +86,28 @@ export declare const actions: {
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         state: "started";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
@@ -127,28 +127,28 @@ export declare const actions: {
         state: "finished";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;

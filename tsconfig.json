@@ -13,7 +13,7 @@
     "noImplicitReturns": true,
     "baseUrl": "./",
     "target": "es5",
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
   },
   "include": [
     "src/**/*"

@@ -1,6 +1,6 @@
 import * as PayloadCodecs from './payloads';
 import { Either } from 'fp-ts/lib/Either';
-import { Result } from './ts-results';
+import { Result } from 'ts-results';
 import * as ioTs from 'io-ts';
 export declare const toResult: <T, E>(either: Either<E, T>) => Result<T, E>;
 export declare const io: {
