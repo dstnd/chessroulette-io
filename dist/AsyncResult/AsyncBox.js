@@ -111,5 +111,9 @@ var AsyncResult;
         return new AsyncResultWrapper(resolver);
     }
     AsyncResult.all = all;
+    function toAsyncResult(result) {
+        return new AsyncResultWrapper(result);
+    }
+    AsyncResult.toAsyncResult = toAsyncResult;
 })(AsyncResult = exports.AsyncResult || (exports.AsyncResult = {}));
 //# sourceMappingURL=AsyncBox.js.map

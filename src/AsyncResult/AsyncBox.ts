@@ -158,4 +158,15 @@ export namespace AsyncResult {
       AsyncResultErrTypes<T>[number]
     >;
   }
+
+  export function toAsyncResult<T, E>(
+    result:
+      | Result<T, E>
+      | Promise<Result<T, E>>
+      | (() => Promise<Result<T, E>>)
+      | (() => Result<T, E>
+    )
+  ) {
+    return new AsyncResultWrapper<T, E>(result);
+  }
 }
