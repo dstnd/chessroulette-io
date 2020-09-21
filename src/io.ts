@@ -10,10 +10,7 @@ const deserialize = <
 >(
   codec: TCodec,
   serialized: string,
-): Result<
-  TRecord, 
-  | { type: 'BadEncoding', reasons: ioTs.ValidationError[] }
-> => {
+): Result<TRecord, IODeserializationError> => {
   const decoded = codec.decode(serialized) as Left<ioTs.Errors> | Right<TRecord>;
 
   if (isLeft(decoded)) {
@@ -43,8 +40,18 @@ export const toResult = <T, E>(either: Either<E, T>): Result<T, E> => {
   return new Ok(either.right);
 };
 
+export type IODeserializationError = {
+  type: 'BadEncoding',
+  reasons: ioTs.ValidationError[],
+};
+
+export const isIODeserializationError = (e: unknown): e is IODeserializationError => {
+  return e && typeof e === 'object' && ('type' in e && typeof e === 'string' && (e as any).type === 'BadEncoding');
+}
+
 export const io = {
   serialize,
   deserialize,
   toResult,
+  isIODeserializationError,
 };
