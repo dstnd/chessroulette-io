@@ -5,10 +5,10 @@ export declare type AsyncResultErrors = ResolutionError;
 export declare class AsyncResultWrapper<T, E> {
     readonly isAsync = true;
     private readonly result;
-    constructor(result: Result<T, E> | Promise<Result<T, E>>);
+    constructor(result: Result<T, E> | Promise<Result<T, E>> | (() => Promise<Result<T, E>>) | (() => Result<T, E>));
     resolve(): Promise<Result<T, E>>;
     map<T2>(mapper: (val: T) => T2): AsyncResultWrapper<T2, E>;
-    mapErr<E2>(mapper: (val: E) => E2): AsyncResultWrapper<T, E | E2>;
+    mapErr<E2>(mapper: (val: E) => E2): AsyncResultWrapper<T, E2>;
     flatMap<T2, E2>(mapper: (val: T) => Result<T2, E2> | AsyncResultWrapper<T2, E | E2>): AsyncResultWrapper<T2, E | E2>;
     flatMapErr<T2, E2>(mapper: (val: E) => Result<T2, E2> | AsyncResultWrapper<T2, E2>): AsyncResultWrapper<T | T2, E2>;
 }

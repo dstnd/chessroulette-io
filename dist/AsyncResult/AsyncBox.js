@@ -15,23 +15,31 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.AsyncResult = exports.AsyncErr = exports.AsyncOk = exports.AsyncResultWrapper = void 0;
 var ts_results_1 = require("ts-results");
+var util_1 = require("./util");
 var resolutionError = 'ResolutionError';
 // export type MergedErrors<E> = E | AsyncResultErrors;
 var AsyncResultWrapper = /** @class */ (function () {
     function AsyncResultWrapper(result) {
         this.isAsync = true;
-        this.result = Promise.resolve(result);
+        this.result = Promise.resolve(typeof result === 'function' ? result() : result);
     }
     AsyncResultWrapper.prototype.resolve = function () {
         return this.result;
     };
     AsyncResultWrapper.prototype.map = function (mapper) {
-        var mapped = this.result.then(function (r) { return (r.ok ? new ts_results_1.Ok(mapper(r.val)) : r); });
-        return new AsyncResultWrapper(mapped);
+        var mapped = this.result.then(function (r) {
+            // console.trace('asyncbox.map r', r);
+            return (r.ok ? new ts_results_1.Ok(mapper(r.val)) : r);
+        }
+        // () => new Err(resolutionError)
+        );
+        return new AsyncResultWrapper(util_1.traceAsyncErrors(function () { return mapped; }));
     };
     AsyncResultWrapper.prototype.mapErr = function (mapper) {
-        var mapped = this.result.then(function (r) { return (r.ok ? r : new ts_results_1.Err(mapper(r.val))); });
-        return new AsyncResultWrapper(mapped);
+        var mapped = this.result.then(function (r) { return (r.ok ? r : new ts_results_1.Err(mapper(r.val))); }
+        // () => new Err(resolutionError)
+        );
+        return new AsyncResultWrapper(util_1.traceAsyncErrors(function () { return mapped; }));
     };
     AsyncResultWrapper.prototype.flatMap = function (mapper) {
         var mapped = this.result.then(function (r) {
@@ -43,8 +51,10 @@ var AsyncResultWrapper = /** @class */ (function () {
                 return newRes.result;
             }
             return newRes;
-        });
-        return new AsyncResultWrapper(mapped);
+        }
+        // () => new Err(resolutionError)
+        );
+        return new AsyncResultWrapper(util_1.traceAsyncErrors(function () { return mapped; }));
     };
     AsyncResultWrapper.prototype.flatMapErr = function (mapper) {
         var mapped = this.result.then(function (r) {
@@ -56,8 +66,10 @@ var AsyncResultWrapper = /** @class */ (function () {
                 return newRes.result;
             }
             return newRes;
-        });
-        return new AsyncResultWrapper(mapped);
+        }
+        // () => new Err(resolutionError)
+        );
+        return new AsyncResultWrapper(util_1.traceAsyncErrors(function () { return mapped; }));
     };
     return AsyncResultWrapper;
 }());
@@ -65,7 +77,9 @@ exports.AsyncResultWrapper = AsyncResultWrapper;
 var AsyncOk = /** @class */ (function (_super) {
     __extends(AsyncOk, _super);
     function AsyncOk(resolver) {
-        return _super.call(this, Promise.resolve(resolver).then(function (val) { return new ts_results_1.Ok(val); })) || this;
+        return _super.call(this, Promise.resolve(resolver).then(function (val) { return new ts_results_1.Ok(val); }
+        // (e) => new Err('ResolutionError' as const)
+        )) || this;
     }
     AsyncOk.EMPTY = new AsyncOk(undefined);
     return AsyncOk;
@@ -74,7 +88,9 @@ exports.AsyncOk = AsyncOk;
 var AsyncErr = /** @class */ (function (_super) {
     __extends(AsyncErr, _super);
     function AsyncErr(resolver) {
-        return _super.call(this, Promise.resolve(resolver).then(function (val) { return new ts_results_1.Err(val); })) || this;
+        return _super.call(this, Promise.resolve(resolver).then(function (val) { return new ts_results_1.Err(val); }
+        // () => new Err('ResolutionError')
+        )) || this;
     }
     AsyncErr.EMPTY = new AsyncErr(undefined);
     return AsyncErr;
@@ -91,12 +107,9 @@ var AsyncResult;
         for (var _i = 0; _i < arguments.length; _i++) {
             results[_i] = arguments[_i];
         }
-        var resolver = Promise
-            .all(results.map(function (r) { return r.resolve(); }))
-            .then(function (results) { return ts_results_1.Result.all.apply(ts_results_1.Result, results); });
+        var resolver = Promise.all(results.map(function (r) { return r.resolve(); })).then(function (results) { return ts_results_1.Result.all.apply(ts_results_1.Result, results); });
         return new AsyncResultWrapper(resolver);
     }
     AsyncResult.all = all;
 })(AsyncResult = exports.AsyncResult || (exports.AsyncResult = {}));
-;
 //# sourceMappingURL=AsyncBox.js.map
