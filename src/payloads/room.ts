@@ -36,6 +36,7 @@ export const joinRoomFailurePayload = io.type({
     WrongCode: null,
     InexistentRoom: null,
     InexistentPeer: null,
+    OtherRoomAlreadyJoined: null,
   }),
 });
 export type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;

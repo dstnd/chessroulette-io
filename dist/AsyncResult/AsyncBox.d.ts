@@ -35,6 +35,7 @@ export declare namespace AsyncResult {
      * Short circuits with the first `Err` found, if any
      */
     function all<T extends AsyncResult<any, any>[]>(...results: T): AsyncResult<AsyncResultOkTypes<T>, AsyncResultErrTypes<T>[number]>;
-    function toAsyncResult<T, E>(result: Result<T, E> | Promise<Result<T, E>> | (() => Promise<Result<T, E>>) | (() => Result<T, E>)): AsyncResultWrapper<T, E>;
+    function toAsyncResult<T, E = unknown>(result: Result<T, E> | Promise<Result<T, E>> | (() => Promise<Result<T, E>>) | (() => Result<T, E>)): AsyncResultWrapper<T, E>;
+    function passThrough<T>(fn: (item: T) => unknown): (item: T) => T;
 }
 export {};

@@ -462,6 +462,8 @@ export declare const roomStatsPayload: io.TypeC<{
                 }>]>;
             }>;
         }>, io.UndefinedC]>;
+        createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        createdBy: io.StringC;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
     }>, io.TypeC<{
@@ -942,6 +944,8 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                     }>]>;
                 }>;
             }>, io.UndefinedC]>;
+            createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            createdBy: io.StringC;
         }>, io.UnionC<[io.TypeC<{
             type: io.LiteralC<"public">;
         }>, io.TypeC<{
@@ -1008,6 +1012,7 @@ export declare const joinRoomFailurePayload: io.TypeC<{
         WrongCode: null;
         InexistentRoom: null;
         InexistentPeer: null;
+        OtherRoomAlreadyJoined: null;
     }>;
 }>;
 export declare type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;

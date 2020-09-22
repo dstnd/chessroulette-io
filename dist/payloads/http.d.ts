@@ -460,6 +460,8 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             }>]>;
         }>;
     }>, io.UndefinedC]>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -930,6 +932,8 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             }>]>;
         }>;
     }>, io.UndefinedC]>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -1398,6 +1402,8 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             }>]>;
         }>;
     }>, io.UndefinedC]>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -1425,7 +1431,7 @@ export declare const gameInitConfig: io.TypeC<{
 export declare type GameInitConfig = io.TypeOf<typeof gameInitConfig>;
 export declare const createRoomRequest: io.TypeC<{
     nickname: io.UnionC<[io.StringC, io.UndefinedC]>;
-    peerId: io.StringC;
+    userId: io.StringC;
     type: io.KeyofC<{
         public: null;
         private: null;
@@ -1908,6 +1914,8 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             }>]>;
         }>;
     }>, io.UndefinedC]>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -2395,6 +2403,8 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
             }>]>;
         }>;
     }>, io.UndefinedC]>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{

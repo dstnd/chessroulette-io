@@ -24,8 +24,9 @@ exports.gameInitConfig = io.type({
 });
 exports.createRoomRequest = io.type({
     nickname: io.union([io.string, io.undefined]),
-    peerId: io.string,
+    userId: io.string,
     type: roomStatsRecord_1.roomType,
+    // Shouldn't be here
     game: exports.gameInitConfig,
 });
 exports.createRoomResponse = roomStatsRecord_1.roomStatsRecord;

@@ -1,6 +1,8 @@
 import * as io from 'io-ts';
+import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import { chessGameState, chessGameOffer } from '../chessGame';
 import { peerRecord } from './peerRecord';
+
 
 export const roomStatsRecord = io.intersection([
   io.type({
@@ -10,6 +12,8 @@ export const roomStatsRecord = io.intersection([
     peers: io.record(io.string, peerRecord),
     game: chessGameState,
     gameOffer: chessGameOffer,
+    createdAt: isoDateTimeFromIsoString,
+    createdBy: io.string,
   }),
   io.union([
     io.type({ type: io.literal('public')}),

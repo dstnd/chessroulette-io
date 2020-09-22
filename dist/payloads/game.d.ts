@@ -1,7 +1,12 @@
 import * as io from 'io-ts';
 export declare const gameJoinRequestPayload: io.TypeC<{
     kind: io.LiteralC<"gameJoinRequest">;
-    content: io.UndefinedC;
+    content: io.TypeC<{
+        roomCredentials: io.TypeC<{
+            roomId: io.StringC;
+            code: io.UnionC<[io.StringC, io.UndefinedC]>;
+        }>;
+    }>;
 }>;
 export declare type GameJoinRequestPayload = io.TypeOf<typeof gameJoinRequestPayload>;
 export declare const gameDrawOfferingRequestPayload: io.TypeC<{

@@ -7,3 +7,4 @@ export * from './io';
 export * from './chessGame';
 export * as metadata from './metadata';
 export * from './AsyncResult/AsyncBox';
+export * from 'ts-results';

@@ -31,6 +31,7 @@ exports.joinRoomFailurePayload = io.type({
         WrongCode: null,
         InexistentRoom: null,
         InexistentPeer: null,
+        OtherRoomAlreadyJoined: null,
     }),
 });
 // TODO: Not sure this is still needed

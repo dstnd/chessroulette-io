@@ -29,8 +29,10 @@ export type GameInitConfig = io.TypeOf<typeof gameInitConfig>;
 
 export const createRoomRequest = io.type({
   nickname: io.union([io.string, io.undefined]),
-  peerId: io.string,
+  userId: io.string,
   type: roomType,
+  
+  // Shouldn't be here
   game: gameInitConfig,
 });
 export type CreateRoomRequest = io.TypeOf<typeof createRoomRequest>;

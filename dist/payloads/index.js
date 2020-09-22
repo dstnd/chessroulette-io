@@ -19,4 +19,5 @@ __exportStar(require("./game"), exports);
 __exportStar(require("./room"), exports);
 __exportStar(require("./lichess"), exports);
 __exportStar(require("./authentication"), exports);
+__exportStar(require("./stats"), exports);
 //# sourceMappingURL=index.js.map

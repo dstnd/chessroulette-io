@@ -20,6 +20,7 @@ import {
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
 } from './room';
+import { statsSocketPayload } from './stats';
 
 export const userIdentificationPayload = io.type({
   kind: io.literal('userIdentification'),
@@ -28,6 +29,14 @@ export const userIdentificationPayload = io.type({
   }),
 });
 export type UserIdentificationPayload = io.TypeOf<typeof userIdentificationPayload>;
+
+export const statsReaderIdentificationPayload = io.type({
+  kind: io.literal('statsReaderIdentificationPayload'),
+  content: io.type({
+    userId: io.string,
+  }),
+});
+export type StatsReaderIdentificationPayload = io.TypeOf<typeof statsReaderIdentificationPayload>;
 
 export const pingPayload = io.type({
   kind: io.literal('ping'),
@@ -65,6 +74,7 @@ export type GenericFailureResponsePayload = io.TypeOf<typeof genericFailureRespo
 
 export const socketPayload = io.union([
   userIdentificationPayload,
+  statsReaderIdentificationPayload,
   pingPayload,
   genericFailureResponsePayload,
 
@@ -89,5 +99,8 @@ export const socketPayload = io.union([
   gameRematchOfferingRequestPayload,
   gameRematchAcceptRequestPayload,
   gameRematchDenyRequestPayload,
+
+  // Stats
+  statsSocketPayload,
 ]);
 export type SocketPayload = io.TypeOf<typeof socketPayload>;

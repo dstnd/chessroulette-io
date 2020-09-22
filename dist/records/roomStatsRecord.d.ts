@@ -460,6 +460,8 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
             }>]>;
         }>;
     }>, io.UndefinedC]>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{

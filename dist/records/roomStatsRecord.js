@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.roomType = exports.roomStatsRecord = void 0;
 var io = require("io-ts");
+var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var chessGame_1 = require("../chessGame");
 var peerRecord_1 = require("./peerRecord");
 exports.roomStatsRecord = io.intersection([
@@ -12,6 +13,8 @@ exports.roomStatsRecord = io.intersection([
         peers: io.record(io.string, peerRecord_1.peerRecord),
         game: chessGame_1.chessGameState,
         gameOffer: chessGame_1.chessGameOffer,
+        createdAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+        createdBy: io.string,
     }),
     io.union([
         io.type({ type: io.literal('public') }),

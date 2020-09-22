@@ -20,4 +20,5 @@ __exportStar(require("./io"), exports);
 __exportStar(require("./chessGame"), exports);
 exports.metadata = require("./metadata");
 __exportStar(require("./AsyncResult/AsyncBox"), exports);
+__exportStar(require("ts-results"), exports);
 //# sourceMappingURL=index.js.map

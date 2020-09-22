@@ -115,5 +115,12 @@ var AsyncResult;
         return new AsyncResultWrapper(result);
     }
     AsyncResult.toAsyncResult = toAsyncResult;
+    function passThrough(fn) {
+        return function (item) {
+            fn(item);
+            return item;
+        };
+    }
+    AsyncResult.passThrough = passThrough;
 })(AsyncResult = exports.AsyncResult || (exports.AsyncResult = {}));
 //# sourceMappingURL=AsyncBox.js.map

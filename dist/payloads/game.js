@@ -5,7 +5,12 @@ var io = require("io-ts");
 var boardRecords_1 = require("../chessGame/boardRecords");
 exports.gameJoinRequestPayload = io.type({
     kind: io.literal('gameJoinRequest'),
-    content: io.undefined,
+    content: io.type({
+        roomCredentials: io.type({
+            roomId: io.string,
+            code: io.union([io.string, io.undefined]),
+        }),
+    }),
 });
 exports.gameDrawOfferingRequestPayload = io.type({
     kind: io.literal('gameDrawOfferingRequest'),

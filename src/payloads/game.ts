@@ -3,7 +3,12 @@ import { chessMove } from '../chessGame/boardRecords';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
-  content: io.undefined,
+  content: io.type({
+    roomCredentials: io.type({
+      roomId: io.string,
+      code: io.union([io.string, io.undefined]),
+    }),
+  }),
 });
 export type GameJoinRequestPayload = io.TypeOf<typeof gameJoinRequestPayload>;
 
