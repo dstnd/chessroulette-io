@@ -159,14 +159,20 @@ export namespace AsyncResult {
     >;
   }
 
-  export function toAsyncResult<T, E>(
+  export function toAsyncResult<T, E = unknown>(
     result:
       | Result<T, E>
       | Promise<Result<T, E>>
       | (() => Promise<Result<T, E>>)
-      | (() => Result<T, E>
-    )
+      | (() => Result<T, E>)
   ) {
     return new AsyncResultWrapper<T, E>(result);
+  }
+
+  export function passThrough<T>(fn: (item: T) => unknown) {
+    return (item: T) => {
+      fn(item);
+      return item;
+    }
   }
 }
