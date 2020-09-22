@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-export declare const peerRecord: io.TypeC<{
+export declare const peerRecord: io.IntersectionC<[io.TypeC<{
     id: io.StringC;
     user: io.UnionC<[io.IntersectionC<[io.TypeC<{
         id: io.StringC;
@@ -49,5 +49,13 @@ export declare const peerRecord: io.TypeC<{
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
     }>]>]>;
-}>;
+}>, io.UnionC<[io.TypeC<{
+    hasJoinedRoom: io.LiteralC<false>;
+    joinedRoomId: io.NullC;
+    joinedRoomAt: io.NullC;
+}>, io.TypeC<{
+    hasJoinedRoom: io.LiteralC<true>;
+    joinedRoomId: io.StringC;
+    joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+}>]>]>;
 export declare type PeerRecord = io.TypeOf<typeof peerRecord>;

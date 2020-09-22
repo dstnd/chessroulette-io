@@ -3,7 +3,7 @@ export declare const registerPeerRequestPayload: io.TypeC<{
     userId: io.StringC;
 }>;
 export declare type RegisterPeerRequestPayload = io.TypeOf<typeof registerPeerRequestPayload>;
-export declare const registerPeerResponsePayload: io.TypeC<{
+export declare const registerPeerResponsePayload: io.IntersectionC<[io.TypeC<{
     id: io.StringC;
     user: io.UnionC<[io.IntersectionC<[io.TypeC<{
         id: io.StringC;
@@ -53,11 +53,19 @@ export declare const registerPeerResponsePayload: io.TypeC<{
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
     }>]>]>;
-}>;
+}>, io.UnionC<[io.TypeC<{
+    hasJoinedRoom: io.LiteralC<false>;
+    joinedRoomId: io.NullC;
+    joinedRoomAt: io.NullC;
+}>, io.TypeC<{
+    hasJoinedRoom: io.LiteralC<true>;
+    joinedRoomId: io.StringC;
+    joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+}>]>]>;
 export declare type RegisterPeerResponsePayload = io.TypeOf<typeof registerPeerResponsePayload>;
 export declare const myStatsPayload: io.TypeC<{
     kind: io.LiteralC<"myStats">;
-    content: io.TypeC<{
+    content: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -107,6 +115,14 @@ export declare const myStatsPayload: io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>;
 }>;
 export declare type MyStatsPayload = io.TypeOf<typeof myStatsPayload>;

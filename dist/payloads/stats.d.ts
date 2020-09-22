@@ -5,7 +5,7 @@ export declare const roomsStatsPayload: io.TypeC<{
         id: io.StringC;
         name: io.StringC;
         peersCount: io.NumberC;
-        peers: io.RecordC<io.StringC, io.TypeC<{
+        peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
@@ -55,7 +55,15 @@ export declare const roomsStatsPayload: io.TypeC<{
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
             }>]>]>;
-        }>>;
+        }>, io.UnionC<[io.TypeC<{
+            hasJoinedRoom: io.LiteralC<false>;
+            joinedRoomId: io.NullC;
+            joinedRoomAt: io.NullC;
+        }>, io.TypeC<{
+            hasJoinedRoom: io.LiteralC<true>;
+            joinedRoomId: io.StringC;
+            joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>]>]>>;
         game: io.UnionC<[io.TypeC<{
             state: io.LiteralC<"waitingForOpponent">;
             timeLimit: io.KeyofC<{
@@ -474,7 +482,7 @@ export declare const roomsStatsPayload: io.TypeC<{
 export declare type RoomsStatsPayload = io.TypeOf<typeof roomsStatsPayload>;
 export declare const peersStatsPayload: io.TypeC<{
     kind: io.LiteralC<"peersStats">;
-    content: io.ArrayC<io.TypeC<{
+    content: io.ArrayC<io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -524,12 +532,20 @@ export declare const peersStatsPayload: io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
 }>;
 export declare type PeersStatsPayload = io.TypeOf<typeof peersStatsPayload>;
 export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"peersStats">;
-    content: io.ArrayC<io.TypeC<{
+    content: io.ArrayC<io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -579,14 +595,22 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
 }>, io.TypeC<{
     kind: io.LiteralC<"roomsStats">;
     content: io.ArrayC<io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         name: io.StringC;
         peersCount: io.NumberC;
-        peers: io.RecordC<io.StringC, io.TypeC<{
+        peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
@@ -636,7 +660,15 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
             }>]>]>;
-        }>>;
+        }>, io.UnionC<[io.TypeC<{
+            hasJoinedRoom: io.LiteralC<false>;
+            joinedRoomId: io.NullC;
+            joinedRoomAt: io.NullC;
+        }>, io.TypeC<{
+            hasJoinedRoom: io.LiteralC<true>;
+            joinedRoomId: io.StringC;
+            joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>]>]>>;
         game: io.UnionC<[io.TypeC<{
             state: io.LiteralC<"waitingForOpponent">;
             timeLimit: io.KeyofC<{

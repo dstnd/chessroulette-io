@@ -3,7 +3,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
     id: io.StringC;
     name: io.StringC;
     peersCount: io.NumberC;
-    peers: io.RecordC<io.StringC, io.TypeC<{
+    peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -53,7 +53,15 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
     game: io.UnionC<[io.TypeC<{
         state: io.LiteralC<"waitingForOpponent">;
         timeLimit: io.KeyofC<{
@@ -475,7 +483,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
     id: io.StringC;
     name: io.StringC;
     peersCount: io.NumberC;
-    peers: io.RecordC<io.StringC, io.TypeC<{
+    peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -525,7 +533,15 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
     game: io.UnionC<[io.TypeC<{
         state: io.LiteralC<"waitingForOpponent">;
         timeLimit: io.KeyofC<{
@@ -945,7 +961,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
     id: io.StringC;
     name: io.StringC;
     peersCount: io.NumberC;
-    peers: io.RecordC<io.StringC, io.TypeC<{
+    peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -995,7 +1011,15 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
     game: io.UnionC<[io.TypeC<{
         state: io.LiteralC<"waitingForOpponent">;
         timeLimit: io.KeyofC<{
@@ -1457,7 +1481,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
     id: io.StringC;
     name: io.StringC;
     peersCount: io.NumberC;
-    peers: io.RecordC<io.StringC, io.TypeC<{
+    peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -1507,7 +1531,15 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
     game: io.UnionC<[io.TypeC<{
         state: io.LiteralC<"waitingForOpponent">;
         timeLimit: io.KeyofC<{
@@ -1946,7 +1978,7 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
     id: io.StringC;
     name: io.StringC;
     peersCount: io.NumberC;
-    peers: io.RecordC<io.StringC, io.TypeC<{
+    peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
@@ -1996,7 +2028,15 @@ export declare const createChallengeResponse: io.IntersectionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>]>;
-    }>>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>>;
     game: io.UnionC<[io.TypeC<{
         state: io.LiteralC<"waitingForOpponent">;
         timeLimit: io.KeyofC<{
