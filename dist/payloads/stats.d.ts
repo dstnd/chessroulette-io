@@ -64,6 +64,8 @@ export declare const roomsStatsPayload: io.TypeC<{
             joinedRoomId: io.StringC;
             joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         }>]>]>>;
+        createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        createdBy: io.StringC;
         game: io.UnionC<[io.TypeC<{
             state: io.LiteralC<"waitingForOpponent">;
             timeLimit: io.KeyofC<{
@@ -470,8 +472,6 @@ export declare const roomsStatsPayload: io.TypeC<{
                 }>]>;
             }>;
         }>, io.UndefinedC]>;
-        createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-        createdBy: io.StringC;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
     }>, io.TypeC<{
@@ -669,6 +669,8 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
             joinedRoomId: io.StringC;
             joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         }>]>]>>;
+        createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        createdBy: io.StringC;
         game: io.UnionC<[io.TypeC<{
             state: io.LiteralC<"waitingForOpponent">;
             timeLimit: io.KeyofC<{
@@ -1075,8 +1077,6 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 }>]>;
             }>;
         }>, io.UndefinedC]>;
-        createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-        createdBy: io.StringC;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
     }>, io.TypeC<{

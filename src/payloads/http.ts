@@ -1,44 +1,13 @@
 import * as io from 'io-ts';
-import { roomType, roomStatsRecord } from '../records/roomStatsRecord';
 import * as ChessGame from '../chessGame';
+import { CreateRoomResponse, createRoomResponse } from './room';
 
-export const publicRoomResponsePayload = io.intersection([
-  roomStatsRecord,
-  io.type({
-    type: io.literal('public'),
-  }),
-]);
-export type PublicRoomResponsePayload = io.TypeOf<typeof publicRoomResponsePayload>;
-
-export const publicRoomsResponsePayload = io.array(roomStatsRecord);
-export type PublicRoomsResponsePayload = io.TypeOf<typeof publicRoomsResponsePayload>;
-
-export const privateRoomResponsePayload = io.intersection([
-  roomStatsRecord,
-  io.type({
-    type: io.literal('private'),
-  }),
-]);;
-export type PrivateRoomResponsePayload = io.TypeOf<typeof privateRoomResponsePayload>;
-
+// TOTO: @deprecate in favor of challenge or move it there
 export const gameInitConfig = io.type({
   timeLimit: ChessGame.chessGameTimeLimit,
   preferredColor: ChessGame.chessPreferredColorOption,
 });
 export type GameInitConfig = io.TypeOf<typeof gameInitConfig>;
-
-export const createRoomRequest = io.type({
-  nickname: io.union([io.string, io.undefined]),
-  userId: io.string,
-  type: roomType,
-  
-  // Shouldn't be here
-  game: gameInitConfig,
-});
-export type CreateRoomRequest = io.TypeOf<typeof createRoomRequest>;
-
-export const createRoomResponse = roomStatsRecord;
-export type CreateRoomResponse = io.TypeOf<typeof createRoomResponse>;
 
 export const createChallengeRequest = io.type({
   peerId: io.string,

@@ -2,6 +2,7 @@ import * as io from 'io-ts';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import { userRecord } from './userRecord';
 
+// A Peer Record is a User that has an activ Session
 export const peerRecord = io.intersection([
   io.type({
     id: io.string,

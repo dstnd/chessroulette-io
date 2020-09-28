@@ -159,6 +159,9 @@ exports.chessGameStateStopped = io.type({
     lastMoved: io.keyof(exports.chessPlayers.props),
 });
 exports.chessGameState = io.union([
+    // TODO: I'm thinking this could be deprecated
+    //  since a game without opponent is not a game yet
+    //  and could be treated as undefined
     exports.chessGameStateWaitingForOpponent,
     exports.chessGameStatePending,
     exports.chessGameStateStarted,

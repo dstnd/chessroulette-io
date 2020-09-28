@@ -204,6 +204,9 @@ export const chessGameStateStopped = io.type({
 export type ChessGameStateStopped = io.TypeOf<typeof chessGameStateStopped>;
 
 export const chessGameState = io.union([
+  // TODO: I'm thinking this could be deprecated
+  //  since a game without opponent is not a game yet
+  //  and could be treated as undefined
   chessGameStateWaitingForOpponent,
   chessGameStatePending,
   chessGameStateStarted,

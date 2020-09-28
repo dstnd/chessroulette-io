@@ -4,6 +4,7 @@ exports.peerRecord = void 0;
 var io = require("io-ts");
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var userRecord_1 = require("./userRecord");
+// A Peer Record is a User that has an activ Session
 exports.peerRecord = io.intersection([
     io.type({
         id: io.string,

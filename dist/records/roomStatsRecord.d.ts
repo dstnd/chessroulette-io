@@ -62,6 +62,8 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
         joinedRoomId: io.StringC;
         joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>]>]>>;
+    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    createdBy: io.StringC;
     game: io.UnionC<[io.TypeC<{
         state: io.LiteralC<"waitingForOpponent">;
         timeLimit: io.KeyofC<{
@@ -468,8 +470,6 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
             }>]>;
         }>;
     }>, io.UndefinedC]>;
-    createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-    createdBy: io.StringC;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
 }>, io.TypeC<{
@@ -477,8 +477,3 @@ export declare const roomStatsRecord: io.IntersectionC<[io.TypeC<{
     code: io.StringC;
 }>]>]>;
 export declare type RoomStatsRecord = io.TypeOf<typeof roomStatsRecord>;
-export declare const roomType: io.KeyofC<{
-    public: null;
-    private: null;
-}>;
-export declare type RoomType = io.TypeOf<typeof roomType>;
