@@ -197,7 +197,7 @@ export declare const chessGameOffer: io.UnionC<[io.TypeC<{
             black: null;
         }>]>;
     }>;
-}>, io.UndefinedC]>;
+}>]>;
 export declare type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
 export declare const chessGameStateWaitingForOpponent: io.TypeC<{
     state: io.LiteralC<"waitingForOpponent">;

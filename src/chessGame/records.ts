@@ -94,7 +94,7 @@ export const chessGameRematchOffer = io.type({
 });
 export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
 
-export const chessGameOffer = io.union([chessGameDrawOffer, chessGameRematchOffer, io.undefined]);
+export const chessGameOffer = io.union([chessGameDrawOffer, chessGameRematchOffer]);
 export type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
 
 export const chessGameStateWaitingForOpponent = io.type({

@@ -9,15 +9,27 @@ export const roomActivityOption = io.keyof({
 });
 export type RoomActivityOption = io.TypeOf<typeof roomActivityOption>;
 
-export const roomActivityRecord = io.union([
-  io.type({
-    type: io.literal('none'),
-  }),
+export const roomNoActivityRecord = io.type({
+  type: io.literal('none'),
+});
+
+export type RoomNoActivityRecord = io.TypeOf<typeof roomNoActivityRecord>;
+
+export const roomPlayActivityRecord = io.intersection([
   io.type({
     type: io.literal('play'),
-    game: io.union([chessGameState, io.undefined]),
-    gameOffer: chessGameOffer,
+    game: chessGameState,
   }),
+  io.partial({
+    offer: chessGameOffer,
+  }),
+]);
+
+export type RoomPlayActivityRecord = io.TypeOf<typeof roomPlayActivityRecord>;
+
+export const roomActivityRecord = io.union([
+  roomNoActivityRecord,
+  roomPlayActivityRecord,
 ]);
 
 export type RoomActivityRecord = io.TypeOf<typeof roomActivityRecord>;
@@ -43,8 +55,8 @@ export const roomRecord = io.intersection([
     // lastLeftAt: null | ISODateTime;
 
     // TODO: Temporarily additon to match the room stats record
-    game: chessGameState,
-    gameOffer: chessGameOffer,
+    // game: chessGameState,
+    // gameOffer: chessGameOffer,
   }),
   io.union([
     io.type({
@@ -74,3 +86,19 @@ export const privateRoomRecord = io.intersection([
   }),
 ]);;
 export type PrivateRoomRecord = io.TypeOf<typeof privateRoomRecord>;
+
+export const roomWithPlayActivityRecord = io.intersection([
+  roomRecord,
+  io.type({
+    activity: roomPlayActivityRecord,
+  }),
+]);
+export type RoomWithPlayActivityRecord = io.TypeOf<typeof roomWithPlayActivityRecord>;
+
+export const roomWithNoActivityRecord = io.intersection([
+  roomRecord,
+  io.type({
+    activity: roomNoActivityRecord,
+  }),
+]);
+export type RoomWithNoActivityRecord = io.TypeOf<typeof roomWithNoActivityRecord>;

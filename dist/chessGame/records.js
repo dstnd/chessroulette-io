@@ -66,7 +66,7 @@ exports.chessGameRematchOffer = io.type({
         by: exports.chessGameColor,
     }),
 });
-exports.chessGameOffer = io.union([exports.chessGameDrawOffer, exports.chessGameRematchOffer, io.undefined]);
+exports.chessGameOffer = io.union([exports.chessGameDrawOffer, exports.chessGameRematchOffer]);
 exports.chessGameStateWaitingForOpponent = io.type({
     state: io.literal('waitingForOpponent'),
     timeLimit: exports.chessGameTimeLimit,

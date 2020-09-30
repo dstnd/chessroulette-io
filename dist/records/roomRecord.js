@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.privateRoomRecord = exports.publicRoomRecord = exports.roomRecord = exports.roomType = exports.roomActivityRecord = exports.roomActivityOption = void 0;
+exports.roomWithNoActivityRecord = exports.roomWithPlayActivityRecord = exports.privateRoomRecord = exports.publicRoomRecord = exports.roomRecord = exports.roomType = exports.roomActivityRecord = exports.roomPlayActivityRecord = exports.roomNoActivityRecord = exports.roomActivityOption = void 0;
 var io = require("io-ts");
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var chessGame_1 = require("../chessGame");
@@ -9,15 +9,21 @@ exports.roomActivityOption = io.keyof({
     none: null,
     play: null,
 });
-exports.roomActivityRecord = io.union([
-    io.type({
-        type: io.literal('none'),
-    }),
+exports.roomNoActivityRecord = io.type({
+    type: io.literal('none'),
+});
+exports.roomPlayActivityRecord = io.intersection([
     io.type({
         type: io.literal('play'),
-        game: io.union([chessGame_1.chessGameState, io.undefined]),
-        gameOffer: chessGame_1.chessGameOffer,
+        game: chessGame_1.chessGameState,
     }),
+    io.partial({
+        offer: chessGame_1.chessGameOffer,
+    }),
+]);
+exports.roomActivityRecord = io.union([
+    exports.roomNoActivityRecord,
+    exports.roomPlayActivityRecord,
 ]);
 exports.roomType = io.keyof({
     public: null,
@@ -31,12 +37,6 @@ exports.roomRecord = io.intersection([
         createdBy: io.string,
         peers: io.record(io.string, peerRecord_1.peerRecord),
         activity: exports.roomActivityRecord,
-        // TODO: Add
-        // lastJoinedAt: null | ISODateTime;
-        // lastLeftAt: null | ISODateTime;
-        // TODO: Temporarily additon to match the room stats record
-        game: chessGame_1.chessGameState,
-        gameOffer: chessGame_1.chessGameOffer,
     }),
     io.union([
         io.type({
@@ -62,4 +62,16 @@ exports.privateRoomRecord = io.intersection([
     }),
 ]);
 ;
+exports.roomWithPlayActivityRecord = io.intersection([
+    exports.roomRecord,
+    io.type({
+        activity: exports.roomPlayActivityRecord,
+    }),
+]);
+exports.roomWithNoActivityRecord = io.intersection([
+    exports.roomRecord,
+    io.type({
+        activity: exports.roomNoActivityRecord,
+    }),
+]);
 //# sourceMappingURL=roomRecord.js.map

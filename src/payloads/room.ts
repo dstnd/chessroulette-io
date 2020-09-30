@@ -1,12 +1,11 @@
 import * as io from 'io-ts';
 import { peerRecord } from '../records/peerRecord';
 import { 
-  roomActivityOption,
-  roomActivityRecord,
   roomRecord,
   roomType,
   publicRoomRecord,
   privateRoomRecord,
+  roomNoActivityRecord,
 } from '../records/roomRecord';
 
 // TODO: Not sure how to split the HTTP/Socket payloads while still keeping them 
@@ -14,18 +13,21 @@ import {
 
 // HTTP
 
-export const createRoomRequest = io.type({
-  name: io.union([io.string, io.undefined]),
-  userId: io.string,
-  type: roomType,
-
-  activity: roomActivityOption,
-  
-  // Shouldn't be here
-  //  This belongs to the challenge. Once a challenge is accepteda room will be created
-  //  with the "play" actvity and the correct game state - not waiting for opponent
-  // game: gameInitConfig,
-});
+export const createRoomRequest = io.intersection([
+  io.type({
+    userId: io.string,
+    type: roomType,
+  }),
+  io.partial({
+    name: io.string,
+    // TODO: For now a room can only be created from the client
+    // with no activity. In the foture this might change.
+    // A PlayRoom can only be created from a challenge
+    // A Future Custom Room could possibly be created from the client 
+    //  but we'll have to see!
+    activity: roomNoActivityRecord,
+  }),
+]);
 export type CreateRoomRequest = io.TypeOf<typeof createRoomRequest>;
 
 export const createRoomResponse = roomRecord;
@@ -39,8 +41,12 @@ export type PrivateRoomResponsePayload = io.TypeOf<typeof privateRoomResponsePay
 export const publicRoomsResponsePayload = io.array(publicRoomRecord);
 export type PublicRoomsResponsePayload = io.TypeOf<typeof publicRoomsResponsePayload>;
 
+export const roomResponsePayload = roomRecord;
+export type RoomResponsePayload = io.TypeOf<typeof roomResponsePayload>;
+
 // SOCKET
 
+// @Deprecate in favor of RoomResponsePayload
 export const roomStatsPayload = io.type({
   kind: io.literal('roomStats'),
   content: roomRecord,
