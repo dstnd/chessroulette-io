@@ -2438,8 +2438,8 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
     code: io.StringC;
 }>]>]>;
 export declare type RoomResponsePayload = io.TypeOf<typeof roomResponsePayload>;
-export declare const roomStatsPayload: io.TypeC<{
-    kind: io.LiteralC<"roomStats">;
+export declare const joinedRoomUpdatedPayload: io.TypeC<{
+    kind: io.LiteralC<"joinedRoomUpdated">;
     content: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         name: io.StringC;
@@ -2924,7 +2924,7 @@ export declare const roomStatsPayload: io.TypeC<{
         code: io.StringC;
     }>]>]>;
 }>;
-export declare type RoomStatsPayload = io.TypeOf<typeof roomStatsPayload>;
+export declare type JoinedRoomUpdatedPayload = io.TypeOf<typeof joinedRoomUpdatedPayload>;
 export declare const joinRoomRequestPayload: io.TypeC<{
     kind: io.LiteralC<"joinRoomRequest">;
     content: io.TypeC<{

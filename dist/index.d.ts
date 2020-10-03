@@ -3,6 +3,7 @@ export * from './records/roomStatsRecord';
 export * from './records/peerRecord';
 export * from './records/lichessRecords';
 export * from './records/roomRecord';
+export * from './records/challengeRecord';
 export * from './payloads';
 export * from './io';
 export * from './chessGame';

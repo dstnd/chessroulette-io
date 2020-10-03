@@ -46,12 +46,11 @@ export type RoomResponsePayload = io.TypeOf<typeof roomResponsePayload>;
 
 // SOCKET
 
-// @Deprecate in favor of RoomResponsePayload
-export const roomStatsPayload = io.type({
-  kind: io.literal('roomStats'),
+export const joinedRoomUpdatedPayload = io.type({
+  kind: io.literal('joinedRoomUpdated'),
   content: roomRecord,
 });
-export type RoomStatsPayload = io.TypeOf<typeof roomStatsPayload>;
+export type JoinedRoomUpdatedPayload = io.TypeOf<typeof joinedRoomUpdatedPayload>;
 
 // This is different b/c the client is like a client request
 //  while the others are server responses. 

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.peerJoinedRoomPayload = exports.joinRoomFailurePayload = exports.joinRoomSuccessPayload = exports.joinRoomRequestPayload = exports.roomStatsPayload = exports.roomResponsePayload = exports.publicRoomsResponsePayload = exports.privateRoomResponsePayload = exports.publicRoomResponsePayload = exports.createRoomResponse = exports.createRoomRequest = void 0;
+exports.peerJoinedRoomPayload = exports.joinRoomFailurePayload = exports.joinRoomSuccessPayload = exports.joinRoomRequestPayload = exports.joinedRoomUpdatedPayload = exports.roomResponsePayload = exports.publicRoomsResponsePayload = exports.privateRoomResponsePayload = exports.publicRoomResponsePayload = exports.createRoomResponse = exports.createRoomRequest = void 0;
 var io = require("io-ts");
 var peerRecord_1 = require("../records/peerRecord");
 var roomRecord_1 = require("../records/roomRecord");
@@ -28,9 +28,8 @@ exports.privateRoomResponsePayload = roomRecord_1.privateRoomRecord;
 exports.publicRoomsResponsePayload = io.array(roomRecord_1.publicRoomRecord);
 exports.roomResponsePayload = roomRecord_1.roomRecord;
 // SOCKET
-// @Deprecate in favor of RoomResponsePayload
-exports.roomStatsPayload = io.type({
-    kind: io.literal('roomStats'),
+exports.joinedRoomUpdatedPayload = io.type({
+    kind: io.literal('joinedRoomUpdated'),
     content: roomRecord_1.roomRecord,
 });
 // This is different b/c the client is like a client request

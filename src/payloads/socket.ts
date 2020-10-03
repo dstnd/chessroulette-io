@@ -1,5 +1,6 @@
 import * as io from 'io-ts';
 import { peerRecord } from '../records/peerRecord';
+import { challengeAcceptedPayload } from './challenge';
 import { 
   gameJoinRequestPayload, 
   gameDrawOfferingRequestPayload, 
@@ -14,7 +15,7 @@ import {
 } from './game';
 import { myStatsPayload } from './peer';
 import { 
-  roomStatsPayload,
+  joinedRoomUpdatedPayload,
   peerJoinedRoomPayload,
   joinRoomRequestPayload,
   joinRoomSuccessPayload,
@@ -63,14 +64,6 @@ export const genericFailureResponsePayload = io.type({
   content: io.unknown,
 });
 export type GenericFailureResponsePayload = io.TypeOf<typeof genericFailureResponsePayload>;
-// export const leaveRoomRequestPayload = io.type({
-//   kind: io.literal('leaveRoomRequest'),
-//   content: io.type({
-//     room: roomStatsRecord,
-//     me: peerRecord,
-//   }),
-// });
-// export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
 
 export const socketPayload = io.union([
   userIdentificationPayload,
@@ -80,13 +73,16 @@ export const socketPayload = io.union([
 
   // Business Logic
   connectionOpenedPayload,
-  myStatsPayload,
-  roomStatsPayload,
+  whoAmIRequestPayload,
+
+  // Challenges
+  challengeAcceptedPayload,
+
+  // Room
   peerJoinedRoomPayload,
   joinRoomRequestPayload,
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
-  whoAmIRequestPayload,
 
   // Game Actions
   gameJoinRequestPayload,
@@ -102,5 +98,7 @@ export const socketPayload = io.union([
 
   // Stats
   statsSocketPayload,
+  myStatsPayload,
+  joinedRoomUpdatedPayload,
 ]);
 export type SocketPayload = io.TypeOf<typeof socketPayload>;

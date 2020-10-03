@@ -8,3 +8,4 @@ export * from './room';
 export * from './lichess';
 export * from './authentication';
 export * from './stats';
+export * from './challenge';

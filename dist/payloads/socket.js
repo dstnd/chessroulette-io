@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.socketPayload = exports.genericFailureResponsePayload = exports.whoAmIRequestPayload = exports.connectionOpenedPayload = exports.pingPayload = exports.statsReaderIdentificationPayload = exports.userIdentificationPayload = void 0;
 var io = require("io-ts");
 var peerRecord_1 = require("../records/peerRecord");
+var challenge_1 = require("./challenge");
 var game_1 = require("./game");
 var peer_1 = require("./peer");
 var room_1 = require("./room");
@@ -37,14 +38,6 @@ exports.genericFailureResponsePayload = io.type({
     kind: io.literal('genericRequestFailure'),
     content: io.unknown,
 });
-// export const leaveRoomRequestPayload = io.type({
-//   kind: io.literal('leaveRoomRequest'),
-//   content: io.type({
-//     room: roomStatsRecord,
-//     me: peerRecord,
-//   }),
-// });
-// export type JoinRoomSuccessPayload = io.TypeOf<typeof joinRoomSuccessPayload>;
 exports.socketPayload = io.union([
     exports.userIdentificationPayload,
     exports.statsReaderIdentificationPayload,
@@ -52,13 +45,14 @@ exports.socketPayload = io.union([
     exports.genericFailureResponsePayload,
     // Business Logic
     exports.connectionOpenedPayload,
-    peer_1.myStatsPayload,
-    room_1.roomStatsPayload,
+    exports.whoAmIRequestPayload,
+    // Challenges
+    challenge_1.challengeAcceptedPayload,
+    // Room
     room_1.peerJoinedRoomPayload,
     room_1.joinRoomRequestPayload,
     room_1.joinRoomSuccessPayload,
     room_1.joinRoomFailurePayload,
-    exports.whoAmIRequestPayload,
     // Game Actions
     game_1.gameJoinRequestPayload,
     game_1.gameMoveRequestPayload,
@@ -72,5 +66,7 @@ exports.socketPayload = io.union([
     game_1.gameRematchDenyRequestPayload,
     // Stats
     stats_1.statsSocketPayload,
+    peer_1.myStatsPayload,
+    room_1.joinedRoomUpdatedPayload,
 ]);
 //# sourceMappingURL=socket.js.map
