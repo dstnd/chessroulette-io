@@ -9,26 +9,15 @@ export const gameSpecsRecord = io.type({
 export type GameSpecsRecord = io.TypeOf<typeof gameSpecsRecord>;
 
 export const baseChallengeRecord = io.type({
-  type: io.keyof({
-    public: null,
-    private: null,
-  }),
   gameSpecs: gameSpecsRecord,
+  id: io.string,
+  createdBy: io.string,
+  createdAt: isoDateTimeFromIsoString,
+  slug: io.string,
 });
 
-export const challengeRecord = io.intersection([
-  baseChallengeRecord,
-  io.type({
-    id: io.string,
-    createdBy: io.string,
-    createdAt: isoDateTimeFromIsoString,
-    slug: io.string,
-  }),
-]);
-export type ChallengeRecord = io.TypeOf<typeof challengeRecord>;
-
 export const publicChallengeRecord = io.intersection([
-  challengeRecord,
+  baseChallengeRecord,
   io.type({
     type: io.literal('public'),
   }),
@@ -36,9 +25,23 @@ export const publicChallengeRecord = io.intersection([
 export type PublicChallengeRecord = io.TypeOf<typeof publicChallengeRecord>;
 
 export const privateChallengeRecord = io.intersection([
-  challengeRecord,
+  baseChallengeRecord,
   io.type({
     type: io.literal('private'),
   }),
 ]);
 export type PrivateChallengeRecord = io.TypeOf<typeof privateChallengeRecord>;
+
+export const challengeRecord = io.union([
+  publicChallengeRecord,
+  privateChallengeRecord,
+]);
+export type ChallengeRecord = io.TypeOf<typeof challengeRecord>;
+
+export const quickPairingRecord = io.type({
+  gameSpecs: gameSpecsRecord,
+  createdBy: io.string,
+  createdAt: isoDateTimeFromIsoString,
+  slug: io.string,
+});
+export type QuickPairingRecord = io.TypeOf<typeof quickPairingRecord>;

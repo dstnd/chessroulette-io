@@ -1,35 +1,38 @@
 import * as io from 'io-ts';
 import { roomRecord } from '../records/roomRecord';
-import { baseChallengeRecord, challengeRecord } from '../records/challengeRecord';
+import { challengeRecord, gameSpecsRecord } from '../records/challengeRecord';
 
 // HTTP
 
-export const createChallengeRequest = io.intersection([
-  baseChallengeRecord,
-  io.type({
-    userId: io.string,
-  }),
-]);
-export type CreateChallengeRequest = io.TypeOf<typeof createChallengeRequest>;
-
-export const createChallengeResponse = challengeRecord;
-export type CreateChallengeResponse = io.TypeOf<typeof createChallengeResponse>;
+export const baseCreateChallengeRequest = io.type({
+  gameSpecs: gameSpecsRecord,
+  userId: io.string,
+});
 
 export const createPublicChallengeRequest = io.intersection([
-  createChallengeRequest,
+  baseCreateChallengeRequest,
   io.type({
-    type: io.literal('public'),
+    type: io.keyof({ public: null }),
   }),
 ]);
 export type CreatePublicChallengeRequest = io.TypeOf<typeof createPublicChallengeRequest>;
 
 export const createPrivateChallengeRequest = io.intersection([
-  createChallengeRequest,
+  baseCreateChallengeRequest,
   io.type({
-    type: io.literal('private'),
+    type: io.keyof({ private: null }),
   }),
 ]);
 export type CreatePrivateChallengeRequest = io.TypeOf<typeof createPrivateChallengeRequest>;
+
+export const createChallengeRequest = io.union([
+  createPrivateChallengeRequest,
+  createPublicChallengeRequest,
+]);
+export type CreateChallengeRequest = io.TypeOf<typeof createChallengeRequest>;
+
+export const createChallengeResponse = challengeRecord;
+export type CreateChallengeResponse = io.TypeOf<typeof createChallengeResponse>;
 
 export const removeChallengeRequest = io.type({
   id: io.string,
@@ -44,6 +47,30 @@ export const acceptChallengeRequest = io.type({
   userId: io.string,
 });
 export type AcceptChallengeRequest = io.TypeOf<typeof acceptChallengeRequest>;
+
+export const quickPairingRequest = io.type({
+  userId: io.string,
+  gameSpecs: gameSpecsRecord,
+});
+export type QuickPairingRequest = io.TypeOf<typeof quickPairingRequest>;
+
+export const quickPairingMatchedResponse = io.type({
+  matched: io.literal(true),
+  room: roomRecord,
+});
+export type QuickPairingMatchedResponse = io.TypeOf<typeof quickPairingMatchedResponse>;
+
+export const quickPairingPendingResponse = io.type({
+  matched: io.literal(false),
+  challenge: challengeRecord,
+});
+export type QuickPairingPendingResponse = io.TypeOf<typeof quickPairingPendingResponse>;
+
+export const quickPairingResponse = io.union([
+  quickPairingMatchedResponse,
+  quickPairingPendingResponse,
+]);
+export type QuickPairingResponse = io.TypeOf<typeof quickPairingResponse>;
 
 // SOCKET
 
