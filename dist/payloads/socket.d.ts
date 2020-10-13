@@ -83,11 +83,74 @@ export declare const connectionOpenedPayload: io.TypeC<{
     }>;
 }>;
 export declare type ConnectionOpenedPayload = io.TypeOf<typeof connectionOpenedPayload>;
-export declare const whoAmIRequestPayload: io.TypeC<{
+export declare const whoamiRequestPayload: io.TypeC<{
     kind: io.LiteralC<"whoami">;
     content: io.UnknownC;
 }>;
-export declare type WhoAmIRequestPayload = io.TypeOf<typeof whoAmIRequestPayload>;
+export declare type WhoamiRequestPayload = io.TypeOf<typeof whoamiRequestPayload>;
+export declare const iamResponsePayload: io.TypeC<{
+    kind: io.LiteralC<"iam">;
+    content: io.IntersectionC<[io.TypeC<{
+        id: io.StringC;
+        user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>, io.TypeC<{
+            isGuest: io.LiteralC<false>;
+            email: io.StringC;
+        }>, io.TypeC<{
+            externalAccountType: io.LiteralC<"lichess">;
+            externalAccountId: io.StringC;
+            externalAccountInfo: io.TypeC<{
+                email: io.StringC;
+                id: io.StringC;
+                username: io.StringC;
+                perfs: io.TypeC<{
+                    blitz: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    bullet: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    classical: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    correspondence: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    puzzle: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    rapid: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                }>;
+            }>;
+        }>]>, io.IntersectionC<[io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>, io.TypeC<{
+            isGuest: io.LiteralC<true>;
+        }>]>]>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>;
+}>;
+export declare type IamResponsePayload = io.TypeOf<typeof iamResponsePayload>;
 export declare const genericFailureResponsePayload: io.TypeC<{
     kind: io.LiteralC<"genericRequestFailure">;
     content: io.UnknownC;
@@ -175,6 +238,67 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
 }>, io.TypeC<{
     kind: io.LiteralC<"whoami">;
     content: io.UnknownC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"iam">;
+    content: io.IntersectionC<[io.TypeC<{
+        id: io.StringC;
+        user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>, io.TypeC<{
+            isGuest: io.LiteralC<false>;
+            email: io.StringC;
+        }>, io.TypeC<{
+            externalAccountType: io.LiteralC<"lichess">;
+            externalAccountId: io.StringC;
+            externalAccountInfo: io.TypeC<{
+                email: io.StringC;
+                id: io.StringC;
+                username: io.StringC;
+                perfs: io.TypeC<{
+                    blitz: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    bullet: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    classical: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    correspondence: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    puzzle: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                    rapid: io.TypeC<{
+                        games: io.NumberC;
+                        rating: io.NumberC;
+                    }>;
+                }>;
+            }>;
+        }>]>, io.IntersectionC<[io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>, io.TypeC<{
+            isGuest: io.LiteralC<true>;
+        }>]>]>;
+    }>, io.UnionC<[io.TypeC<{
+        hasJoinedRoom: io.LiteralC<false>;
+        joinedRoomId: io.NullC;
+        joinedRoomAt: io.NullC;
+    }>, io.TypeC<{
+        hasJoinedRoom: io.LiteralC<true>;
+        joinedRoomId: io.StringC;
+        joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    }>]>]>;
 }>, io.TypeC<{
     kind: io.LiteralC<"challengeAccepted">;
     content: io.TypeC<{

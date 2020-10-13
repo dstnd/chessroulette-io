@@ -53,11 +53,17 @@ export const connectionOpenedPayload = io.type({
 });
 export type ConnectionOpenedPayload = io.TypeOf<typeof connectionOpenedPayload>;
 
-export const whoAmIRequestPayload = io.type({
+export const whoamiRequestPayload = io.type({
   kind: io.literal('whoami'),
   content: io.unknown,
 });
-export type WhoAmIRequestPayload = io.TypeOf<typeof whoAmIRequestPayload>;
+export type WhoamiRequestPayload = io.TypeOf<typeof whoamiRequestPayload>;
+
+export const iamResponsePayload = io.type({
+  kind: io.literal('iam'),
+  content: peerRecord,
+});
+export type IamResponsePayload = io.TypeOf<typeof iamResponsePayload>;
 
 export const genericFailureResponsePayload = io.type({
   kind: io.literal('genericRequestFailure'),
@@ -73,7 +79,8 @@ export const socketPayload = io.union([
 
   // Business Logic
   connectionOpenedPayload,
-  whoAmIRequestPayload,
+  whoamiRequestPayload,
+  iamResponsePayload,
 
   // Challenges
   challengeAcceptedPayload,
