@@ -4,6 +4,7 @@ export declare const roomStatsRecord: io.IntersectionC<[io.IntersectionC<[io.Typ
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{

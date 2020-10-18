@@ -35,6 +35,7 @@ exports.roomRecord = io.intersection([
         name: io.string,
         createdAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
         createdBy: io.string,
+        slug: io.string,
         peers: io.record(io.string, peerRecord_1.peerRecord),
         activity: exports.roomActivityRecord,
     }),

@@ -46,6 +46,7 @@ export const roomRecord = io.intersection([
     name: io.string,
     createdAt: isoDateTimeFromIsoString,
     createdBy: io.string,
+    slug: io.string,
 
     peers: io.record(io.string, peerRecord),
     activity: roomActivityRecord,

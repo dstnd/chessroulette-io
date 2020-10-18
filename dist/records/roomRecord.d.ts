@@ -842,6 +842,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -1326,6 +1327,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -1812,6 +1814,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -2298,6 +2301,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -3193,6 +3197,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
