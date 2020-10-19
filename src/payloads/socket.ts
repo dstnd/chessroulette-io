@@ -12,6 +12,7 @@ import {
   gameRematchAcceptRequestPayload,
   gameRematchDenyRequestPayload,
   gameDrawDenyRequestPayload,
+  gameActionRequestPayload,
 } from './game';
 import { myStatsPayload } from './peer';
 import { 
@@ -92,16 +93,7 @@ export const socketPayload = io.union([
   joinRoomFailurePayload,
 
   // Game Actions
-  gameJoinRequestPayload,
-  gameMoveRequestPayload,
-  gameDrawOfferingRequestPayload,
-  gameDrawAcceptRequestPayload,
-  gameDrawDenyRequestPayload,
-  gameResignationRequestPayload,
-  gameAbortionRequestPayload,
-  gameRematchOfferingRequestPayload,
-  gameRematchAcceptRequestPayload,
-  gameRematchDenyRequestPayload,
+  gameActionRequestPayload,
 
   // Stats
   statsSocketPayload,

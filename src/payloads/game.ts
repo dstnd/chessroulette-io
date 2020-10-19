@@ -65,3 +65,18 @@ export const gameRematchDenyRequestPayload = io.type({
   content: io.undefined,
 });
 export type GameRematchDenyRequestPayload = io.TypeOf<typeof gameRematchDenyRequestPayload>;
+
+export const gameActionRequestPayload = io.union([
+  gameJoinRequestPayload,
+  gameDrawAcceptRequestPayload,
+  gameDrawDenyRequestPayload,
+  gameDrawOfferingRequestPayload,
+  gameResignationRequestPayload,
+  gameAbortionRequestPayload,
+  gameMoveRequestPayload,
+  gameRematchAcceptRequestPayload,
+  gameRematchDenyRequestPayload,
+  gameRematchOfferingRequestPayload,
+]);
+
+export type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;

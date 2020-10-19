@@ -309,6 +309,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             name: io.StringC;
             createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             createdBy: io.StringC;
+            slug: io.StringC;
             peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -808,6 +809,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             name: io.StringC;
             createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             createdBy: io.StringC;
+            slug: io.StringC;
             peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -1354,7 +1356,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         InexistentPeer: null;
         OtherRoomAlreadyJoined: null;
     }>;
-}>, io.TypeC<{
+}>, io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"gameJoinRequest">;
     content: io.TypeC<{
         roomCredentials: io.TypeC<{
@@ -1362,6 +1364,21 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             code: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>;
     }>;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameDrawAcceptRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameDrawDenyRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameDrawOfferingRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameResignationRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameAbortionRequest">;
+    content: io.UndefinedC;
 }>, io.TypeC<{
     kind: io.LiteralC<"gameMoveRequest">;
     content: io.TypeC<{
@@ -1505,30 +1522,15 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         }>]>;
     }>;
 }>, io.TypeC<{
-    kind: io.LiteralC<"gameDrawOfferingRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameDrawAcceptRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameDrawDenyRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameResignationRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameAbortionRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
-    kind: io.LiteralC<"gameRematchOfferingRequest">;
-    content: io.UndefinedC;
-}>, io.TypeC<{
     kind: io.LiteralC<"gameRematchAcceptRequest">;
     content: io.UndefinedC;
 }>, io.TypeC<{
     kind: io.LiteralC<"gameRematchDenyRequest">;
     content: io.UndefinedC;
-}>, io.UnionC<[io.TypeC<{
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameRematchOfferingRequest">;
+    content: io.UndefinedC;
+}>]>, io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"peersStats">;
     content: io.ArrayC<io.IntersectionC<[io.TypeC<{
         id: io.StringC;
@@ -1596,6 +1598,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         name: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         createdBy: io.StringC;
+        slug: io.StringC;
         peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -2144,6 +2147,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         name: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         createdBy: io.StringC;
+        slug: io.StringC;
         peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{

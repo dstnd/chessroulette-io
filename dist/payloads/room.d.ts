@@ -17,6 +17,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -501,6 +502,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -987,6 +989,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -1473,6 +1476,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -1959,6 +1963,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
     name: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     createdBy: io.StringC;
+    slug: io.StringC;
     peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -2445,6 +2450,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
         name: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         createdBy: io.StringC;
+        slug: io.StringC;
         peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -2941,6 +2947,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
             name: io.StringC;
             createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             createdBy: io.StringC;
+            slug: io.StringC;
             peers: io.RecordC<io.StringC, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 user: io.UnionC<[io.IntersectionC<[io.TypeC<{

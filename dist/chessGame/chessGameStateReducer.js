@@ -88,20 +88,23 @@ var moveAction = function (prev, next) {
     var currentLastMovedBy = util_1.otherChessColor(prevLastMoved);
     var instance = sdk_1.getNewChessGame();
     var pgn = ("pgn" in next ? next.pgn : prev.pgn) || "";
-    // Load the nnext or prev pgn
+    // Load the nnxt or prev pgn
     instance.load_pgn(pgn);
     // If there is a move make it
     if ("move" in next) {
         instance.move(next.move);
     }
     var now = new Date();
-    var moveElapsedMs = prev.lastMoveAt !== undefined
+    var moveElapsedMs = (prev.lastMoveAt !== undefined)
         ? now.getTime() - new Date(prev.lastMoveAt).getTime()
-        : 0; // Zero if first move;
+        : 0; // Zero if first move
     if (instance.game_over()) {
         return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
+    if (prev.state === 'started' && timeLeft < 0) {
+        return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoved });
+    }
     return __assign(__assign({}, prev), { state: "started", pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
 };
 var timerFinishedAction = function (prev, 

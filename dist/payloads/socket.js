@@ -59,16 +59,7 @@ exports.socketPayload = io.union([
     room_1.joinRoomSuccessPayload,
     room_1.joinRoomFailurePayload,
     // Game Actions
-    game_1.gameJoinRequestPayload,
-    game_1.gameMoveRequestPayload,
-    game_1.gameDrawOfferingRequestPayload,
-    game_1.gameDrawAcceptRequestPayload,
-    game_1.gameDrawDenyRequestPayload,
-    game_1.gameResignationRequestPayload,
-    game_1.gameAbortionRequestPayload,
-    game_1.gameRematchOfferingRequestPayload,
-    game_1.gameRematchAcceptRequestPayload,
-    game_1.gameRematchDenyRequestPayload,
+    game_1.gameActionRequestPayload,
     // Stats
     stats_1.statsSocketPayload,
     peer_1.myStatsPayload,

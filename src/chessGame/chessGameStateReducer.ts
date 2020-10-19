@@ -125,7 +125,7 @@ const moveAction = (
 
   const pgn = ("pgn" in next ? next.pgn : prev.pgn) || "";
 
-  // Load the nnext or prev pgn
+  // Load the nnxt or prev pgn
   instance.load_pgn(pgn);
 
   // If there is a move make it
@@ -134,10 +134,9 @@ const moveAction = (
   }
 
   const now = new Date();
-  const moveElapsedMs =
-    prev.lastMoveAt !== undefined
-      ? now.getTime() - new Date(prev.lastMoveAt).getTime()
-      : 0; // Zero if first move;
+  const moveElapsedMs = (prev.lastMoveAt !== undefined)
+    ? now.getTime() - new Date(prev.lastMoveAt).getTime()
+    : 0; // Zero if first move
 
   if (instance.game_over()) {
     return {
@@ -153,6 +152,14 @@ const moveAction = (
   }
 
   const timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
+
+  if (prev.state === 'started' && timeLeft < 0) {
+    return {
+      ...prev,
+      state: 'finished',
+      winner: prevLastMoved,
+    }
+  }
 
   return {
     ...prev,
