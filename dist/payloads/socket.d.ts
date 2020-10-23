@@ -1356,6 +1356,9 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         InexistentPeer: null;
         OtherRoomAlreadyJoined: null;
     }>;
+}>, io.TypeC<{
+    kind: io.LiteralC<"leaveRoomRequest">;
+    content: io.UndefinedC;
 }>, io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"gameJoinRequest">;
     content: io.TypeC<{

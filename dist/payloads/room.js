@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.peerJoinedRoomPayload = exports.joinRoomFailurePayload = exports.joinRoomSuccessPayload = exports.joinRoomRequestPayload = exports.joinedRoomUpdatedPayload = exports.roomResponsePayload = exports.publicRoomsResponsePayload = exports.privateRoomResponsePayload = exports.publicRoomResponsePayload = exports.createRoomResponse = exports.createRoomRequest = void 0;
+exports.peerJoinedRoomPayload = exports.leaveRoomRequestPayload = exports.joinRoomFailurePayload = exports.joinRoomSuccessPayload = exports.joinRoomRequestPayload = exports.joinedRoomUpdatedPayload = exports.roomResponsePayload = exports.publicRoomsResponsePayload = exports.privateRoomResponsePayload = exports.publicRoomResponsePayload = exports.createRoomResponse = exports.createRoomRequest = void 0;
 var io = require("io-ts");
 var peerRecord_1 = require("../records/peerRecord");
 var roomRecord_1 = require("../records/roomRecord");
@@ -57,6 +57,10 @@ exports.joinRoomFailurePayload = io.type({
         InexistentPeer: null,
         OtherRoomAlreadyJoined: null,
     }),
+});
+exports.leaveRoomRequestPayload = io.type({
+    kind: io.literal('leaveRoomRequest'),
+    content: io.undefined,
 });
 // TODO: Not sure this is still needed
 // TODO: @deprecate in favor of roomStatsPayload?

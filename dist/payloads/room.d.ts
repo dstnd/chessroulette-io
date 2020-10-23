@@ -3498,6 +3498,11 @@ export declare const joinRoomFailurePayload: io.TypeC<{
     }>;
 }>;
 export declare type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
+export declare const leaveRoomRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"leaveRoomRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type LeaveRoomRequestPayload = io.TypeOf<typeof leaveRoomRequestPayload>;
 export declare const peerJoinedRoomPayload: io.TypeC<{
     kind: io.LiteralC<"peerJoinedRoom">;
     content: io.TypeC<{

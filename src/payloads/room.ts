@@ -84,6 +84,12 @@ export const joinRoomFailurePayload = io.type({
 });
 export type JoinRoomFailurePayload = io.TypeOf<typeof joinRoomFailurePayload>;
 
+export const leaveRoomRequestPayload = io.type({
+  kind: io.literal('leaveRoomRequest'),
+  content: io.undefined,
+});
+export type LeaveRoomRequestPayload = io.TypeOf<typeof leaveRoomRequestPayload>;
+
 // TODO: Not sure this is still needed
 // TODO: @deprecate in favor of roomStatsPayload?
 export const peerJoinedRoomPayload = io.type({

@@ -21,6 +21,7 @@ import {
   joinRoomRequestPayload,
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
+  leaveRoomRequestPayload,
 } from './room';
 import { statsSocketPayload } from './stats';
 
@@ -91,6 +92,7 @@ export const socketPayload = io.union([
   joinRoomRequestPayload,
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
+  leaveRoomRequestPayload,
 
   // Game Actions
   gameActionRequestPayload,
