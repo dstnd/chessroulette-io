@@ -25,6 +25,9 @@ exports.guestUserRecord = io.intersection([
     exports.userInfoRecord,
     io.type({
         isGuest: io.literal(true),
+        // ServerId - This is needed to be able to maintain stale/fresh guests
+        //  when the server flushes the DB
+        sid: io.string,
     }),
 ]);
 exports.userRecord = io.union([exports.registeredUserRecord, exports.guestUserRecord]);

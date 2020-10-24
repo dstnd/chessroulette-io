@@ -46,5 +46,6 @@ export declare const registerUserResponsePayload: io.UnionC<[io.IntersectionC<[i
     avatarId: io.StringC;
 }>, io.TypeC<{
     isGuest: io.LiteralC<true>;
+    sid: io.StringC;
 }>]>]>;
 export declare type RegisterUserResponsePayload = io.TypeOf<typeof registerUserResponsePayload>;

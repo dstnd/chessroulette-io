@@ -56,6 +56,7 @@ export declare const roomsStatsPayload: io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
@@ -540,6 +541,7 @@ export declare const peersStatsPayload: io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -603,6 +605,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -670,6 +673,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;

@@ -54,6 +54,7 @@ export declare const roomStatsRecord: io.IntersectionC<[io.IntersectionC<[io.Typ
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;

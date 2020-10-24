@@ -109,6 +109,7 @@ export declare const authenticationResponsePayload: io.TypeC<{
         avatarId: io.StringC;
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
+        sid: io.StringC;
     }>]>]>;
 }>;
 export declare type AuthenticationResponsePayload = io.TypeOf<typeof authenticationResponsePayload>;
@@ -119,6 +120,7 @@ export declare const guestAuthenticationRequestPayload: io.TypeC<{
         avatarId: io.StringC;
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
+        sid: io.StringC;
     }>]>, io.UndefinedC]>;
 }>;
 export declare type GuestAuthenticationRequestPayload = io.TypeOf<typeof guestAuthenticationRequestPayload>;
@@ -129,6 +131,7 @@ export declare const guestAuthenticationResponsePayload: io.TypeC<{
         avatarId: io.StringC;
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
+        sid: io.StringC;
     }>]>;
 }>;
 export declare type GuestAuthenticationResponsePayload = io.TypeOf<typeof guestAuthenticationResponsePayload>;

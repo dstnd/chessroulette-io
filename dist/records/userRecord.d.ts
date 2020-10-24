@@ -90,6 +90,7 @@ export declare const guestUserRecord: io.IntersectionC<[io.TypeC<{
     avatarId: io.StringC;
 }>, io.TypeC<{
     isGuest: io.LiteralC<true>;
+    sid: io.StringC;
 }>]>;
 export declare type GuestUserRecord = io.TypeOf<typeof guestUserRecord>;
 export declare const userRecord: io.UnionC<[io.IntersectionC<[io.TypeC<{
@@ -139,5 +140,6 @@ export declare const userRecord: io.UnionC<[io.IntersectionC<[io.TypeC<{
     avatarId: io.StringC;
 }>, io.TypeC<{
     isGuest: io.LiteralC<true>;
+    sid: io.StringC;
 }>]>]>;
 export declare type UserRecord = io.TypeOf<typeof userRecord>;

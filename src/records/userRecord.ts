@@ -31,6 +31,10 @@ export const guestUserRecord = io.intersection([
   userInfoRecord,
   io.type({
     isGuest: io.literal(true),
+
+    // ServerId - This is needed to be able to maintain stale/fresh guests
+    //  when the server flushes the DB
+    sid: io.string,
   }),
 ]);
 

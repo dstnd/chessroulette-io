@@ -70,6 +70,7 @@ export declare const connectionOpenedPayload: io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
@@ -139,6 +140,7 @@ export declare const iamResponsePayload: io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -224,6 +226,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
@@ -289,6 +292,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -359,6 +363,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     avatarId: io.StringC;
                 }>, io.TypeC<{
                     isGuest: io.LiteralC<true>;
+                    sid: io.StringC;
                 }>]>]>;
             }>, io.UnionC<[io.TypeC<{
                 hasJoinedRoom: io.LiteralC<false>;
@@ -859,6 +864,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     avatarId: io.StringC;
                 }>, io.TypeC<{
                     isGuest: io.LiteralC<true>;
+                    sid: io.StringC;
                 }>]>]>;
             }>, io.UnionC<[io.TypeC<{
                 hasJoinedRoom: io.LiteralC<false>;
@@ -1337,6 +1343,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
@@ -1584,6 +1591,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -1651,6 +1659,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
@@ -2133,6 +2142,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -2200,6 +2210,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;

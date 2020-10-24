@@ -892,6 +892,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -1377,6 +1378,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -1864,6 +1866,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -2351,6 +2354,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -3247,6 +3251,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;

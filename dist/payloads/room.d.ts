@@ -67,6 +67,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -552,6 +553,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -1039,6 +1041,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -1526,6 +1529,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -2013,6 +2017,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
             avatarId: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+            sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<false>;
@@ -2500,6 +2505,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
@@ -2997,6 +3003,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                     avatarId: io.StringC;
                 }>, io.TypeC<{
                     isGuest: io.LiteralC<true>;
+                    sid: io.StringC;
                 }>]>]>;
             }>, io.UnionC<[io.TypeC<{
                 hasJoinedRoom: io.LiteralC<false>;
@@ -3475,6 +3482,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                 avatarId: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
+                sid: io.StringC;
             }>]>]>;
         }>, io.UnionC<[io.TypeC<{
             hasJoinedRoom: io.LiteralC<false>;
