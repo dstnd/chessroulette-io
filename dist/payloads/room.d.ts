@@ -490,6 +490,19 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             }>;
         }>]>;
     }>]>]>;
+    chatHistory: io.TypeC<{
+        id: io.StringC;
+        messages: io.ArrayC<io.TypeC<{
+            content: io.StringC;
+            fromUserId: io.StringC;
+            sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>>;
+        usersInfo: io.RecordC<io.StringC, io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>>;
+    }>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
     code: io.NullC;
@@ -976,6 +989,19 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             }>;
         }>]>;
     }>]>]>;
+    chatHistory: io.TypeC<{
+        id: io.StringC;
+        messages: io.ArrayC<io.TypeC<{
+            content: io.StringC;
+            fromUserId: io.StringC;
+            sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>>;
+        usersInfo: io.RecordC<io.StringC, io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>>;
+    }>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
     code: io.NullC;
@@ -1464,6 +1490,19 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             }>;
         }>]>;
     }>]>]>;
+    chatHistory: io.TypeC<{
+        id: io.StringC;
+        messages: io.ArrayC<io.TypeC<{
+            content: io.StringC;
+            fromUserId: io.StringC;
+            sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>>;
+        usersInfo: io.RecordC<io.StringC, io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>>;
+    }>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
     code: io.NullC;
@@ -1952,6 +1991,19 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             }>;
         }>]>;
     }>]>]>;
+    chatHistory: io.TypeC<{
+        id: io.StringC;
+        messages: io.ArrayC<io.TypeC<{
+            content: io.StringC;
+            fromUserId: io.StringC;
+            sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>>;
+        usersInfo: io.RecordC<io.StringC, io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>>;
+    }>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
     code: io.NullC;
@@ -2440,6 +2492,19 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
             }>;
         }>]>;
     }>]>]>;
+    chatHistory: io.TypeC<{
+        id: io.StringC;
+        messages: io.ArrayC<io.TypeC<{
+            content: io.StringC;
+            fromUserId: io.StringC;
+            sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>>;
+        usersInfo: io.RecordC<io.StringC, io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>>;
+    }>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
     code: io.NullC;
@@ -2928,6 +2993,19 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                 }>;
             }>]>;
         }>]>]>;
+        chatHistory: io.TypeC<{
+            id: io.StringC;
+            messages: io.ArrayC<io.TypeC<{
+                content: io.StringC;
+                fromUserId: io.StringC;
+                sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            }>>;
+            usersInfo: io.RecordC<io.StringC, io.TypeC<{
+                id: io.StringC;
+                name: io.StringC;
+                avatarId: io.StringC;
+            }>>;
+        }>;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"public">;
         code: io.NullC;
@@ -3426,6 +3504,19 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                     }>;
                 }>]>;
             }>]>]>;
+            chatHistory: io.TypeC<{
+                id: io.StringC;
+                messages: io.ArrayC<io.TypeC<{
+                    content: io.StringC;
+                    fromUserId: io.StringC;
+                    sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                }>>;
+                usersInfo: io.RecordC<io.StringC, io.TypeC<{
+                    id: io.StringC;
+                    name: io.StringC;
+                    avatarId: io.StringC;
+                }>>;
+            }>;
         }>, io.UnionC<[io.TypeC<{
             type: io.LiteralC<"public">;
             code: io.NullC;

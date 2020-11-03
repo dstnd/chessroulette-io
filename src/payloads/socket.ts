@@ -1,19 +1,8 @@
 import * as io from 'io-ts';
 import { peerRecord } from '../records/peerRecord';
 import { challengeAcceptedPayload } from './challenge';
-import { 
-  gameJoinRequestPayload, 
-  gameDrawOfferingRequestPayload, 
-  gameDrawAcceptRequestPayload,
-  gameMoveRequestPayload, 
-  gameResignationRequestPayload,
-  gameAbortionRequestPayload,
-  gameRematchOfferingRequestPayload,
-  gameRematchAcceptRequestPayload,
-  gameRematchDenyRequestPayload,
-  gameDrawDenyRequestPayload,
-  gameActionRequestPayload,
-} from './game';
+import { broadcastChatMessagePayload } from './chat';
+import { gameActionRequestPayload } from './game';
 import { myStatsPayload } from './peer';
 import { 
   joinedRoomUpdatedPayload,
@@ -93,6 +82,9 @@ export const socketPayload = io.union([
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
   leaveRoomRequestPayload,
+
+  // Chat
+  broadcastChatMessagePayload,
 
   // Game Actions
   gameActionRequestPayload,

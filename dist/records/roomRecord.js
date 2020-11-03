@@ -4,6 +4,7 @@ exports.roomWithNoActivityRecord = exports.roomWithPlayActivityRecord = exports.
 var io = require("io-ts");
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var chessGame_1 = require("../chessGame");
+var chatRecords_1 = require("./chatRecords");
 var peerRecord_1 = require("./peerRecord");
 exports.roomActivityOption = io.keyof({
     none: null,
@@ -38,6 +39,7 @@ exports.roomRecord = io.intersection([
         slug: io.string,
         peers: io.record(io.string, peerRecord_1.peerRecord),
         activity: exports.roomActivityRecord,
+        chatHistory: chatRecords_1.chatHistoryRecord,
     }),
     io.union([
         io.type({

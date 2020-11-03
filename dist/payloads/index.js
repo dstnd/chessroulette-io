@@ -21,4 +21,5 @@ __exportStar(require("./lichess"), exports);
 __exportStar(require("./authentication"), exports);
 __exportStar(require("./stats"), exports);
 __exportStar(require("./challenge"), exports);
+__exportStar(require("./chat"), exports);
 //# sourceMappingURL=index.js.map

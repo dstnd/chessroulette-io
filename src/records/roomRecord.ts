@@ -1,6 +1,7 @@
 import * as io from 'io-ts';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import { chessGameState, chessGameOffer } from '../chessGame';
+import { chatHistoryRecord, chatMessageRecord } from './chatRecords';
 import { peerRecord } from './peerRecord';
 
 export const roomActivityOption = io.keyof({
@@ -50,6 +51,8 @@ export const roomRecord = io.intersection([
 
     peers: io.record(io.string, peerRecord),
     activity: roomActivityRecord,
+
+    chatHistory: chatHistoryRecord,
 
     // TODO: Add
     // lastJoinedAt: null | ISODateTime;

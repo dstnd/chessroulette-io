@@ -4,6 +4,7 @@ exports.socketPayload = exports.genericFailureResponsePayload = exports.iamRespo
 var io = require("io-ts");
 var peerRecord_1 = require("../records/peerRecord");
 var challenge_1 = require("./challenge");
+var chat_1 = require("./chat");
 var game_1 = require("./game");
 var peer_1 = require("./peer");
 var room_1 = require("./room");
@@ -59,6 +60,8 @@ exports.socketPayload = io.union([
     room_1.joinRoomSuccessPayload,
     room_1.joinRoomFailurePayload,
     room_1.leaveRoomRequestPayload,
+    // Chat
+    chat_1.broadcastChatMessagePayload,
     // Game Actions
     game_1.gameActionRequestPayload,
     // Stats

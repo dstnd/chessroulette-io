@@ -477,6 +477,19 @@ export declare const roomStatsRecord: io.IntersectionC<[io.IntersectionC<[io.Typ
             }>;
         }>]>;
     }>]>]>;
+    chatHistory: io.TypeC<{
+        id: io.StringC;
+        messages: io.ArrayC<io.TypeC<{
+            content: io.StringC;
+            fromUserId: io.StringC;
+            sentAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        }>>;
+        usersInfo: io.RecordC<io.StringC, io.TypeC<{
+            id: io.StringC;
+            name: io.StringC;
+            avatarId: io.StringC;
+        }>>;
+    }>;
 }>, io.UnionC<[io.TypeC<{
     type: io.LiteralC<"public">;
     code: io.NullC;
