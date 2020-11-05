@@ -23,6 +23,14 @@ export declare const promotionalChessPieceType: io.KeyofC<{
     q: undefined;
 }>;
 export declare type PromotionalChessPieceType = io.TypeOf<typeof promotionalChessPieceType>;
+export declare const capturableChessPieceType: io.KeyofC<{
+    p: undefined;
+    n: undefined;
+    b: undefined;
+    r: undefined;
+    q: undefined;
+}>;
+export declare type CapturableChessPieceType = io.TypeOf<typeof capturableChessPieceType>;
 export declare const chessSquare: io.KeyofC<{
     a8: undefined;
     b8: undefined;

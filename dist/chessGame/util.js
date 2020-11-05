@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getRandomChessColor = exports.shuffle = exports.otherChessColor = void 0;
+exports.getCapturedPiecesState = exports.getRandomChessColor = exports.shuffle = exports.otherChessColor = void 0;
 function otherChessColor(c) {
     return c === 'white' ? 'black' : 'white';
 }
@@ -23,4 +23,18 @@ function shuffle(a) {
 }
 exports.shuffle = shuffle;
 exports.getRandomChessColor = function () { return shuffle(['white', 'black'])[0]; };
+exports.getCapturedPiecesState = function (history) {
+    var initial = {
+        white: { p: 0, n: 0, b: 0, r: 0, q: 0 },
+        black: { p: 0, n: 0, b: 0, r: 0, q: 0 },
+    };
+    return history.reduce(function (acc, move) {
+        if ('captured' in move && move.captured) {
+            var piece = move.captured;
+            acc[otherChessColor(move.color === 'w' ? 'white' : 'black')][piece] += 1;
+            return acc;
+        }
+        return acc;
+    }, initial);
+};
 //# sourceMappingURL=util.js.map

@@ -1,10 +1,11 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
+exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
 var io = require("io-ts");
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var userRecord_1 = require("../records/userRecord");
+var boardRecords_1 = require("./boardRecords");
 exports.chessPlayerWhite = io.type({
     color: io.literal('white'),
     user: userRecord_1.userInfoRecord,
@@ -67,6 +68,10 @@ exports.chessGameRematchOffer = io.type({
     }),
 });
 exports.chessGameOffer = io.union([exports.chessGameDrawOffer, exports.chessGameRematchOffer]);
+exports.capturedPiecesRecord = io.type({
+    white: io.record(boardRecords_1.capturableChessPieceType, io.number),
+    black: io.record(boardRecords_1.capturableChessPieceType, io.number),
+});
 exports.chessGameStateWaitingForOpponent = io.type({
     state: io.literal('waitingForOpponent'),
     timeLimit: exports.chessGameTimeLimit,
@@ -79,6 +84,7 @@ exports.chessGameStateWaitingForOpponent = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
+    captured: io.undefined,
     /* @deprecated */
     lastMoved: io.undefined,
 });
@@ -94,6 +100,7 @@ exports.chessGameStatePending = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
+    captured: io.undefined,
     /* @deprecated */
     lastMoved: io.undefined,
 });
@@ -109,6 +116,7 @@ exports.chessGameStateNeverStarted = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
+    captured: io.undefined,
     /* @deprecated */
     lastMoved: io.undefined,
 });
@@ -125,6 +133,7 @@ exports.chessGameStateStarted = io.type({
     winner: io.undefined,
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    captured: exports.capturedPiecesRecord,
     /* @deprecated */
     lastMoved: io.keyof(exports.chessPlayers.props),
 });
@@ -140,6 +149,7 @@ exports.chessGameStateFinished = io.type({
     winner: io.union([exports.chessGameColor, io.literal('1/2')]),
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    captured: exports.capturedPiecesRecord,
     /* @deprecated */
     lastMoved: io.keyof(exports.chessPlayers.props),
 });
@@ -155,6 +165,7 @@ exports.chessGameStateStopped = io.type({
     winner: io.union([exports.chessGameColor, io.literal('1/2')]),
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    captured: exports.capturedPiecesRecord,
     /* @deprecated */
     lastMoved: io.keyof(exports.chessPlayers.props),
 });

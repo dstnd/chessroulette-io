@@ -41,6 +41,7 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        captured: io.UndefinedC;
         lastMoved: io.UndefinedC;
     }>, io.TypeC<{
         state: io.LiteralC<"pending">;
@@ -87,6 +88,7 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        captured: io.UndefinedC;
         lastMoved: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
@@ -150,6 +152,22 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        captured: io.TypeC<{
+            white: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+            black: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+        }>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -234,6 +252,22 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        captured: io.TypeC<{
+            white: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+            black: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+        }>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -311,6 +345,7 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        captured: io.UndefinedC;
         lastMoved: io.UndefinedC;
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
@@ -378,6 +413,22 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        captured: io.TypeC<{
+            white: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+            black: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+        }>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -454,6 +505,7 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        captured: io.UndefinedC;
         lastMoved: io.UndefinedC;
     }>, io.TypeC<{
         state: io.LiteralC<"pending">;
@@ -500,6 +552,7 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        captured: io.UndefinedC;
         lastMoved: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
@@ -563,6 +616,22 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        captured: io.TypeC<{
+            white: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+            black: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+        }>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -647,6 +716,22 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        captured: io.TypeC<{
+            white: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+            black: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+        }>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -724,6 +809,7 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        captured: io.UndefinedC;
         lastMoved: io.UndefinedC;
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
@@ -791,6 +877,22 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        captured: io.TypeC<{
+            white: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+            black: io.RecordC<io.KeyofC<{
+                p: undefined;
+                n: undefined;
+                b: undefined;
+                r: undefined;
+                q: undefined;
+            }>, io.NumberC>;
+        }>;
         lastMoved: io.KeyofC<{
             white: io.TypeC<{
                 color: io.LiteralC<"white">;
@@ -938,6 +1040,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -984,6 +1087,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -1047,6 +1151,22 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1131,6 +1251,22 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1208,6 +1344,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -1275,6 +1412,22 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1437,6 +1590,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -1483,6 +1637,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -1546,6 +1701,22 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1630,6 +1801,22 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1707,6 +1894,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -1774,6 +1962,22 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1938,6 +2142,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -1984,6 +2189,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -2047,6 +2253,22 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2131,6 +2353,22 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2208,6 +2446,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -2275,6 +2514,22 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2439,6 +2694,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -2485,6 +2741,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -2548,6 +2805,22 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2632,6 +2905,22 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2709,6 +2998,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -2776,6 +3066,22 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2869,6 +3175,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -2915,6 +3222,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -2978,6 +3286,22 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -3062,6 +3386,22 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -3139,6 +3479,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -3206,6 +3547,22 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -3349,6 +3706,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -3395,6 +3753,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -3458,6 +3817,22 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -3542,6 +3917,22 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -3619,6 +4010,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -3686,6 +4078,22 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;

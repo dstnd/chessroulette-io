@@ -28,6 +28,15 @@ export const promotionalChessPieceType = io.keyof({
 });
 export type PromotionalChessPieceType = io.TypeOf<typeof promotionalChessPieceType>;
 
+export const capturableChessPieceType = io.keyof({
+  'p': undefined,
+  'n': undefined,
+  'b': undefined,
+  'r': undefined,
+  'q': undefined,
+});
+export type CapturableChessPieceType = io.TypeOf<typeof capturableChessPieceType>;
+
 export const chessSquare = io.keyof({
   'a8': undefined,
   'b8': undefined,

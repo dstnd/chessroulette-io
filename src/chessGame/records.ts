@@ -2,6 +2,7 @@ import * as io from 'io-ts';
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import { userInfoRecord } from '../records/userRecord';
+import { capturableChessPieceType, chessPieceType } from './boardRecords';
 
 export const chessPlayerWhite = io.type({
   color: io.literal('white'),
@@ -97,6 +98,12 @@ export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
 export const chessGameOffer = io.union([chessGameDrawOffer, chessGameRematchOffer]);
 export type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
 
+export const capturedPiecesRecord = io.type({
+  white: io.record(capturableChessPieceType, io.number),
+  black: io.record(capturableChessPieceType, io.number),
+});
+export type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
+
 export const chessGameStateWaitingForOpponent = io.type({
   state: io.literal('waitingForOpponent'),
   timeLimit: chessGameTimeLimit,
@@ -109,6 +116,8 @@ export const chessGameStateWaitingForOpponent = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
+
+  captured: io.undefined,
   /* @deprecated */
   lastMoved: io.undefined,
 });
@@ -126,6 +135,7 @@ export const chessGameStatePending = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
+  captured: io.undefined,
   /* @deprecated */
   lastMoved: io.undefined,
 });
@@ -143,6 +153,7 @@ export const chessGameStateNeverStarted = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
+  captured: io.undefined,
   /* @deprecated */
   lastMoved: io.undefined,
 });
@@ -162,6 +173,7 @@ export const chessGameStateStarted = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
+  captured: capturedPiecesRecord,
   /* @deprecated */
   lastMoved: io.keyof(chessPlayers.props),
 });
@@ -180,6 +192,7 @@ export const chessGameStateFinished = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
+  captured: capturedPiecesRecord,
   /* @deprecated */
   lastMoved: io.keyof(chessPlayers.props),
 });
@@ -198,6 +211,7 @@ export const chessGameStateStopped = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
+  captured: capturedPiecesRecord,
   /* @deprecated */
   lastMoved: io.keyof(chessPlayers.props),
 });

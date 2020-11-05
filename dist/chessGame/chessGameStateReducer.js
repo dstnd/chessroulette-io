@@ -36,6 +36,7 @@ exports.prepareGameAction = function (_a) {
             lastMoveAt: undefined,
             lastMoveBy: undefined,
             lastMoved: undefined,
+            captured: undefined,
             pgn: undefined,
             winner: undefined,
         };
@@ -60,6 +61,7 @@ exports.prepareGameAction = function (_a) {
         },
         pgn: undefined,
         winner: undefined,
+        captured: undefined,
         lastMoveAt: undefined,
         lastMoveBy: undefined,
         lastMoved: undefined,
@@ -98,14 +100,15 @@ var moveAction = function (prev, next) {
     var moveElapsedMs = (prev.lastMoveAt !== undefined)
         ? now.getTime() - new Date(prev.lastMoveAt).getTime()
         : 0; // Zero if first move
+    var captured = util_1.getCapturedPiecesState(instance.history({ verbose: true }));
     if (instance.game_over()) {
-        return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy });
+        return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, captured: captured, lastMoved: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
     if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
         return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoved });
     }
-    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
+    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), captured: captured, winner: undefined });
 };
 var timerFinishedAction = function (prev, 
 // @deprecated

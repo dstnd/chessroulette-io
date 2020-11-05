@@ -40,6 +40,7 @@ export declare const actions: {
         winner: undefined;
         lastMoveBy: undefined;
         lastMoveAt: undefined;
+        captured: undefined;
         lastMoved: undefined;
     } | {
         state: "pending";
@@ -81,6 +82,7 @@ export declare const actions: {
         winner: undefined;
         lastMoveBy: undefined;
         lastMoveAt: undefined;
+        captured: undefined;
         lastMoved: undefined;
     } | {
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
@@ -122,6 +124,22 @@ export declare const actions: {
         winner: undefined;
         lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        captured: {
+            white: {
+                p: number;
+                n: number;
+                b: number;
+                r: number;
+                q: number;
+            };
+            black: {
+                p: number;
+                n: number;
+                b: number;
+                r: number;
+                q: number;
+            };
+        };
         lastMoved: "white" | "black";
     } | {
         state: "finished";
@@ -163,6 +181,22 @@ export declare const actions: {
         winner: "white" | "black" | "1/2";
         lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        captured: {
+            white: {
+                p: number;
+                n: number;
+                b: number;
+                r: number;
+                q: number;
+            };
+            black: {
+                p: number;
+                n: number;
+                b: number;
+                r: number;
+                q: number;
+            };
+        };
         lastMoved: "white" | "black";
     };
     move: (prev: ChessGameStatePending | ChessGameStateStarted, next: {

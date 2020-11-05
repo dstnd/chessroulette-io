@@ -1,4 +1,5 @@
-import { ChessGameColor, ChessColorWhite, ChessColorBlack } from './records';
+import { ChessGameColor, ChessColorWhite, ChessColorBlack, CapturedPiecesRecord } from './records';
+import { Move } from 'chess.js';
 
 // I don't know why this needs to be typed like this
 //  with a function declaration but if it's declared
@@ -27,3 +28,22 @@ export function shuffle<T extends unknown>(a: T[]) {
 }
 
 export const getRandomChessColor = () => shuffle(['white', 'black'])[0] as ChessGameColor;
+
+export const getCapturedPiecesState = (history: Move[]) => {
+  const initial: CapturedPiecesRecord = {
+    white: { p: 0, n: 0, b: 0, r: 0, q: 0 },
+    black: { p: 0, n: 0, b: 0, r: 0, q: 0 },
+  };
+
+  return history.reduce((acc, move) => {
+    if ('captured' in move && move.captured) {
+      const piece = move.captured;
+
+      acc[otherChessColor(move.color === 'w' ? 'white' : 'black')][piece] += 1;
+
+      return acc;
+    }
+
+    return acc;
+  }, initial);
+};

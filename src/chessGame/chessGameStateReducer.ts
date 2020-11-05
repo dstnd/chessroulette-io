@@ -9,12 +9,13 @@ import {
   ChessGameStateWaitingForOpponent,
   ChessGameStateStopped,
 } from "./records";
-import { otherChessColor, getRandomChessColor } from "./util";
+import { otherChessColor, getRandomChessColor, getCapturedPiecesState } from "./util";
 import { getNewChessGame } from "./sdk";
 import { toISODateTime } from "io-ts-isodatetime";
 import { ChessMove } from "./boardRecords";
 import { UserInfoRecord } from "../records/userRecord";
 import { chessGameTimeLimitMsMap } from "../metadata/game";
+import { Move } from "chess.js";
 
 export const prepareGameAction = ({
   players,
@@ -51,6 +52,7 @@ export const prepareGameAction = ({
       lastMoveAt: undefined,
       lastMoveBy: undefined,
       lastMoved: undefined,
+      captured: undefined,
       pgn: undefined,
       winner: undefined,
     };
@@ -77,6 +79,7 @@ export const prepareGameAction = ({
     },
     pgn: undefined,
     winner: undefined,
+    captured: undefined,
 
     lastMoveAt: undefined,
     lastMoveBy: undefined,
@@ -138,6 +141,8 @@ const moveAction = (
     ? now.getTime() - new Date(prev.lastMoveAt).getTime()
     : 0; // Zero if first move
 
+  const captured = getCapturedPiecesState(instance.history({ verbose: true }) as Move[]);
+
   if (instance.game_over()) {
     return {
       ...prev,
@@ -147,6 +152,8 @@ const moveAction = (
 
       lastMoveAt: toISODateTime(now),
       lastMoveBy: currentLastMovedBy,
+      captured,
+
       lastMoved: currentLastMovedBy,
     };
   }
@@ -172,6 +179,7 @@ const moveAction = (
       ...prev.timeLeft,
       [currentLastMovedBy]: timeLeft,
     },
+    captured,
     winner: undefined,
   };
 };

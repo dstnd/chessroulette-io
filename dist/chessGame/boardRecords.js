@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessMove = exports.chessSquare = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
+exports.chessMove = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
 var io = require("io-ts");
 // Taken from chess.js
 /**
@@ -20,6 +20,13 @@ exports.chessPieceType = io.keyof({
     'k': undefined,
 });
 exports.promotionalChessPieceType = io.keyof({
+    'n': undefined,
+    'b': undefined,
+    'r': undefined,
+    'q': undefined,
+});
+exports.capturableChessPieceType = io.keyof({
+    'p': undefined,
     'n': undefined,
     'b': undefined,
     'r': undefined,

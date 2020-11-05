@@ -102,6 +102,7 @@ export declare const roomsStatsPayload: io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 state: io.LiteralC<"pending">;
@@ -148,6 +149,7 @@ export declare const roomsStatsPayload: io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 timeLimit: io.KeyofC<{
@@ -211,6 +213,22 @@ export declare const roomsStatsPayload: io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -295,6 +313,22 @@ export declare const roomsStatsPayload: io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -372,6 +406,7 @@ export declare const roomsStatsPayload: io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 state: io.LiteralC<"stopped">;
@@ -439,6 +474,22 @@ export declare const roomsStatsPayload: io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -732,6 +783,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 state: io.LiteralC<"pending">;
@@ -778,6 +830,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 timeLimit: io.KeyofC<{
@@ -841,6 +894,22 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -925,6 +994,22 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -1002,6 +1087,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 state: io.LiteralC<"stopped">;
@@ -1069,6 +1155,22 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;

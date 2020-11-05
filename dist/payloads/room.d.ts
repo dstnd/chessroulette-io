@@ -113,6 +113,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -159,6 +160,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -222,6 +224,22 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -306,6 +324,22 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -383,6 +417,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -450,6 +485,22 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -612,6 +663,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -658,6 +710,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -721,6 +774,22 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -805,6 +874,22 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -882,6 +967,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -949,6 +1035,22 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1113,6 +1215,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -1159,6 +1262,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -1222,6 +1326,22 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1306,6 +1426,22 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1383,6 +1519,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -1450,6 +1587,22 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1614,6 +1767,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -1660,6 +1814,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -1723,6 +1878,22 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1807,6 +1978,22 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -1884,6 +2071,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -1951,6 +2139,22 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2115,6 +2319,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -2161,6 +2366,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             timeLimit: io.KeyofC<{
@@ -2224,6 +2430,22 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2308,6 +2530,22 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2385,6 +2623,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
             winner: io.UndefinedC;
             lastMoveBy: io.UndefinedC;
             lastMoveAt: io.UndefinedC;
+            captured: io.UndefinedC;
             lastMoved: io.UndefinedC;
         }>, io.TypeC<{
             state: io.LiteralC<"stopped">;
@@ -2452,6 +2691,22 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 }>;
             }>;
             lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            captured: io.TypeC<{
+                white: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+                black: io.RecordC<io.KeyofC<{
+                    p: undefined;
+                    n: undefined;
+                    b: undefined;
+                    r: undefined;
+                    q: undefined;
+                }>, io.NumberC>;
+            }>;
             lastMoved: io.KeyofC<{
                 white: io.TypeC<{
                     color: io.LiteralC<"white">;
@@ -2616,6 +2871,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 state: io.LiteralC<"pending">;
@@ -2662,6 +2918,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 timeLimit: io.KeyofC<{
@@ -2725,6 +2982,22 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -2809,6 +3082,22 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -2886,6 +3175,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                 winner: io.UndefinedC;
                 lastMoveBy: io.UndefinedC;
                 lastMoveAt: io.UndefinedC;
+                captured: io.UndefinedC;
                 lastMoved: io.UndefinedC;
             }>, io.TypeC<{
                 state: io.LiteralC<"stopped">;
@@ -2953,6 +3243,22 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     }>;
                 }>;
                 lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                captured: io.TypeC<{
+                    white: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                    black: io.RecordC<io.KeyofC<{
+                        p: undefined;
+                        n: undefined;
+                        b: undefined;
+                        r: undefined;
+                        q: undefined;
+                    }>, io.NumberC>;
+                }>;
                 lastMoved: io.KeyofC<{
                     white: io.TypeC<{
                         color: io.LiteralC<"white">;
@@ -3127,6 +3433,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                     winner: io.UndefinedC;
                     lastMoveBy: io.UndefinedC;
                     lastMoveAt: io.UndefinedC;
+                    captured: io.UndefinedC;
                     lastMoved: io.UndefinedC;
                 }>, io.TypeC<{
                     state: io.LiteralC<"pending">;
@@ -3173,6 +3480,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                     winner: io.UndefinedC;
                     lastMoveBy: io.UndefinedC;
                     lastMoveAt: io.UndefinedC;
+                    captured: io.UndefinedC;
                     lastMoved: io.UndefinedC;
                 }>, io.TypeC<{
                     timeLimit: io.KeyofC<{
@@ -3236,6 +3544,22 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         }>;
                     }>;
                     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                    captured: io.TypeC<{
+                        white: io.RecordC<io.KeyofC<{
+                            p: undefined;
+                            n: undefined;
+                            b: undefined;
+                            r: undefined;
+                            q: undefined;
+                        }>, io.NumberC>;
+                        black: io.RecordC<io.KeyofC<{
+                            p: undefined;
+                            n: undefined;
+                            b: undefined;
+                            r: undefined;
+                            q: undefined;
+                        }>, io.NumberC>;
+                    }>;
                     lastMoved: io.KeyofC<{
                         white: io.TypeC<{
                             color: io.LiteralC<"white">;
@@ -3320,6 +3644,22 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         }>;
                     }>;
                     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                    captured: io.TypeC<{
+                        white: io.RecordC<io.KeyofC<{
+                            p: undefined;
+                            n: undefined;
+                            b: undefined;
+                            r: undefined;
+                            q: undefined;
+                        }>, io.NumberC>;
+                        black: io.RecordC<io.KeyofC<{
+                            p: undefined;
+                            n: undefined;
+                            b: undefined;
+                            r: undefined;
+                            q: undefined;
+                        }>, io.NumberC>;
+                    }>;
                     lastMoved: io.KeyofC<{
                         white: io.TypeC<{
                             color: io.LiteralC<"white">;
@@ -3397,6 +3737,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                     winner: io.UndefinedC;
                     lastMoveBy: io.UndefinedC;
                     lastMoveAt: io.UndefinedC;
+                    captured: io.UndefinedC;
                     lastMoved: io.UndefinedC;
                 }>, io.TypeC<{
                     state: io.LiteralC<"stopped">;
@@ -3464,6 +3805,22 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         }>;
                     }>;
                     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+                    captured: io.TypeC<{
+                        white: io.RecordC<io.KeyofC<{
+                            p: undefined;
+                            n: undefined;
+                            b: undefined;
+                            r: undefined;
+                            q: undefined;
+                        }>, io.NumberC>;
+                        black: io.RecordC<io.KeyofC<{
+                            p: undefined;
+                            n: undefined;
+                            b: undefined;
+                            r: undefined;
+                            q: undefined;
+                        }>, io.NumberC>;
+                    }>;
                     lastMoved: io.KeyofC<{
                         white: io.TypeC<{
                             color: io.LiteralC<"white">;

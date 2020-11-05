@@ -199,6 +199,23 @@ export declare const chessGameOffer: io.UnionC<[io.TypeC<{
     }>;
 }>]>;
 export declare type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
+export declare const capturedPiecesRecord: io.TypeC<{
+    white: io.RecordC<io.KeyofC<{
+        p: undefined;
+        n: undefined;
+        b: undefined;
+        r: undefined;
+        q: undefined;
+    }>, io.NumberC>;
+    black: io.RecordC<io.KeyofC<{
+        p: undefined;
+        n: undefined;
+        b: undefined;
+        r: undefined;
+        q: undefined;
+    }>, io.NumberC>;
+}>;
+export declare type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
 export declare const chessGameStateWaitingForOpponent: io.TypeC<{
     state: io.LiteralC<"waitingForOpponent">;
     timeLimit: io.KeyofC<{
@@ -230,6 +247,7 @@ export declare const chessGameStateWaitingForOpponent: io.TypeC<{
     winner: io.UndefinedC;
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
+    captured: io.UndefinedC;
     lastMoved: io.UndefinedC;
 }>;
 export declare type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
@@ -278,6 +296,7 @@ export declare const chessGameStatePending: io.TypeC<{
     winner: io.UndefinedC;
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
+    captured: io.UndefinedC;
     lastMoved: io.UndefinedC;
 }>;
 export declare type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
@@ -340,6 +359,7 @@ export declare const chessGameStateNeverStarted: io.TypeC<{
     winner: io.UndefinedC;
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
+    captured: io.UndefinedC;
     lastMoved: io.UndefinedC;
 }>;
 export declare type ChessGameStateNeverStarted = io.TypeOf<typeof chessGameStateNeverStarted>;
@@ -405,6 +425,22 @@ export declare const chessGameStateStarted: io.TypeC<{
         }>;
     }>;
     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    captured: io.TypeC<{
+        white: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+        black: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+    }>;
     lastMoved: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -491,6 +527,22 @@ export declare const chessGameStateFinished: io.TypeC<{
         }>;
     }>;
     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    captured: io.TypeC<{
+        white: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+        black: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+    }>;
     lastMoved: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -577,6 +629,22 @@ export declare const chessGameStateStopped: io.TypeC<{
         }>;
     }>;
     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    captured: io.TypeC<{
+        white: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+        black: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+    }>;
     lastMoved: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -628,6 +696,7 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
     winner: io.UndefinedC;
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
+    captured: io.UndefinedC;
     lastMoved: io.UndefinedC;
 }>, io.TypeC<{
     state: io.LiteralC<"pending">;
@@ -674,6 +743,7 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
     winner: io.UndefinedC;
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
+    captured: io.UndefinedC;
     lastMoved: io.UndefinedC;
 }>, io.TypeC<{
     timeLimit: io.KeyofC<{
@@ -737,6 +807,22 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         }>;
     }>;
     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    captured: io.TypeC<{
+        white: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+        black: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+    }>;
     lastMoved: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -821,6 +907,22 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         }>;
     }>;
     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    captured: io.TypeC<{
+        white: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+        black: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+    }>;
     lastMoved: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
@@ -898,6 +1000,7 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
     winner: io.UndefinedC;
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
+    captured: io.UndefinedC;
     lastMoved: io.UndefinedC;
 }>, io.TypeC<{
     state: io.LiteralC<"stopped">;
@@ -965,6 +1068,22 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         }>;
     }>;
     lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+    captured: io.TypeC<{
+        white: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+        black: io.RecordC<io.KeyofC<{
+            p: undefined;
+            n: undefined;
+            b: undefined;
+            r: undefined;
+            q: undefined;
+        }>, io.NumberC>;
+    }>;
     lastMoved: io.KeyofC<{
         white: io.TypeC<{
             color: io.LiteralC<"white">;
