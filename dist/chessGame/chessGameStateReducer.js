@@ -102,10 +102,10 @@ var moveAction = function (prev, next) {
         return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
-    if (prev.state === 'started' && timeLeft < 0) {
+    if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
         return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoved });
     }
-    return __assign(__assign({}, prev), { state: "started", pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
+    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
 };
 var timerFinishedAction = function (prev, 
 // @deprecated

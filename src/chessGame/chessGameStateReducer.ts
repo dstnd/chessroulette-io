@@ -153,7 +153,7 @@ const moveAction = (
 
   const timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
 
-  if (prev.state === 'started' && timeLeft < 0) {
+  if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
     return {
       ...prev,
       state: 'finished',
@@ -163,7 +163,7 @@ const moveAction = (
 
   return {
     ...prev,
-    state: "started",
+    state: 'started',
     pgn: instance.pgn(),
     lastMoveAt: toISODateTime(now),
     lastMoveBy: currentLastMovedBy,
