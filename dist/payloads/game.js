@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.gameActionRequestPayload = exports.gameRematchDenyRequestPayload = exports.gameRematchAcceptRequestPayload = exports.gameRematchOfferingRequestPayload = exports.gameMoveRequestPayload = exports.gameAbortionRequestPayload = exports.gameResignationRequestPayload = exports.gameDrawDenyRequestPayload = exports.gameDrawAcceptRequestPayload = exports.gameDrawOfferingRequestPayload = exports.gameJoinRequestPayload = void 0;
+exports.gameActionRequestPayload = exports.gameOfferingCancelRequestPayload = exports.gameRematchDenyRequestPayload = exports.gameRematchAcceptRequestPayload = exports.gameRematchOfferingRequestPayload = exports.gameMoveRequestPayload = exports.gameAbortionRequestPayload = exports.gameResignationRequestPayload = exports.gameDrawDenyRequestPayload = exports.gameDrawAcceptRequestPayload = exports.gameDrawOfferingRequestPayload = exports.gameJoinRequestPayload = void 0;
 var io = require("io-ts");
 var boardRecords_1 = require("../chessGame/boardRecords");
 exports.gameJoinRequestPayload = io.type({
@@ -48,6 +48,10 @@ exports.gameRematchDenyRequestPayload = io.type({
     kind: io.literal('gameRematchDenyRequest'),
     content: io.undefined,
 });
+exports.gameOfferingCancelRequestPayload = io.type({
+    kind: io.literal('gameOfferingCancelRequest'),
+    content: io.undefined,
+});
 exports.gameActionRequestPayload = io.union([
     exports.gameJoinRequestPayload,
     exports.gameDrawAcceptRequestPayload,
@@ -59,5 +63,6 @@ exports.gameActionRequestPayload = io.union([
     exports.gameRematchAcceptRequestPayload,
     exports.gameRematchDenyRequestPayload,
     exports.gameRematchOfferingRequestPayload,
+    exports.gameOfferingCancelRequestPayload,
 ]);
 //# sourceMappingURL=game.js.map

@@ -2,7 +2,7 @@ import * as io from 'io-ts';
 // import { isoDateTimeFromISOString } from 'src/lib/date';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import { userInfoRecord } from '../records/userRecord';
-import { capturableChessPieceType, chessPieceType } from './boardRecords';
+import { capturableChessPieceType } from './boardRecords';
 
 export const chessPlayerWhite = io.type({
   color: io.literal('white'),

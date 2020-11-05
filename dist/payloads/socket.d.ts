@@ -1675,6 +1675,9 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
 }>, io.TypeC<{
     kind: io.LiteralC<"gameRematchOfferingRequest">;
     content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameOfferingCancelRequest">;
+    content: io.UndefinedC;
 }>]>, io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"peersStats">;
     content: io.ArrayC<io.IntersectionC<[io.TypeC<{

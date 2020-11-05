@@ -193,6 +193,11 @@ export declare const gameRematchDenyRequestPayload: io.TypeC<{
     content: io.UndefinedC;
 }>;
 export declare type GameRematchDenyRequestPayload = io.TypeOf<typeof gameRematchDenyRequestPayload>;
+export declare const gameOfferingCancelRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameOfferingCancelRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameOfferingCancelRequestPayload = io.TypeOf<typeof gameOfferingCancelRequestPayload>;
 export declare const gameActionRequestPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"gameJoinRequest">;
     content: io.TypeC<{
@@ -366,6 +371,9 @@ export declare const gameActionRequestPayload: io.UnionC<[io.TypeC<{
     content: io.UndefinedC;
 }>, io.TypeC<{
     kind: io.LiteralC<"gameRematchOfferingRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameOfferingCancelRequest">;
     content: io.UndefinedC;
 }>]>;
 export declare type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;
