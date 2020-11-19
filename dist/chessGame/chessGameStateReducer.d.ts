@@ -1,7 +1,7 @@
-import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent, ChessGameStateStopped } from "./records";
-import { ISODateTime } from "io-ts-isodatetime";
-import { ChessMove } from "./boardRecords";
-import { UserInfoRecord } from "../records/userRecord";
+import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent, ChessGameStateStopped } from './records';
+import { ISODateTime } from 'io-ts-isodatetime';
+import { ChessMove } from './boardRecords';
+import { UserInfoRecord } from '../records/userRecord';
 export declare const prepareGameAction: ({ players, timeLimit, preferredColor, pgn, }: {
     players: [UserInfoRecord] | [UserInfoRecord, UserInfoRecord];
     timeLimit: ChessGameTimeLimit;
@@ -19,14 +19,14 @@ export declare const actions: {
         state: "waitingForOpponent";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
@@ -47,28 +47,28 @@ export declare const actions: {
         state: "pending";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
@@ -89,28 +89,28 @@ export declare const actions: {
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         state: "started";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
@@ -146,28 +146,28 @@ export declare const actions: {
         state: "finished";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         }, {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 name: string;
                 avatarId: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 name: string;

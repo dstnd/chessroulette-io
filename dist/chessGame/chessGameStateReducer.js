@@ -17,11 +17,11 @@ var sdk_1 = require("./sdk");
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var game_1 = require("../metadata/game");
 exports.prepareGameAction = function (_a) {
-    var players = _a.players, timeLimit = _a.timeLimit, _b = _a.preferredColor, preferredColor = _b === void 0 ? "random" : _b, _c = _a.pgn, pgn = _c === void 0 ? "" : _c;
-    var firstPlayerColor = preferredColor === "random" ? util_1.getRandomChessColor() : preferredColor;
+    var players = _a.players, timeLimit = _a.timeLimit, _b = _a.preferredColor, preferredColor = _b === void 0 ? 'random' : _b, _c = _a.pgn, pgn = _c === void 0 ? '' : _c;
+    var firstPlayerColor = preferredColor === 'random' ? util_1.getRandomChessColor() : preferredColor;
     if (!players[1]) {
         var waitingForOpponentGameState = {
-            state: "waitingForOpponent",
+            state: 'waitingForOpponent',
             timeLimit: timeLimit,
             players: [
                 {
@@ -43,7 +43,7 @@ exports.prepareGameAction = function (_a) {
         return waitingForOpponentGameState;
     }
     var pendingGameState = {
-        state: "pending",
+        state: 'pending',
         timeLimit: timeLimit,
         players: [
             {
@@ -86,13 +86,13 @@ var moveAction = function (prev, next) {
     var _a;
     // Default it to black so when the game just starts
     //  it sets the 1st move to white
-    var _b = prev.lastMoved, prevLastMoved = _b === void 0 ? "black" : _b;
+    var _b = prev.lastMoved, prevLastMoved = _b === void 0 ? 'black' : _b;
     var instance = sdk_1.getNewChessGame();
-    var pgn = ("pgn" in next ? next.pgn : prev.pgn) || "";
+    var pgn = ('pgn' in next ? next.pgn : prev.pgn) || '';
     // Load the nnxt or prev pgn
     instance.load_pgn(pgn);
     // If there is a move make it
-    if ("move" in next) {
+    if ('move' in next) {
         instance.move(next.move);
     }
     var nextPgn = instance.pgn();
@@ -103,14 +103,12 @@ var moveAction = function (prev, next) {
     }
     var movedAt = new Date(next.movedAt);
     // const now = new Date();
-    var moveElapsedMs = (prev.lastMoveAt !== undefined)
-        ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
-        : 0; // Zero if first move
+    var moveElapsedMs = prev.lastMoveAt !== undefined ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime() : 0; // Zero if first move
     var captured = util_1.getCapturedPiecesState(instance.history({ verbose: true }));
     // If it's white's turn that means black moved last!
     var currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
     if (instance.game_over()) {
-        return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, captured: captured, lastMoved: currentLastMovedBy });
+        return __assign(__assign({}, prev), { state: 'finished', winner: instance.in_draw() ? '1/2' : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, captured: captured, lastMoved: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
     if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
@@ -121,16 +119,16 @@ var moveAction = function (prev, next) {
 var timerFinishedAction = function (prev, 
 // @deprecated
 next) {
-    return __assign(__assign({}, prev), { state: "finished", winner: util_1.otherChessColor(prev.lastMoveBy) });
+    return __assign(__assign({}, prev), { state: 'finished', winner: util_1.otherChessColor(prev.lastMoveBy) });
 };
 var abortAction = function (prev) {
-    return __assign(__assign({}, prev), { state: "neverStarted" });
+    return __assign(__assign({}, prev), { state: 'neverStarted' });
 };
 var resignAction = function (prev, resigningColor) {
-    return __assign(__assign({}, prev), { state: "stopped", winner: util_1.otherChessColor(resigningColor) });
+    return __assign(__assign({}, prev), { state: 'stopped', winner: util_1.otherChessColor(resigningColor) });
 };
 var drawAction = function (prev) {
-    return __assign(__assign({}, prev), { state: "stopped", winner: "1/2" });
+    return __assign(__assign({}, prev), { state: 'stopped', winner: '1/2' });
 };
 exports.actions = {
     prepareGame: exports.prepareGameAction,
