@@ -68,7 +68,7 @@ exports.prepareGameAction = function (_a) {
     };
     if (pgn) {
         // If there is a pgn given on prepare, then simulate a move action!
-        return moveAction(pendingGameState, { pgn: pgn });
+        return moveAction(pendingGameState, { pgn: pgn, movedAt: io_ts_isodatetime_1.toISODateTime(new Date()) });
     }
     return pendingGameState;
 };
@@ -87,7 +87,6 @@ var moveAction = function (prev, next) {
     // Default it to black so when the game just starts
     //  it sets the 1st move to white
     var _b = prev.lastMoved, prevLastMoved = _b === void 0 ? "black" : _b;
-    var currentLastMovedBy = util_1.otherChessColor(prevLastMoved);
     var instance = sdk_1.getNewChessGame();
     var pgn = ("pgn" in next ? next.pgn : prev.pgn) || "";
     // Load the nnxt or prev pgn
@@ -96,19 +95,28 @@ var moveAction = function (prev, next) {
     if ("move" in next) {
         instance.move(next.move);
     }
-    var now = new Date();
+    var nextPgn = instance.pgn();
+    // Don't do anything if the PGN's are the same
+    // Multiple Requests shouldn't change the output
+    if (prev.pgn === nextPgn) {
+        return prev;
+    }
+    var movedAt = new Date(next.movedAt);
+    // const now = new Date();
     var moveElapsedMs = (prev.lastMoveAt !== undefined)
-        ? now.getTime() - new Date(prev.lastMoveAt).getTime()
+        ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
         : 0; // Zero if first move
     var captured = util_1.getCapturedPiecesState(instance.history({ verbose: true }));
+    // If it's white's turn that means black moved last!
+    var currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
     if (instance.game_over()) {
-        return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, captured: captured, lastMoved: currentLastMovedBy });
+        return __assign(__assign({}, prev), { state: "finished", winner: instance.in_draw() ? "1/2" : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, captured: captured, lastMoved: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
     if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
         return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoved });
     }
-    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: io_ts_isodatetime_1.toISODateTime(now), lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), captured: captured, winner: undefined });
+    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), captured: captured, winner: undefined });
 };
 var timerFinishedAction = function (prev, 
 // @deprecated

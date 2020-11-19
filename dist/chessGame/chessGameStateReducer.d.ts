@@ -1,4 +1,5 @@
 import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent, ChessGameStateStopped } from "./records";
+import { ISODateTime } from "io-ts-isodatetime";
 import { ChessMove } from "./boardRecords";
 import { UserInfoRecord } from "../records/userRecord";
 export declare const prepareGameAction: ({ players, timeLimit, preferredColor, pgn, }: {
@@ -201,8 +202,10 @@ export declare const actions: {
     };
     move: (prev: ChessGameStatePending | ChessGameStateStarted, next: {
         move: ChessMove;
+        movedAt: ISODateTime;
     } | {
         pgn: ChessGameStatePgn;
+        movedAt: ISODateTime;
     }) => ChessGameStateStarted | ChessGameStateFinished;
     timerFinished: (prev: ChessGameStateStarted, next?: {
         loser: ChessGameColor;

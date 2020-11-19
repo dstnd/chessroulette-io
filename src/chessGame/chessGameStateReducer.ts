@@ -11,7 +11,7 @@ import {
 } from "./records";
 import { otherChessColor, getRandomChessColor, getCapturedPiecesState } from "./util";
 import { getNewChessGame } from "./sdk";
-import { toISODateTime } from "io-ts-isodatetime";
+import { ISODateTime, toISODateTime } from "io-ts-isodatetime";
 import { ChessMove } from "./boardRecords";
 import { UserInfoRecord } from "../records/userRecord";
 import { chessGameTimeLimitMsMap } from "../metadata/game";
@@ -88,7 +88,7 @@ export const prepareGameAction = ({
 
   if (pgn) {
     // If there is a pgn given on prepare, then simulate a move action!
-    return moveAction(pendingGameState, { pgn });
+    return moveAction(pendingGameState, { pgn, movedAt: toISODateTime(new Date()) });
   }
 
   return pendingGameState;
@@ -113,16 +113,16 @@ const moveAction = (
   next:
     | {
         move: ChessMove;
+        movedAt: ISODateTime;
       }
     | {
         pgn: ChessGameStatePgn;
+        movedAt: ISODateTime;
       }
 ): ChessGameStateStarted | ChessGameStateFinished => {
   // Default it to black so when the game just starts
   //  it sets the 1st move to white
   const { lastMoved: prevLastMoved = "black" } = prev;
-
-  const currentLastMovedBy = otherChessColor(prevLastMoved);
 
   const instance = getNewChessGame();
 
@@ -136,12 +136,25 @@ const moveAction = (
     instance.move(next.move);
   }
 
-  const now = new Date();
+  const nextPgn = instance.pgn();
+
+  // Don't do anything if the PGN's are the same
+  // Multiple Requests shouldn't change the output
+  if (prev.pgn === nextPgn) {
+    return prev;
+  }
+
+  const movedAt = new Date(next.movedAt);
+
+  // const now = new Date();
   const moveElapsedMs = (prev.lastMoveAt !== undefined)
-    ? now.getTime() - new Date(prev.lastMoveAt).getTime()
+    ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
     : 0; // Zero if first move
 
   const captured = getCapturedPiecesState(instance.history({ verbose: true }) as Move[]);
+
+  // If it's white's turn that means black moved last!
+  const currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
 
   if (instance.game_over()) {
     return {
@@ -150,7 +163,7 @@ const moveAction = (
       winner: instance.in_draw() ? "1/2" : currentLastMovedBy,
       pgn: instance.pgn(),
 
-      lastMoveAt: toISODateTime(now),
+      lastMoveAt: next.movedAt,
       lastMoveBy: currentLastMovedBy,
       captured,
 
@@ -172,7 +185,7 @@ const moveAction = (
     ...prev,
     state: 'started',
     pgn: instance.pgn(),
-    lastMoveAt: toISODateTime(now),
+    lastMoveAt: next.movedAt,
     lastMoveBy: currentLastMovedBy,
     lastMoved: currentLastMovedBy,
     timeLeft: {
