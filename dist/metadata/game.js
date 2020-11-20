@@ -9,8 +9,8 @@ exports.chessGameTimeLimitMsMap = {
     untimed: -1,
 };
 exports.chessGamePrefferedColorOptionList = [
-    "black",
-    "white",
-    "random",
+    'black',
+    'white',
+    'random',
 ];
 //# sourceMappingURL=game.js.map

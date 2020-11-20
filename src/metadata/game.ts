@@ -1,9 +1,5 @@
-import {
-  ChessGameTimeLimit,
-  ChessGameColor,
-  ChessPrefferedColorOption,
-} from "../chessGame";
-import { minutes } from "../util";
+import { ChessGameTimeLimit, ChessPrefferedColorOption } from '../chessGame';
+import { minutes } from '../util';
 
 export const chessGameTimeLimitMsMap: {
   [key in ChessGameTimeLimit]: number;
@@ -15,7 +11,7 @@ export const chessGameTimeLimitMsMap: {
 };
 
 export const chessGamePrefferedColorOptionList: ChessPrefferedColorOption[] = [
-  "black",
-  "white",
-  "random",
+  'black',
+  'white',
+  'random',
 ];

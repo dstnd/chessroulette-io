@@ -1,4 +1,4 @@
-import { ChessGameTimeLimit, ChessPrefferedColorOption } from "../chessGame";
+import { ChessGameTimeLimit, ChessPrefferedColorOption } from '../chessGame';
 export declare const chessGameTimeLimitMsMap: {
     [key in ChessGameTimeLimit]: number;
 };

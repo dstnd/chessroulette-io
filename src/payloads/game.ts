@@ -72,6 +72,12 @@ export const gameOfferingCancelRequestPayload = io.type({
 });
 export type GameOfferingCancelRequestPayload = io.TypeOf<typeof gameOfferingCancelRequestPayload>;
 
+export const gameStatusCheckRequestPayload = io.type({
+  kind: io.literal('gameStatusCheckRequest'),
+  content: io.undefined,
+});
+export type GameStatusCheckRequestPayload = io.TypeOf<typeof gameStatusCheckRequestPayload>;
+
 export const gameActionRequestPayload = io.union([
   gameJoinRequestPayload,
   gameDrawAcceptRequestPayload,
@@ -84,6 +90,7 @@ export const gameActionRequestPayload = io.union([
   gameRematchDenyRequestPayload,
   gameRematchOfferingRequestPayload,
   gameOfferingCancelRequestPayload,
+  gameStatusCheckRequestPayload,
 ]);
 
 export type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;

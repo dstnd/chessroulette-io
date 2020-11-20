@@ -1,4 +1,4 @@
-import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent, ChessGameStateStopped } from './records';
+import { ChessGameStatePgn, ChessGameColor, ChessGameStatePending, ChessGameStateStarted, ChessGameStateFinished, ChessGameStateNeverStarted, ChessGameTimeLimit, ChessGameStateWaitingForOpponent, ChessGameStateStopped, ChessGameState } from './records';
 import { ISODateTime } from 'io-ts-isodatetime';
 import { ChessMove } from './boardRecords';
 import { UserInfoRecord } from '../records/userRecord';
@@ -207,10 +207,11 @@ export declare const actions: {
         pgn: ChessGameStatePgn;
         movedAt: ISODateTime;
     }) => ChessGameStateStarted | ChessGameStateFinished;
-    timerFinished: (prev: ChessGameStateStarted, next?: {
-        loser: ChessGameColor;
-    } | undefined) => ChessGameStateFinished;
     resign: (prev: ChessGameStateStarted, resigningColor: ChessGameColor) => ChessGameStateStopped;
     draw: (prev: ChessGameStateStarted) => ChessGameStateStopped;
     abort: (prev: ChessGameStatePending | ChessGameStateWaitingForOpponent) => ChessGameStateNeverStarted;
+    statusCheck: (prev: ChessGameState, at: Date) => ChessGameState;
+    timerFinished: (prev: ChessGameStateStarted, next?: {
+        loser: ChessGameColor;
+    } | undefined) => ChessGameStateFinished;
 };

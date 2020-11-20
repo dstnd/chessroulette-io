@@ -8,6 +8,7 @@ import {
   ChessGameTimeLimit,
   ChessGameStateWaitingForOpponent,
   ChessGameStateStopped,
+  ChessGameState,
 } from './records';
 import { otherChessColor, getRandomChessColor, getCapturedPiecesState } from './util';
 import { getNewChessGame } from './sdk';
@@ -143,9 +144,9 @@ const moveAction = (
 
   const movedAt = new Date(next.movedAt);
 
-  // const now = new Date();
-  const moveElapsedMs =
-    prev.lastMoveAt !== undefined ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime() : 0; // Zero if first move
+  const moveElapsedMs = (prev.lastMoveAt !== undefined)
+    ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
+    : 0; // Zero if first move
 
   const captured = getCapturedPiecesState(instance.history({ verbose: true }) as Move[]);
 
@@ -193,6 +194,30 @@ const moveAction = (
   };
 };
 
+const statusCheck = (prev: ChessGameState, at: Date): ChessGameState => {
+  if (prev.state === 'started') {
+    const turn = otherChessColor(prev.lastMoveBy);
+    const delta = at.getTime() - (new Date(prev.lastMoveAt).getTime() + prev.timeLeft[turn]);
+
+    if (delta > 0) {
+      return {
+        ...prev,
+        state: 'finished',
+        winner: prev.lastMoveBy,
+        timeLeft: {
+          ...prev.timeLeft,
+          [turn]: 0,
+        }
+      }
+    }
+
+    return prev;
+  }
+
+  return prev;
+}
+
+// @deprecated
 const timerFinishedAction = (
   prev: ChessGameStateStarted,
 
@@ -240,8 +265,11 @@ export const actions = {
   prepareGame: prepareGameAction,
   joinGame: joinGameAction,
   move: moveAction,
-  timerFinished: timerFinishedAction,
   resign: resignAction,
   draw: drawAction,
   abort: abortAction,
+  statusCheck,
+
+  // @deprecate in favor of statusCheck
+  timerFinished: timerFinishedAction,
 };

@@ -102,8 +102,9 @@ var moveAction = function (prev, next) {
         return prev;
     }
     var movedAt = new Date(next.movedAt);
-    // const now = new Date();
-    var moveElapsedMs = prev.lastMoveAt !== undefined ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime() : 0; // Zero if first move
+    var moveElapsedMs = (prev.lastMoveAt !== undefined)
+        ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
+        : 0; // Zero if first move
     var captured = util_1.getCapturedPiecesState(instance.history({ verbose: true }));
     // If it's white's turn that means black moved last!
     var currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
@@ -116,6 +117,19 @@ var moveAction = function (prev, next) {
     }
     return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, lastMoved: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), captured: captured, winner: undefined });
 };
+var statusCheck = function (prev, at) {
+    var _a;
+    if (prev.state === 'started') {
+        var turn = util_1.otherChessColor(prev.lastMoveBy);
+        var delta = at.getTime() - (new Date(prev.lastMoveAt).getTime() + prev.timeLeft[turn]);
+        if (delta > 0) {
+            return __assign(__assign({}, prev), { state: 'finished', winner: prev.lastMoveBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[turn] = 0, _a)) });
+        }
+        return prev;
+    }
+    return prev;
+};
+// @deprecated
 var timerFinishedAction = function (prev, 
 // @deprecated
 next) {
@@ -134,9 +148,11 @@ exports.actions = {
     prepareGame: exports.prepareGameAction,
     joinGame: joinGameAction,
     move: moveAction,
-    timerFinished: timerFinishedAction,
     resign: resignAction,
     draw: drawAction,
     abort: abortAction,
+    statusCheck: statusCheck,
+    // @deprecate in favor of statusCheck
+    timerFinished: timerFinishedAction,
 };
 //# sourceMappingURL=chessGameStateReducer.js.map
