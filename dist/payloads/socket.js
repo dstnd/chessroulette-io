@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.socketPayload = exports.genericFailureResponsePayload = exports.iamResponsePayload = exports.whoamiRequestPayload = exports.connectionOpenedPayload = exports.pingPayload = exports.statsReaderIdentificationPayload = exports.userIdentificationPayload = void 0;
 var io = require("io-ts");
+var roomRecord_1 = require("../records/roomRecord");
 var peerRecord_1 = require("../records/peerRecord");
 var challenge_1 = require("./challenge");
 var chat_1 = require("./chat");
@@ -37,7 +38,20 @@ exports.whoamiRequestPayload = io.type({
 });
 exports.iamResponsePayload = io.type({
     kind: io.literal('iam'),
-    content: peerRecord_1.peerRecord,
+    content: io.intersection([
+        io.type({
+            peer: peerRecord_1.peerRecord,
+        }),
+        io.union([
+            io.type({
+                hasJoinedRoom: io.literal(true),
+                room: roomRecord_1.roomRecord,
+            }),
+            io.type({
+                hasJoinedRoom: io.literal(false),
+            }),
+        ]),
+    ]),
 });
 exports.genericFailureResponsePayload = io.type({
     kind: io.literal('genericRequestFailure'),

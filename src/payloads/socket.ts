@@ -1,4 +1,5 @@
 import * as io from 'io-ts';
+import { roomRecord } from '../records/roomRecord';
 import { peerRecord } from '../records/peerRecord';
 import { challengeAcceptedPayload } from './challenge';
 import { broadcastChatMessagePayload } from './chat';
@@ -52,7 +53,20 @@ export type WhoamiRequestPayload = io.TypeOf<typeof whoamiRequestPayload>;
 
 export const iamResponsePayload = io.type({
   kind: io.literal('iam'),
-  content: peerRecord,
+  content: io.intersection([
+    io.type({
+      peer: peerRecord,
+    }),
+    io.union([
+      io.type({
+        hasJoinedRoom: io.literal(true),
+        room: roomRecord,
+      }),
+      io.type({
+        hasJoinedRoom: io.literal(false),
+      }),
+    ]),
+  ]),
 });
 export type IamResponsePayload = io.TypeOf<typeof iamResponsePayload>;
 
