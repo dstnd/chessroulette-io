@@ -10,6 +10,7 @@ var game_1 = require("./game");
 var peer_1 = require("./peer");
 var room_1 = require("./room");
 var stats_1 = require("./stats");
+var challengeRecord_1 = require("../records/challengeRecord");
 exports.userIdentificationPayload = io.type({
     kind: io.literal('userIdentification'),
     content: io.type({
@@ -49,6 +50,15 @@ exports.iamResponsePayload = io.type({
             }),
             io.type({
                 hasJoinedRoom: io.literal(false),
+            }),
+        ]),
+        io.union([
+            io.type({
+                hasActiveChallenge: io.literal(true),
+                challenge: challengeRecord_1.challengeRecord,
+            }),
+            io.type({
+                hasActiveChallenge: io.literal(false),
             }),
         ]),
     ]),

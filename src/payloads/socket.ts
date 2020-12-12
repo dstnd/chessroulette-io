@@ -14,6 +14,7 @@ import {
   leaveRoomRequestPayload,
 } from './room';
 import { statsSocketPayload } from './stats';
+import { challengeRecord } from '../records/challengeRecord';
 
 export const userIdentificationPayload = io.type({
   kind: io.literal('userIdentification'),
@@ -64,6 +65,15 @@ export const iamResponsePayload = io.type({
       }),
       io.type({
         hasJoinedRoom: io.literal(false),
+      }),
+    ]),
+    io.union([
+      io.type({
+        hasActiveChallenge: io.literal(true),
+        challenge: challengeRecord,
+      }),
+      io.type({
+        hasActiveChallenge: io.literal(false),
       }),
     ]),
   ]),
