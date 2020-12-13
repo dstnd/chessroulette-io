@@ -37,5 +37,6 @@ export declare namespace AsyncResult {
     function all<T extends AsyncResult<any, any>[]>(...results: T): AsyncResult<AsyncResultOkTypes<T>, AsyncResultErrTypes<T>[number]>;
     function toAsyncResult<T, E = unknown>(result: Result<T, E> | Promise<Result<T, E>> | (() => Promise<Result<T, E>>) | (() => Result<T, E>)): AsyncResultWrapper<T, E>;
     function passThrough<T>(fn: (item: T) => unknown): (item: T) => T;
+    function isAsyncResult<T, E>(t: unknown): t is AsyncResult<T, E>;
 }
 export {};

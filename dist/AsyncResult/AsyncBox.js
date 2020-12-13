@@ -122,5 +122,9 @@ var AsyncResult;
         };
     }
     AsyncResult.passThrough = passThrough;
+    function isAsyncResult(t) {
+        return t instanceof AsyncResultWrapper;
+    }
+    AsyncResult.isAsyncResult = isAsyncResult;
 })(AsyncResult = exports.AsyncResult || (exports.AsyncResult = {}));
 //# sourceMappingURL=AsyncBox.js.map

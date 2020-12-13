@@ -175,4 +175,8 @@ export namespace AsyncResult {
       return item;
     }
   }
+
+  export function isAsyncResult<T, E>(t: unknown): t is AsyncResult<T, E> {
+    return t instanceof AsyncResultWrapper;
+  }
 }
