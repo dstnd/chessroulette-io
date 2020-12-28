@@ -152,6 +152,7 @@ export declare const iamResponsePayload: io.TypeC<{
             joinedRoomId: io.StringC;
             joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         }>]>]>;
+        latencyInMs: io.NumberC;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<true>;
         room: io.IntersectionC<[io.TypeC<{
@@ -908,6 +909,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             joinedRoomId: io.StringC;
             joinedRoomAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         }>]>]>;
+        latencyInMs: io.NumberC;
     }>, io.UnionC<[io.TypeC<{
         hasJoinedRoom: io.LiteralC<true>;
         room: io.IntersectionC<[io.TypeC<{

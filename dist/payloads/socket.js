@@ -42,6 +42,7 @@ exports.iamResponsePayload = io.type({
     content: io.intersection([
         io.type({
             peer: peerRecord_1.peerRecord,
+            latencyInMs: io.number,
         }),
         io.union([
             io.type({
