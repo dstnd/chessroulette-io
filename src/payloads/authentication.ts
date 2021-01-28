@@ -1,27 +1,12 @@
 import * as io from 'io-ts';
-import { lichessUserRecord } from '../records/lichessRecords';
 import { userRecord, guestUserRecord } from '../records/userRecord';
 
-export const authenticationRedirectUrlResponsePayload = io.type({
-  redirectUrl: io.string,
-});
-
-export type AuthenticationRedirectUrlPayload = io.TypeOf<
-  typeof authenticationRedirectUrlResponsePayload
->;
-
-export const getLichessUserRequestPayload = io.type({
-  token: io.string,
-});
-export type GetLichessUserRequestPayload = io.TypeOf<typeof getLichessUserRequestPayload>;
-
-export const getLichessUserResponsePayload = io.type({
-  user: lichessUserRecord,
-});
-export type GetLichessUserResponsePayload = io.TypeOf<typeof getLichessUserResponsePayload>;
 
 export const authenticationViaExternalAccountRequestPayload = io.type({
-  externalAccountType: io.keyof({ lichess: null }),
+  externalAccountType: io.keyof({
+    lichess: null,
+    facebook: null,
+  }),
   externalAccountToken: io.string,
 });
 export type AuthenticationViaExternalAccountRequestPayload = io.TypeOf<
