@@ -6,7 +6,7 @@ export * from './user';
 export * from './game';
 export * from './room';
 export * from './lichess';
-export * from './authentication';
 export * from './stats';
 export * from './challenge';
 export * from './chat';
+export * from './authentication';

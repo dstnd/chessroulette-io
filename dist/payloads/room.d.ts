@@ -22,49 +22,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
-        }>, io.TypeC<{
-            externalAccountType: io.LiteralC<"lichess">;
-            externalAccountId: io.StringC;
-            externalAccountInfo: io.TypeC<{
-                email: io.StringC;
-                id: io.StringC;
-                username: io.StringC;
-                perfs: io.TypeC<{
-                    blitz: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    bullet: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    classical: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    correspondence: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    puzzle: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    rapid: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                }>;
-            }>;
+            profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
             sid: io.StringC;
@@ -94,15 +65,19 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -127,29 +102,37 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -174,29 +157,37 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -210,16 +201,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -245,16 +240,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -270,29 +269,37 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -310,16 +317,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -345,16 +356,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -370,43 +385,55 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>]>;
             timeLeft: io.TypeC<{
@@ -431,29 +458,37 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -471,16 +506,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -506,16 +545,20 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -550,8 +593,10 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
         }>>;
         usersInfo: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>>;
     }>;
 }>, io.UnionC<[io.TypeC<{
@@ -572,49 +617,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
-        }>, io.TypeC<{
-            externalAccountType: io.LiteralC<"lichess">;
-            externalAccountId: io.StringC;
-            externalAccountInfo: io.TypeC<{
-                email: io.StringC;
-                id: io.StringC;
-                username: io.StringC;
-                perfs: io.TypeC<{
-                    blitz: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    bullet: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    classical: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    correspondence: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    puzzle: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    rapid: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                }>;
-            }>;
+            profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
             sid: io.StringC;
@@ -644,15 +660,19 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -677,29 +697,37 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -724,29 +752,37 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -760,16 +796,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -795,16 +835,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -820,29 +864,37 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -860,16 +912,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -895,16 +951,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -920,43 +980,55 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>]>;
             timeLeft: io.TypeC<{
@@ -981,29 +1053,37 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1021,16 +1101,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1056,16 +1140,20 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1100,8 +1188,10 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
         }>>;
         usersInfo: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>>;
     }>;
 }>, io.UnionC<[io.TypeC<{
@@ -1124,49 +1214,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
-        }>, io.TypeC<{
-            externalAccountType: io.LiteralC<"lichess">;
-            externalAccountId: io.StringC;
-            externalAccountInfo: io.TypeC<{
-                email: io.StringC;
-                id: io.StringC;
-                username: io.StringC;
-                perfs: io.TypeC<{
-                    blitz: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    bullet: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    classical: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    correspondence: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    puzzle: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    rapid: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                }>;
-            }>;
+            profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
             sid: io.StringC;
@@ -1196,15 +1257,19 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1229,29 +1294,37 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1276,29 +1349,37 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1312,16 +1393,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1347,16 +1432,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1372,29 +1461,37 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1412,16 +1509,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1447,16 +1548,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1472,43 +1577,55 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>]>;
             timeLeft: io.TypeC<{
@@ -1533,29 +1650,37 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1573,16 +1698,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1608,16 +1737,20 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1652,8 +1785,10 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
         }>>;
         usersInfo: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>>;
     }>;
 }>, io.UnionC<[io.TypeC<{
@@ -1676,49 +1811,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
-        }>, io.TypeC<{
-            externalAccountType: io.LiteralC<"lichess">;
-            externalAccountId: io.StringC;
-            externalAccountInfo: io.TypeC<{
-                email: io.StringC;
-                id: io.StringC;
-                username: io.StringC;
-                perfs: io.TypeC<{
-                    blitz: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    bullet: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    classical: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    correspondence: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    puzzle: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    rapid: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                }>;
-            }>;
+            profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
             sid: io.StringC;
@@ -1748,15 +1854,19 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1781,29 +1891,37 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1828,29 +1946,37 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1864,16 +1990,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1899,16 +2029,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1924,29 +2058,37 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -1964,16 +2106,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -1999,16 +2145,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2024,43 +2174,55 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>]>;
             timeLeft: io.TypeC<{
@@ -2085,29 +2247,37 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -2125,16 +2295,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2160,16 +2334,20 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2204,8 +2382,10 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
         }>>;
         usersInfo: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>>;
     }>;
 }>, io.UnionC<[io.TypeC<{
@@ -2228,49 +2408,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
-        }>, io.TypeC<{
-            externalAccountType: io.LiteralC<"lichess">;
-            externalAccountId: io.StringC;
-            externalAccountInfo: io.TypeC<{
-                email: io.StringC;
-                id: io.StringC;
-                username: io.StringC;
-                perfs: io.TypeC<{
-                    blitz: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    bullet: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    classical: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    correspondence: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    puzzle: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                    rapid: io.TypeC<{
-                        games: io.NumberC;
-                        rating: io.NumberC;
-                    }>;
-                }>;
-            }>;
+            profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
             sid: io.StringC;
@@ -2300,15 +2451,19 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -2333,29 +2488,37 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -2380,29 +2543,37 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -2416,16 +2587,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2451,16 +2626,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2476,29 +2655,37 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -2516,16 +2703,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2551,16 +2742,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2576,43 +2771,55 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>]>;
             timeLeft: io.TypeC<{
@@ -2637,29 +2844,37 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>, io.UnionC<[io.TypeC<{
                 color: io.LiteralC<"black">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>, io.TypeC<{
                 color: io.LiteralC<"white">;
                 user: io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>;
             }>]>]>;
             timeLeft: io.TypeC<{
@@ -2677,16 +2892,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2712,16 +2931,20 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
                 black: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>;
             }>;
@@ -2756,8 +2979,10 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
         }>>;
         usersInfo: io.RecordC<io.StringC, io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>>;
     }>;
 }>, io.UnionC<[io.TypeC<{
@@ -2780,49 +3005,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
-            }>, io.TypeC<{
-                externalAccountType: io.LiteralC<"lichess">;
-                externalAccountId: io.StringC;
-                externalAccountInfo: io.TypeC<{
-                    email: io.StringC;
-                    id: io.StringC;
-                    username: io.StringC;
-                    perfs: io.TypeC<{
-                        blitz: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        bullet: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        classical: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        correspondence: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        puzzle: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        rapid: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                    }>;
-                }>;
+                profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
                 sid: io.StringC;
@@ -2852,15 +3048,19 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>;
                 timeLeft: io.TypeC<{
@@ -2885,29 +3085,37 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>, io.UnionC<[io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>;
                 timeLeft: io.TypeC<{
@@ -2932,29 +3140,37 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>, io.UnionC<[io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>;
                 timeLeft: io.TypeC<{
@@ -2968,16 +3184,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                     black: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                 }>;
@@ -3003,16 +3223,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                     black: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                 }>;
@@ -3028,29 +3252,37 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>, io.UnionC<[io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>;
                 timeLeft: io.TypeC<{
@@ -3068,16 +3300,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                     black: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                 }>;
@@ -3103,16 +3339,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                     black: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                 }>;
@@ -3128,43 +3368,55 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>, io.UnionC<[io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>]>;
                 timeLeft: io.TypeC<{
@@ -3189,29 +3441,37 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>, io.UnionC<[io.TypeC<{
                     color: io.LiteralC<"black">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>, io.TypeC<{
                     color: io.LiteralC<"white">;
                     user: io.TypeC<{
                         id: io.StringC;
-                        name: io.StringC;
+                        firstName: io.StringC;
+                        lastName: io.StringC;
                         avatarId: io.StringC;
+                        name: io.StringC;
                     }>;
                 }>]>]>;
                 timeLeft: io.TypeC<{
@@ -3229,16 +3489,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                     black: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                 }>;
@@ -3264,16 +3528,20 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                     black: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>;
                 }>;
@@ -3308,8 +3576,10 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
             }>>;
             usersInfo: io.RecordC<io.StringC, io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>>;
         }>;
     }>, io.UnionC<[io.TypeC<{
@@ -3342,49 +3612,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                 id: io.StringC;
                 user: io.UnionC<[io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>, io.TypeC<{
                     isGuest: io.LiteralC<false>;
                     email: io.StringC;
-                }>, io.TypeC<{
-                    externalAccountType: io.LiteralC<"lichess">;
-                    externalAccountId: io.StringC;
-                    externalAccountInfo: io.TypeC<{
-                        email: io.StringC;
-                        id: io.StringC;
-                        username: io.StringC;
-                        perfs: io.TypeC<{
-                            blitz: io.TypeC<{
-                                games: io.NumberC;
-                                rating: io.NumberC;
-                            }>;
-                            bullet: io.TypeC<{
-                                games: io.NumberC;
-                                rating: io.NumberC;
-                            }>;
-                            classical: io.TypeC<{
-                                games: io.NumberC;
-                                rating: io.NumberC;
-                            }>;
-                            correspondence: io.TypeC<{
-                                games: io.NumberC;
-                                rating: io.NumberC;
-                            }>;
-                            puzzle: io.TypeC<{
-                                games: io.NumberC;
-                                rating: io.NumberC;
-                            }>;
-                            rapid: io.TypeC<{
-                                games: io.NumberC;
-                                rating: io.NumberC;
-                            }>;
-                        }>;
-                    }>;
+                    profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
                 }>]>, io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>, io.TypeC<{
                     isGuest: io.LiteralC<true>;
                     sid: io.StringC;
@@ -3414,15 +3655,19 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>;
                     timeLeft: io.TypeC<{
@@ -3447,29 +3692,37 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>, io.UnionC<[io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>;
                     timeLeft: io.TypeC<{
@@ -3494,29 +3747,37 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>, io.UnionC<[io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>;
                     timeLeft: io.TypeC<{
@@ -3530,16 +3791,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             color: io.LiteralC<"white">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                         black: io.TypeC<{
                             color: io.LiteralC<"black">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                     }>;
@@ -3565,16 +3830,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             color: io.LiteralC<"white">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                         black: io.TypeC<{
                             color: io.LiteralC<"black">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                     }>;
@@ -3590,29 +3859,37 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>, io.UnionC<[io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>;
                     timeLeft: io.TypeC<{
@@ -3630,16 +3907,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             color: io.LiteralC<"white">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                         black: io.TypeC<{
                             color: io.LiteralC<"black">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                     }>;
@@ -3665,16 +3946,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             color: io.LiteralC<"white">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                         black: io.TypeC<{
                             color: io.LiteralC<"black">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                     }>;
@@ -3690,43 +3975,55 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>, io.UnionC<[io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>]>;
                     timeLeft: io.TypeC<{
@@ -3751,29 +4048,37 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>, io.UnionC<[io.TypeC<{
                         color: io.LiteralC<"black">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>, io.TypeC<{
                         color: io.LiteralC<"white">;
                         user: io.TypeC<{
                             id: io.StringC;
-                            name: io.StringC;
+                            firstName: io.StringC;
+                            lastName: io.StringC;
                             avatarId: io.StringC;
+                            name: io.StringC;
                         }>;
                     }>]>]>;
                     timeLeft: io.TypeC<{
@@ -3791,16 +4096,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             color: io.LiteralC<"white">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                         black: io.TypeC<{
                             color: io.LiteralC<"black">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                     }>;
@@ -3826,16 +4135,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             color: io.LiteralC<"white">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                         black: io.TypeC<{
                             color: io.LiteralC<"black">;
                             user: io.TypeC<{
                                 id: io.StringC;
-                                name: io.StringC;
+                                firstName: io.StringC;
+                                lastName: io.StringC;
                                 avatarId: io.StringC;
+                                name: io.StringC;
                             }>;
                         }>;
                     }>;
@@ -3870,8 +4183,10 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                 }>>;
                 usersInfo: io.RecordC<io.StringC, io.TypeC<{
                     id: io.StringC;
-                    name: io.StringC;
+                    firstName: io.StringC;
+                    lastName: io.StringC;
                     avatarId: io.StringC;
+                    name: io.StringC;
                 }>>;
             }>;
         }>, io.UnionC<[io.TypeC<{
@@ -3885,49 +4200,20 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
             id: io.StringC;
             user: io.UnionC<[io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
-            }>, io.TypeC<{
-                externalAccountType: io.LiteralC<"lichess">;
-                externalAccountId: io.StringC;
-                externalAccountInfo: io.TypeC<{
-                    email: io.StringC;
-                    id: io.StringC;
-                    username: io.StringC;
-                    perfs: io.TypeC<{
-                        blitz: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        bullet: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        classical: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        correspondence: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        puzzle: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                        rapid: io.TypeC<{
-                            games: io.NumberC;
-                            rating: io.NumberC;
-                        }>;
-                    }>;
-                }>;
+                profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>, io.TypeC<{
                 isGuest: io.LiteralC<true>;
                 sid: io.StringC;

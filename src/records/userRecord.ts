@@ -3,9 +3,13 @@ import { lichessUserRecord } from "./lichessRecords";
 
 export const userInfoRecord = io.type({
   id: io.string,
-  name: io.string,
+  firstName: io.string,
+  lastName: io.string,
   avatarId: io.string,
   // Add any other pertinent details here if needed!
+
+  // @deprecate in favor of the more explicit first/last name
+  name: io.string,
 });
 export type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
 
@@ -21,8 +25,8 @@ export const registeredUserRecord = io.intersection([
   io.type({
     isGuest: io.literal(false),
     email: io.string,
+    profilePicUrl: io.union([io.string, io.undefined]),
   }),
-  userExternalAccountOpts,
 ]);
 
 export type RegisteredUserRecord = io.TypeOf<typeof registeredUserRecord>;

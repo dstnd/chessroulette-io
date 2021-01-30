@@ -14,8 +14,10 @@ export declare const chatHistoryRecord: io.TypeC<{
     }>>;
     usersInfo: io.RecordC<io.StringC, io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        firstName: io.StringC;
+        lastName: io.StringC;
         avatarId: io.StringC;
+        name: io.StringC;
     }>>;
 }>;
 export declare type ChatHistoryRecord = io.TypeOf<typeof chatHistoryRecord>;

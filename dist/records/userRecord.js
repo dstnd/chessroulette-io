@@ -5,8 +5,12 @@ var io = require("io-ts");
 var lichessRecords_1 = require("./lichessRecords");
 exports.userInfoRecord = io.type({
     id: io.string,
-    name: io.string,
+    firstName: io.string,
+    lastName: io.string,
     avatarId: io.string,
+    // Add any other pertinent details here if needed!
+    // @deprecate in favor of the more explicit first/last name
+    name: io.string,
 });
 exports.userExternalAccountOpts = io.type({
     externalAccountType: io.literal('lichess'),
@@ -18,8 +22,8 @@ exports.registeredUserRecord = io.intersection([
     io.type({
         isGuest: io.literal(false),
         email: io.string,
+        profilePicUrl: io.union([io.string, io.undefined]),
     }),
-    exports.userExternalAccountOpts,
 ]);
 exports.guestUserRecord = io.intersection([
     exports.userInfoRecord,

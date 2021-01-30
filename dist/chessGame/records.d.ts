@@ -3,8 +3,10 @@ export declare const chessPlayerWhite: io.TypeC<{
     color: io.LiteralC<"white">;
     user: io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        firstName: io.StringC;
+        lastName: io.StringC;
         avatarId: io.StringC;
+        name: io.StringC;
     }>;
 }>;
 export declare type ChessPlayerWhite = io.TypeOf<typeof chessPlayerWhite>;
@@ -12,8 +14,10 @@ export declare const chessPlayerBlack: io.TypeC<{
     color: io.LiteralC<"black">;
     user: io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        firstName: io.StringC;
+        lastName: io.StringC;
         avatarId: io.StringC;
+        name: io.StringC;
     }>;
 }>;
 export declare type ChessPlayerBlack = io.TypeOf<typeof chessPlayerBlack>;
@@ -21,15 +25,19 @@ export declare const chessPlayer: io.UnionC<[io.TypeC<{
     color: io.LiteralC<"black">;
     user: io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        firstName: io.StringC;
+        lastName: io.StringC;
         avatarId: io.StringC;
+        name: io.StringC;
     }>;
 }>, io.TypeC<{
     color: io.LiteralC<"white">;
     user: io.TypeC<{
         id: io.StringC;
-        name: io.StringC;
+        firstName: io.StringC;
+        lastName: io.StringC;
         avatarId: io.StringC;
+        name: io.StringC;
     }>;
 }>]>;
 export declare type ChessPlayer = io.TypeOf<typeof chessPlayer>;
@@ -38,16 +46,20 @@ export declare const chessPlayers: io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>;
     black: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>;
 }>;
@@ -90,16 +102,20 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>;
     away: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>;
 }>, io.TypeC<{
@@ -107,16 +123,20 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>;
     away: io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>;
 }>]>;
@@ -126,15 +146,19 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>;
     away: io.UndefinedC;
@@ -144,15 +168,19 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>;
 }>]>;
@@ -228,15 +256,19 @@ export declare const chessGameStateWaitingForOpponent: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -263,29 +295,37 @@ export declare const chessGameStatePending: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -312,43 +352,55 @@ export declare const chessGameStateNeverStarted: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>]>;
     timeLeft: io.TypeC<{
@@ -375,29 +427,37 @@ export declare const chessGameStateStarted: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -411,16 +471,20 @@ export declare const chessGameStateStarted: io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -446,16 +510,20 @@ export declare const chessGameStateStarted: io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -473,29 +541,37 @@ export declare const chessGameStateFinished: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -513,16 +589,20 @@ export declare const chessGameStateFinished: io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -548,16 +628,20 @@ export declare const chessGameStateFinished: io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -575,29 +659,37 @@ export declare const chessGameStateStopped: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -615,16 +707,20 @@ export declare const chessGameStateStopped: io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -650,16 +746,20 @@ export declare const chessGameStateStopped: io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -677,15 +777,19 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -710,29 +814,37 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -757,29 +869,37 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -793,16 +913,20 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -828,16 +952,20 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -853,29 +981,37 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -893,16 +1029,20 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -928,16 +1068,20 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -953,43 +1097,55 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>]>;
     timeLeft: io.TypeC<{
@@ -1014,29 +1170,37 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>, io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.TypeC<{
             id: io.StringC;
-            name: io.StringC;
+            firstName: io.StringC;
+            lastName: io.StringC;
             avatarId: io.StringC;
+            name: io.StringC;
         }>;
     }>]>]>;
     timeLeft: io.TypeC<{
@@ -1054,16 +1218,20 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;
@@ -1089,16 +1257,20 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             color: io.LiteralC<"white">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
         black: io.TypeC<{
             color: io.LiteralC<"black">;
             user: io.TypeC<{
                 id: io.StringC;
-                name: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
                 avatarId: io.StringC;
+                name: io.StringC;
             }>;
         }>;
     }>;

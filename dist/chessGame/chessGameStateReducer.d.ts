@@ -22,15 +22,19 @@ export declare const actions: {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }];
         timeLeft: {
@@ -50,29 +54,37 @@ export declare const actions: {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }, {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }];
         timeLeft: {
@@ -92,29 +104,37 @@ export declare const actions: {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }, {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }];
         timeLeft: {
@@ -149,29 +169,37 @@ export declare const actions: {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }, {
             color: "white";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         } | {
             color: "black";
             user: {
                 id: string;
-                name: string;
+                firstName: string;
+                lastName: string;
                 avatarId: string;
+                name: string;
             };
         }];
         timeLeft: {
