@@ -31,19 +31,25 @@ export declare const userCheckRequestPayload: io.UnionC<[io.TypeC<{
     externalUserId: io.StringC;
 }>]>;
 export declare type UserCheckRequestPayload = io.TypeOf<typeof userCheckRequestPayload>;
-export declare const userCheckNegativeResponsePayload: io.TypeC<{
-    isUser: io.LiteralC<false>;
+export declare const userCheckVerificationFailedResponsePayload: io.TypeC<{
+    status: io.LiteralC<"BadVerficationCode">;
 }>;
-export declare type UserCheckNegativeResponsePayload = io.TypeOf<typeof userCheckNegativeResponsePayload>;
-export declare const userCheckPositiveResponsePayload: io.TypeC<{
-    isUser: io.LiteralC<true>;
+export declare type UserCheckVerificationFailedResponsePayload = io.TypeOf<typeof userCheckVerificationFailedResponsePayload>;
+export declare const userCheckInexitentUserResponsePayload: io.TypeC<{
+    status: io.LiteralC<"InexistentUser">;
+}>;
+export declare type UserCheckInexitentUserResponsePayload = io.TypeOf<typeof userCheckInexitentUserResponsePayload>;
+export declare const userCheckExistentUserResponsePayload: io.TypeC<{
+    status: io.LiteralC<"ExistentUser">;
     accessToken: io.StringC;
 }>;
-export declare type UserCheckPositiveResponsePayload = io.TypeOf<typeof userCheckPositiveResponsePayload>;
+export declare type UserCheckExistentUserResponsePayload = io.TypeOf<typeof userCheckExistentUserResponsePayload>;
 export declare const userCheckResponsePayload: io.UnionC<[io.TypeC<{
-    isUser: io.LiteralC<false>;
+    status: io.LiteralC<"BadVerficationCode">;
 }>, io.TypeC<{
-    isUser: io.LiteralC<true>;
+    status: io.LiteralC<"InexistentUser">;
+}>, io.TypeC<{
+    status: io.LiteralC<"ExistentUser">;
     accessToken: io.StringC;
 }>]>;
 export declare type UserCheckResponsePayload = io.TypeOf<typeof userCheckResponsePayload>;
@@ -51,7 +57,7 @@ export declare const verifyEmailRequestPayload: io.TypeC<{
     email: io.StringC;
 }>;
 export declare type VerifyEmailRequestPayload = io.TypeOf<typeof verifyEmailRequestPayload>;
-export declare const verifyEmailResponsePayload: io.NullC;
+export declare const verifyEmailResponsePayload: io.UndefinedC;
 export declare type VerifyEmailResponsePayload = io.TypeOf<typeof verifyEmailResponsePayload>;
 export declare const createUserAccountRequestPayload: io.TypeC<{
     email: io.StringC;

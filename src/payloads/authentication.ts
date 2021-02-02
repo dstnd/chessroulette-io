@@ -1,6 +1,7 @@
 import * as io from 'io-ts';
 import { guestUserRecord } from '../records/userRecord';
 
+
 // Check if User exists/ Attempts to Authenticate automatically if exists
 export const externalVendor = io.keyof({
   facebook: null,
@@ -27,23 +28,29 @@ export const userCheckRequestPayload = io.union([
 ]);
 export type UserCheckRequestPayload = io.TypeOf<typeof userCheckRequestPayload>;
 
-export const userCheckNegativeResponsePayload = io.type({
-  isUser: io.literal(false),
+export const userCheckVerificationFailedResponsePayload = io.type({
+  status: io.literal('BadVerficationCode'),
 });
-export type UserCheckNegativeResponsePayload = io.TypeOf<typeof userCheckNegativeResponsePayload>;
+export type UserCheckVerificationFailedResponsePayload = io.TypeOf<typeof userCheckVerificationFailedResponsePayload>;
 
-export const userCheckPositiveResponsePayload = io.type({
-  isUser: io.literal(true),
-  // user: userRecord, // TODO: See if this is needed in this call - it's for ease of access at this point
+export const userCheckInexitentUserResponsePayload = io.type({
+  status: io.literal('InexistentUser'),
+});
+export type UserCheckInexitentUserResponsePayload = io.TypeOf<typeof userCheckInexitentUserResponsePayload>;
+
+export const userCheckExistentUserResponsePayload = io.type({
+  status: io.literal('ExistentUser'),
   accessToken: io.string,
 });
-export type UserCheckPositiveResponsePayload = io.TypeOf<typeof userCheckPositiveResponsePayload>;
+export type UserCheckExistentUserResponsePayload = io.TypeOf<typeof userCheckExistentUserResponsePayload>;
 
 export const userCheckResponsePayload = io.union([
-  userCheckNegativeResponsePayload,
-  userCheckPositiveResponsePayload,
+  userCheckVerificationFailedResponsePayload,
+  userCheckInexitentUserResponsePayload,
+  userCheckExistentUserResponsePayload,
 ]);
 export type UserCheckResponsePayload = io.TypeOf<typeof userCheckResponsePayload>;
+
 
 // Email Verification
 
@@ -52,7 +59,7 @@ export const verifyEmailRequestPayload = io.type({
 });
 export type VerifyEmailRequestPayload = io.TypeOf<typeof verifyEmailRequestPayload>;
 
-export const verifyEmailResponsePayload = io.null;
+export const verifyEmailResponsePayload = io.undefined;
 export type VerifyEmailResponsePayload = io.TypeOf<typeof verifyEmailResponsePayload>;
 
 // Registration - In case the User Check came negative

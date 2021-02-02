@@ -22,6 +22,4 @@ __exportStar(require("./stats"), exports);
 __exportStar(require("./challenge"), exports);
 __exportStar(require("./chat"), exports);
 __exportStar(require("./authentication"), exports);
-// Note: Starting Jan 29, 2020, each payload will be exported as a namespace
-//  to avoid naming collisions and favor clarity
 //# sourceMappingURL=index.js.map
