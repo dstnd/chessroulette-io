@@ -3,6 +3,7 @@ export declare const externalVendor: io.KeyofC<{
     facebook: null;
     lichess: null;
 }>;
+export declare type ExternalVendor = io.TypeOf<typeof externalVendor>;
 export declare const userCheckInternalAccountRequestPayload: io.TypeC<{
     type: io.LiteralC<"internal">;
     email: io.StringC;
@@ -11,11 +12,11 @@ export declare const userCheckInternalAccountRequestPayload: io.TypeC<{
 export declare type UserCheckInternalAccountRequestPayload = io.TypeOf<typeof userCheckInternalAccountRequestPayload>;
 export declare const userCheckExternalAccountRequestPayload: io.TypeC<{
     type: io.LiteralC<"external">;
-    externalVendor: io.KeyofC<{
+    vendor: io.KeyofC<{
         facebook: null;
         lichess: null;
     }>;
-    externalUserId: io.StringC;
+    accessToken: io.StringC;
 }>;
 export declare type UserCheckExternalAccountRequestPayload = io.TypeOf<typeof userCheckExternalAccountRequestPayload>;
 export declare const userCheckRequestPayload: io.UnionC<[io.TypeC<{
@@ -24,19 +25,62 @@ export declare const userCheckRequestPayload: io.UnionC<[io.TypeC<{
     verificationCode: io.StringC;
 }>, io.TypeC<{
     type: io.LiteralC<"external">;
-    externalVendor: io.KeyofC<{
+    vendor: io.KeyofC<{
         facebook: null;
         lichess: null;
     }>;
-    externalUserId: io.StringC;
+    accessToken: io.StringC;
 }>]>;
 export declare type UserCheckRequestPayload = io.TypeOf<typeof userCheckRequestPayload>;
 export declare const userCheckVerificationFailedResponsePayload: io.TypeC<{
-    status: io.LiteralC<"BadVerficationCode">;
+    status: io.LiteralC<"VerificationFailed">;
 }>;
 export declare type UserCheckVerificationFailedResponsePayload = io.TypeOf<typeof userCheckVerificationFailedResponsePayload>;
 export declare const userCheckInexitentUserResponsePayload: io.TypeC<{
     status: io.LiteralC<"InexistentUser">;
+    external: io.UnionC<[io.UndefinedC, io.TypeC<{
+        vendor: io.KeyofC<{
+            facebook: null;
+            lichess: null;
+        }>;
+        user: io.UnionC<[io.TypeC<{
+            email: io.StringC;
+            id: io.StringC;
+            username: io.StringC;
+            perfs: io.TypeC<{
+                blitz: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                bullet: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                classical: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                correspondence: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                puzzle: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                rapid: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+            }>;
+        }>, io.TypeC<{
+            id: io.StringC;
+            email: io.StringC;
+            firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
+            lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
+            name: io.UnionC<[io.StringC, io.UndefinedC]>;
+        }>]>;
+    }>]>;
 }>;
 export declare type UserCheckInexitentUserResponsePayload = io.TypeOf<typeof userCheckInexitentUserResponsePayload>;
 export declare const userCheckExistentUserResponsePayload: io.TypeC<{
@@ -45,9 +89,52 @@ export declare const userCheckExistentUserResponsePayload: io.TypeC<{
 }>;
 export declare type UserCheckExistentUserResponsePayload = io.TypeOf<typeof userCheckExistentUserResponsePayload>;
 export declare const userCheckResponsePayload: io.UnionC<[io.TypeC<{
-    status: io.LiteralC<"BadVerficationCode">;
+    status: io.LiteralC<"VerificationFailed">;
 }>, io.TypeC<{
     status: io.LiteralC<"InexistentUser">;
+    external: io.UnionC<[io.UndefinedC, io.TypeC<{
+        vendor: io.KeyofC<{
+            facebook: null;
+            lichess: null;
+        }>;
+        user: io.UnionC<[io.TypeC<{
+            email: io.StringC;
+            id: io.StringC;
+            username: io.StringC;
+            perfs: io.TypeC<{
+                blitz: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                bullet: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                classical: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                correspondence: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                puzzle: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+                rapid: io.TypeC<{
+                    games: io.NumberC;
+                    rating: io.NumberC;
+                }>;
+            }>;
+        }>, io.TypeC<{
+            id: io.StringC;
+            email: io.StringC;
+            firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
+            lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
+            name: io.UnionC<[io.StringC, io.UndefinedC]>;
+        }>]>;
+    }>]>;
 }>, io.TypeC<{
     status: io.LiteralC<"ExistentUser">;
     accessToken: io.StringC;
@@ -63,13 +150,13 @@ export declare const createUserAccountRequestPayload: io.TypeC<{
     email: io.StringC;
     firstName: io.StringC;
     lastName: io.StringC;
-    external: io.ArrayC<io.TypeC<{
-        externalVendor: io.KeyofC<{
+    external: io.UnionC<[io.UndefinedC, io.TypeC<{
+        vendor: io.KeyofC<{
             facebook: null;
             lichess: null;
         }>;
-        externalUserId: io.StringC;
-    }>>;
+        accessToken: io.StringC;
+    }>]>;
 }>;
 export declare type CreateUserAccountRequestPayload = io.TypeOf<typeof createUserAccountRequestPayload>;
 export declare const createUserAccountResponsePayload: io.TypeC<{

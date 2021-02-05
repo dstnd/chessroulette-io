@@ -18,6 +18,7 @@ __exportStar(require("./records/lichessRecords"), exports);
 __exportStar(require("./records/roomRecord"), exports);
 __exportStar(require("./records/challengeRecord"), exports);
 __exportStar(require("./records/chatRecords"), exports);
+__exportStar(require("./records/externalVendorsRecords"), exports);
 __exportStar(require("./payloads"), exports);
 __exportStar(require("./io"), exports);
 __exportStar(require("./chessGame"), exports);

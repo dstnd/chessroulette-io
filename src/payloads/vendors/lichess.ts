@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { lichessUserRecord } from '../records/lichessRecords';
+import { lichessUserRecord } from '../../records/lichessRecords';
 
 
 export const lichessAuthenticationRedirectUrlResponsePayload = io.type({

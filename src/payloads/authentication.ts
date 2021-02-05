@@ -1,4 +1,5 @@
 import * as io from 'io-ts';
+import { externalUserRecord } from '../records/externalVendorsRecords';
 import { guestUserRecord } from '../records/userRecord';
 
 
@@ -7,6 +8,7 @@ export const externalVendor = io.keyof({
   facebook: null,
   lichess: null,
 });
+export type ExternalVendor = io.TypeOf<typeof externalVendor>;
 
 export const userCheckInternalAccountRequestPayload = io.type({
   type: io.literal('internal'),
@@ -17,8 +19,8 @@ export type UserCheckInternalAccountRequestPayload = io.TypeOf<typeof userCheckI
 
 export const userCheckExternalAccountRequestPayload = io.type({
   type: io.literal('external'),
-  externalVendor: externalVendor,
-  externalUserId: io.string,
+  vendor: externalVendor,
+  accessToken: io.string,
 });
 export type UserCheckExternalAccountRequestPayload = io.TypeOf<typeof userCheckExternalAccountRequestPayload>;
 
@@ -29,12 +31,19 @@ export const userCheckRequestPayload = io.union([
 export type UserCheckRequestPayload = io.TypeOf<typeof userCheckRequestPayload>;
 
 export const userCheckVerificationFailedResponsePayload = io.type({
-  status: io.literal('BadVerficationCode'),
+  status: io.literal('VerificationFailed'),
 });
 export type UserCheckVerificationFailedResponsePayload = io.TypeOf<typeof userCheckVerificationFailedResponsePayload>;
 
 export const userCheckInexitentUserResponsePayload = io.type({
   status: io.literal('InexistentUser'),
+  external: io.union([
+    io.undefined,
+    io.type({
+      vendor: externalVendor,
+      user: externalUserRecord,
+    }),
+  ]),
 });
 export type UserCheckInexitentUserResponsePayload = io.TypeOf<typeof userCheckInexitentUserResponsePayload>;
 
@@ -68,10 +77,13 @@ export const createUserAccountRequestPayload = io.type({
   email: io.string,
   firstName: io.string,
   lastName: io.string,
-  external: io.array(io.type({
-    externalVendor,
-    externalUserId: io.string,
-  })),
+  external: io.union([
+    io.undefined,
+    io.type({
+      vendor: externalVendor,
+      accessToken: io.string,
+    }),
+  ]),
 });
 export type CreateUserAccountRequestPayload = io.TypeOf<typeof createUserAccountRequestPayload>;
 

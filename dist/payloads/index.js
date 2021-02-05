@@ -17,7 +17,7 @@ __exportStar(require("./peer"), exports);
 __exportStar(require("./user"), exports);
 __exportStar(require("./game"), exports);
 __exportStar(require("./room"), exports);
-__exportStar(require("./lichess"), exports);
+__exportStar(require("./vendors/lichess"), exports);
 __exportStar(require("./stats"), exports);
 __exportStar(require("./challenge"), exports);
 __exportStar(require("./chat"), exports);

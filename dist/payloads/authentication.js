@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.guestAuthenticationResponsePayload = exports.guestAuthenticationRequestPayload = exports.createUserAccountResponsePayload = exports.createUserAccountRequestPayload = exports.verifyEmailResponsePayload = exports.verifyEmailRequestPayload = exports.userCheckResponsePayload = exports.userCheckExistentUserResponsePayload = exports.userCheckInexitentUserResponsePayload = exports.userCheckVerificationFailedResponsePayload = exports.userCheckRequestPayload = exports.userCheckExternalAccountRequestPayload = exports.userCheckInternalAccountRequestPayload = exports.externalVendor = void 0;
 var io = require("io-ts");
+var externalVendorsRecords_1 = require("../records/externalVendorsRecords");
 var userRecord_1 = require("../records/userRecord");
 // Check if User exists/ Attempts to Authenticate automatically if exists
 exports.externalVendor = io.keyof({
@@ -15,18 +16,25 @@ exports.userCheckInternalAccountRequestPayload = io.type({
 });
 exports.userCheckExternalAccountRequestPayload = io.type({
     type: io.literal('external'),
-    externalVendor: exports.externalVendor,
-    externalUserId: io.string,
+    vendor: exports.externalVendor,
+    accessToken: io.string,
 });
 exports.userCheckRequestPayload = io.union([
     exports.userCheckInternalAccountRequestPayload,
     exports.userCheckExternalAccountRequestPayload,
 ]);
 exports.userCheckVerificationFailedResponsePayload = io.type({
-    status: io.literal('BadVerficationCode'),
+    status: io.literal('VerificationFailed'),
 });
 exports.userCheckInexitentUserResponsePayload = io.type({
     status: io.literal('InexistentUser'),
+    external: io.union([
+        io.undefined,
+        io.type({
+            vendor: exports.externalVendor,
+            user: externalVendorsRecords_1.externalUserRecord,
+        }),
+    ]),
 });
 exports.userCheckExistentUserResponsePayload = io.type({
     status: io.literal('ExistentUser'),
@@ -47,10 +55,13 @@ exports.createUserAccountRequestPayload = io.type({
     email: io.string,
     firstName: io.string,
     lastName: io.string,
-    external: io.array(io.type({
-        externalVendor: exports.externalVendor,
-        externalUserId: io.string,
-    })),
+    external: io.union([
+        io.undefined,
+        io.type({
+            vendor: exports.externalVendor,
+            accessToken: io.string,
+        }),
+    ]),
 });
 exports.createUserAccountResponsePayload = io.type({
     // user: userRecord, // TODO: See if this is needed in this call - it's for ease of access at this point

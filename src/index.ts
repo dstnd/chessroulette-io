@@ -5,6 +5,7 @@ export * from './records/lichessRecords';
 export * from './records/roomRecord';
 export * from './records/challengeRecord';
 export * from './records/chatRecords';
+export * from './records/externalVendorsRecords';
 export * from './payloads';
 export * from './io';
 export * from './chessGame';

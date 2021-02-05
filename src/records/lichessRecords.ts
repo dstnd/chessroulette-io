@@ -1,5 +1,4 @@
 import * as io from 'io-ts';
-import { isoDateFromUnixTime } from 'io-ts-isodatetime';
 
 export const lichessRatingRecord = io.type({
   games: io.number,

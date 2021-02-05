@@ -9,11 +9,4 @@ exports.iceServerRecord = io.type({
     username: io.union([io.string, io.undefined]),
 });
 exports.iceServersResponse = io.array(exports.iceServerRecord);
-// Utils
-// export const httpFailedResponsePayload = <ReasonCodec extends io.Mixed>(p: {
-//   reason: ReasonCodec,
-// }) => io.type({
-//   fail: io.literal(true),
-//   reason: p.reason,
-// });
 //# sourceMappingURL=http.js.map
