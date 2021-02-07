@@ -5,7 +5,7 @@ import { challengeAcceptedPayload } from './challenge';
 import { broadcastChatMessagePayload } from './chat';
 import { gameActionRequestPayload } from './game';
 import { myStatsPayload } from './peer';
-import { 
+import {
   joinedRoomUpdatedPayload,
   peerJoinedRoomPayload,
   joinRoomRequestPayload,
@@ -18,9 +18,16 @@ import { challengeRecord } from '../records/challengeRecord';
 
 export const userIdentificationPayload = io.type({
   kind: io.literal('userIdentification'),
-  content: io.type({
-    userId: io.string,
-  }),
+  content: io.union([
+    io.type({
+      isGuest: io.literal(true),
+      guestUserId: io.string,
+    }),
+    io.type({
+      isGuest: io.literal(false),
+      acessToken: io.string,
+    }),
+  ])
 });
 export type UserIdentificationPayload = io.TypeOf<typeof userIdentificationPayload>;
 

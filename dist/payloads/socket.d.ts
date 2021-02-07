@@ -1,9 +1,13 @@
 import * as io from 'io-ts';
 export declare const userIdentificationPayload: io.TypeC<{
     kind: io.LiteralC<"userIdentification">;
-    content: io.TypeC<{
-        userId: io.StringC;
-    }>;
+    content: io.UnionC<[io.TypeC<{
+        isGuest: io.LiteralC<true>;
+        guestUserId: io.StringC;
+    }>, io.TypeC<{
+        isGuest: io.LiteralC<false>;
+        acessToken: io.StringC;
+    }>]>;
 }>;
 export declare type UserIdentificationPayload = io.TypeOf<typeof userIdentificationPayload>;
 export declare const statsReaderIdentificationPayload: io.TypeC<{
@@ -752,9 +756,13 @@ export declare const genericFailureResponsePayload: io.TypeC<{
 export declare type GenericFailureResponsePayload = io.TypeOf<typeof genericFailureResponsePayload>;
 export declare const socketPayload: io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"userIdentification">;
-    content: io.TypeC<{
-        userId: io.StringC;
-    }>;
+    content: io.UnionC<[io.TypeC<{
+        isGuest: io.LiteralC<true>;
+        guestUserId: io.StringC;
+    }>, io.TypeC<{
+        isGuest: io.LiteralC<false>;
+        acessToken: io.StringC;
+    }>]>;
 }>, io.TypeC<{
     kind: io.LiteralC<"statsReaderIdentificationPayload">;
     content: io.TypeC<{

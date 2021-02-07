@@ -13,9 +13,16 @@ var stats_1 = require("./stats");
 var challengeRecord_1 = require("../records/challengeRecord");
 exports.userIdentificationPayload = io.type({
     kind: io.literal('userIdentification'),
-    content: io.type({
-        userId: io.string,
-    }),
+    content: io.union([
+        io.type({
+            isGuest: io.literal(true),
+            guestUserId: io.string,
+        }),
+        io.type({
+            isGuest: io.literal(false),
+            acessToken: io.string,
+        }),
+    ])
 });
 exports.statsReaderIdentificationPayload = io.type({
     kind: io.literal('statsReaderIdentificationPayload'),
