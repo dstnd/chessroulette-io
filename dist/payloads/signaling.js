@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.signalingPayload = exports.webrtcRefusalPayload = exports.webrtcNegotationPayload = exports.webrtcInvitationPayload = void 0;
+exports.iceServersResponse = exports.iceServerRecord = exports.signalingPayload = exports.webrtcRefusalPayload = exports.webrtcNegotationPayload = exports.webrtcInvitationPayload = void 0;
 var io = require("io-ts");
 exports.webrtcInvitationPayload = io.type({
     kind: io.literal('webrtcInvitation'),
@@ -33,4 +33,11 @@ exports.signalingPayload = io.union([
     exports.webrtcNegotationPayload,
     exports.webrtcRefusalPayload,
 ]);
+exports.iceServerRecord = io.type({
+    url: io.string,
+    urls: io.string,
+    credential: io.union([io.string, io.undefined]),
+    username: io.union([io.string, io.undefined]),
+});
+exports.iceServersResponse = io.array(exports.iceServerRecord);
 //# sourceMappingURL=signaling.js.map

@@ -10,7 +10,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.metadata = void 0;
+exports.Resources = exports.metadata = void 0;
 __exportStar(require("./records/userRecord"), exports);
 __exportStar(require("./records/roomStatsRecord"), exports);
 __exportStar(require("./records/peerRecord"), exports);
@@ -20,9 +20,10 @@ __exportStar(require("./records/challengeRecord"), exports);
 __exportStar(require("./records/chatRecords"), exports);
 __exportStar(require("./records/externalVendorsRecords"), exports);
 __exportStar(require("./payloads"), exports);
-__exportStar(require("./io"), exports);
+__exportStar(require("./sdk/io"), exports);
 __exportStar(require("./chessGame"), exports);
 exports.metadata = require("./metadata");
 __exportStar(require("./AsyncResult/AsyncBox"), exports);
 __exportStar(require("ts-results"), exports);
+exports.Resources = require("./resources");
 //# sourceMappingURL=index.js.map

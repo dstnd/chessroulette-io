@@ -1,0 +1,1 @@
+{"version":3,"file":"httpErrors.js","sourceRoot":"","sources":["../../../src/payloads/http/httpErrors.ts"],"names":[],"mappings":";;;AAAA,0BAA4B;AAEf,QAAA,gBAAgB,GAAG,cAAM,OAAA,EAAE,CAAC,IAAI,CAAC;IAC5C,IAAI,EAAE,EAAE,CAAC,OAAO,CAAC,kBAAkB,CAAC;IACpC,OAAO,EAAE,EAAE,CAAC,MAAM;CACnB,CAAC,EAHoC,CAGpC,CAAC"}
