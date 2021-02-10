@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
+import { ErrResponseOf, getValidationErrorCodec, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
 import { externalVendor } from '../../payloads';
 import { formModel, inputValidationError } from '../../sdk/http';
 
@@ -25,7 +25,9 @@ export namespace UserRegistration {
     accessToken: io.string,
   });
 
-  const errResponse = inputValidationError(model);
+  const validationErrResponse = getValidationErrorCodec(model);
+
+  const errResponse = io.union([inputValidationError(model), validationErrResponse]);
 
   export const resource = new Resource(
     request,

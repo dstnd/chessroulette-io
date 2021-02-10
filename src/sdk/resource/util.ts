@@ -7,6 +7,7 @@ import {
   BadRequestError,
   badRequestError,
 } from './errors';
+import { FormModelCodec, FormModelKeysMap } from '../../sdk/http';
 import * as io from 'io-ts';
 import { isRight } from 'fp-ts/lib/Either';
 
@@ -25,3 +26,18 @@ export const isBadEncodingError = (e: unknown): e is BadEncodingError => isPaylo
 export const isBadRequestError = (e: unknown): e is BadRequestError => isPayloadOfCodec(badRequestError, e);
 
 export const emptyRequest = io.union([io.undefined, io.null, io.void, io.type({})]);
+
+export const getValidationErrorCodec = <M extends FormModelCodec>(model: M) => io.type({
+  type: io.literal('ValidationErrors'),
+  content: io.type({
+    fields: io.record(io.keyof(model), io.union([io.string, io.undefined])),
+  }),
+});
+
+// export type ValidationError = io.TypeOf<ReturnType<typeof getValidationErrorCodec>>;
+export type ValidationError<M extends FormModelKeysMap> = {
+  type: 'ValidationErrors',
+  content: {
+    fields: { [k in keyof M]: string | undefined },
+  },
+};

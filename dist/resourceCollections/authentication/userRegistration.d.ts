@@ -14,7 +14,7 @@ export declare namespace UserRegistration {
         }>]>;
     }>, io.TypeC<{
         accessToken: io.StringC;
-    }>, io.TypeC<{
+    }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"InputValidationError">;
         content: io.TypeC<{
             fields: io.RecordC<io.KeyofC<{
@@ -30,7 +30,23 @@ export declare namespace UserRegistration {
                 }>]>;
             }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
         }>;
-    }>, {
+    }>, io.TypeC<{
+        type: io.LiteralC<"ValidationErrors">;
+        content: io.TypeC<{
+            fields: io.RecordC<io.KeyofC<{
+                email: io.StringC;
+                firstName: io.StringC;
+                lastName: io.StringC;
+                external: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    vendor: io.KeyofC<{
+                        facebook: null;
+                        lichess: null;
+                    }>;
+                    accessToken: io.StringC;
+                }>]>;
+            }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
+        }>;
+    }>]>, {
         email: string;
         firstName: string;
         lastName: string;
@@ -42,6 +58,16 @@ export declare namespace UserRegistration {
         accessToken: string;
     }, {
         type: "InputValidationError";
+        content: {
+            fields: {
+                email: string | undefined;
+                firstName: string | undefined;
+                lastName: string | undefined;
+                external: string | undefined;
+            };
+        };
+    } | {
+        type: "ValidationErrors";
         content: {
             fields: {
                 email: string | undefined;

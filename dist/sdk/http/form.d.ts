@@ -2,6 +2,13 @@ import * as io from 'io-ts';
 export declare const formModel: <M extends {
     [key: string]: io.StringC | io.NumberC | io.Mixed;
 }>(m: M) => M;
+export declare type FormModelCodec = ReturnType<typeof formModel>;
+export declare type FormModel = {
+    [k: string]: string | number;
+};
+export declare type FormModelKeysMap = {
+    [k: string]: unknown;
+};
 export declare const httpInputValidationError: <M extends {
     [key: string]: io.StringC | io.NumberC | io.Mixed;
 }>(model: M) => io.TypeC<{

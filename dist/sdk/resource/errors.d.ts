@@ -13,7 +13,7 @@ export declare type BadResponseErrorCodec = typeof badResponseError;
 export declare type BadResponseError = io.TypeOf<BadResponseErrorCodec>;
 export declare const serverError: io.TypeC<{
     type: io.LiteralC<"ServerError">;
-    content: io.UndefinedC;
+    content: io.UnionC<[io.StringC, io.UndefinedC]>;
 }>;
 export declare type ServerErrorCodec = typeof serverError;
 export declare type ServerError = io.TypeOf<ServerErrorCodec>;
@@ -58,6 +58,6 @@ export declare const commonResponseErrors: io.UnionC<[io.TypeC<{
     content: io.UndefinedC;
 }>, io.TypeC<{
     type: io.LiteralC<"ServerError">;
-    content: io.UndefinedC;
+    content: io.UnionC<[io.StringC, io.UndefinedC]>;
 }>]>;
 export declare type CommonResponseErrors = io.TypeOf<typeof commonResponseErrors>;

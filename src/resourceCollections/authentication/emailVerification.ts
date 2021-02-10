@@ -1,6 +1,6 @@
 import * as io from 'io-ts';
 import { formModel } from '../../sdk/http';
-import { Resource, RequestOf, ErrResponseOf, OkResponseOf, ResponseOf } from '../../sdk/resource';
+import { Resource, RequestOf, ErrResponseOf, OkResponseOf, ResponseOf, getValidationErrorCodec } from '../../sdk/resource';
 
 export namespace EmailVerification {
   const model = formModel({
@@ -10,14 +10,14 @@ export namespace EmailVerification {
   const request = io.type(model);
   const okResponse = io.undefined;
 
-  const validationErrResponse = io.type({
-    type: io.literal('ValidationErrors'),
-    content: io.type({
-      invalidFields: io.string,
-    }),
-  })
+  const validationErrResponse = getValidationErrorCodec(model);
 
-  const errResponse = validationErrResponse;
+  const emailCantSendError = io.type({
+    type: io.literal('EmailCantSendError'),
+    content: io.undefined,
+  });
+
+  const errResponse = io.union([validationErrResponse, emailCantSendError]);
 
   export const resource = new Resource(
     request,

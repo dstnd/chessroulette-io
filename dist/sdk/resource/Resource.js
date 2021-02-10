@@ -65,16 +65,33 @@ var Resource = /** @class */ (function () {
         this.requestPayloadCodec = requestPayloadCodec;
         this.responseOkPayloadCodec = responseOkPayloadCodec;
         this.responseErrPayloadCodec = responseErrPayloadCodec;
+        this.getResponseError = function (e) {
+            var customErrorResult = io_1.toResult(responseAsErrResult(_this.allPossibleErrorsCodec).decode(e));
+            if (!customErrorResult.ok) {
+                return new ts_results_1.Err({
+                    type: 'BadErrorEncodingError',
+                    content: undefined,
+                });
+            }
+            return new ts_results_1.Err(customErrorResult.val.error);
+        };
         // TODO: This for now doesn't return the correct one when no errResponse given!
         this.isResponseError = function (e) { return util_1.isPayloadOfCodec(_this.responseErrPayloadCodec, e); };
         this.isBadEncodingError = util_1.isBadEncodingError;
         this.isResourceFailureHandledError = util_1.isResourceFailureHandledError;
         this.isBadRequestError = util_1.isBadRequestError;
     }
+    Object.defineProperty(Resource.prototype, "allPossibleErrorsCodec", {
+        get: function () {
+            return io.union([errors_1.commonResponseErrors, this.responseErrPayloadCodec]);
+        },
+        enumerable: false,
+        configurable: true
+    });
     Resource.prototype.request = function (requestPayload, senderFn) {
         var _this = this;
         return new AsyncBox_1.AsyncResultWrapper(function () { return __awaiter(_this, void 0, void 0, function () {
-            var data, responseAsResultCodec, result, customErrorResult, e_1;
+            var data, responseAsResultCodec, result, e_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -87,7 +104,7 @@ var Resource = /** @class */ (function () {
                             data: this.responseOkPayloadCodec,
                         }), io.type({
                             ok: io.literal(false),
-                            error: this.responseErrPayloadCodec,
+                            error: this.allPossibleErrorsCodec,
                         }));
                         result = io_1.toResult(responseAsResultCodec.decode(data));
                         if (!result.ok) {
@@ -97,18 +114,17 @@ var Resource = /** @class */ (function () {
                                 })];
                         }
                         if (!result.val.ok) {
-                            customErrorResult = io_1.toResult(this.responseErrPayloadCodec.decode(result.val.error));
-                            if (!customErrorResult.ok) {
-                                return [2 /*return*/, new ts_results_1.Err({
-                                        type: 'BadErrorEncodingError',
-                                        content: undefined,
-                                    })];
-                            }
-                            return [2 /*return*/, new ts_results_1.Err(customErrorResult.val)];
+                            return [2 /*return*/, this.getResponseError(result.val)];
                         }
                         return [2 /*return*/, new ts_results_1.Ok(result.val.data)];
                     case 2:
                         e_1 = _a.sent();
+                        // TODO: This is tied to the AXIOS payload, which isn't good!
+                        //  It should at most use fetch or have it dynamically loaded by the requester somehow
+                        //  Or somehow adhere to a certin interface!
+                        if (e_1.response) {
+                            return [2 /*return*/, this.getResponseError(e_1.response.data)];
+                        }
                         return [2 /*return*/, new ts_results_1.Err({
                                 type: 'BadRequestError',
                                 content: undefined,
@@ -119,8 +135,6 @@ var Resource = /** @class */ (function () {
         }); });
     };
     Resource.prototype.parseRequest = function (data) {
-        console.log('parse request data:', data);
-        console.log('parse request r codec:', this.requestPayloadCodec);
         return new AsyncBox_1.AsyncResultWrapper(io_1.toResult(this.requestPayloadCodec.decode(data))
             .mapErr(function (e) { return ({
             type: 'BadRequestError',

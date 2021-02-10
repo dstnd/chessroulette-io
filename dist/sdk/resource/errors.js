@@ -12,7 +12,7 @@ exports.badResponseError = io.type({
 });
 exports.serverError = io.type({
     type: io.literal('ServerError'),
-    content: io.undefined,
+    content: io.union([io.string, io.undefined]),
 });
 exports.badEncodingError = io.type({
     type: io.literal('BadEncodingError'),

@@ -1,4 +1,5 @@
 import { Resource } from './Resource';
+import { FormModelKeysMap } from '../../sdk/http';
 import * as io from 'io-ts';
 export declare type RequestOf<R extends Resource<any, any, any>> = io.TypeOf<R['requestPayloadCodec']>;
 export declare type OkResponseOf<R extends Resource<any, any, any>> = io.TypeOf<R['responseOkPayloadCodec']>;
@@ -18,3 +19,19 @@ export declare const isBadRequestError: (e: unknown) => e is {
     content: undefined;
 };
 export declare const emptyRequest: io.UnionC<[io.UndefinedC, io.NullC, io.VoidC, io.TypeC<{}>]>;
+export declare const getValidationErrorCodec: <M extends {
+    [key: string]: io.Mixed | io.StringC | io.NumberC;
+}>(model: M) => io.TypeC<{
+    type: io.LiteralC<"ValidationErrors">;
+    content: io.TypeC<{
+        fields: io.RecordC<io.KeyofC<M>, io.UnionC<[io.StringC, io.UndefinedC]>>;
+    }>;
+}>;
+export declare type ValidationError<M extends FormModelKeysMap> = {
+    type: 'ValidationErrors';
+    content: {
+        fields: {
+            [k in keyof M]: string | undefined;
+        };
+    };
+};

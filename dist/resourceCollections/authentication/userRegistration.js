@@ -25,7 +25,8 @@ var UserRegistration;
         // user: userRecord, 
         accessToken: io.string,
     });
-    var errResponse = http_1.inputValidationError(model);
+    var validationErrResponse = resource_1.getValidationErrorCodec(model);
+    var errResponse = io.union([http_1.inputValidationError(model), validationErrResponse]);
     UserRegistration.resource = new resource_1.Resource(request, okResponse, errResponse);
 })(UserRegistration = exports.UserRegistration || (exports.UserRegistration = {}));
 //# sourceMappingURL=userRegistration.js.map

@@ -72,6 +72,10 @@ export class Resource<
     public responseErrPayloadCodec: ResponseErrPayloadCodec = badRequestError as ResponseErrPayloadCodec,
   ) { }
 
+  private get allPossibleErrorsCodec() {
+    return io.union([commonResponseErrors, this.responseErrPayloadCodec])
+  }
+
   request(
     requestPayload: RequestPayload,
     senderFn: (requestPayload: RequestPayload) => Promise<{ data: unknown }>,
@@ -90,7 +94,7 @@ export class Resource<
           }),
           io.type({
             ok: io.literal(false),
-            error: this.responseErrPayloadCodec,
+            error: this.allPossibleErrorsCodec,
           }),
         );
 
@@ -100,36 +104,44 @@ export class Resource<
           return new Err({
             type: 'BadEncodingError',
             content: undefined,
-          } as const);
+          });
         }
 
         if (!result.val.ok) {
-          const customErrorResult = toResult(this.responseErrPayloadCodec.decode(result.val.error))
-
-          if (!customErrorResult.ok) {
-            return new Err({
-              type: 'BadErrorEncodingError',
-              content: undefined,
-            } as const);
-          }
-
-          return new Err(customErrorResult.val);
+          return this.getResponseError(result.val);
         }
 
         return new Ok(result.val.data);
       } catch (e) {
+        // TODO: This is tied to the AXIOS payload, which isn't good!
+        //  It should at most use fetch or have it dynamically loaded by the requester somehow
+        //  Or somehow adhere to a certin interface!
+        if (e.response) {
+          return this.getResponseError(e.response.data);
+        }
+
         return new Err({
           type: 'BadRequestError',
           content: undefined,
-        } as const);
+        });
       }
     });
   }
 
-  parseRequest(data: unknown) {
-    console.log('parse request data:', data);
-    console.log('parse request r codec:', this.requestPayloadCodec);
+  private getResponseError = (e: unknown): Err<CommonResponseErrors | ResponseErrPayload> => {
+    const customErrorResult = toResult(responseAsErrResult(this.allPossibleErrorsCodec).decode(e))
 
+    if (!customErrorResult.ok) {
+      return new Err({
+        type: 'BadErrorEncodingError',
+        content: undefined,
+      });
+    }
+
+    return new Err(customErrorResult.val.error);
+  }
+
+  parseRequest(data: unknown) {
     return new AsyncResultWrapper<RequestPayload, BadRequestError>(
       toResult<RequestPayload, io.Errors>(this.requestPayloadCodec.decode(data))
         .mapErr((e) => ({
@@ -168,9 +180,13 @@ export class Resource<
   }
 
   // TODO: This for now doesn't return the correct one when no errResponse given!
-  isResponseError = (e: unknown) => isPayloadOfCodec(this.responseErrPayloadCodec, e);
+  isResponseError = (e: unknown): e is ResponseErrPayload => isPayloadOfCodec(this.responseErrPayloadCodec, e);
 
   isBadEncodingError = isBadEncodingError;
   isResourceFailureHandledError = isResourceFailureHandledError;
   isBadRequestError = isBadRequestError;
+
+  // isErrorType(t, e) – a method that limits the possible types to the ones available by the resource instance
+  //  this is better than the aboce (static) methods as they will be limited to only the ones available to the given instance
+  //  be it given or common
 }

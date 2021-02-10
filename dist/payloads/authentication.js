@@ -5,6 +5,7 @@ var io = require("io-ts");
 var externalVendorsRecords_1 = require("../records/externalVendorsRecords");
 var userRecord_1 = require("../records/userRecord");
 var http_1 = require("../sdk/http");
+// @Deprecate All in Favor of the Authentication Resource Collection
 // Check if User exists/ Attempts to Authenticate automatically if exists
 exports.externalVendor = io.keyof({
     facebook: null,

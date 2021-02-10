@@ -11,13 +11,12 @@ var EmailVerification;
     });
     var request = io.type(model);
     var okResponse = io.undefined;
-    var validationErrResponse = io.type({
-        type: io.literal('ValidationErrors'),
-        content: io.type({
-            invalidFields: io.string,
-        }),
+    var validationErrResponse = resource_1.getValidationErrorCodec(model);
+    var emailCantSendError = io.type({
+        type: io.literal('EmailCantSendError'),
+        content: io.undefined,
     });
-    var errResponse = validationErrResponse;
+    var errResponse = io.union([validationErrResponse, emailCantSendError]);
     EmailVerification.resource = new resource_1.Resource(request, okResponse, errResponse);
 })(EmailVerification = exports.EmailVerification || (exports.EmailVerification = {}));
 //# sourceMappingURL=emailVerification.js.map

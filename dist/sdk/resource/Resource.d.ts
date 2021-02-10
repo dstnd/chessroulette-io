@@ -29,13 +29,14 @@ export declare class Resource<RequestPayloadCodec extends BaseRequestPayloadCode
     responseOkPayloadCodec: ResponseOkPayloadCodec;
     responseErrPayloadCodec: ResponseErrPayloadCodec;
     constructor(requestPayloadCodec: RequestPayloadCodec, responseOkPayloadCodec: ResponseOkPayloadCodec, responseErrPayloadCodec?: ResponseErrPayloadCodec);
+    private get allPossibleErrorsCodec();
     request(requestPayload: RequestPayload, senderFn: (requestPayload: RequestPayload) => Promise<{
         data: unknown;
-    }>): AsyncResultWrapper<ResponseOkPayload, ResponseErrPayload | {
-        type: "BadEncodingError";
+    }>): AsyncResultWrapper<ResponseOkPayload, {
+        type: "BadRequestError";
         content: undefined;
     } | {
-        type: "BadRequestError";
+        type: "BadEncodingError";
         content: undefined;
     } | {
         type: "BadResponseError";
@@ -48,15 +49,16 @@ export declare class Resource<RequestPayloadCodec extends BaseRequestPayloadCode
         content: undefined;
     } | {
         type: "ServerError";
-        content: undefined;
-    }>;
+        content: string | undefined;
+    } | ResponseErrPayload>;
+    private getResponseError;
     parseRequest(data: unknown): AsyncResultWrapper<RequestPayload, {
         type: "BadRequestError";
         content: undefined;
     }>;
     respond(data: ResponseOkPayload, senderFn: (responseResult: ResponseAsOkResult) => void): void;
     fail(error: ResponseErrPayload | CommonResponseErrors, senderFn: (errPayload: ResponseAsErrResult) => void): AsyncErr<ResourceFailureHandledError | ResponseErrPayload | CommonResponseErrors>;
-    isResponseError: (e: unknown) => boolean;
+    isResponseError: (e: unknown) => e is ResponseErrPayload;
     isBadEncodingError: (e: unknown) => e is {
         type: "BadEncodingError";
         content: undefined;

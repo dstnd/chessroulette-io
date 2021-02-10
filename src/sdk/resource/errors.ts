@@ -16,7 +16,7 @@ export type BadResponseError = io.TypeOf<BadResponseErrorCodec>;
 
 export const serverError = io.type({
   type: io.literal('ServerError'),
-  content: io.undefined,
+  content: io.union([io.string, io.undefined]),
 });
 export type ServerErrorCodec = typeof serverError;
 export type ServerError = io.TypeOf<ServerErrorCodec>;
