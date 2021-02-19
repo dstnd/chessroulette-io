@@ -3,7 +3,7 @@ import { roomRecord } from '../records/roomRecord';
 import { peerRecord } from '../records/peerRecord';
 import { challengeAcceptedPayload } from './challenge';
 import { broadcastChatMessagePayload } from './chat';
-import { gameActionRequestPayload } from './game';
+import { gameActionRequestPayload, joinedGameUpdatedPayload } from './game';
 import { myStatsPayload } from './peer';
 import {
   joinedRoomUpdatedPayload,
@@ -120,6 +120,7 @@ export const socketPayload = io.union([
 
   // Game Actions
   gameActionRequestPayload,
+  joinedGameUpdatedPayload,
 
   // Stats
   statsSocketPayload,

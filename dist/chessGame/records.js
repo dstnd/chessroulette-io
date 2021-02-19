@@ -85,8 +85,6 @@ exports.chessGameStateWaitingForOpponent = io.type({
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
     captured: io.undefined,
-    /* @deprecated */
-    lastMoved: io.undefined,
 });
 exports.chessGameStatePending = io.type({
     state: io.literal('pending'),
@@ -101,13 +99,12 @@ exports.chessGameStatePending = io.type({
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
     captured: io.undefined,
-    /* @deprecated */
-    lastMoved: io.undefined,
 });
 exports.chessGameStateNeverStarted = io.type({
     state: io.literal('neverStarted'),
     timeLimit: exports.chessGameTimeLimit,
-    players: io.union([io.tuple([exports.chessPlayer, exports.chessPlayer]), io.tuple([exports.chessPlayer])]),
+    // players: io.union([io.tuple([chessPlayer, chessPlayer]), io.tuple([chessPlayer])]),
+    players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
     timeLeft: io.type({
         white: io.number,
         black: io.number,
@@ -117,8 +114,6 @@ exports.chessGameStateNeverStarted = io.type({
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
     captured: io.undefined,
-    /* @deprecated */
-    lastMoved: io.undefined,
 });
 // TODO: Remove the union once it works
 exports.chessGameStateStarted = io.type({
@@ -134,8 +129,6 @@ exports.chessGameStateStarted = io.type({
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
     captured: exports.capturedPiecesRecord,
-    /* @deprecated */
-    lastMoved: io.keyof(exports.chessPlayers.props),
 });
 exports.chessGameStateFinished = io.type({
     state: io.literal('finished'),
@@ -150,8 +143,6 @@ exports.chessGameStateFinished = io.type({
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
     captured: exports.capturedPiecesRecord,
-    /* @deprecated */
-    lastMoved: io.keyof(exports.chessPlayers.props),
 });
 exports.chessGameStateStopped = io.type({
     state: io.literal('stopped'),
@@ -166,8 +157,6 @@ exports.chessGameStateStopped = io.type({
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
     captured: exports.capturedPiecesRecord,
-    /* @deprecated */
-    lastMoved: io.keyof(exports.chessPlayers.props),
 });
 exports.chessGameState = io.union([
     // TODO: I'm thinking this could be deprecated

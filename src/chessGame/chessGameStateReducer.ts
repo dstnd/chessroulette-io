@@ -52,7 +52,6 @@ export const prepareGameAction = ({
       },
       lastMoveAt: undefined,
       lastMoveBy: undefined,
-      lastMoved: undefined,
       captured: undefined,
       pgn: undefined,
       winner: undefined,
@@ -84,7 +83,6 @@ export const prepareGameAction = ({
 
     lastMoveAt: undefined,
     lastMoveBy: undefined,
-    lastMoved: undefined,
   };
 
   if (pgn) {
@@ -120,7 +118,7 @@ const moveAction = (
 ): ChessGameStateStarted | ChessGameStateFinished => {
   // Default it to black so when the game just starts
   //  it sets the 1st move to white
-  const { lastMoved: prevLastMoved = 'black' } = prev;
+  const { lastMoveBy: prevLastMoveBy = 'black' } = prev;
 
   const instance = getNewChessGame();
 
@@ -163,8 +161,6 @@ const moveAction = (
       lastMoveAt: next.movedAt,
       lastMoveBy: currentLastMovedBy,
       captured,
-
-      lastMoved: currentLastMovedBy,
     };
   }
 
@@ -174,7 +170,7 @@ const moveAction = (
     return {
       ...prev,
       state: 'finished',
-      winner: prevLastMoved,
+      winner: prevLastMoveBy,
     };
   }
 
@@ -184,7 +180,6 @@ const moveAction = (
     pgn: instance.pgn(),
     lastMoveAt: next.movedAt,
     lastMoveBy: currentLastMovedBy,
-    lastMoved: currentLastMovedBy,
     timeLeft: {
       ...prev.timeLeft,
       [currentLastMovedBy]: timeLeft,
@@ -234,7 +229,7 @@ const timerFinishedAction = (
 };
 
 const abortAction = (
-  prev: ChessGameStatePending | ChessGameStateWaitingForOpponent
+  prev: ChessGameStatePending
 ): ChessGameStateNeverStarted => {
   return {
     ...prev,

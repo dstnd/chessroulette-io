@@ -19,7 +19,7 @@ export declare const actions: {
         state: "waitingForOpponent";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -28,7 +28,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -46,12 +46,11 @@ export declare const actions: {
         lastMoveBy: undefined;
         lastMoveAt: undefined;
         captured: undefined;
-        lastMoved: undefined;
     } | {
         state: "pending";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -60,7 +59,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -69,7 +68,7 @@ export declare const actions: {
                 name: string;
             };
         }, {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -78,7 +77,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -96,12 +95,11 @@ export declare const actions: {
         lastMoveBy: undefined;
         lastMoveAt: undefined;
         captured: undefined;
-        lastMoved: undefined;
     } | {
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         state: "started";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -110,7 +108,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -119,7 +117,7 @@ export declare const actions: {
                 name: string;
             };
         }, {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -128,7 +126,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -161,12 +159,11 @@ export declare const actions: {
                 q: number;
             };
         };
-        lastMoved: "white" | "black";
     } | {
         state: "finished";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -175,7 +172,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -184,7 +181,7 @@ export declare const actions: {
                 name: string;
             };
         }, {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -193,7 +190,7 @@ export declare const actions: {
                 name: string;
             };
         } | {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -226,7 +223,6 @@ export declare const actions: {
                 q: number;
             };
         };
-        lastMoved: "white" | "black";
     };
     move: (prev: ChessGameStatePending | ChessGameStateStarted, next: {
         move: ChessMove;
@@ -237,7 +233,7 @@ export declare const actions: {
     }) => ChessGameStateStarted | ChessGameStateFinished;
     resign: (prev: ChessGameStateStarted, resigningColor: ChessGameColor) => ChessGameStateStopped;
     draw: (prev: ChessGameStateStarted) => ChessGameStateStopped;
-    abort: (prev: ChessGameStatePending | ChessGameStateWaitingForOpponent) => ChessGameStateNeverStarted;
+    abort: (prev: ChessGameStatePending) => ChessGameStateNeverStarted;
     statusCheck: (prev: ChessGameState, at: Date) => ChessGameState;
     timerFinished: (prev: ChessGameStateStarted, next?: {
         loser: ChessGameColor;

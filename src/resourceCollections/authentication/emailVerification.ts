@@ -29,4 +29,4 @@ export namespace EmailVerification {
   export type OkResponse = OkResponseOf<typeof resource>;
   export type ErrResponse = ErrResponseOf<typeof resource>;
   export type Response = ResponseOf<typeof resource>;
-}
+};

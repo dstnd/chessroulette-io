@@ -1,16 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.gameActionRequestPayload = exports.gameStatusCheckRequestPayload = exports.gameOfferingCancelRequestPayload = exports.gameRematchDenyRequestPayload = exports.gameRematchAcceptRequestPayload = exports.gameRematchOfferingRequestPayload = exports.gameMoveRequestPayload = exports.gameAbortionRequestPayload = exports.gameResignationRequestPayload = exports.gameDrawDenyRequestPayload = exports.gameDrawAcceptRequestPayload = exports.gameDrawOfferingRequestPayload = exports.gameJoinRequestPayload = void 0;
+exports.joinedGameUpdatedPayload = exports.gameActionRequestPayload = exports.gameStatusCheckRequestPayload = exports.gameOfferingCancelRequestPayload = exports.gameRematchDenyRequestPayload = exports.gameRematchAcceptRequestPayload = exports.gameRematchOfferingRequestPayload = exports.gameMoveRequestPayload = exports.gameAbortionRequestPayload = exports.gameResignationRequestPayload = exports.gameDrawDenyRequestPayload = exports.gameDrawAcceptRequestPayload = exports.gameDrawOfferingRequestPayload = exports.gameJoinRequestPayload = void 0;
 var io = require("io-ts");
-var boardRecords_1 = require("../chessGame/boardRecords");
+var gameRecord_1 = require("../records/gameRecord");
+var chessGame_1 = require("../chessGame");
 exports.gameJoinRequestPayload = io.type({
     kind: io.literal('gameJoinRequest'),
-    content: io.type({
-        roomCredentials: io.type({
-            roomId: io.string,
-            code: io.union([io.string, io.undefined]),
-        }),
-    }),
+    content: io.undefined,
 });
 exports.gameDrawOfferingRequestPayload = io.type({
     kind: io.literal('gameDrawOfferingRequest'),
@@ -34,7 +30,7 @@ exports.gameAbortionRequestPayload = io.type({
 });
 exports.gameMoveRequestPayload = io.type({
     kind: io.literal('gameMoveRequest'),
-    content: boardRecords_1.chessMove,
+    content: chessGame_1.chessMove,
 });
 exports.gameRematchOfferingRequestPayload = io.type({
     kind: io.literal('gameRematchOfferingRequest'),
@@ -70,4 +66,18 @@ exports.gameActionRequestPayload = io.union([
     exports.gameOfferingCancelRequestPayload,
     exports.gameStatusCheckRequestPayload,
 ]);
+// export const readJoinedGameRequestPayload = io.type({
+//   kind: io.literal('readJoinedGameRequest'),
+//   content: io.undefined,
+// });
+// export type ReadJoinedGameRequestPayload = io.TypeOf<typeof readJoinedGameRequestPayload>;
+// export const getJoinedGameResponsePayload = io.type({
+//   kind: io.literal('getJoinedGameResponse'),
+//   content: gameRecord,
+// });
+// export type GetJoinedGameResponsePayload = io.TypeOf<typeof getJoinedGameResponsePayload>;
+exports.joinedGameUpdatedPayload = io.type({
+    kind: io.literal('joinedGameUpdated'),
+    content: gameRecord_1.gameRecord,
+});
 //# sourceMappingURL=game.js.map

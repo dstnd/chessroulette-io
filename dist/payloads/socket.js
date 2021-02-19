@@ -96,6 +96,7 @@ exports.socketPayload = io.union([
     chat_1.broadcastChatMessagePayload,
     // Game Actions
     game_1.gameActionRequestPayload,
+    game_1.joinedGameUpdatedPayload,
     // Stats
     stats_1.statsSocketPayload,
     peer_1.myStatsPayload,

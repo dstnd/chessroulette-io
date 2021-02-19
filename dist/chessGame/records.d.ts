@@ -280,7 +280,6 @@ export declare const chessGameStateWaitingForOpponent: io.TypeC<{
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
     captured: io.UndefinedC;
-    lastMoved: io.UndefinedC;
 }>;
 export declare type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
 export declare const chessGameStatePending: io.TypeC<{
@@ -337,7 +336,6 @@ export declare const chessGameStatePending: io.TypeC<{
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
     captured: io.UndefinedC;
-    lastMoved: io.UndefinedC;
 }>;
 export declare type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
 export declare const chessGameStateNeverStarted: io.TypeC<{
@@ -348,7 +346,7 @@ export declare const chessGameStateNeverStarted: io.TypeC<{
         blitz: null;
         rapid: null;
     }>;
-    players: io.UnionC<[io.TupleC<[io.UnionC<[io.TypeC<{
+    players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
@@ -384,25 +382,7 @@ export declare const chessGameStateNeverStarted: io.TypeC<{
             avatarId: io.StringC;
             name: io.StringC;
         }>;
-    }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
-        color: io.LiteralC<"black">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>, io.TypeC<{
-        color: io.LiteralC<"white">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>]>]>]>;
+    }>]>]>;
     timeLeft: io.TypeC<{
         white: io.NumberC;
         black: io.NumberC;
@@ -412,7 +392,6 @@ export declare const chessGameStateNeverStarted: io.TypeC<{
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
     captured: io.UndefinedC;
-    lastMoved: io.UndefinedC;
 }>;
 export declare type ChessGameStateNeverStarted = io.TypeOf<typeof chessGameStateNeverStarted>;
 export declare const chessGameStateStarted: io.TypeC<{
@@ -504,28 +483,6 @@ export declare const chessGameStateStarted: io.TypeC<{
             r: undefined;
             q: undefined;
         }>, io.NumberC>;
-    }>;
-    lastMoved: io.KeyofC<{
-        white: io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        black: io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
     }>;
 }>;
 export declare type ChessGameStateStarted = io.TypeOf<typeof chessGameStateStarted>;
@@ -623,28 +580,6 @@ export declare const chessGameStateFinished: io.TypeC<{
             q: undefined;
         }>, io.NumberC>;
     }>;
-    lastMoved: io.KeyofC<{
-        white: io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        black: io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-    }>;
 }>;
 export declare type ChessGameStateFinished = io.TypeOf<typeof chessGameStateFinished>;
 export declare const chessGameStateStopped: io.TypeC<{
@@ -741,28 +676,6 @@ export declare const chessGameStateStopped: io.TypeC<{
             q: undefined;
         }>, io.NumberC>;
     }>;
-    lastMoved: io.KeyofC<{
-        white: io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        black: io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-    }>;
 }>;
 export declare type ChessGameStateStopped = io.TypeOf<typeof chessGameStateStopped>;
 export declare const chessGameState: io.UnionC<[io.TypeC<{
@@ -801,7 +714,6 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
     captured: io.UndefinedC;
-    lastMoved: io.UndefinedC;
 }>, io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
@@ -856,7 +768,6 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
     captured: io.UndefinedC;
-    lastMoved: io.UndefinedC;
 }>, io.TypeC<{
     timeLimit: io.KeyofC<{
         bullet: null;
@@ -946,28 +857,6 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             r: undefined;
             q: undefined;
         }>, io.NumberC>;
-    }>;
-    lastMoved: io.KeyofC<{
-        white: io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        black: io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
     }>;
 }>, io.TypeC<{
     state: io.LiteralC<"finished">;
@@ -1063,28 +952,6 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             q: undefined;
         }>, io.NumberC>;
     }>;
-    lastMoved: io.KeyofC<{
-        white: io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        black: io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-    }>;
 }>, io.TypeC<{
     state: io.LiteralC<"neverStarted">;
     timeLimit: io.KeyofC<{
@@ -1093,7 +960,7 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
         blitz: null;
         rapid: null;
     }>;
-    players: io.UnionC<[io.TupleC<[io.UnionC<[io.TypeC<{
+    players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.TypeC<{
             id: io.StringC;
@@ -1129,25 +996,7 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             avatarId: io.StringC;
             name: io.StringC;
         }>;
-    }>]>]>, io.TupleC<[io.UnionC<[io.TypeC<{
-        color: io.LiteralC<"black">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>, io.TypeC<{
-        color: io.LiteralC<"white">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>]>]>]>;
+    }>]>]>;
     timeLeft: io.TypeC<{
         white: io.NumberC;
         black: io.NumberC;
@@ -1157,7 +1006,6 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
     lastMoveBy: io.UndefinedC;
     lastMoveAt: io.UndefinedC;
     captured: io.UndefinedC;
-    lastMoved: io.UndefinedC;
 }>, io.TypeC<{
     state: io.LiteralC<"stopped">;
     timeLimit: io.KeyofC<{
@@ -1251,28 +1099,6 @@ export declare const chessGameState: io.UnionC<[io.TypeC<{
             r: undefined;
             q: undefined;
         }>, io.NumberC>;
-    }>;
-    lastMoved: io.KeyofC<{
-        white: io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
-        black: io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>;
     }>;
 }>]>;
 export declare type ChessGameState = io.TypeOf<typeof chessGameState>;

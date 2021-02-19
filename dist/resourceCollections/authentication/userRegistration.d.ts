@@ -60,9 +60,9 @@ export declare namespace UserRegistration {
         type: "InputValidationError";
         content: {
             fields: {
-                email: string | undefined;
                 firstName: string | undefined;
                 lastName: string | undefined;
+                email: string | undefined;
                 external: string | undefined;
             };
         };
@@ -70,9 +70,9 @@ export declare namespace UserRegistration {
         type: "ValidationErrors";
         content: {
             fields: {
-                email: string | undefined;
                 firstName: string | undefined;
                 lastName: string | undefined;
+                email: string | undefined;
                 external: string | undefined;
             };
         };

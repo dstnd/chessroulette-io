@@ -19,6 +19,7 @@ __exportStar(require("./records/roomRecord"), exports);
 __exportStar(require("./records/challengeRecord"), exports);
 __exportStar(require("./records/chatRecords"), exports);
 __exportStar(require("./records/externalVendorsRecords"), exports);
+__exportStar(require("./records/gameRecord"), exports);
 __exportStar(require("./payloads"), exports);
 __exportStar(require("./sdk/io"), exports);
 __exportStar(require("./chessGame"), exports);
