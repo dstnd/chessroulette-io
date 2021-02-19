@@ -6,7 +6,7 @@ import {
   ChessGameStateFinished,
   ChessGameStateNeverStarted,
   ChessGameTimeLimit,
-  ChessGameStateWaitingForOpponent,
+  // ChessGameStateWaitingForOpponent,
   ChessGameStateStopped,
   ChessGameState,
 } from './records';
@@ -24,41 +24,42 @@ export const prepareGameAction = ({
   preferredColor = 'random',
   pgn = '',
 }: {
-  players: [UserInfoRecord] | [UserInfoRecord, UserInfoRecord];
+  // players: [UserInfoRecord] | [UserInfoRecord, UserInfoRecord];
+  players: [UserInfoRecord, UserInfoRecord];
   timeLimit: ChessGameTimeLimit;
   preferredColor?: ChessGameColor | 'random';
   pgn?: ChessGameStatePgn;
 }):
-  | ChessGameStateWaitingForOpponent
+  // | ChessGameStateWaitingForOpponent
   | ChessGameStatePending
   | ChessGameStateStarted
   | ChessGameStateFinished => {
   const firstPlayerColor: ChessGameColor =
     preferredColor === 'random' ? getRandomChessColor() : preferredColor;
 
-  if (!players[1]) {
-    const waitingForOpponentGameState: ChessGameStateWaitingForOpponent = {
-      state: 'waitingForOpponent',
-      timeLimit,
-      players: [
-        {
-          color: firstPlayerColor,
-          user: players[0],
-        },
-      ],
-      timeLeft: {
-        white: chessGameTimeLimitMsMap[timeLimit],
-        black: chessGameTimeLimitMsMap[timeLimit],
-      },
-      lastMoveAt: undefined,
-      lastMoveBy: undefined,
-      captured: undefined,
-      pgn: undefined,
-      winner: undefined,
-    };
+  // if (!players[1]) {
+  //   const waitingForOpponentGameState: ChessGameStateWaitingForOpponent = {
+  //     state: 'waitingForOpponent',
+  //     timeLimit,
+  //     players: [
+  //       {
+  //         color: firstPlayerColor,
+  //         user: players[0],
+  //       },
+  //     ],
+  //     timeLeft: {
+  //       white: chessGameTimeLimitMsMap[timeLimit],
+  //       black: chessGameTimeLimitMsMap[timeLimit],
+  //     },
+  //     lastMoveAt: undefined,
+  //     lastMoveBy: undefined,
+  //     captured: undefined,
+  //     pgn: undefined,
+  //     winner: undefined,
+  //   };
 
-    return waitingForOpponentGameState;
-  }
+  //   return waitingForOpponentGameState;
+  // }
 
   const pendingGameState: ChessGameStatePending = {
     state: 'pending',
@@ -93,16 +94,16 @@ export const prepareGameAction = ({
   return pendingGameState;
 };
 
-const joinGameAction = (prev: ChessGameStateWaitingForOpponent, opponent: UserInfoRecord) => {
-  // This could maybe be tested more and
-  //  Just need to make sure the player positions/colors
-  // stay the same
-  return prepareGameAction({
-    players: [prev.players[0].user, opponent],
-    preferredColor: prev.players[0].color,
-    timeLimit: prev.timeLimit,
-  });
-};
+// const joinGameAction = (prev: ChessGameStateWaitingForOpponent, opponent: UserInfoRecord) => {
+//   // This could maybe be tested more and
+//   //  Just need to make sure the player positions/colors
+//   // stay the same
+//   return prepareGameAction({
+//     players: [prev.players[0].user, opponent],
+//     preferredColor: prev.players[0].color,
+//     timeLimit: prev.timeLimit,
+//   });
+// };
 
 const moveAction = (
   prev: ChessGameStatePending | ChessGameStateStarted,
@@ -258,7 +259,7 @@ const drawAction = (prev: ChessGameStateStarted): ChessGameStateStopped => {
 
 export const actions = {
   prepareGame: prepareGameAction,
-  joinGame: joinGameAction,
+  // joinGame: joinGameAction,
   move: moveAction,
   resign: resignAction,
   draw: drawAction,

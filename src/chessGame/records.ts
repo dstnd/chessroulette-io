@@ -103,22 +103,22 @@ export const capturedPiecesRecord = io.type({
 });
 export type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
 
-export const chessGameStateWaitingForOpponent = io.type({
-  state: io.literal('waitingForOpponent'),
-  timeLimit: chessGameTimeLimit,
-  players: io.tuple([chessPlayer]),
-  timeLeft: io.type({
-    white: io.number,
-    black: io.number,
-  }),
-  pgn: io.undefined,
-  winner: io.undefined,
-  lastMoveBy: io.undefined,
-  lastMoveAt: io.undefined,
+// export const chessGameStateWaitingForOpponent = io.type({
+//   state: io.literal('waitingForOpponent'),
+//   timeLimit: chessGameTimeLimit,
+//   players: io.tuple([chessPlayer]),
+//   timeLeft: io.type({
+//     white: io.number,
+//     black: io.number,
+//   }),
+//   pgn: io.undefined,
+//   winner: io.undefined,
+//   lastMoveBy: io.undefined,
+//   lastMoveAt: io.undefined,
 
-  captured: io.undefined,
-});
-export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
+//   captured: io.undefined,
+// });
+// export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
 
 export const chessGameStatePending = io.type({
   state: io.literal('pending'),
@@ -215,6 +215,6 @@ export const chessGameState = io.union([
   //  since a game without opponent is not a game yet
   //  and could be treated as undefined
   // @Deprecate
-  chessGameStateWaitingForOpponent,
+  // chessGameStateWaitingForOpponent,
 ]);
 export type ChessGameState = io.TypeOf<typeof chessGameState>;

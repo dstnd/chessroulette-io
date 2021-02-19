@@ -244,44 +244,6 @@ export declare const capturedPiecesRecord: io.TypeC<{
     }>, io.NumberC>;
 }>;
 export declare type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
-export declare const chessGameStateWaitingForOpponent: io.TypeC<{
-    state: io.LiteralC<"waitingForOpponent">;
-    timeLimit: io.KeyofC<{
-        bullet: null;
-        untimed: null;
-        blitz: null;
-        rapid: null;
-    }>;
-    players: io.TupleC<[io.UnionC<[io.TypeC<{
-        color: io.LiteralC<"black">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>, io.TypeC<{
-        color: io.LiteralC<"white">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>]>]>;
-    timeLeft: io.TypeC<{
-        white: io.NumberC;
-        black: io.NumberC;
-    }>;
-    pgn: io.UndefinedC;
-    winner: io.UndefinedC;
-    lastMoveBy: io.UndefinedC;
-    lastMoveAt: io.UndefinedC;
-    captured: io.UndefinedC;
-}>;
-export declare type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
 export declare const chessGameStatePending: io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
@@ -679,42 +641,6 @@ export declare const chessGameStateStopped: io.TypeC<{
 }>;
 export declare type ChessGameStateStopped = io.TypeOf<typeof chessGameStateStopped>;
 export declare const chessGameState: io.UnionC<[io.TypeC<{
-    state: io.LiteralC<"waitingForOpponent">;
-    timeLimit: io.KeyofC<{
-        bullet: null;
-        untimed: null;
-        blitz: null;
-        rapid: null;
-    }>;
-    players: io.TupleC<[io.UnionC<[io.TypeC<{
-        color: io.LiteralC<"black">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>, io.TypeC<{
-        color: io.LiteralC<"white">;
-        user: io.TypeC<{
-            id: io.StringC;
-            firstName: io.StringC;
-            lastName: io.StringC;
-            avatarId: io.StringC;
-            name: io.StringC;
-        }>;
-    }>]>]>;
-    timeLeft: io.TypeC<{
-        white: io.NumberC;
-        black: io.NumberC;
-    }>;
-    pgn: io.UndefinedC;
-    winner: io.UndefinedC;
-    lastMoveBy: io.UndefinedC;
-    lastMoveAt: io.UndefinedC;
-    captured: io.UndefinedC;
-}>, io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
         bullet: null;

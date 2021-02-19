@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.chessGameStateWaitingForOpponent = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
+exports.chessGameState = exports.chessGameStateStopped = exports.chessGameStateFinished = exports.chessGameStateStarted = exports.chessGameStateNeverStarted = exports.chessGameStatePending = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = void 0;
 var io = require("io-ts");
-// import { isoDateTimeFromISOString } from 'src/lib/date';
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var userRecord_1 = require("../records/userRecord");
 var boardRecords_1 = require("./boardRecords");
@@ -72,20 +71,21 @@ exports.capturedPiecesRecord = io.type({
     white: io.record(boardRecords_1.capturableChessPieceType, io.number),
     black: io.record(boardRecords_1.capturableChessPieceType, io.number),
 });
-exports.chessGameStateWaitingForOpponent = io.type({
-    state: io.literal('waitingForOpponent'),
-    timeLimit: exports.chessGameTimeLimit,
-    players: io.tuple([exports.chessPlayer]),
-    timeLeft: io.type({
-        white: io.number,
-        black: io.number,
-    }),
-    pgn: io.undefined,
-    winner: io.undefined,
-    lastMoveBy: io.undefined,
-    lastMoveAt: io.undefined,
-    captured: io.undefined,
-});
+// export const chessGameStateWaitingForOpponent = io.type({
+//   state: io.literal('waitingForOpponent'),
+//   timeLimit: chessGameTimeLimit,
+//   players: io.tuple([chessPlayer]),
+//   timeLeft: io.type({
+//     white: io.number,
+//     black: io.number,
+//   }),
+//   pgn: io.undefined,
+//   winner: io.undefined,
+//   lastMoveBy: io.undefined,
+//   lastMoveAt: io.undefined,
+//   captured: io.undefined,
+// });
+// export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
 exports.chessGameStatePending = io.type({
     state: io.literal('pending'),
     timeLimit: exports.chessGameTimeLimit,
@@ -103,7 +103,6 @@ exports.chessGameStatePending = io.type({
 exports.chessGameStateNeverStarted = io.type({
     state: io.literal('neverStarted'),
     timeLimit: exports.chessGameTimeLimit,
-    // players: io.union([io.tuple([chessPlayer, chessPlayer]), io.tuple([chessPlayer])]),
     players: io.tuple([exports.chessPlayer, exports.chessPlayer]),
     timeLeft: io.type({
         white: io.number,
@@ -159,10 +158,6 @@ exports.chessGameStateStopped = io.type({
     captured: exports.capturedPiecesRecord,
 });
 exports.chessGameState = io.union([
-    // TODO: I'm thinking this could be deprecated
-    //  since a game without opponent is not a game yet
-    //  and could be treated as undefined
-    exports.chessGameStateWaitingForOpponent,
     exports.chessGameStatePending,
     exports.chessGameStateStarted,
     exports.chessGameStateFinished,

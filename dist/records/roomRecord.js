@@ -16,7 +16,6 @@ exports.roomNoActivityRecord = io.type({
 exports.roomPlayActivityRecord = io.intersection([
     io.type({
         type: io.literal('play'),
-        // game: chessGameState,
         gameId: io.string,
     }),
     io.partial({

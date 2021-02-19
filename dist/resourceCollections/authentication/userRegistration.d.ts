@@ -51,7 +51,7 @@ export declare namespace UserRegistration {
         firstName: string;
         lastName: string;
         external: {
-            vendor: "facebook" | "lichess";
+            vendor: "lichess" | "facebook";
             accessToken: string;
         } | undefined;
     }, {

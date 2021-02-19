@@ -19,4 +19,5 @@ var EmailVerification;
     var errResponse = io.union([validationErrResponse, emailCantSendError]);
     EmailVerification.resource = new resource_1.Resource(request, okResponse, errResponse);
 })(EmailVerification = exports.EmailVerification || (exports.EmailVerification = {}));
+;
 //# sourceMappingURL=emailVerification.js.map

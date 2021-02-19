@@ -66,16 +66,6 @@ exports.gameActionRequestPayload = io.union([
     exports.gameOfferingCancelRequestPayload,
     exports.gameStatusCheckRequestPayload,
 ]);
-// export const readJoinedGameRequestPayload = io.type({
-//   kind: io.literal('readJoinedGameRequest'),
-//   content: io.undefined,
-// });
-// export type ReadJoinedGameRequestPayload = io.TypeOf<typeof readJoinedGameRequestPayload>;
-// export const getJoinedGameResponsePayload = io.type({
-//   kind: io.literal('getJoinedGameResponse'),
-//   content: gameRecord,
-// });
-// export type GetJoinedGameResponsePayload = io.TypeOf<typeof getJoinedGameResponsePayload>;
 exports.joinedGameUpdatedPayload = io.type({
     kind: io.literal('joinedGameUpdated'),
     content: gameRecord_1.gameRecord,

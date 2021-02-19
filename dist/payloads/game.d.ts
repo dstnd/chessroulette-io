@@ -378,42 +378,6 @@ export declare type GameActionRequestPayload = io.TypeOf<typeof gameActionReques
 export declare const joinedGameUpdatedPayload: io.TypeC<{
     kind: io.LiteralC<"joinedGameUpdated">;
     content: io.IntersectionC<[io.UnionC<[io.TypeC<{
-        state: io.LiteralC<"waitingForOpponent">;
-        timeLimit: io.KeyofC<{
-            bullet: null;
-            untimed: null;
-            blitz: null;
-            rapid: null;
-        }>;
-        players: io.TupleC<[io.UnionC<[io.TypeC<{
-            color: io.LiteralC<"black">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>, io.TypeC<{
-            color: io.LiteralC<"white">;
-            user: io.TypeC<{
-                id: io.StringC;
-                firstName: io.StringC;
-                lastName: io.StringC;
-                avatarId: io.StringC;
-                name: io.StringC;
-            }>;
-        }>]>]>;
-        timeLeft: io.TypeC<{
-            white: io.NumberC;
-            black: io.NumberC;
-        }>;
-        pgn: io.UndefinedC;
-        winner: io.UndefinedC;
-        lastMoveBy: io.UndefinedC;
-        lastMoveAt: io.UndefinedC;
-        captured: io.UndefinedC;
-    }>, io.TypeC<{
         state: io.LiteralC<"pending">;
         timeLimit: io.KeyofC<{
             bullet: null;
