@@ -91,7 +91,7 @@ var Resource = /** @class */ (function () {
     Resource.prototype.request = function (requestPayload, senderFn) {
         var _this = this;
         return new AsyncBox_1.AsyncResultWrapper(function () { return __awaiter(_this, void 0, void 0, function () {
-            var data, responseAsResultCodec, result, e_1;
+            var data, responseAsResultCodec, result, error, error, e_1, error_1, error;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
@@ -108,13 +108,19 @@ var Resource = /** @class */ (function () {
                         }));
                         result = io_1.toResult(responseAsResultCodec.decode(data));
                         if (!result.ok) {
-                            return [2 /*return*/, new ts_results_1.Err({
-                                    type: 'BadEncodingError',
-                                    content: undefined,
-                                })];
+                            error = new ts_results_1.Err({
+                                type: 'BadEncodingError',
+                                content: undefined,
+                            });
+                            console.error('[Resource].request() BadEncodingError', error);
+                            console.info('  [Resource].request() BadEncodingError > Result', result);
+                            return [2 /*return*/, error];
                         }
                         if (!result.val.ok) {
-                            return [2 /*return*/, this.getResponseError(result.val)];
+                            error = this.getResponseError(result.val);
+                            console.error('[Resource].request() Response Error', error);
+                            console.info('  [Resource].request() Response Error > Result', result);
+                            return [2 /*return*/, error];
                         }
                         return [2 /*return*/, new ts_results_1.Ok(result.val.data)];
                     case 2:
@@ -123,12 +129,18 @@ var Resource = /** @class */ (function () {
                         //  It should at most use fetch or have it dynamically loaded by the requester somehow
                         //  Or somehow adhere to a certin interface!
                         if (e_1.response) {
-                            return [2 /*return*/, this.getResponseError(e_1.response.data)];
+                            error_1 = this.getResponseError(e_1.response.data);
+                            console.error('[Resource].request() Response Error', error_1);
+                            console.info('[Resource].request() Response Error Object', e_1);
+                            return [2 /*return*/, error_1];
                         }
-                        return [2 /*return*/, new ts_results_1.Err({
-                                type: 'BadRequestError',
-                                content: undefined,
-                            })];
+                        error = new ts_results_1.Err({
+                            type: 'BadRequestError',
+                            content: undefined,
+                        });
+                        console.error('[Resource].request() BadRequestError', error);
+                        console.info('[Resource].request() BadRequestError', error);
+                        return [2 /*return*/, error];
                     case 3: return [2 /*return*/];
                 }
             });
