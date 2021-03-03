@@ -948,7 +948,6 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
-        captured: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
             bullet: null;
@@ -1023,22 +1022,6 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-        captured: io.TypeC<{
-            white: io.RecordC<io.KeyofC<{
-                p: undefined;
-                n: undefined;
-                b: undefined;
-                r: undefined;
-                q: undefined;
-            }>, io.NumberC>;
-            black: io.RecordC<io.KeyofC<{
-                p: undefined;
-                n: undefined;
-                b: undefined;
-                r: undefined;
-                q: undefined;
-            }>, io.NumberC>;
-        }>;
     }>, io.TypeC<{
         state: io.LiteralC<"finished">;
         timeLimit: io.KeyofC<{
@@ -1117,22 +1100,6 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-        captured: io.TypeC<{
-            white: io.RecordC<io.KeyofC<{
-                p: undefined;
-                n: undefined;
-                b: undefined;
-                r: undefined;
-                q: undefined;
-            }>, io.NumberC>;
-            black: io.RecordC<io.KeyofC<{
-                p: undefined;
-                n: undefined;
-                b: undefined;
-                r: undefined;
-                q: undefined;
-            }>, io.NumberC>;
-        }>;
     }>, io.TypeC<{
         state: io.LiteralC<"neverStarted">;
         timeLimit: io.KeyofC<{
@@ -1186,7 +1153,6 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
-        captured: io.UndefinedC;
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
         timeLimit: io.KeyofC<{
@@ -1265,24 +1231,10 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-        captured: io.TypeC<{
-            white: io.RecordC<io.KeyofC<{
-                p: undefined;
-                n: undefined;
-                b: undefined;
-                r: undefined;
-                q: undefined;
-            }>, io.NumberC>;
-            black: io.RecordC<io.KeyofC<{
-                p: undefined;
-                n: undefined;
-                b: undefined;
-                r: undefined;
-                q: undefined;
-            }>, io.NumberC>;
-        }>;
     }>]>, io.TypeC<{
         id: io.StringC;
+        createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>]>;
 }>, io.UnionC<[io.TypeC<{
     kind: io.LiteralC<"peersStats">;

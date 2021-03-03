@@ -1,4 +1,11 @@
-import { ChessGameColor, ChessColorWhite, ChessColorBlack, CapturedPiecesRecord } from './records';
+import {
+  ChessGameColor,
+  ChessColorWhite,
+  ChessColorBlack,
+  CapturedPiecesRecord,
+  ChessGameState,
+} from './records';
+import { getNewChessGame } from './sdk';
 import { Move } from 'chess.js';
 
 // I don't know why this needs to be typed like this
@@ -47,3 +54,9 @@ export const getCapturedPiecesState = (history: Move[]) => {
     return acc;
   }, initial);
 };
+
+export const getCapturedPiecesFromPgn = (pgn: ChessGameState['pgn']) => {
+  const instance = getNewChessGame(pgn);
+
+  return getCapturedPiecesState(instance.history({ verbose: true }));
+}

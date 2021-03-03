@@ -1,6 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getCapturedPiecesState = exports.getRandomChessColor = exports.shuffle = exports.otherChessColor = void 0;
+exports.getCapturedPiecesFromPgn = exports.getCapturedPiecesState = exports.getRandomChessColor = exports.shuffle = exports.otherChessColor = void 0;
+var sdk_1 = require("./sdk");
 function otherChessColor(c) {
     return c === 'white' ? 'black' : 'white';
 }
@@ -36,5 +37,9 @@ exports.getCapturedPiecesState = function (history) {
         }
         return acc;
     }, initial);
+};
+exports.getCapturedPiecesFromPgn = function (pgn) {
+    var instance = sdk_1.getNewChessGame(pgn);
+    return exports.getCapturedPiecesState(instance.history({ verbose: true }));
 };
 //# sourceMappingURL=util.js.map

@@ -26,7 +26,5 @@ export declare const actions: {
     draw: (prev: ChessGameStateStarted) => ChessGameStateStopped;
     abort: (prev: ChessGameStatePending) => ChessGameStateNeverStarted;
     statusCheck: (prev: ChessGameState, at: Date) => ChessGameState;
-    timerFinished: (prev: ChessGameStateStarted, next?: {
-        loser: ChessGameColor;
-    } | undefined) => ChessGameStateFinished;
+    timerFinished: (prev: ChessGameStateStarted) => ChessGameStateFinished;
 };

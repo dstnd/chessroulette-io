@@ -86,6 +86,21 @@ exports.capturedPiecesRecord = io.type({
 //   captured: io.undefined,
 // });
 // export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
+// export const chessPlayersByColor = io.type({
+//   white: io.type({
+//   })
+// })
+// export const playersSection = io.type({
+//   playersInfo: io.record(io.string, userInfoRecord),
+//   byColor: io.type({
+//     white: io.string,
+//     black: io.string,
+//   }),
+//   bySide: io.type({
+//     home: io.string,
+//     away: io.string,
+//   }),
+// });
 exports.chessGameStatePending = io.type({
     state: io.literal('pending'),
     timeLimit: exports.chessGameTimeLimit,
@@ -98,7 +113,6 @@ exports.chessGameStatePending = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
-    captured: io.undefined,
 });
 exports.chessGameStateNeverStarted = io.type({
     state: io.literal('neverStarted'),
@@ -112,7 +126,6 @@ exports.chessGameStateNeverStarted = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
-    captured: io.undefined,
 });
 // TODO: Remove the union once it works
 exports.chessGameStateStarted = io.type({
@@ -127,7 +140,6 @@ exports.chessGameStateStarted = io.type({
     winner: io.undefined,
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
-    captured: exports.capturedPiecesRecord,
 });
 exports.chessGameStateFinished = io.type({
     state: io.literal('finished'),
@@ -141,7 +153,6 @@ exports.chessGameStateFinished = io.type({
     winner: io.union([exports.chessGameColor, io.literal('1/2')]),
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
-    captured: exports.capturedPiecesRecord,
 });
 exports.chessGameStateStopped = io.type({
     state: io.literal('stopped'),
@@ -155,7 +166,6 @@ exports.chessGameStateStopped = io.type({
     winner: io.union([exports.chessGameColor, io.literal('1/2')]),
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
-    captured: exports.capturedPiecesRecord,
 });
 exports.chessGameState = io.union([
     exports.chessGameStatePending,
