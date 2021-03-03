@@ -1,4 +1,4 @@
-import { ChessGameColor, ChessColorWhite, ChessColorBlack } from './records';
+import { ChessGameColor, ChessColorWhite, ChessColorBlack, ChessGameState } from './records';
 import { Move } from 'chess.js';
 export declare function otherChessColor<C extends ChessGameColor>(c: C): C extends ChessColorWhite ? ChessColorBlack : ChessColorWhite;
 /**
@@ -10,6 +10,22 @@ export declare function otherChessColor<C extends ChessGameColor>(c: C): C exten
 export declare function shuffle<T extends unknown>(a: T[]): T[];
 export declare const getRandomChessColor: () => "white" | "black";
 export declare const getCapturedPiecesState: (history: Move[]) => {
+    white: {
+        p: number;
+        n: number;
+        b: number;
+        r: number;
+        q: number;
+    };
+    black: {
+        p: number;
+        n: number;
+        b: number;
+        r: number;
+        q: number;
+    };
+};
+export declare const getCapturedPiecesFromPgn: (pgn: ChessGameState['pgn']) => {
     white: {
         p: number;
         n: number;
