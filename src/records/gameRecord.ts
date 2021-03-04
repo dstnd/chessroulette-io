@@ -1,6 +1,6 @@
 import * as io from 'io-ts';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
-import { chessGameState } from '../chessGame';
+import { ChessGameState, chessGameState } from '../chessGame';
 
 export const gameRecord = io.intersection([
   chessGameState,
@@ -13,6 +13,7 @@ export const gameRecord = io.intersection([
 
 export type GameRecord = io.TypeOf<typeof gameRecord>;
 
+export type GameRecordFromGameState<GameState extends ChessGameState> = GameRecord & GameState;
 
 export const gameRecordWithoutPlayerInfo = io.intersection([
   gameRecord,

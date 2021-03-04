@@ -71,36 +71,6 @@ exports.capturedPiecesRecord = io.type({
     white: io.record(boardRecords_1.capturableChessPieceType, io.number),
     black: io.record(boardRecords_1.capturableChessPieceType, io.number),
 });
-// export const chessGameStateWaitingForOpponent = io.type({
-//   state: io.literal('waitingForOpponent'),
-//   timeLimit: chessGameTimeLimit,
-//   players: io.tuple([chessPlayer]),
-//   timeLeft: io.type({
-//     white: io.number,
-//     black: io.number,
-//   }),
-//   pgn: io.undefined,
-//   winner: io.undefined,
-//   lastMoveBy: io.undefined,
-//   lastMoveAt: io.undefined,
-//   captured: io.undefined,
-// });
-// export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
-// export const chessPlayersByColor = io.type({
-//   white: io.type({
-//   })
-// })
-// export const playersSection = io.type({
-//   playersInfo: io.record(io.string, userInfoRecord),
-//   byColor: io.type({
-//     white: io.string,
-//     black: io.string,
-//   }),
-//   bySide: io.type({
-//     home: io.string,
-//     away: io.string,
-//   }),
-// });
 exports.chessGameStatePending = io.type({
     state: io.literal('pending'),
     timeLimit: exports.chessGameTimeLimit,

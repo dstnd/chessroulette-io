@@ -1,4 +1,5 @@
 import * as io from 'io-ts';
+import { ChessGameState } from '../chessGame';
 export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
@@ -341,6 +342,7 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
     updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
 }>]>;
 export declare type GameRecord = io.TypeOf<typeof gameRecord>;
+export declare type GameRecordFromGameState<GameState extends ChessGameState> = GameRecord & GameState;
 export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.IntersectionC<[io.UnionC<[io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
