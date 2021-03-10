@@ -83,6 +83,10 @@ exports.chessGameStatePending = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
+    // Game Started At
+    startedAt: io.undefined,
+    // Last Activity could be: 'move' | 'status udpate' | 'timer finished' | etc.
+    lastActivityAt: io.undefined,
 });
 exports.chessGameStateNeverStarted = io.type({
     state: io.literal('neverStarted'),
@@ -96,8 +100,9 @@ exports.chessGameStateNeverStarted = io.type({
     winner: io.undefined,
     lastMoveBy: io.undefined,
     lastMoveAt: io.undefined,
+    startedAt: io.undefined,
+    lastActivityAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
 });
-// TODO: Remove the union once it works
 exports.chessGameStateStarted = io.type({
     timeLimit: exports.chessGameTimeLimit,
     state: io.literal('started'),
@@ -110,6 +115,8 @@ exports.chessGameStateStarted = io.type({
     winner: io.undefined,
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    startedAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    lastActivityAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
 });
 exports.chessGameStateFinished = io.type({
     state: io.literal('finished'),
@@ -123,6 +130,8 @@ exports.chessGameStateFinished = io.type({
     winner: io.union([exports.chessGameColor, io.literal('1/2')]),
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    startedAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    lastActivityAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
 });
 exports.chessGameStateStopped = io.type({
     state: io.literal('stopped'),
@@ -136,6 +145,8 @@ exports.chessGameStateStopped = io.type({
     winner: io.union([exports.chessGameColor, io.literal('1/2')]),
     lastMoveBy: io.keyof(exports.chessPlayers.props),
     lastMoveAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    startedAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+    lastActivityAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
 });
 exports.chessGameState = io.union([
     exports.chessGameStatePending,

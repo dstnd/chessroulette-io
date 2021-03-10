@@ -55,6 +55,9 @@ export const prepareGameAction = ({
 
     lastMoveAt: undefined,
     lastMoveBy: undefined,
+
+    startedAt: undefined,
+    lastActivityAt: undefined,
   };
 
   if (pgn) {
@@ -119,6 +122,9 @@ const moveAction = (
 
       lastMoveAt: next.movedAt,
       lastMoveBy: currentLastMovedBy,
+
+      startedAt: prev.state === 'pending' ? next.movedAt : prev.startedAt,
+      lastActivityAt: next.movedAt,
     };
   }
 
@@ -129,6 +135,8 @@ const moveAction = (
       ...prev,
       state: 'finished',
       winner: prevLastMoveBy,
+
+      lastActivityAt: toISODateTime(new Date()),
     };
   }
 
@@ -143,6 +151,9 @@ const moveAction = (
       [currentLastMovedBy]: timeLeft,
     },
     winner: undefined,
+
+    startedAt: prev.state === 'pending' ? next.movedAt : prev.startedAt,
+    lastActivityAt: next.movedAt,
   };
 };
 
@@ -159,7 +170,8 @@ const statusCheck = (prev: ChessGameState, at: Date): ChessGameState => {
         timeLeft: {
           ...prev.timeLeft,
           [turn]: 0,
-        }
+        },
+        lastActivityAt: toISODateTime(at),
       }
     }
 
@@ -170,15 +182,15 @@ const statusCheck = (prev: ChessGameState, at: Date): ChessGameState => {
 }
 
 // @deprecated
-const timerFinishedAction = (
-  prev: ChessGameStateStarted,
-): ChessGameStateFinished => {
-  return {
-    ...prev,
-    state: 'finished',
-    winner: otherChessColor(prev.lastMoveBy),
-  };
-};
+// const timerFinishedAction = (
+//   prev: ChessGameStateStarted,
+// ): ChessGameStateFinished => {
+//   return {
+//     ...prev,
+//     state: 'finished',
+//     winner: otherChessColor(prev.lastMoveBy),
+//   };
+// };
 
 const abortAction = (
   prev: ChessGameStatePending
@@ -186,6 +198,7 @@ const abortAction = (
   return {
     ...prev,
     state: 'neverStarted',
+    lastActivityAt: toISODateTime(new Date()),
   };
 };
 
@@ -197,6 +210,7 @@ const resignAction = (
     ...prev,
     state: 'stopped',
     winner: otherChessColor(resigningColor),
+    lastActivityAt: toISODateTime(new Date()),
   };
 };
 
@@ -205,6 +219,7 @@ const drawAction = (prev: ChessGameStateStarted): ChessGameStateStopped => {
     ...prev,
     state: 'stopped',
     winner: '1/2',
+    lastActivityAt: toISODateTime(new Date()),
   };
 };
 
@@ -218,5 +233,5 @@ export const actions = {
   statusCheck,
 
   // @deprecate in favor of statusCheck
-  timerFinished: timerFinishedAction,
+  // timerFinished: timerFinishedAction,
 };

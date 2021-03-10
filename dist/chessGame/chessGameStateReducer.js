@@ -40,6 +40,8 @@ exports.prepareGameAction = function (_a) {
         winner: undefined,
         lastMoveAt: undefined,
         lastMoveBy: undefined,
+        startedAt: undefined,
+        lastActivityAt: undefined,
     };
     if (pgn) {
         // If there is a pgn given on prepare, then simulate a move action!
@@ -73,13 +75,13 @@ var moveAction = function (prev, next) {
     // If it's white's turn that means black moved last!
     var currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
     if (instance.game_over()) {
-        return __assign(__assign({}, prev), { state: 'finished', winner: instance.in_draw() ? '1/2' : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy });
+        return __assign(__assign({}, prev), { state: 'finished', winner: instance.in_draw() ? '1/2' : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, startedAt: prev.state === 'pending' ? next.movedAt : prev.startedAt, lastActivityAt: next.movedAt });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
     if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
-        return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoveBy });
+        return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoveBy, lastActivityAt: io_ts_isodatetime_1.toISODateTime(new Date()) });
     }
-    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
+    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined, startedAt: prev.state === 'pending' ? next.movedAt : prev.startedAt, lastActivityAt: next.movedAt });
 };
 var statusCheck = function (prev, at) {
     var _a;
@@ -87,24 +89,30 @@ var statusCheck = function (prev, at) {
         var turn = util_1.otherChessColor(prev.lastMoveBy);
         var delta = at.getTime() - (new Date(prev.lastMoveAt).getTime() + prev.timeLeft[turn]);
         if (delta > 0) {
-            return __assign(__assign({}, prev), { state: 'finished', winner: prev.lastMoveBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[turn] = 0, _a)) });
+            return __assign(__assign({}, prev), { state: 'finished', winner: prev.lastMoveBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[turn] = 0, _a)), lastActivityAt: io_ts_isodatetime_1.toISODateTime(at) });
         }
         return prev;
     }
     return prev;
 };
 // @deprecated
-var timerFinishedAction = function (prev) {
-    return __assign(__assign({}, prev), { state: 'finished', winner: util_1.otherChessColor(prev.lastMoveBy) });
-};
+// const timerFinishedAction = (
+//   prev: ChessGameStateStarted,
+// ): ChessGameStateFinished => {
+//   return {
+//     ...prev,
+//     state: 'finished',
+//     winner: otherChessColor(prev.lastMoveBy),
+//   };
+// };
 var abortAction = function (prev) {
-    return __assign(__assign({}, prev), { state: 'neverStarted' });
+    return __assign(__assign({}, prev), { state: 'neverStarted', lastActivityAt: io_ts_isodatetime_1.toISODateTime(new Date()) });
 };
 var resignAction = function (prev, resigningColor) {
-    return __assign(__assign({}, prev), { state: 'stopped', winner: util_1.otherChessColor(resigningColor) });
+    return __assign(__assign({}, prev), { state: 'stopped', winner: util_1.otherChessColor(resigningColor), lastActivityAt: io_ts_isodatetime_1.toISODateTime(new Date()) });
 };
 var drawAction = function (prev) {
-    return __assign(__assign({}, prev), { state: 'stopped', winner: '1/2' });
+    return __assign(__assign({}, prev), { state: 'stopped', winner: '1/2', lastActivityAt: io_ts_isodatetime_1.toISODateTime(new Date()) });
 };
 exports.actions = {
     prepareGame: exports.prepareGameAction,
@@ -114,7 +122,5 @@ exports.actions = {
     draw: drawAction,
     abort: abortAction,
     statusCheck: statusCheck,
-    // @deprecate in favor of statusCheck
-    timerFinished: timerFinishedAction,
 };
 //# sourceMappingURL=chessGameStateReducer.js.map

@@ -56,6 +56,8 @@ export declare namespace GetUserGames {
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        startedAt: io.UndefinedC;
+        lastActivityAt: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
             bullet: null;
@@ -130,6 +132,8 @@ export declare namespace GetUserGames {
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        startedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>, io.TypeC<{
         state: io.LiteralC<"finished">;
         timeLimit: io.KeyofC<{
@@ -208,6 +212,8 @@ export declare namespace GetUserGames {
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        startedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>, io.TypeC<{
         state: io.LiteralC<"neverStarted">;
         timeLimit: io.KeyofC<{
@@ -261,6 +267,8 @@ export declare namespace GetUserGames {
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        startedAt: io.UndefinedC;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
         timeLimit: io.KeyofC<{
@@ -339,6 +347,8 @@ export declare namespace GetUserGames {
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        startedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>]>, io.TypeC<{
         id: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
@@ -396,6 +406,8 @@ export declare namespace GetUserGames {
         winner: undefined;
         lastMoveBy: undefined;
         lastMoveAt: undefined;
+        startedAt: undefined;
+        lastActivityAt: undefined;
     } & {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
@@ -448,6 +460,8 @@ export declare namespace GetUserGames {
         winner: undefined;
         lastMoveBy: undefined;
         lastMoveAt: undefined;
+        startedAt: undefined;
+        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     } & {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
@@ -500,6 +514,8 @@ export declare namespace GetUserGames {
         winner: undefined;
         lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        startedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     } & {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
@@ -552,6 +568,8 @@ export declare namespace GetUserGames {
         winner: "white" | "black" | "1/2";
         lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        startedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     } & {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
@@ -604,6 +622,8 @@ export declare namespace GetUserGames {
         winner: "white" | "black" | "1/2";
         lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        startedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     } & {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
