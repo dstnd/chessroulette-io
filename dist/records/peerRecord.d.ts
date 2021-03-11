@@ -11,6 +11,14 @@ export declare const peerRecord: io.IntersectionC<[io.TypeC<{
         isGuest: io.LiteralC<false>;
         email: io.StringC;
         profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+        externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+            facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+            }>]>;
+            lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+            }>]>;
+        }>]>;
     }>]>, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         firstName: io.StringC;
