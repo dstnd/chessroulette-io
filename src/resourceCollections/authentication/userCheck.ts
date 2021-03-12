@@ -31,15 +31,25 @@ export namespace UserCheck {
       }),
     ]),
   });
-  
+
   const okResponseExistentUser = io.type({
     status: io.literal('ExistentUser'),
     accessToken: io.string,
+  });
+
+  // This means that an user wasn't found in our User Base based on
+  //  the external user id, but one of it's external identifiers (only email for now)
+  //  matches an existent user
+  const okResponseInexistentExternalUserMatchesExistentUserEmail = io.type({
+    status: io.literal('InexistentExternalUserMatchesExistentUser:Email'),
+    email: io.string,
+    vendor: externalVendor,
   });
   
   const okResponse = io.union([
     okResponseInexistentUser,
     okResponseExistentUser,
+    okResponseInexistentExternalUserMatchesExistentUserEmail,
   ]);
 
   const errResponseVerificationFailed = io.type({

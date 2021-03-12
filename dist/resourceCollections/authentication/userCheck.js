@@ -35,9 +35,18 @@ var UserCheck;
         status: io.literal('ExistentUser'),
         accessToken: io.string,
     });
+    // This means that an user wasn't found in our User Base based on
+    //  the external user id, but one of it's external identifiers (only email for now)
+    //  matches an existent user
+    var okResponseInexistentExternalUserMatchesExistentUserEmail = io.type({
+        status: io.literal('InexistentExternalUserMatchesExistentUser:Email'),
+        email: io.string,
+        vendor: payloads_1.externalVendor,
+    });
     var okResponse = io.union([
         okResponseInexistentUser,
         okResponseExistentUser,
+        okResponseInexistentExternalUserMatchesExistentUserEmail,
     ]);
     var errResponseVerificationFailed = io.type({
         type: io.literal('VerificationFailed'),

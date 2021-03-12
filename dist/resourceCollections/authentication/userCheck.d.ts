@@ -60,6 +60,13 @@ export declare namespace UserCheck {
     }>, io.TypeC<{
         status: io.LiteralC<"ExistentUser">;
         accessToken: io.StringC;
+    }>, io.TypeC<{
+        status: io.LiteralC<"InexistentExternalUserMatchesExistentUser:Email">;
+        email: io.StringC;
+        vendor: io.KeyofC<{
+            facebook: null;
+            lichess: null;
+        }>;
     }>]>, io.TypeC<{
         type: io.LiteralC<"VerificationFailed">;
         content: io.UndefinedC;
@@ -116,6 +123,10 @@ export declare namespace UserCheck {
     } | {
         status: "ExistentUser";
         accessToken: string;
+    } | {
+        status: "InexistentExternalUserMatchesExistentUser:Email";
+        email: string;
+        vendor: "facebook" | "lichess";
     }, {
         type: "VerificationFailed";
         content: undefined;
