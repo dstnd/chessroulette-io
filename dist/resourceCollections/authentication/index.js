@@ -12,6 +12,6 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./emailVerification"), exports);
 __exportStar(require("./guestAuthentication"), exports);
-__exportStar(require("./userCheck"), exports);
+__exportStar(require("./authenticate"), exports);
 __exportStar(require("./userRegistration"), exports);
 //# sourceMappingURL=index.js.map

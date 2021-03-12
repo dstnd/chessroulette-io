@@ -3,7 +3,7 @@ import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '..
 import { externalVendor } from '../../payloads';
 import { externalUserRecord } from '../../records/externalVendorsRecords';
 
-export namespace UserCheck {
+export namespace Authenticate {
   const internalAccountRequest = io.type({
     type: io.literal('internal'),
     email: io.string,

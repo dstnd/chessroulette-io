@@ -54,4 +54,4 @@ var Authenticate;
     });
     Authenticate.resource = new resource_1.Resource(request, okResponse, errResponseVerificationFailed);
 })(Authenticate = exports.Authenticate || (exports.Authenticate = {}));
-//# sourceMappingURL=userCheck.js.map
+//# sourceMappingURL=authenticate.js.map
