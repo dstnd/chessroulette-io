@@ -46,12 +46,15 @@ export declare namespace UserRegistration {
                 }>]>;
             }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
         }>;
+    }>, io.TypeC<{
+        type: io.LiteralC<"DuplicateUser">;
+        content: io.UndefinedC;
     }>]>, {
         email: string;
         firstName: string;
         lastName: string;
         external: {
-            vendor: "lichess" | "facebook";
+            vendor: "facebook" | "lichess";
             accessToken: string;
         } | undefined;
     }, {
@@ -76,6 +79,9 @@ export declare namespace UserRegistration {
                 external: string | undefined;
             };
         };
+    } | {
+        type: "DuplicateUser";
+        content: undefined;
     }>;
     type Request = RequestOf<typeof resource>;
     type OkResponse = OkResponseOf<typeof resource>;

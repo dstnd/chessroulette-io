@@ -69,12 +69,12 @@ export declare namespace UserCheck {
         verificationCode: string;
     } | {
         type: "external";
-        vendor: "lichess" | "facebook";
+        vendor: "facebook" | "lichess";
         accessToken: string;
     }, {
         status: "InexistentUser";
         external: {
-            vendor: "lichess" | "facebook";
+            vendor: "facebook" | "lichess";
             user: {
                 email: string;
                 id: string;

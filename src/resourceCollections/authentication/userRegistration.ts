@@ -27,7 +27,16 @@ export namespace UserRegistration {
 
   const validationErrResponse = getValidationErrorCodec(model);
 
-  const errResponse = io.union([inputValidationError(model), validationErrResponse]);
+  const errResponseDuplicateUser = io.type({
+    type: io.literal('DuplicateUser'),
+    content: io.undefined,
+  });
+
+  const errResponse = io.union([
+    inputValidationError(model),
+    validationErrResponse,
+    errResponseDuplicateUser,
+  ]);
 
   export const resource = new Resource(
     request,
