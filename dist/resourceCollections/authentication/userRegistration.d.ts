@@ -2,61 +2,36 @@ import * as io from 'io-ts';
 import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
 export declare namespace UserRegistration {
     const resource: Resource<io.TypeC<{
-        email: io.StringC;
+        verificationToken: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
-        external: io.UnionC<[io.UndefinedC, io.TypeC<{
-            vendor: io.KeyofC<{
-                facebook: null;
-                lichess: null;
-            }>;
-            accessToken: io.StringC;
-        }>]>;
     }>, io.TypeC<{
         accessToken: io.StringC;
     }>, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"InputValidationError">;
         content: io.TypeC<{
             fields: io.RecordC<io.KeyofC<{
-                email: io.StringC;
+                verificationToken: io.StringC;
                 firstName: io.StringC;
                 lastName: io.StringC;
-                external: io.UnionC<[io.UndefinedC, io.TypeC<{
-                    vendor: io.KeyofC<{
-                        facebook: null;
-                        lichess: null;
-                    }>;
-                    accessToken: io.StringC;
-                }>]>;
             }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
         }>;
     }>, io.TypeC<{
         type: io.LiteralC<"ValidationErrors">;
         content: io.TypeC<{
             fields: io.RecordC<io.KeyofC<{
-                email: io.StringC;
+                verificationToken: io.StringC;
                 firstName: io.StringC;
                 lastName: io.StringC;
-                external: io.UnionC<[io.UndefinedC, io.TypeC<{
-                    vendor: io.KeyofC<{
-                        facebook: null;
-                        lichess: null;
-                    }>;
-                    accessToken: io.StringC;
-                }>]>;
             }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
         }>;
     }>, io.TypeC<{
         type: io.LiteralC<"DuplicateUser">;
         content: io.UndefinedC;
     }>]>, {
-        email: string;
+        verificationToken: string;
         firstName: string;
         lastName: string;
-        external: {
-            vendor: "facebook" | "lichess";
-            accessToken: string;
-        } | undefined;
     }, {
         accessToken: string;
     }, {
@@ -65,8 +40,7 @@ export declare namespace UserRegistration {
             fields: {
                 firstName: string | undefined;
                 lastName: string | undefined;
-                email: string | undefined;
-                external: string | undefined;
+                verificationToken: string | undefined;
             };
         };
     } | {
@@ -75,8 +49,7 @@ export declare namespace UserRegistration {
             fields: {
                 firstName: string | undefined;
                 lastName: string | undefined;
-                email: string | undefined;
-                external: string | undefined;
+                verificationToken: string | undefined;
             };
         };
     } | {

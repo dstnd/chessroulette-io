@@ -3,21 +3,18 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.UserRegistration = void 0;
 var io = require("io-ts");
 var resource_1 = require("../../sdk/resource");
-var payloads_1 = require("../../payloads");
 var http_1 = require("../../sdk/http");
 var UserRegistration;
 (function (UserRegistration) {
     var model = http_1.formModel({
-        email: io.string,
+        // This is a JWT Token passed by the server
+        //  with all the needed information in it like:
+        //  - email
+        //  - external vendor & access token
+        verificationToken: io.string,
+        // email: io.string,
         firstName: io.string,
         lastName: io.string,
-        external: io.union([
-            io.undefined,
-            io.type({
-                vendor: payloads_1.externalVendor,
-                accessToken: io.string,
-            }),
-        ]),
     });
     var request = io.type(model);
     var okResponse = io.type({

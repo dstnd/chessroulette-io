@@ -23,6 +23,8 @@ var Authenticate;
     ]);
     var okResponseInexistentUser = io.type({
         status: io.literal('InexistentUser'),
+        // This holds the actual information such as email, external user id, etc.
+        verificationToken: io.string,
         external: io.union([
             io.undefined,
             io.type({
