@@ -6,17 +6,15 @@ import {
   ChessGameStateFinished,
   ChessGameStateNeverStarted,
   ChessGameTimeLimit,
-  // ChessGameStateWaitingForOpponent,
   ChessGameStateStopped,
   ChessGameState,
 } from './records';
-import { otherChessColor, getRandomChessColor, getCapturedPiecesState } from './util';
+import { otherChessColor, getRandomChessColor } from './util';
 import { getNewChessGame } from './sdk';
 import { ISODateTime, toISODateTime } from 'io-ts-isodatetime';
 import { ChessMove } from './boardRecords';
 import { UserInfoRecord } from '../records/userRecord';
 import { chessGameTimeLimitMsMap } from '../metadata/game';
-import { Move } from 'chess.js';
 
 export const prepareGameAction = ({
   players,
@@ -24,42 +22,16 @@ export const prepareGameAction = ({
   preferredColor = 'random',
   pgn = '',
 }: {
-  // players: [UserInfoRecord] | [UserInfoRecord, UserInfoRecord];
   players: [UserInfoRecord, UserInfoRecord];
   timeLimit: ChessGameTimeLimit;
   preferredColor?: ChessGameColor | 'random';
   pgn?: ChessGameStatePgn;
 }):
-  // | ChessGameStateWaitingForOpponent
   | ChessGameStatePending
   | ChessGameStateStarted
   | ChessGameStateFinished => {
   const firstPlayerColor: ChessGameColor =
     preferredColor === 'random' ? getRandomChessColor() : preferredColor;
-
-  // if (!players[1]) {
-  //   const waitingForOpponentGameState: ChessGameStateWaitingForOpponent = {
-  //     state: 'waitingForOpponent',
-  //     timeLimit,
-  //     players: [
-  //       {
-  //         color: firstPlayerColor,
-  //         user: players[0],
-  //       },
-  //     ],
-  //     timeLeft: {
-  //       white: chessGameTimeLimitMsMap[timeLimit],
-  //       black: chessGameTimeLimitMsMap[timeLimit],
-  //     },
-  //     lastMoveAt: undefined,
-  //     lastMoveBy: undefined,
-  //     captured: undefined,
-  //     pgn: undefined,
-  //     winner: undefined,
-  //   };
-
-  //   return waitingForOpponentGameState;
-  // }
 
   const pendingGameState: ChessGameStatePending = {
     state: 'pending',
@@ -80,7 +52,6 @@ export const prepareGameAction = ({
     },
     pgn: undefined,
     winner: undefined,
-    captured: undefined,
 
     lastMoveAt: undefined,
     lastMoveBy: undefined,
@@ -93,17 +64,6 @@ export const prepareGameAction = ({
 
   return pendingGameState;
 };
-
-// const joinGameAction = (prev: ChessGameStateWaitingForOpponent, opponent: UserInfoRecord) => {
-//   // This could maybe be tested more and
-//   //  Just need to make sure the player positions/colors
-//   // stay the same
-//   return prepareGameAction({
-//     players: [prev.players[0].user, opponent],
-//     preferredColor: prev.players[0].color,
-//     timeLimit: prev.timeLimit,
-//   });
-// };
 
 const moveAction = (
   prev: ChessGameStatePending | ChessGameStateStarted,
@@ -147,8 +107,6 @@ const moveAction = (
     ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
     : 0; // Zero if first move
 
-  const captured = getCapturedPiecesState(instance.history({ verbose: true }) as Move[]);
-
   // If it's white's turn that means black moved last!
   const currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
 
@@ -161,7 +119,6 @@ const moveAction = (
 
       lastMoveAt: next.movedAt,
       lastMoveBy: currentLastMovedBy,
-      captured,
     };
   }
 
@@ -185,7 +142,6 @@ const moveAction = (
       ...prev.timeLeft,
       [currentLastMovedBy]: timeLeft,
     },
-    captured,
     winner: undefined,
   };
 };
@@ -216,11 +172,6 @@ const statusCheck = (prev: ChessGameState, at: Date): ChessGameState => {
 // @deprecated
 const timerFinishedAction = (
   prev: ChessGameStateStarted,
-
-  // @deprecated
-  next?: {
-    loser: ChessGameColor;
-  }
 ): ChessGameStateFinished => {
   return {
     ...prev,

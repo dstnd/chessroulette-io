@@ -19,28 +19,6 @@ var game_1 = require("../metadata/game");
 exports.prepareGameAction = function (_a) {
     var players = _a.players, timeLimit = _a.timeLimit, _b = _a.preferredColor, preferredColor = _b === void 0 ? 'random' : _b, _c = _a.pgn, pgn = _c === void 0 ? '' : _c;
     var firstPlayerColor = preferredColor === 'random' ? util_1.getRandomChessColor() : preferredColor;
-    // if (!players[1]) {
-    //   const waitingForOpponentGameState: ChessGameStateWaitingForOpponent = {
-    //     state: 'waitingForOpponent',
-    //     timeLimit,
-    //     players: [
-    //       {
-    //         color: firstPlayerColor,
-    //         user: players[0],
-    //       },
-    //     ],
-    //     timeLeft: {
-    //       white: chessGameTimeLimitMsMap[timeLimit],
-    //       black: chessGameTimeLimitMsMap[timeLimit],
-    //     },
-    //     lastMoveAt: undefined,
-    //     lastMoveBy: undefined,
-    //     captured: undefined,
-    //     pgn: undefined,
-    //     winner: undefined,
-    //   };
-    //   return waitingForOpponentGameState;
-    // }
     var pendingGameState = {
         state: 'pending',
         timeLimit: timeLimit,
@@ -60,7 +38,6 @@ exports.prepareGameAction = function (_a) {
         },
         pgn: undefined,
         winner: undefined,
-        captured: undefined,
         lastMoveAt: undefined,
         lastMoveBy: undefined,
     };
@@ -70,16 +47,6 @@ exports.prepareGameAction = function (_a) {
     }
     return pendingGameState;
 };
-// const joinGameAction = (prev: ChessGameStateWaitingForOpponent, opponent: UserInfoRecord) => {
-//   // This could maybe be tested more and
-//   //  Just need to make sure the player positions/colors
-//   // stay the same
-//   return prepareGameAction({
-//     players: [prev.players[0].user, opponent],
-//     preferredColor: prev.players[0].color,
-//     timeLimit: prev.timeLimit,
-//   });
-// };
 var moveAction = function (prev, next) {
     var _a;
     // Default it to black so when the game just starts
@@ -103,17 +70,16 @@ var moveAction = function (prev, next) {
     var moveElapsedMs = (prev.lastMoveAt !== undefined)
         ? movedAt.getTime() - new Date(prev.lastMoveAt).getTime()
         : 0; // Zero if first move
-    var captured = util_1.getCapturedPiecesState(instance.history({ verbose: true }));
     // If it's white's turn that means black moved last!
     var currentLastMovedBy = instance.turn() === 'w' ? 'black' : 'white';
     if (instance.game_over()) {
-        return __assign(__assign({}, prev), { state: 'finished', winner: instance.in_draw() ? '1/2' : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, captured: captured });
+        return __assign(__assign({}, prev), { state: 'finished', winner: instance.in_draw() ? '1/2' : currentLastMovedBy, pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy });
     }
     var timeLeft = prev.timeLeft[currentLastMovedBy] - moveElapsedMs;
     if (prev.timeLimit !== 'untimed' && prev.state === 'started' && timeLeft < 0) {
         return __assign(__assign({}, prev), { state: 'finished', winner: prevLastMoveBy });
     }
-    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), captured: captured, winner: undefined });
+    return __assign(__assign({}, prev), { state: 'started', pgn: instance.pgn(), lastMoveAt: next.movedAt, lastMoveBy: currentLastMovedBy, timeLeft: __assign(__assign({}, prev.timeLeft), (_a = {}, _a[currentLastMovedBy] = timeLeft, _a)), winner: undefined });
 };
 var statusCheck = function (prev, at) {
     var _a;
@@ -128,9 +94,7 @@ var statusCheck = function (prev, at) {
     return prev;
 };
 // @deprecated
-var timerFinishedAction = function (prev, 
-// @deprecated
-next) {
+var timerFinishedAction = function (prev) {
     return __assign(__assign({}, prev), { state: 'finished', winner: util_1.otherChessColor(prev.lastMoveBy) });
 };
 var abortAction = function (prev) {

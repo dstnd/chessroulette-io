@@ -1,6 +1,6 @@
 import * as io from 'io-ts';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
-import { userInfoRecord } from '../records/userRecord';
+import { userInfoRecord, userRecord } from '../records/userRecord';
 import { capturableChessPieceType } from './boardRecords';
 
 export const chessPlayerWhite = io.type({
@@ -103,23 +103,6 @@ export const capturedPiecesRecord = io.type({
 });
 export type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
 
-// export const chessGameStateWaitingForOpponent = io.type({
-//   state: io.literal('waitingForOpponent'),
-//   timeLimit: chessGameTimeLimit,
-//   players: io.tuple([chessPlayer]),
-//   timeLeft: io.type({
-//     white: io.number,
-//     black: io.number,
-//   }),
-//   pgn: io.undefined,
-//   winner: io.undefined,
-//   lastMoveBy: io.undefined,
-//   lastMoveAt: io.undefined,
-
-//   captured: io.undefined,
-// });
-// export type ChessGameStateWaitingForOpponent = io.TypeOf<typeof chessGameStateWaitingForOpponent>;
-
 export const chessGameStatePending = io.type({
   state: io.literal('pending'),
   timeLimit: chessGameTimeLimit,
@@ -132,7 +115,6 @@ export const chessGameStatePending = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
-  captured: io.undefined,
 });
 export type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
 
@@ -148,7 +130,6 @@ export const chessGameStateNeverStarted = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
-  captured: io.undefined,
 });
 export type ChessGameStateNeverStarted = io.TypeOf<typeof chessGameStateNeverStarted>;
 
@@ -166,7 +147,6 @@ export const chessGameStateStarted = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
-  captured: capturedPiecesRecord,
 });
 export type ChessGameStateStarted = io.TypeOf<typeof chessGameStateStarted>;
 
@@ -183,7 +163,6 @@ export const chessGameStateFinished = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
-  captured: capturedPiecesRecord,
 });
 export type ChessGameStateFinished = io.TypeOf<typeof chessGameStateFinished>;
 
@@ -200,7 +179,6 @@ export const chessGameStateStopped = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
-  captured: capturedPiecesRecord,
 });
 export type ChessGameStateStopped = io.TypeOf<typeof chessGameStateStopped>;
 
@@ -210,11 +188,5 @@ export const chessGameState = io.union([
   chessGameStateFinished,
   chessGameStateNeverStarted,
   chessGameStateStopped,
-
-  // TODO: I'm thinking this could be deprecated
-  //  since a game without opponent is not a game yet
-  //  and could be treated as undefined
-  // @Deprecate
-  // chessGameStateWaitingForOpponent,
 ]);
 export type ChessGameState = io.TypeOf<typeof chessGameState>;

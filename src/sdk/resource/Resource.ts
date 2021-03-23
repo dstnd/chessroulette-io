@@ -65,7 +65,7 @@ export class Resource<
   RequestPayload = io.TypeOf<RequestPayloadCodec>,
   ResponseOkPayload = io.TypeOf<ResponseOkPayloadCodec>,
   ResponseErrPayload = io.TypeOf<ResponseErrPayloadCodec>,
-  > {  
+  > {
   constructor(
     public requestPayloadCodec: RequestPayloadCodec,
     public responseOkPayloadCodec: ResponseOkPayloadCodec,
@@ -101,14 +101,24 @@ export class Resource<
         const result = toResult(responseAsResultCodec.decode(data));
 
         if (!result.ok) {
-          return new Err({
+          const error = new Err({
             type: 'BadEncodingError',
             content: undefined,
-          });
+          } as const);
+
+          console.error('[Resource].request() BadEncodingError', error);
+          console.info('  [Resource].request() BadEncodingError > Result', result);
+
+          return error;
         }
 
         if (!result.val.ok) {
-          return this.getResponseError(result.val);
+          const error = this.getResponseError(result.val);
+
+          console.error('[Resource].request() Response Error', error);
+          console.info('  [Resource].request() Response Error > Result', result);
+
+          return error;
         }
 
         return new Ok(result.val.data);
@@ -117,13 +127,23 @@ export class Resource<
         //  It should at most use fetch or have it dynamically loaded by the requester somehow
         //  Or somehow adhere to a certin interface!
         if (e.response) {
-          return this.getResponseError(e.response.data);
+          const error = this.getResponseError(e.response.data);
+
+          console.error('[Resource].request() Response Error', error);
+          console.info('[Resource].request() Response Error Object', e);
+
+          return error;
         }
 
-        return new Err({
+        const error = new Err({
           type: 'BadRequestError',
           content: undefined,
-        });
+        } as const);
+
+        console.error('[Resource].request() BadRequestError', error);
+        console.info('[Resource].request() BadRequestError', error);
+
+        return error;
       }
     });
   }
