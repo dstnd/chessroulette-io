@@ -7,14 +7,13 @@ var http_1 = require("../../sdk/http");
 var UserRegistration;
 (function (UserRegistration) {
     var model = http_1.formModel({
+        firstName: io.string,
+        lastName: io.string,
         // This is a JWT Token passed by the server
         //  with all the needed information in it like:
         //  - email
-        //  - external vendor & access token
+        //  - external vendor info
         verificationToken: io.string,
-        // email: io.string,
-        firstName: io.string,
-        lastName: io.string,
     });
     var request = io.type(model);
     var okResponse = io.type({
