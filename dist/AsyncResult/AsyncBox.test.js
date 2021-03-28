@@ -508,7 +508,6 @@ describe('Resolve', function () {
                             .resolve()];
                 case 1:
                     r = _a.sent();
-                    console.log(r);
                     expect(spyErr).toHaveBeenCalledWith('ResolutionError');
                     expect(spy).not.toHaveBeenCalled();
                     return [2 /*return*/];

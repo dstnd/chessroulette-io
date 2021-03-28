@@ -24,6 +24,7 @@
   "typings": "dist/index.d.ts",
   "devDependencies": {
     "conditional-type-checks": "^1.0.5",
+    "date-fns": "^2.19.0",
     "ts-jest": "^26.3.0"
   }
 }
