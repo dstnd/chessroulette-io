@@ -193,15 +193,20 @@ const moveAction = (
     return prev;
   }
 
-  const isValidMove = instance.move(move);
+  const validMove = instance.move(move);
 
-  if (!isValidMove) {
+  if (!validMove) {
     return prev;
   }
 
+  const { promotion, flags, piece, ...restValidMove } = validMove;
+
   const nextMove: ChessHistoryMove = {
-    ...move,
-    color: turn,
+    ...restValidMove,
+    ...promotion && promotion !== 'k' && {
+      promotion,
+    },
+    color: validMove.color === 'b' ? 'black' : 'white',
     clock: nextTimeLeft,
   };
 

@@ -82,13 +82,16 @@ describe('Invalid Moves', function () {
             movedAt: now,
         });
         var expected = {
+            startedAt: now,
             lastMoveAt: now,
+            lastActivityAt: now,
             lastMoveBy: 'white',
             pgn: '1. e4',
             history: [
                 {
                     from: 'e2',
                     to: 'e4',
+                    san: 'e4',
                     color: 'white',
                     clock: 300 * 1000,
                 },
@@ -130,13 +133,16 @@ describe('Invalid Moves', function () {
             movedAt: now,
         });
         var expected = {
+            startedAt: now,
             lastMoveAt: now,
+            lastActivityAt: now,
             lastMoveBy: 'white',
             pgn: '1. e4',
             history: [
                 {
                     from: 'e2',
                     to: 'e4',
+                    san: 'e4',
                     color: 'white',
                     clock: 300 * 1000,
                 },
@@ -173,13 +179,16 @@ describe('Valid Moves on "started" game', function () {
             movedAt: now,
         });
         var expected = {
+            startedAt: now,
             lastMoveAt: now,
+            lastActivityAt: now,
             lastMoveBy: 'white',
             pgn: '1. e4',
             history: [
                 {
                     from: 'e2',
                     to: 'e4',
+                    san: 'e4',
                     color: 'white',
                     clock: 300 * 1000,
                 },
@@ -221,19 +230,23 @@ describe('Valid Moves on "started" game', function () {
             movedAt: io_ts_isodatetime_1.toISODateTime(date_fns_1.addSeconds(now, 5)),
         });
         var expected = {
+            startedAt: io_ts_isodatetime_1.toISODateTime(now),
             lastMoveAt: io_ts_isodatetime_1.toISODateTime(date_fns_1.addSeconds(now, 5)),
+            lastActivityAt: io_ts_isodatetime_1.toISODateTime(date_fns_1.addSeconds(now, 5)),
             lastMoveBy: 'black',
             pgn: '1. e4 e5',
             history: [
                 {
                     from: 'e2',
                     to: 'e4',
+                    san: 'e4',
                     color: 'white',
                     clock: 300 * 1000,
                 },
                 {
                     from: 'e7',
                     to: 'e5',
+                    san: 'e5',
                     color: 'black',
                     clock: 295 * 1000,
                 },
@@ -293,31 +306,37 @@ describe('Valid Moves on "started" game', function () {
             movedAt: io_ts_isodatetime_1.toISODateTime(b2At),
         });
         var expected = {
+            startedAt: io_ts_isodatetime_1.toISODateTime(w1At),
             lastMoveAt: io_ts_isodatetime_1.toISODateTime(b2At),
+            lastActivityAt: io_ts_isodatetime_1.toISODateTime(b2At),
             lastMoveBy: 'black',
             pgn: '1. e4 e5 2. d4 d6',
             history: [
                 {
                     from: 'e2',
                     to: 'e4',
+                    san: 'e4',
                     color: 'white',
                     clock: 300 * 1000,
                 },
                 {
                     from: 'e7',
                     to: 'e5',
+                    san: 'e5',
                     color: 'black',
                     clock: 297 * 1000,
                 },
                 {
                     from: 'd2',
                     to: 'd4',
+                    san: 'd4',
                     color: 'white',
                     clock: 287 * 1000,
                 },
                 {
                     from: 'd7',
                     to: 'd6',
+                    san: 'd6',
                     color: 'black',
                     clock: 278 * 1000,
                 },
@@ -371,6 +390,8 @@ describe('Time Running out', function () {
             movedAt: io_ts_isodatetime_1.toISODateTime(w2At),
         });
         var expected = {
+            startedAt: io_ts_isodatetime_1.toISODateTime(w1At),
+            lastActivityAt: io_ts_isodatetime_1.toISODateTime(w2At),
             lastMoveAt: io_ts_isodatetime_1.toISODateTime(b1At),
             lastMoveBy: 'black',
             pgn: '1. e4 e5',
@@ -378,12 +399,14 @@ describe('Time Running out', function () {
                 {
                     from: 'e2',
                     to: 'e4',
+                    san: 'e4',
                     color: 'white',
                     clock: 300 * 1000,
                 },
                 {
                     from: 'e7',
                     to: 'e5',
+                    san: 'e5',
                     color: 'black',
                     clock: 295 * 1000,
                 },

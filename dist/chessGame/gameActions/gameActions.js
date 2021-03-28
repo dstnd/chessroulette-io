@@ -10,6 +10,17 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
+var __rest = (this && this.__rest) || function (s, e) {
+    var t = {};
+    for (var p in s) if (Object.prototype.hasOwnProperty.call(s, p) && e.indexOf(p) < 0)
+        t[p] = s[p];
+    if (s != null && typeof Object.getOwnPropertySymbols === "function")
+        for (var i = 0, p = Object.getOwnPropertySymbols(s); i < p.length; i++) {
+            if (e.indexOf(p[i]) < 0 && Object.prototype.propertyIsEnumerable.call(s, p[i]))
+                t[p[i]] = s[p[i]];
+        }
+    return t;
+};
 var __spreadArrays = (this && this.__spreadArrays) || function () {
     for (var s = 0, i = 0, il = arguments.length; i < il; i++) s += arguments[i].length;
     for (var r = Array(s), k = 0, i = 0; i < il; i++)
@@ -104,18 +115,23 @@ var moveAction = function (prev, _a) {
     var nextTimeLeft = prev.timeLeft[turn] - elapsed;
     // Finish The Game if the time has passed
     if (prev.timeLimit !== 'untimed' && prev.state !== 'pending' && nextTimeLeft < 0) {
-        return __assign(__assign({}, prev), { state: 'finished', timeLeft: __assign(__assign({}, prev.timeLeft), (_b = {}, _b[turn] = 0, _b)), winner: prevTurn });
+        return __assign(__assign({}, prev), { state: 'finished', timeLeft: __assign(__assign({}, prev.timeLeft), (_b = {}, _b[turn] = 0, _b)), winner: prevTurn, 
+            // Last activity is the state change!
+            lastActivityAt: movedAt });
     }
     var instance = sdk_1.getNewChessGame();
     var isValidPgn = prev.state === 'pending' || instance.load_pgn(util_1.chessHistoryToSimplePgn(prev.history));
     if (!isValidPgn) {
         return prev;
     }
-    var isValidMove = instance.move(move);
-    if (!isValidMove) {
+    var validMove = instance.move(move);
+    if (!validMove) {
         return prev;
     }
-    var nextMove = __assign(__assign({}, move), { color: turn, clock: nextTimeLeft });
+    var promotion = validMove.promotion, flags = validMove.flags, piece = validMove.piece, restValidMove = __rest(validMove, ["promotion", "flags", "piece"]);
+    var nextMove = __assign(__assign(__assign({}, restValidMove), promotion && promotion !== 'k' && {
+        promotion: promotion,
+    }), { color: validMove.color === 'b' ? 'black' : 'white', clock: nextTimeLeft });
     var nextHistory = __spreadArrays((prev.history || []), [nextMove]);
     var nextStartedGameProps = {
         state: 'started',

@@ -247,6 +247,7 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
             q: undefined;
         }>;
     }>]>, io.TypeC<{
+        san: io.StringC;
         color: io.UnionC<[io.KeyofC<{
             white: null;
         }>, io.KeyofC<{
@@ -471,6 +472,7 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
             q: undefined;
         }>;
     }>]>, io.TypeC<{
+        san: io.StringC;
         color: io.UnionC<[io.KeyofC<{
             white: null;
         }>, io.KeyofC<{
@@ -755,6 +757,7 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
             q: undefined;
         }>;
     }>]>, io.TypeC<{
+        san: io.StringC;
         color: io.UnionC<[io.KeyofC<{
             white: null;
         }>, io.KeyofC<{
@@ -1046,6 +1049,7 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
             q: undefined;
         }>;
     }>]>, io.TypeC<{
+        san: io.StringC;
         color: io.UnionC<[io.KeyofC<{
             white: null;
         }>, io.KeyofC<{
@@ -1270,6 +1274,7 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
             q: undefined;
         }>;
     }>]>, io.TypeC<{
+        san: io.StringC;
         color: io.UnionC<[io.KeyofC<{
             white: null;
         }>, io.KeyofC<{
@@ -1554,6 +1559,7 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
             q: undefined;
         }>;
     }>]>, io.TypeC<{
+        san: io.StringC;
         color: io.UnionC<[io.KeyofC<{
             white: null;
         }>, io.KeyofC<{

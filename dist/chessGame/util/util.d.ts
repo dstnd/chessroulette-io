@@ -41,6 +41,7 @@ export declare const chessHistoryToSimplePgn: (history: ({
 } & {
     promotion?: "n" | "b" | "r" | "q" | undefined;
 } & {
+    san: string;
     color: "white" | "black";
     clock: number;
 })[]) => SimplePGN;

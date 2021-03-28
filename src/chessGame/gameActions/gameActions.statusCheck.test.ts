@@ -95,12 +95,14 @@ test('returns the same state for a started game that still has time left', () =>
         to: 'e4',
         clock: 300 * 1000,
         color: 'white',
+        san: 'e4',
       },
       {
         from: 'e7',
         to: 'e5',
         clock: 285 * 1000,
         color: 'black',
+        san: 'e5',
       },
     ],
     players: [
@@ -156,12 +158,14 @@ test('returns the "finished" state for a started game that does NOT have any tim
       {
         from: 'e2',
         to: 'e4',
+        san: 'e4',
         clock: 300 * 1000,
         color: 'white',
       },
       {
         from: 'e7',
         to: 'e5',
+        san: 'e5',
         clock: 285 * 1000,
         color: 'black',
       },

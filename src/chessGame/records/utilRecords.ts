@@ -220,6 +220,7 @@ export type ChessMove = io.TypeOf<typeof chessMove>;
 export const chessHistoryMove = io.intersection([
   chessMove,
   io.type({
+    san: io.string,
     color: chessGameColor, // not needed as the order
     clock: io.number, // Corresponds to %clk in the extended PGN: https://www.enpassant.dk/chess/palview/enhancedpgn.htm
   }),

@@ -12,6 +12,7 @@ describe('chessHistoryToSimplePgn', () => {
       {
         from: 'e2',
         to: 'e4',
+        san: 'e4',
         color: 'white',
         clock: minutes(1),
       },
@@ -27,24 +28,28 @@ describe('chessHistoryToSimplePgn', () => {
       {
         from: 'e2',
         to: 'e4',
+        san: 'e4',
         color: 'white',
         clock: minutes(1),
       },
       {
         from: 'e7',
         to: 'e5',
+        san: 'e5',
         color: 'black',
         clock: seconds(58),
       },
       {
         from: 'd2',
         to: 'd4',
+        san: 'd4',
         color: 'white',
         clock: seconds(57),
       },
       {
         from: 'd7',
         to: 'd6',
+        san: 'd6',
         color: 'black',
         clock: seconds(55),
       }
@@ -60,30 +65,35 @@ describe('chessHistoryToSimplePgn', () => {
       {
         from: 'e2',
         to: 'e4',
+        san: 'e4',
         color: 'white',
         clock: minutes(1),
       },
       {
         from: 'f7',
         to: 'f6',
+        san: 'f6',
         color: 'black',
         clock: seconds(58),
       },
       {
         from: 'd2',
         to: 'd4',
+        san: 'd4',
         color: 'white',
         clock: seconds(57),
       },
       {
         from: 'g7',
         to: 'g5',
+        san: 'g5',
         color: 'black',
         clock: seconds(55),
       },
       {
         from: 'd1',
         to: 'h5',
+        san: 'h5',
         color: 'white',
         clock: seconds(50),
       },

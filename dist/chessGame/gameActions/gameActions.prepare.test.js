@@ -116,12 +116,14 @@ test('creates a game with preferred color and given history as started game', fu
         {
             from: 'e2',
             to: 'e4',
+            san: 'e4',
             color: 'white',
             clock: 300 * 1000,
         },
         {
             from: 'e7',
             to: 'e5',
+            san: 'e5',
             color: 'black',
             clock: 295 * 1000,
         },
@@ -135,6 +137,8 @@ test('creates a game with preferred color and given history as started game', fu
         lastMoveAt: now,
     });
     var expected = {
+        startedAt: now,
+        lastActivityAt: now,
         lastMoveAt: now,
         lastMoveBy: 'black',
         history: startedGameHistory,
@@ -164,30 +168,35 @@ test('creates a "finished" game with preferred color and given history', functio
         {
             from: 'e2',
             to: 'e4',
+            san: 'e4',
             color: 'white',
             clock: 300 * 1000,
         },
         {
             from: 'f7',
             to: 'f6',
+            san: 'f6',
             color: 'black',
             clock: 298 * 1000,
         },
         {
             from: 'd2',
             to: 'd4',
+            san: 'd4',
             color: 'white',
             clock: 299 * 1000,
         },
         {
             from: 'g7',
             to: 'g5',
+            san: 'g5',
             color: 'black',
             clock: 295 * 1000,
         },
         {
             from: 'd1',
             to: 'h5',
+            san: 'h5',
             color: 'white',
             clock: 291 * 1000,
         },
@@ -201,6 +210,8 @@ test('creates a "finished" game with preferred color and given history', functio
         lastMoveAt: now,
     });
     var expected = {
+        startedAt: now,
+        lastActivityAt: now,
         lastMoveAt: now,
         lastMoveBy: 'white',
         pgn: '1. e4 f6 2. d4 g5 3. Qh5#',

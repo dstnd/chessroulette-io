@@ -177,6 +177,7 @@ exports.chessMove = io.intersection([
 exports.chessHistoryMove = io.intersection([
     exports.chessMove,
     io.type({
+        san: io.string,
         color: exports.chessGameColor,
         clock: io.number,
     }),

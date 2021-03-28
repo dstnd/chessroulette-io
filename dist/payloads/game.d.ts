@@ -626,6 +626,7 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
                 q: undefined;
             }>;
         }>]>, io.TypeC<{
+            san: io.StringC;
             color: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -850,6 +851,7 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
                 q: undefined;
             }>;
         }>]>, io.TypeC<{
+            san: io.StringC;
             color: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -1134,6 +1136,7 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
                 q: undefined;
             }>;
         }>]>, io.TypeC<{
+            san: io.StringC;
             color: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{

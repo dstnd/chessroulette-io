@@ -248,6 +248,7 @@ export declare namespace GetMyGames {
                 q: undefined;
             }>;
         }>]>, io.TypeC<{
+            san: io.StringC;
             color: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -472,6 +473,7 @@ export declare namespace GetMyGames {
                 q: undefined;
             }>;
         }>]>, io.TypeC<{
+            san: io.StringC;
             color: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -756,6 +758,7 @@ export declare namespace GetMyGames {
                 q: undefined;
             }>;
         }>]>, io.TypeC<{
+            san: io.StringC;
             color: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -961,6 +964,7 @@ export declare namespace GetMyGames {
         } & {
             promotion?: "n" | "b" | "r" | "q" | undefined;
         } & {
+            san: string;
             color: "white" | "black";
             clock: number;
         })[];
@@ -1024,6 +1028,7 @@ export declare namespace GetMyGames {
         } & {
             promotion?: "n" | "b" | "r" | "q" | undefined;
         } & {
+            san: string;
             color: "white" | "black";
             clock: number;
         })[];
@@ -1087,6 +1092,7 @@ export declare namespace GetMyGames {
         } & {
             promotion?: "n" | "b" | "r" | "q" | undefined;
         } & {
+            san: string;
             color: "white" | "black";
             clock: number;
         })[];

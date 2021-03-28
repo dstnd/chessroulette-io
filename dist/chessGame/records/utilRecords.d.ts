@@ -626,6 +626,7 @@ export declare const chessHistoryMove: io.IntersectionC<[io.IntersectionC<[io.Ty
         q: undefined;
     }>;
 }>]>, io.TypeC<{
+    san: io.StringC;
     color: io.UnionC<[io.KeyofC<{
         white: null;
     }>, io.KeyofC<{
@@ -775,6 +776,7 @@ export declare const chessHistory: io.ArrayC<io.IntersectionC<[io.IntersectionC<
         q: undefined;
     }>;
 }>]>, io.TypeC<{
+    san: io.StringC;
     color: io.UnionC<[io.KeyofC<{
         white: null;
     }>, io.KeyofC<{

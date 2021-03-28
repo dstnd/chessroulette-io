@@ -103,6 +103,7 @@ describe('Invalid Moves', () => {
         {
           from: 'e2',
           to: 'e4',
+          san: 'e4',
           color: 'white',
           clock: 300 * 1000,
         },
@@ -158,6 +159,7 @@ describe('Invalid Moves', () => {
         {
           from: 'e2',
           to: 'e4',
+          san: 'e4',
           color: 'white',
           clock: 300 * 1000,
         },
@@ -207,6 +209,7 @@ describe('Valid Moves on "started" game', () => {
         {
           from: 'e2',
           to: 'e4',
+          san: 'e4',
           color: 'white',
           clock: 300 * 1000,
         },
@@ -262,12 +265,14 @@ describe('Valid Moves on "started" game', () => {
         {
           from: 'e2',
           to: 'e4',
+          san: 'e4',
           color: 'white',
           clock: 300 * 1000,
         },
         {
           from: 'e7',
           to: 'e5',
+          san: 'e5',
           color: 'black',
           clock: 295 * 1000,
         },
@@ -343,24 +348,28 @@ describe('Valid Moves on "started" game', () => {
         {
           from: 'e2',
           to: 'e4',
+          san: 'e4',
           color: 'white',
           clock: 300 * 1000,
         },
         {
           from: 'e7',
           to: 'e5',
+          san: 'e5',
           color: 'black',
           clock: 297 * 1000,
         },
         {
           from: 'd2',
           to: 'd4',
+          san: 'd4',
           color: 'white',
           clock: 287 * 1000,
         },
         {
           from: 'd7',
           to: 'd6',
+          san: 'd6',
           color: 'black',
           clock: 278 * 1000,
         },
@@ -429,12 +438,14 @@ describe('Time Running out', () => {
         {
           from: 'e2',
           to: 'e4',
+          san: 'e4',
           color: 'white',
           clock: 300 * 1000,
         },
         {
           from: 'e7',
           to: 'e5',
+          san: 'e5',
           color: 'black',
           clock: 295 * 1000,
         },
