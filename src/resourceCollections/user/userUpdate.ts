@@ -1,7 +1,6 @@
-import { formModel } from 'src/sdk/http';
 import * as io from 'io-ts';
-import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from 'src/sdk/resource';
-import { registeredUserRecord } from 'src/records/userRecord';
+import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
+import { registeredUserRecord } from '../../records/userRecord';
 
 export namespace UserUpdate {
   const request = io.type({
