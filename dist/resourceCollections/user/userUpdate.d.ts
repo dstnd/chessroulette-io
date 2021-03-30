@@ -4,8 +4,6 @@ export declare namespace UserUpdate {
     const resource: Resource<io.TypeC<{
         firstName: io.StringC;
         lastName: io.StringC;
-        email: io.StringC;
-        avatarId: io.StringC;
     }>, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         firstName: io.StringC;
@@ -30,8 +28,6 @@ export declare namespace UserUpdate {
     }>, {
         firstName: string;
         lastName: string;
-        email: string;
-        avatarId: string;
     }, {
         id: string;
         firstName: string;

@@ -6,8 +6,6 @@ export namespace UserUpdate {
   const request = io.type({
     firstName: io.string,
     lastName: io.string,
-    email: io.string,
-    avatarId: io.string,
   });
 
   const response = registeredUserRecord;
