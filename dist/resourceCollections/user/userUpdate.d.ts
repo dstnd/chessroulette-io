@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from 'src/sdk/resource';
+import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
 export declare namespace UserUpdate {
     const resource: Resource<io.TypeC<{
         firstName: io.StringC;
