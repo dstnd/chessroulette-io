@@ -5,15 +5,20 @@ import { gameRecord } from '../../records/gameRecord';
 export namespace GetUserGames {
   const request = io.type({
     userId: io.string,
+    pageSize: io.number,
+    currentIndex: io.number,
   });
-  
-  const okResponse = io.array(gameRecord);
 
-  export const resource = new Resource(
-    request,
-    okResponse,
-    // errResponseVerificationFailed,
-  );
+  const withPaginatorResponse = <TCodec extends io.Mixed>(codec: TCodec) =>
+    io.type({
+      items: io.array(codec),
+      itemsTotal: io.number,
+      currentIndex: io.number,
+    });
+
+  const okResponse = withPaginatorResponse(gameRecord);
+
+  export const resource = new Resource(request, okResponse);
 
   export type Request = RequestOf<typeof resource>;
   export type OkResponse = OkResponseOf<typeof resource>;
