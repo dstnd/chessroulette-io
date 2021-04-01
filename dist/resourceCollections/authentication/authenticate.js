@@ -23,6 +23,8 @@ var Authenticate;
     ]);
     var okResponseInexistentUser = io.type({
         status: io.literal('InexistentUser'),
+        // This holds the actual information such as email, external user id, etc.
+        verificationToken: io.string,
         external: io.union([
             io.undefined,
             io.type({
@@ -54,4 +56,4 @@ var Authenticate;
     });
     Authenticate.resource = new resource_1.Resource(request, okResponse, errResponseVerificationFailed);
 })(Authenticate = exports.Authenticate || (exports.Authenticate = {}));
-//# sourceMappingURL=userCheck.js.map
+//# sourceMappingURL=authenticate.js.map

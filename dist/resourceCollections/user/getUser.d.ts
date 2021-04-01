@@ -10,6 +10,14 @@ export declare namespace GetUser {
         isGuest: import("io-ts").LiteralC<false>;
         email: import("io-ts").StringC;
         profilePicUrl: import("io-ts").UnionC<[import("io-ts").StringC, import("io-ts").UndefinedC]>;
+        externalAccounts: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+            facebook: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+                userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
+            }>]>;
+            lichess: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+                userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
+            }>]>;
+        }>]>;
     }>]>;
     const resource: Resource<import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").NullC, import("io-ts").VoidC, import("io-ts").TypeC<{}>]>, import("io-ts").IntersectionC<[import("io-ts").TypeC<{
         id: import("io-ts").StringC;
@@ -21,6 +29,14 @@ export declare namespace GetUser {
         isGuest: import("io-ts").LiteralC<false>;
         email: import("io-ts").StringC;
         profilePicUrl: import("io-ts").UnionC<[import("io-ts").StringC, import("io-ts").UndefinedC]>;
+        externalAccounts: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+            facebook: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+                userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
+            }>]>;
+            lichess: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+                userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
+            }>]>;
+        }>]>;
     }>]>, import("io-ts").TypeC<{
         type: import("io-ts").LiteralC<"BadRequestError">;
         content: import("io-ts").UndefinedC;
@@ -34,6 +50,14 @@ export declare namespace GetUser {
         isGuest: false;
         email: string;
         profilePicUrl: string | undefined;
+        externalAccounts: {
+            facebook: {
+                userId: string | undefined;
+            } | undefined;
+            lichess: {
+                userId: string | undefined;
+            } | undefined;
+        } | undefined;
     }, {
         type: "BadRequestError";
         content: undefined;

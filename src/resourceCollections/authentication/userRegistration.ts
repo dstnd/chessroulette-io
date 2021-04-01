@@ -5,16 +5,13 @@ import { formModel, inputValidationError } from '../../sdk/http';
 
 export namespace UserRegistration {
   const model = formModel({
-    email: io.string,
     firstName: io.string,
     lastName: io.string,
-    external: io.union([
-      io.undefined,
-      io.type({
-        vendor: externalVendor,
-        accessToken: io.string,
-      }),
-    ]),
+    // This is a JWT Token passed by the server
+    //  with all the needed information in it like:
+    //  - email
+    //  - external vendor info
+    verificationToken: io.string,
   });
 
   const request = io.type(model);
@@ -27,7 +24,16 @@ export namespace UserRegistration {
 
   const validationErrResponse = getValidationErrorCodec(model);
 
-  const errResponse = io.union([inputValidationError(model), validationErrResponse]);
+  const errResponseDuplicateUser = io.type({
+    type: io.literal('DuplicateUser'),
+    content: io.undefined,
+  });
+
+  const errResponse = io.union([
+    inputValidationError(model),
+    validationErrResponse,
+    errResponseDuplicateUser,
+  ]);
 
   export const resource = new Resource(
     request,

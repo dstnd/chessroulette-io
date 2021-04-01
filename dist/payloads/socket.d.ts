@@ -37,6 +37,14 @@ export declare const connectionOpenedPayload: io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -79,6 +87,14 @@ export declare const iamResponsePayload: io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -119,6 +135,14 @@ export declare const iamResponsePayload: io.TypeC<{
                     isGuest: io.LiteralC<false>;
                     email: io.StringC;
                     profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                    externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                        lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                    }>]>;
                 }>]>, io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;
@@ -280,6 +304,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -318,6 +350,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -358,6 +398,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     isGuest: io.LiteralC<false>;
                     email: io.StringC;
                     profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                    externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                        lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                    }>]>;
                 }>]>, io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;
@@ -500,6 +548,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     isGuest: io.LiteralC<false>;
                     email: io.StringC;
                     profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                    externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                        lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                    }>]>;
                 }>]>, io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;
@@ -601,6 +657,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     isGuest: io.LiteralC<false>;
                     email: io.StringC;
                     profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                    externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                        lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
+                    }>]>;
                 }>]>, io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;
@@ -680,6 +744,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -948,6 +1020,8 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        startedAt: io.UndefinedC;
+        lastActivityAt: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
             bullet: null;
@@ -1022,6 +1096,8 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        startedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>, io.TypeC<{
         state: io.LiteralC<"finished">;
         timeLimit: io.KeyofC<{
@@ -1100,6 +1176,8 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        startedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>, io.TypeC<{
         state: io.LiteralC<"neverStarted">;
         timeLimit: io.KeyofC<{
@@ -1153,6 +1231,8 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         winner: io.UndefinedC;
         lastMoveBy: io.UndefinedC;
         lastMoveAt: io.UndefinedC;
+        startedAt: io.UndefinedC;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
         timeLimit: io.KeyofC<{
@@ -1231,6 +1311,8 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             }>;
         }>;
         lastMoveAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        startedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        lastActivityAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     }>]>, io.TypeC<{
         id: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
@@ -1250,6 +1332,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
             profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+            externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+            }>]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -1289,6 +1379,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -1372,6 +1470,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             isGuest: io.LiteralC<false>;
             email: io.StringC;
             profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+            externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+            }>]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -1411,6 +1517,14 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 isGuest: io.LiteralC<false>;
                 email: io.StringC;
                 profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
+                externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                }>]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;

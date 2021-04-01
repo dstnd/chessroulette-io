@@ -115,6 +115,12 @@ export const chessGameStatePending = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
+
+  // Game Started At
+  startedAt: io.undefined,
+
+  // Last Activity could be: 'move' | 'status udpate' | 'timer finished' | etc.
+  lastActivityAt: io.undefined,
 });
 export type ChessGameStatePending = io.TypeOf<typeof chessGameStatePending>;
 
@@ -130,10 +136,11 @@ export const chessGameStateNeverStarted = io.type({
   winner: io.undefined,
   lastMoveBy: io.undefined,
   lastMoveAt: io.undefined,
+  startedAt: io.undefined,
+  lastActivityAt: isoDateTimeFromIsoString,
 });
 export type ChessGameStateNeverStarted = io.TypeOf<typeof chessGameStateNeverStarted>;
 
-// TODO: Remove the union once it works
 export const chessGameStateStarted = io.type({
   timeLimit: chessGameTimeLimit,
   state: io.literal('started'),
@@ -147,6 +154,8 @@ export const chessGameStateStarted = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
+  startedAt: isoDateTimeFromIsoString,
+  lastActivityAt: isoDateTimeFromIsoString,
 });
 export type ChessGameStateStarted = io.TypeOf<typeof chessGameStateStarted>;
 
@@ -163,6 +172,8 @@ export const chessGameStateFinished = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
+  startedAt: isoDateTimeFromIsoString,
+  lastActivityAt: isoDateTimeFromIsoString,
 });
 export type ChessGameStateFinished = io.TypeOf<typeof chessGameStateFinished>;
 
@@ -179,6 +190,9 @@ export const chessGameStateStopped = io.type({
 
   lastMoveBy: io.keyof(chessPlayers.props),
   lastMoveAt: isoDateTimeFromIsoString,
+
+  startedAt: isoDateTimeFromIsoString,
+  lastActivityAt: isoDateTimeFromIsoString,
 });
 export type ChessGameStateStopped = io.TypeOf<typeof chessGameStateStopped>;
 

@@ -1,9 +1,7 @@
 import * as io from 'io-ts';
 import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
-export declare namespace GetUserGames {
-    const resource: Resource<io.TypeC<{
-        userId: io.StringC;
-    }>, io.ArrayC<io.IntersectionC<[io.UnionC<[io.TypeC<{
+export declare namespace GetMyGames {
+    const resource: Resource<io.UnionC<[io.UndefinedC, io.NullC, io.VoidC, io.TypeC<{}>]>, io.ArrayC<io.IntersectionC<[io.UnionC<[io.TypeC<{
         state: io.LiteralC<"pending">;
         timeLimit: io.KeyofC<{
             bullet: null;
@@ -356,9 +354,7 @@ export declare namespace GetUserGames {
     }>]>>, io.TypeC<{
         type: io.LiteralC<"BadRequestError">;
         content: io.UndefinedC;
-    }>, {
-        userId: string;
-    }, (({
+    }>, void | {} | null | undefined, (({
         state: "pending";
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         players: [{
