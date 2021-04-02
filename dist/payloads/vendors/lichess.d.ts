@@ -12,7 +12,7 @@ export declare const verifyLichessUserResponsePayload: io.TypeC<{
         email: io.StringC;
         id: io.StringC;
         username: io.StringC;
-        perfs: io.TypeC<{
+        perfs: io.PartialC<{
             blitz: io.TypeC<{
                 games: io.NumberC;
                 rating: io.NumberC;

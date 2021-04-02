@@ -24,7 +24,7 @@ export declare namespace Authenticate {
                 email: io.StringC;
                 id: io.StringC;
                 username: io.StringC;
-                perfs: io.TypeC<{
+                perfs: io.PartialC<{
                     blitz: io.TypeC<{
                         games: io.NumberC;
                         rating: io.NumberC;
@@ -89,30 +89,30 @@ export declare namespace Authenticate {
                 id: string;
                 username: string;
                 perfs: {
-                    blitz: {
+                    blitz?: {
                         games: number;
                         rating: number;
-                    };
-                    bullet: {
+                    } | undefined;
+                    bullet?: {
                         games: number;
                         rating: number;
-                    };
-                    classical: {
+                    } | undefined;
+                    classical?: {
                         games: number;
                         rating: number;
-                    };
-                    correspondence: {
+                    } | undefined;
+                    correspondence?: {
                         games: number;
                         rating: number;
-                    };
-                    puzzle: {
+                    } | undefined;
+                    puzzle?: {
                         games: number;
                         rating: number;
-                    };
-                    rapid: {
+                    } | undefined;
+                    rapid?: {
                         games: number;
                         rating: number;
-                    };
+                    } | undefined;
                 };
             } | {
                 id: string;
