@@ -1,5 +1,12 @@
 import * as io from 'io-ts';
-import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
+import {
+  ErrResponseOf,
+  OkResponseOf,
+  RequestOf,
+  Resource,
+  ResponseOf,
+  withPaginatorResponse,
+} from '../../sdk/resource';
 import { gameRecord } from '../../records/gameRecord';
 
 export namespace GetUserGames {
@@ -8,13 +15,6 @@ export namespace GetUserGames {
     pageSize: io.number,
     currentIndex: io.number,
   });
-
-  const withPaginatorResponse = <TCodec extends io.Mixed>(codec: TCodec) =>
-    io.type({
-      items: io.array(codec),
-      itemsTotal: io.number,
-      currentIndex: io.number,
-    });
 
   const okResponse = withPaginatorResponse(gameRecord);
 
