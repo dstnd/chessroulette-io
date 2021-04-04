@@ -1,4 +1,5 @@
 import * as io from 'io-ts';
+import { IntFromString } from 'io-ts-types/lib/IntFromString';
 import {
   ErrResponseOf,
   OkResponseOf,
@@ -12,8 +13,8 @@ import { gameRecord } from '../../records/gameRecord';
 export namespace GetUserGames {
   const request = io.type({
     userId: io.string,
-    pageSize: io.number,
-    currentIndex: io.number,
+    pageSize: IntFromString,
+    currentIndex: IntFromString,
   });
 
   const okResponse = withPaginatorResponse(gameRecord);
