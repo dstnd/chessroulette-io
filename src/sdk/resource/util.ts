@@ -7,6 +7,7 @@ import {
   BadRequestError,
   badRequestError,
 } from './errors';
+import { IntFromString } from 'io-ts-types/lib/IntFromString';
 import { FormModelCodec, FormModelKeysMap } from '../../sdk/http';
 import * as io from 'io-ts';
 import { isRight } from 'fp-ts/lib/Either';
@@ -55,8 +56,8 @@ export type ValidationError<M extends FormModelKeysMap> = {
 export const withPaginatorResponse = <TCodec extends io.Mixed>(codec: TCodec) =>
   io.type({
     items: io.array(codec),
-    itemsTotal: io.number,
-    currentIndex: io.number,
+    itemsTotal: IntFromString,
+    currentIndex: IntFromString,
   });
 
 declare type PaginatorWitoutItems = Omit<
