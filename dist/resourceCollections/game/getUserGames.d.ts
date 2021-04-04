@@ -3,8 +3,8 @@ import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '..
 export declare namespace GetUserGames {
     const resource: Resource<io.TypeC<{
         userId: io.StringC;
-        pageSize: import("io-ts-types/lib/IntFromString").IntFromStringC;
-        currentIndex: import("io-ts-types/lib/IntFromString").IntFromStringC;
+        pageSize: import("io-ts-types/lib/NumberFromString").NumberFromStringC;
+        currentIndex: import("io-ts-types/lib/NumberFromString").NumberFromStringC;
     }>, io.TypeC<{
         items: io.ArrayC<io.IntersectionC<[io.UnionC<[io.TypeC<{
             state: io.LiteralC<"pending">;
@@ -813,8 +813,8 @@ export declare namespace GetUserGames {
         content: io.UndefinedC;
     }>, {
         userId: string;
-        pageSize: io.Branded<number, io.IntBrand>;
-        currentIndex: io.Branded<number, io.IntBrand>;
+        pageSize: number;
+        currentIndex: number;
     }, {
         items: (({
             state: "pending";
