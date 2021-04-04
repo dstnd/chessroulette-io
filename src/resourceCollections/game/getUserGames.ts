@@ -13,8 +13,8 @@ import { gameRecord } from '../../records/gameRecord';
 export namespace GetUserGames {
   const request = io.type({
     userId: io.string,
-    pageSize: IntFromString,
-    currentIndex: IntFromString,
+    pageSize: io.string,
+    currentIndex: io.string,
   });
 
   const okResponse = withPaginatorResponse(gameRecord);
