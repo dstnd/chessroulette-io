@@ -806,8 +806,8 @@ export declare namespace GetUserGames {
             createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         }>]>>;
-        itemsTotal: import("io-ts-types/lib/IntFromString").IntFromStringC;
-        currentIndex: import("io-ts-types/lib/IntFromString").IntFromStringC;
+        itemsTotal: io.NumberC;
+        currentIndex: io.NumberC;
     }>, io.TypeC<{
         type: io.LiteralC<"BadRequestError">;
         content: io.UndefinedC;
@@ -1119,8 +1119,8 @@ export declare namespace GetUserGames {
             createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
             updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         }))[];
-        itemsTotal: io.Branded<number, io.IntBrand>;
-        currentIndex: io.Branded<number, io.IntBrand>;
+        itemsTotal: number;
+        currentIndex: number;
     }, {
         type: "BadRequestError";
         content: undefined;

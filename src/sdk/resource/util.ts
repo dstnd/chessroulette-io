@@ -56,8 +56,8 @@ export type ValidationError<M extends FormModelKeysMap> = {
 export const withPaginatorResponse = <TCodec extends io.Mixed>(codec: TCodec) =>
   io.type({
     items: io.array(codec),
-    itemsTotal: IntFromString,
-    currentIndex: IntFromString,
+    itemsTotal: io.number,
+    currentIndex: io.number,
   });
 
 declare type PaginatorWitoutItems = Omit<
