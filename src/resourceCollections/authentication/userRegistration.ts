@@ -1,6 +1,12 @@
 import * as io from 'io-ts';
-import { ErrResponseOf, getValidationErrorCodec, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
-import { externalVendor } from '../../payloads';
+import {
+  ErrResponseOf,
+  getValidationErrorCodec,
+  OkResponseOf,
+  RequestOf,
+  Resource,
+  ResponseOf,
+} from '../../sdk/resource';
 import { formModel, inputValidationError } from '../../sdk/http';
 
 export namespace UserRegistration {
@@ -12,13 +18,15 @@ export namespace UserRegistration {
     //  - email
     //  - external vendor info
     verificationToken: io.string,
+    username: io.string,
+    country: io.string,
   });
 
   const request = io.type(model);
 
   const okResponse = io.type({
     // TODO: See if this is needed in this call - it's for ease of access at this point
-    // user: userRecord, 
+    // uzser: userRecord.
     accessToken: io.string,
   });
 
@@ -35,11 +43,7 @@ export namespace UserRegistration {
     errResponseDuplicateUser,
   ]);
 
-  export const resource = new Resource(
-    request,
-    okResponse,
-    errResponse,
-  );
+  export const resource = new Resource(request, okResponse, errResponse);
 
   export type Request = RequestOf<typeof resource>;
   export type OkResponse = OkResponseOf<typeof resource>;

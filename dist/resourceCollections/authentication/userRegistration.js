@@ -14,11 +14,13 @@ var UserRegistration;
         //  - email
         //  - external vendor info
         verificationToken: io.string,
+        username: io.string,
+        country: io.string,
     });
     var request = io.type(model);
     var okResponse = io.type({
         // TODO: See if this is needed in this call - it's for ease of access at this point
-        // user: userRecord, 
+        // uzser: userRecord.
         accessToken: io.string,
     });
     var validationErrResponse = resource_1.getValidationErrorCodec(model);
