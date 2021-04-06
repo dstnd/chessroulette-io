@@ -20,7 +20,14 @@ export declare const peerRecord: io.IntersectionC<[io.TypeC<{
             }>]>;
         }>]>;
         username: io.StringC;
-        country: io.UnionC<[io.StringC, io.UndefinedC]>;
+        country: io.UnionC<[io.TypeC<{
+            name: io.StringC;
+            languages: io.ArrayC<io.StringC>;
+            flagEmoji: io.StringC;
+            flagEmojiU: io.StringC;
+            phone: io.StringC;
+            currency: io.StringC;
+        }>, io.UndefinedC]>;
     }>]>, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         firstName: io.StringC;

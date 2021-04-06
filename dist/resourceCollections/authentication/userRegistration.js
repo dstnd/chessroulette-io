@@ -15,7 +15,7 @@ var UserRegistration;
         //  - external vendor info
         verificationToken: io.string,
         username: io.string,
-        country: io.string,
+        countryCode: io.string,
     });
     var request = io.type(model);
     var okResponse = io.type({

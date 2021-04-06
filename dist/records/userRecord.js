@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.userRecord = exports.guestUserRecord = exports.registeredUserRecord = exports.userExternalAccountByVendorMap = exports.userExternalAccountRecord = exports.userInfoRecord = void 0;
 var io = require("io-ts");
+var locationRecords_1 = require("./locationRecords");
 // import { lichessUserRecord } from "./lichessRecords";
 exports.userInfoRecord = io.type({
     id: io.string,
@@ -33,7 +34,7 @@ exports.registeredUserRecord = io.intersection([
         profilePicUrl: io.union([io.string, io.undefined]),
         externalAccounts: io.union([io.undefined, exports.userExternalAccountByVendorMap]),
         username: io.string,
-        country: io.union([io.string, io.undefined]),
+        country: io.union([locationRecords_1.country, io.undefined]),
     }),
 ]);
 exports.guestUserRecord = io.intersection([

@@ -9,6 +9,7 @@ var UserUpdate;
     var request = io.type({
         firstName: io.string,
         lastName: io.string,
+        countryCode: io.string,
     });
     var response = userRecord_1.registeredUserRecord;
     UserUpdate.resource = new resource_1.Resource(request, response);

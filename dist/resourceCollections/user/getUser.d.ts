@@ -19,7 +19,14 @@ export declare namespace GetUser {
             }>]>;
         }>]>;
         username: import("io-ts").StringC;
-        country: import("io-ts").UnionC<[import("io-ts").StringC, import("io-ts").UndefinedC]>;
+        country: import("io-ts").UnionC<[import("io-ts").TypeC<{
+            name: import("io-ts").StringC;
+            languages: import("io-ts").ArrayC<import("io-ts").StringC>;
+            flagEmoji: import("io-ts").StringC;
+            flagEmojiU: import("io-ts").StringC;
+            phone: import("io-ts").StringC;
+            currency: import("io-ts").StringC;
+        }>, import("io-ts").UndefinedC]>;
     }>]>;
     const resource: Resource<import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").NullC, import("io-ts").VoidC, import("io-ts").TypeC<{}>]>, import("io-ts").IntersectionC<[import("io-ts").TypeC<{
         id: import("io-ts").StringC;
@@ -40,7 +47,14 @@ export declare namespace GetUser {
             }>]>;
         }>]>;
         username: import("io-ts").StringC;
-        country: import("io-ts").UnionC<[import("io-ts").StringC, import("io-ts").UndefinedC]>;
+        country: import("io-ts").UnionC<[import("io-ts").TypeC<{
+            name: import("io-ts").StringC;
+            languages: import("io-ts").ArrayC<import("io-ts").StringC>;
+            flagEmoji: import("io-ts").StringC;
+            flagEmojiU: import("io-ts").StringC;
+            phone: import("io-ts").StringC;
+            currency: import("io-ts").StringC;
+        }>, import("io-ts").UndefinedC]>;
     }>]>, import("io-ts").TypeC<{
         type: import("io-ts").LiteralC<"BadRequestError">;
         content: import("io-ts").UndefinedC;
@@ -63,7 +77,14 @@ export declare namespace GetUser {
             } | undefined;
         } | undefined;
         username: string;
-        country: string | undefined;
+        country: {
+            name: string;
+            languages: string[];
+            flagEmoji: string;
+            flagEmojiU: string;
+            phone: string;
+            currency: string;
+        } | undefined;
     }, {
         type: "BadRequestError";
         content: undefined;

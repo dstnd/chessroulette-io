@@ -27,7 +27,14 @@ export declare namespace ConnectExternalAccount {
             }>]>;
         }>]>;
         username: io.StringC;
-        country: io.UnionC<[io.StringC, io.UndefinedC]>;
+        country: io.UnionC<[io.TypeC<{
+            name: io.StringC;
+            languages: io.ArrayC<io.StringC>;
+            flagEmoji: io.StringC;
+            flagEmojiU: io.StringC;
+            phone: io.StringC;
+            currency: io.StringC;
+        }>, io.UndefinedC]>;
     }>]>;
     const resource: Resource<io.TypeC<{
         vendor: io.KeyofC<{
@@ -54,7 +61,14 @@ export declare namespace ConnectExternalAccount {
             }>]>;
         }>]>;
         username: io.StringC;
-        country: io.UnionC<[io.StringC, io.UndefinedC]>;
+        country: io.UnionC<[io.TypeC<{
+            name: io.StringC;
+            languages: io.ArrayC<io.StringC>;
+            flagEmoji: io.StringC;
+            flagEmojiU: io.StringC;
+            phone: io.StringC;
+            currency: io.StringC;
+        }>, io.UndefinedC]>;
     }>]>, io.TypeC<{
         type: io.LiteralC<"BadRequestError">;
         content: io.UndefinedC;
@@ -80,7 +94,14 @@ export declare namespace ConnectExternalAccount {
             } | undefined;
         } | undefined;
         username: string;
-        country: string | undefined;
+        country: {
+            name: string;
+            languages: string[];
+            flagEmoji: string;
+            flagEmojiU: string;
+            phone: string;
+            currency: string;
+        } | undefined;
     }, {
         type: "BadRequestError";
         content: undefined;

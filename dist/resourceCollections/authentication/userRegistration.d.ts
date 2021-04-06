@@ -6,7 +6,7 @@ export declare namespace UserRegistration {
         lastName: io.StringC;
         verificationToken: io.StringC;
         username: io.StringC;
-        country: io.StringC;
+        countryCode: io.StringC;
     }>, io.TypeC<{
         accessToken: io.StringC;
     }>, io.UnionC<[io.TypeC<{
@@ -17,7 +17,7 @@ export declare namespace UserRegistration {
                 lastName: io.StringC;
                 verificationToken: io.StringC;
                 username: io.StringC;
-                country: io.StringC;
+                countryCode: io.StringC;
             }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
         }>;
     }>, io.TypeC<{
@@ -28,7 +28,7 @@ export declare namespace UserRegistration {
                 lastName: io.StringC;
                 verificationToken: io.StringC;
                 username: io.StringC;
-                country: io.StringC;
+                countryCode: io.StringC;
             }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
         }>;
     }>, io.TypeC<{
@@ -39,7 +39,7 @@ export declare namespace UserRegistration {
         lastName: string;
         verificationToken: string;
         username: string;
-        country: string;
+        countryCode: string;
     }, {
         accessToken: string;
     }, {
@@ -49,8 +49,8 @@ export declare namespace UserRegistration {
                 firstName: string | undefined;
                 lastName: string | undefined;
                 username: string | undefined;
-                country: string | undefined;
                 verificationToken: string | undefined;
+                countryCode: string | undefined;
             };
         };
     } | {
@@ -60,8 +60,8 @@ export declare namespace UserRegistration {
                 firstName: string | undefined;
                 lastName: string | undefined;
                 username: string | undefined;
-                country: string | undefined;
                 verificationToken: string | undefined;
+                countryCode: string | undefined;
             };
         };
     } | {

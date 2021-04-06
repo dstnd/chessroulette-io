@@ -4,6 +4,7 @@ export declare namespace UserUpdate {
     const resource: Resource<io.TypeC<{
         firstName: io.StringC;
         lastName: io.StringC;
+        countryCode: io.StringC;
     }>, io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         firstName: io.StringC;
@@ -23,13 +24,21 @@ export declare namespace UserUpdate {
             }>]>;
         }>]>;
         username: io.StringC;
-        country: io.UnionC<[io.StringC, io.UndefinedC]>;
+        country: io.UnionC<[io.TypeC<{
+            name: io.StringC;
+            languages: io.ArrayC<io.StringC>;
+            flagEmoji: io.StringC;
+            flagEmojiU: io.StringC;
+            phone: io.StringC;
+            currency: io.StringC;
+        }>, io.UndefinedC]>;
     }>]>, io.TypeC<{
         type: io.LiteralC<"BadRequestError">;
         content: io.UndefinedC;
     }>, {
         firstName: string;
         lastName: string;
+        countryCode: string;
     }, {
         id: string;
         firstName: string;
@@ -49,7 +58,14 @@ export declare namespace UserUpdate {
             } | undefined;
         } | undefined;
         username: string;
-        country: string | undefined;
+        country: {
+            name: string;
+            languages: string[];
+            flagEmoji: string;
+            flagEmojiU: string;
+            phone: string;
+            currency: string;
+        } | undefined;
     }, {
         type: "BadRequestError";
         content: undefined;

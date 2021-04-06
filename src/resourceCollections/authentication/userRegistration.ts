@@ -19,7 +19,7 @@ export namespace UserRegistration {
     //  - external vendor info
     verificationToken: io.string,
     username: io.string,
-    country: io.string,
+    countryCode: io.string,
   });
 
   const request = io.type(model);
