@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { country } from 'src/records/locationRecords';
+import { country } from '../../records/locationRecords';
 import {
   Resource,
   RequestOf,

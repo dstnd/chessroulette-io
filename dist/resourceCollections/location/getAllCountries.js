@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetAllCountries = void 0;
 var io = require("io-ts");
-var locationRecords_1 = require("src/records/locationRecords");
+var locationRecords_1 = require("../../records/locationRecords");
 var resource_1 = require("../../sdk/resource");
 var GetAllCountries;
 (function (GetAllCountries) {
