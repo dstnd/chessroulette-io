@@ -18,6 +18,8 @@ export declare namespace GetUser {
                 userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
             }>]>;
         }>]>;
+        username: import("io-ts").StringC;
+        country: import("io-ts").UnionC<[import("io-ts").StringC, import("io-ts").UndefinedC]>;
     }>]>;
     const resource: Resource<import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").NullC, import("io-ts").VoidC, import("io-ts").TypeC<{}>]>, import("io-ts").IntersectionC<[import("io-ts").TypeC<{
         id: import("io-ts").StringC;
@@ -37,6 +39,8 @@ export declare namespace GetUser {
                 userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
             }>]>;
         }>]>;
+        username: import("io-ts").StringC;
+        country: import("io-ts").UnionC<[import("io-ts").StringC, import("io-ts").UndefinedC]>;
     }>]>, import("io-ts").TypeC<{
         type: import("io-ts").LiteralC<"BadRequestError">;
         content: import("io-ts").UndefinedC;
@@ -58,6 +62,8 @@ export declare namespace GetUser {
                 userId: string | undefined;
             } | undefined;
         } | undefined;
+        username: string;
+        country: string | undefined;
     }, {
         type: "BadRequestError";
         content: undefined;

@@ -17,6 +17,8 @@ export declare const registerUserResponsePayload: io.UnionC<[io.IntersectionC<[i
             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
         }>]>;
     }>]>;
+    username: io.StringC;
+    country: io.UnionC<[io.StringC, io.UndefinedC]>;
 }>]>, io.IntersectionC<[io.TypeC<{
     id: io.StringC;
     firstName: io.StringC;

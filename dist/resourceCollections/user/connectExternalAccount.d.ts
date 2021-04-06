@@ -26,6 +26,8 @@ export declare namespace ConnectExternalAccount {
                 userId: io.UnionC<[io.UndefinedC, io.StringC]>;
             }>]>;
         }>]>;
+        username: io.StringC;
+        country: io.UnionC<[io.StringC, io.UndefinedC]>;
     }>]>;
     const resource: Resource<io.TypeC<{
         vendor: io.KeyofC<{
@@ -51,6 +53,8 @@ export declare namespace ConnectExternalAccount {
                 userId: io.UnionC<[io.UndefinedC, io.StringC]>;
             }>]>;
         }>]>;
+        username: io.StringC;
+        country: io.UnionC<[io.StringC, io.UndefinedC]>;
     }>]>, io.TypeC<{
         type: io.LiteralC<"BadRequestError">;
         content: io.UndefinedC;
@@ -75,6 +79,8 @@ export declare namespace ConnectExternalAccount {
                 userId: string | undefined;
             } | undefined;
         } | undefined;
+        username: string;
+        country: string | undefined;
     }, {
         type: "BadRequestError";
         content: undefined;

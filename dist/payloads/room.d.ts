@@ -38,6 +38,8 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -132,6 +134,8 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -228,6 +232,8 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -324,6 +330,8 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -420,6 +428,8 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -516,6 +526,8 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                 }>]>;
+                username: io.StringC;
+                country: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -622,6 +634,8 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                         }>]>;
                     }>]>;
+                    username: io.StringC;
+                    country: io.UnionC<[io.StringC, io.UndefinedC]>;
                 }>]>, io.IntersectionC<[io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;
@@ -709,6 +723,8 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                 }>]>;
+                username: io.StringC;
+                country: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;

@@ -91,6 +91,8 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -185,6 +187,8 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -281,6 +285,8 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -377,6 +383,8 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -496,6 +504,8 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;

@@ -27,6 +27,8 @@ export declare const roomsStatsPayload: io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                 }>]>;
+                username: io.StringC;
+                country: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
@@ -120,6 +122,8 @@ export declare const peersStatsPayload: io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -163,6 +167,8 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
+            username: io.StringC;
+            country: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>, io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
@@ -210,6 +216,8 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                 }>]>;
+                username: io.StringC;
+                country: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>, io.IntersectionC<[io.TypeC<{
                 id: io.StringC;
                 firstName: io.StringC;
