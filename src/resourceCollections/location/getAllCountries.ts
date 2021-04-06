@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { country } from '../../records/locationRecords';
+import { country, countryCode } from '../../records/locationRecords';
 import {
   Resource,
   RequestOf,
@@ -10,7 +10,7 @@ import {
 } from '../../sdk/resource';
 
 export namespace GetAllCountries {
-  export const response = io.record(io.string, country);
+  export const response = io.record(countryCode, country);
 
   export const resource = new Resource(emptyRequest, response);
 

@@ -6,7 +6,7 @@ var locationRecords_1 = require("../../records/locationRecords");
 var resource_1 = require("../../sdk/resource");
 var GetAllCountries;
 (function (GetAllCountries) {
-    GetAllCountries.response = io.record(io.string, locationRecords_1.country);
+    GetAllCountries.response = io.record(locationRecords_1.countryCode, locationRecords_1.country);
     GetAllCountries.resource = new resource_1.Resource(resource_1.emptyRequest, GetAllCountries.response);
 })(GetAllCountries = exports.GetAllCountries || (exports.GetAllCountries = {}));
 //# sourceMappingURL=getAllCountries.js.map
