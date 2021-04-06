@@ -8,6 +8,7 @@ import {
   ResponseOf,
 } from '../../sdk/resource';
 import { formModel, inputValidationError } from '../../sdk/http';
+import { countryCode } from '../../records/locationRecords';
 
 export namespace UserRegistration {
   const model = formModel({
@@ -19,7 +20,7 @@ export namespace UserRegistration {
     //  - external vendor info
     verificationToken: io.string,
     username: io.string,
-    countryCode: io.string,
+    countryCode,
   });
 
   const request = io.type(model);

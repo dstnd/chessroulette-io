@@ -1,12 +1,13 @@
 import * as io from 'io-ts';
 import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
 import { registeredUserRecord } from '../../records/userRecord';
+import { countryCode } from '../../records/locationRecords';
 
 export namespace UserUpdate {
   const request = io.type({
     firstName: io.string,
     lastName: io.string,
-    countryCode: io.string,
+    countryCode,
   });
 
   const response = registeredUserRecord;
