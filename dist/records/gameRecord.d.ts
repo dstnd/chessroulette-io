@@ -1396,7 +1396,7 @@ export declare const gameRecordStopped: io.IntersectionC<[io.TypeC<{
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
 }>]>;
-export declare type GameRecordNeverStopped = io.TypeOf<typeof gameRecordStopped>;
+export declare type GameRecordStopped = io.TypeOf<typeof gameRecordStopped>;
 export declare const gameRecordFinished: io.IntersectionC<[io.TypeC<{
     state: io.LiteralC<"finished">;
     timeLimit: io.KeyofC<{

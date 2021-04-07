@@ -43,7 +43,7 @@ export const gameRecordNeverStarted = gameRecordFromGameState(chessGameStateNeve
 export type GameRecordNeverStarted = io.TypeOf<typeof gameRecordNeverStarted>;
 
 export const gameRecordStopped = gameRecordFromGameState(chessGameStateStopped);
-export type GameRecordNeverStopped = io.TypeOf<typeof gameRecordStopped>;
+export type GameRecordStopped = io.TypeOf<typeof gameRecordStopped>;
 
 export const gameRecordFinished = gameRecordFromGameState(chessGameStateFinished);
 export type GameRecordFinished = io.TypeOf<typeof gameRecordFinished>;
