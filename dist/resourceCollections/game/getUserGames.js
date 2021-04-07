@@ -12,7 +12,7 @@ var GetUserGames;
         pageSize: NumberFromString_1.NumberFromString,
         currentIndex: NumberFromString_1.NumberFromString,
     });
-    var okResponse = resource_1.withPaginatorResponse(gameRecord_1.gameRecord);
-    GetUserGames.resource = new resource_1.Resource(request, okResponse);
+    var response = resource_1.withPaginatorResponse(io.union([gameRecord_1.gameRecordStopped, gameRecord_1.gameRecordFinished]));
+    GetUserGames.resource = new resource_1.Resource(request, response);
 })(GetUserGames = exports.GetUserGames || (exports.GetUserGames = {}));
 //# sourceMappingURL=getUserGames.js.map

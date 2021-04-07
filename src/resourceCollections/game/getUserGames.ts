@@ -8,7 +8,7 @@ import {
   ResponseOf,
   withPaginatorResponse,
 } from '../../sdk/resource';
-import { gameRecord } from '../../records/gameRecord';
+import { gameRecordFinished, gameRecordStopped } from '../../records/gameRecord';
 
 export namespace GetUserGames {
   const request = io.type({
@@ -17,9 +17,9 @@ export namespace GetUserGames {
     currentIndex: NumberFromString,
   });
 
-  const okResponse = withPaginatorResponse(gameRecord);
+  const response = withPaginatorResponse(io.union([gameRecordStopped, gameRecordFinished]));
 
-  export const resource = new Resource(request, okResponse);
+  export const resource = new Resource(request, response);
 
   export type Request = RequestOf<typeof resource>;
   export type OkResponse = OkResponseOf<typeof resource>;
