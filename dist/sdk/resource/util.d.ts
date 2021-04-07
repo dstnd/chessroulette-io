@@ -35,3 +35,13 @@ export declare type ValidationError<M extends FormModelKeysMap> = {
         };
     };
 };
+export declare const withPaginatorResponse: <TCodec extends io.Mixed>(codec: TCodec) => io.TypeC<{
+    items: io.ArrayC<TCodec>;
+    itemsTotal: io.NumberC;
+    currentIndex: io.NumberC;
+}>;
+declare type PaginatorWitoutItems = Omit<io.TypeOf<ReturnType<typeof withPaginatorResponse>>, 'items'>;
+export declare type PaginatedResponse<TType> = PaginatorWitoutItems & {
+    items: TType[];
+};
+export {};

@@ -2,14 +2,17 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetUserGames = void 0;
 var io = require("io-ts");
+var NumberFromString_1 = require("io-ts-types/lib/NumberFromString");
 var resource_1 = require("../../sdk/resource");
 var gameRecord_1 = require("../../records/gameRecord");
 var GetUserGames;
 (function (GetUserGames) {
     var request = io.type({
         userId: io.string,
+        pageSize: NumberFromString_1.NumberFromString,
+        currentIndex: NumberFromString_1.NumberFromString,
     });
-    var okResponse = io.array(gameRecord_1.gameRecord);
+    var okResponse = resource_1.withPaginatorResponse(gameRecord_1.gameRecord);
     GetUserGames.resource = new resource_1.Resource(request, okResponse);
 })(GetUserGames = exports.GetUserGames || (exports.GetUserGames = {}));
 //# sourceMappingURL=getUserGames.js.map

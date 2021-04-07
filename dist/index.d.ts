@@ -7,6 +7,7 @@ export * from './records/challengeRecord';
 export * from './records/chatRecords';
 export * from './records/externalVendorsRecords';
 export * from './records/gameRecord';
+export * from './records/locationRecords';
 export * from './payloads';
 export * from './sdk/io';
 export * from './chessGame';

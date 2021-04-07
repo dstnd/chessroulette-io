@@ -1,18 +1,14 @@
 import * as io from 'io-ts';
 import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
-import { registeredUserRecord } from '../../records/userRecord';
-import { countryCode } from '../../records/locationRecords';
 
-export namespace UserUpdate {
+export namespace GetGamesCount {
   const request = io.type({
-    firstName: io.string,
-    lastName: io.string,
-    countryCode,
+    userId: io.string,
   });
 
-  const response = registeredUserRecord;
+  const okResponse = io.number;
 
-  export const resource = new Resource(request, response);
+  export const resource = new Resource(request, okResponse);
 
   export type Request = RequestOf<typeof resource>;
   export type OkResponse = OkResponseOf<typeof resource>;

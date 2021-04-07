@@ -4,6 +4,7 @@ exports.UserRegistration = void 0;
 var io = require("io-ts");
 var resource_1 = require("../../sdk/resource");
 var http_1 = require("../../sdk/http");
+var locationRecords_1 = require("../../records/locationRecords");
 var UserRegistration;
 (function (UserRegistration) {
     var model = http_1.formModel({
@@ -14,11 +15,13 @@ var UserRegistration;
         //  - email
         //  - external vendor info
         verificationToken: io.string,
+        username: io.string,
+        countryCode: locationRecords_1.countryCode,
     });
     var request = io.type(model);
     var okResponse = io.type({
         // TODO: See if this is needed in this call - it's for ease of access at this point
-        // user: userRecord, 
+        // uzser: userRecord.
         accessToken: io.string,
     });
     var validationErrResponse = resource_1.getValidationErrorCodec(model);
