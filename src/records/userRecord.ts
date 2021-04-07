@@ -1,4 +1,5 @@
 import * as io from "io-ts";
+import { country } from "./locationRecords";
 // import { lichessUserRecord } from "./lichessRecords";
 
 export const userInfoRecord = io.type({
@@ -40,6 +41,9 @@ export const registeredUserRecord = io.intersection([
     email: io.string,
     profilePicUrl: io.union([io.string, io.undefined]),
     externalAccounts: io.union([io.undefined, userExternalAccountByVendorMap]),
+
+    username: io.string,
+    country: io.union([country, io.undefined]),
   }),
 ]);
 
