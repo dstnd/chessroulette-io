@@ -6,9 +6,7 @@ export declare namespace EmailVerification {
     }>, io.UndefinedC, io.UnionC<[io.TypeC<{
         type: io.LiteralC<"ValidationErrors">;
         content: io.TypeC<{
-            fields: io.RecordC<io.KeyofC<{
-                email: io.StringC;
-            }>, io.UnionC<[io.StringC, io.UndefinedC]>>;
+            fields: io.PartialC<Record<"email", io.UnionC<[io.StringC, io.UndefinedC]>>>;
         }>;
     }>, io.TypeC<{
         type: io.LiteralC<"EmailCantSendError">;
@@ -19,7 +17,7 @@ export declare namespace EmailVerification {
         type: "ValidationErrors";
         content: {
             fields: {
-                email: string | undefined;
+                email?: string | undefined;
             };
         };
     } | {

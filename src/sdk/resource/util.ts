@@ -11,6 +11,7 @@ import { IntFromString } from 'io-ts-types/lib/IntFromString';
 import { FormModelCodec, FormModelKeysMap } from '../../sdk/http';
 import * as io from 'io-ts';
 import { isRight } from 'fp-ts/lib/Either';
+import { map } from 'fp-ts/lib/Record';
 
 export type RequestOf<R extends Resource<any, any, any>> = io.TypeOf<R['requestPayloadCodec']>;
 export type OkResponseOf<R extends Resource<any, any, any>> = io.TypeOf<
@@ -37,11 +38,16 @@ export const isBadRequestError = (e: unknown): e is BadRequestError =>
 
 export const emptyRequest = io.union([io.undefined, io.null, io.void, io.type({})]);
 
-export const getValidationErrorCodec = <M extends { [key: string]: io.Mixed }>(model: M) =>
+const record = <KS extends io.KeyofC<any>, T extends io.Any>(
+  k: KS,
+  type: T
+): Record<keyof KS['keys'], T> => map<KS, T>(() => type)(k.keys) as any
+
+export const getValidationErrorCodec = <M extends FormModelCodec>(model: M) =>
   io.type({
     type: io.literal('ValidationErrors'),
     content: io.type({
-      fields: io.record(io.keyof(model), io.union([io.string, io.undefined])),
+      fields: io.partial(record(io.keyof(model), io.union([io.string, io.undefined]))),
     }),
   });
 
@@ -49,7 +55,7 @@ export const getValidationErrorCodec = <M extends { [key: string]: io.Mixed }>(m
 export type ValidationError<M extends FormModelKeysMap> = {
   type: 'ValidationErrors';
   content: {
-    fields: Partial<{ [k in keyof M]: string | undefined }>;
+    fields: { [k in keyof M]: string | undefined };
   };
 };
 

@@ -4,6 +4,7 @@ exports.withPaginatorResponse = exports.getValidationErrorCodec = exports.emptyR
 var errors_1 = require("./errors");
 var io = require("io-ts");
 var Either_1 = require("fp-ts/lib/Either");
+var Record_1 = require("fp-ts/lib/Record");
 exports.isPayloadOfCodec = function (c, payload) {
     return Either_1.isRight(c.decode(payload));
 };
@@ -17,11 +18,12 @@ exports.isBadRequestError = function (e) {
     return exports.isPayloadOfCodec(errors_1.badRequestError, e);
 };
 exports.emptyRequest = io.union([io.undefined, io.null, io.void, io.type({})]);
+var record = function (k, type) { return Record_1.map(function () { return type; })(k.keys); };
 exports.getValidationErrorCodec = function (model) {
     return io.type({
         type: io.literal('ValidationErrors'),
         content: io.type({
-            fields: io.record(io.keyof(model), io.union([io.string, io.undefined])),
+            fields: io.partial(record(io.keyof(model), io.union([io.string, io.undefined]))),
         }),
     });
 };

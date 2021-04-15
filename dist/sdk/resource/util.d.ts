@@ -20,19 +20,19 @@ export declare const isBadRequestError: (e: unknown) => e is {
 };
 export declare const emptyRequest: io.UnionC<[io.UndefinedC, io.NullC, io.VoidC, io.TypeC<{}>]>;
 export declare const getValidationErrorCodec: <M extends {
-    [key: string]: io.Mixed;
+    [key: string]: io.StringC | io.Mixed | io.NumberC;
 }>(model: M) => io.TypeC<{
     type: io.LiteralC<"ValidationErrors">;
     content: io.TypeC<{
-        fields: io.RecordC<io.KeyofC<M>, io.UnionC<[io.StringC, io.UndefinedC]>>;
+        fields: io.PartialC<Record<keyof M, io.UnionC<[io.StringC, io.UndefinedC]>>>;
     }>;
 }>;
 export declare type ValidationError<M extends FormModelKeysMap> = {
     type: 'ValidationErrors';
     content: {
-        fields: Partial<{
+        fields: {
             [k in keyof M]: string | undefined;
-        }>;
+        };
     };
 };
 export declare const withPaginatorResponse: <TCodec extends io.Mixed>(codec: TCodec) => io.TypeC<{
