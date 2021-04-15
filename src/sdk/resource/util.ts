@@ -37,7 +37,7 @@ export const isBadRequestError = (e: unknown): e is BadRequestError =>
 
 export const emptyRequest = io.union([io.undefined, io.null, io.void, io.type({})]);
 
-export const getValidationErrorCodec = <M extends FormModelCodec>(model: M) =>
+export const getValidationErrorCodec = <M extends { [key: string]: io.Mixed }>(model: M) =>
   io.type({
     type: io.literal('ValidationErrors'),
     content: io.type({
@@ -49,7 +49,7 @@ export const getValidationErrorCodec = <M extends FormModelCodec>(model: M) =>
 export type ValidationError<M extends FormModelKeysMap> = {
   type: 'ValidationErrors';
   content: {
-    fields: { [k in keyof M]: string | undefined };
+    fields: Partial<{ [k in keyof M]: string | undefined }>;
   };
 };
 
