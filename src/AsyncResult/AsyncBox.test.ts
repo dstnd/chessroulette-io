@@ -366,8 +366,6 @@ describe('Resolve', () => {
       .mapErr(spyErr)
       .resolve();
 
-      console.log(r);
-
       expect(spyErr).toHaveBeenCalledWith('ResolutionError');
       expect(spy).not.toHaveBeenCalled();
   });

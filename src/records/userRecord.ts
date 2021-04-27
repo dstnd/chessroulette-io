@@ -1,5 +1,6 @@
 import * as io from "io-ts";
-import { lichessUserRecord } from "./lichessRecords";
+import { country } from "./locationRecords";
+// import { lichessUserRecord } from "./lichessRecords";
 
 export const userInfoRecord = io.type({
   id: io.string,
@@ -13,12 +14,25 @@ export const userInfoRecord = io.type({
 });
 export type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
 
-export const userExternalAccountOpts = io.type({
-  externalAccountType: io.literal('lichess'),
-  externalAccountId: io.string,
-  externalAccountInfo: lichessUserRecord,
+// export const userExternalAccountOpts = io.type({
+//   externalAccountType: io.literal('lichess'),
+//   externalAccountId: io.string,
+//   externalAccountInfo: lichessUserRecord,
+// });
+// export type UserExternalAccountOpts = io.TypeOf<typeof userExternalAccountOpts>;
+
+export const userExternalAccountRecord = io.type({
+  userId: io.union([io.undefined, io.string]),
 });
-export type UserExternalAccountOpts = io.TypeOf<typeof userExternalAccountOpts>;
+
+export type UserExternalAccountRecord = io.TypeOf<typeof userExternalAccountRecord>;
+
+export const userExternalAccountByVendorMap = io.type({
+  facebook: io.union([io.undefined, userExternalAccountRecord]),
+  lichess: io.union([io.undefined, userExternalAccountRecord]),
+});
+
+export type UserExternalAccountByVendorMap = io.TypeOf<typeof userExternalAccountByVendorMap>;
 
 export const registeredUserRecord = io.intersection([
   userInfoRecord,
@@ -26,10 +40,15 @@ export const registeredUserRecord = io.intersection([
     isGuest: io.literal(false),
     email: io.string,
     profilePicUrl: io.union([io.string, io.undefined]),
+    externalAccounts: io.union([io.undefined, userExternalAccountByVendorMap]),
+
+    username: io.string,
+    country: io.union([country, io.undefined]),
   }),
 ]);
 
 export type RegisteredUserRecord = io.TypeOf<typeof registeredUserRecord>;
+
 
 export const guestUserRecord = io.intersection([
   userInfoRecord,

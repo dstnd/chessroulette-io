@@ -11,7 +11,7 @@ exports.lichessUserRecord = io.type({
     email: io.string,
     id: io.string,
     username: io.string,
-    perfs: io.type({
+    perfs: io.partial({
         blitz: exports.lichessRatingRecord,
         bullet: exports.lichessRatingRecord,
         classical: exports.lichessRatingRecord,

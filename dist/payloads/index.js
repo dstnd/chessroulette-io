@@ -10,7 +10,7 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
     for (var p in m) if (p !== "default" && !Object.prototype.hasOwnProperty.call(exports, p)) __createBinding(exports, m, p);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-__exportStar(require("./http"), exports);
+// export * from './http';
 __exportStar(require("./signaling"), exports);
 __exportStar(require("./socket"), exports);
 __exportStar(require("./peer"), exports);

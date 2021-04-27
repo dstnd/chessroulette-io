@@ -17,7 +17,7 @@ export const lichessUserRecord = io.type({
   email: io.string,
   id: io.string,
   username: io.string,
-  perfs: io.type({
+  perfs: io.partial({
     blitz: lichessRatingRecord,
     bullet: lichessRatingRecord,
     classical: lichessRatingRecord,

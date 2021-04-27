@@ -1,14 +1,10 @@
 import * as io from 'io-ts';
-import { chessMove } from '../chessGame/boardRecords';
+import { gameRecord } from '../records/gameRecord';
+import { chessMove } from '../chessGame';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
-  content: io.type({
-    roomCredentials: io.type({
-      roomId: io.string,
-      code: io.union([io.string, io.undefined]),
-    }),
-  }),
+  content: io.undefined,
 });
 export type GameJoinRequestPayload = io.TypeOf<typeof gameJoinRequestPayload>;
 
@@ -94,3 +90,9 @@ export const gameActionRequestPayload = io.union([
 ]);
 
 export type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;
+
+export const joinedGameUpdatedPayload = io.type({
+  kind: io.literal('joinedGameUpdated'),
+  content: gameRecord,
+});
+export type JoinedGameUpdatedPayload = io.TypeOf<typeof joinedGameUpdatedPayload>;

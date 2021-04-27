@@ -1,7 +1,20 @@
 import * as io from 'io-ts';
 import { externalUserRecord } from '../records/externalVendorsRecords';
 import { guestUserRecord } from '../records/userRecord';
+import {
+  errHttpResponsePayload,
+  httpResponsePayload,
+  okHttpResponsePayload,
+  httpInputValidationError,
+  formModel,
+  httpGenericError,
+  httpRequestPayloadFromProps,
+  okHttpResponsePayloadFromProps,
+  httpCustomTypeErrorFromProps,
+} from '../sdk/http';
 
+
+// @Deprecate All in Favor of the Authentication Resource Collection
 
 // Check if User exists/ Attempts to Authenticate automatically if exists
 export const externalVendor = io.keyof({
@@ -10,14 +23,17 @@ export const externalVendor = io.keyof({
 });
 export type ExternalVendor = io.TypeOf<typeof externalVendor>;
 
-export const userCheckInternalAccountRequestPayload = io.type({
+
+// Deprecate User Check in favor of Resource
+
+export const userCheckInternalAccountRequestPayload = httpRequestPayloadFromProps({
   type: io.literal('internal'),
   email: io.string,
   verificationCode: io.string, // This is the code sent in the Email
 });
 export type UserCheckInternalAccountRequestPayload = io.TypeOf<typeof userCheckInternalAccountRequestPayload>;
 
-export const userCheckExternalAccountRequestPayload = io.type({
+export const userCheckExternalAccountRequestPayload = httpRequestPayloadFromProps({
   type: io.literal('external'),
   vendor: externalVendor,
   accessToken: io.string,
@@ -30,12 +46,12 @@ export const userCheckRequestPayload = io.union([
 ]);
 export type UserCheckRequestPayload = io.TypeOf<typeof userCheckRequestPayload>;
 
-export const userCheckVerificationFailedResponsePayload = io.type({
+export const userCheckVerificationFailedResponsePayload = errHttpResponsePayload(httpCustomTypeErrorFromProps({
   status: io.literal('VerificationFailed'),
-});
+}));
 export type UserCheckVerificationFailedResponsePayload = io.TypeOf<typeof userCheckVerificationFailedResponsePayload>;
 
-export const userCheckInexitentUserResponsePayload = io.type({
+export const userCheckInexitentUserResponsePayloadData = io.type({
   status: io.literal('InexistentUser'),
   external: io.union([
     io.undefined,
@@ -45,35 +61,51 @@ export const userCheckInexitentUserResponsePayload = io.type({
     }),
   ]),
 });
-export type UserCheckInexitentUserResponsePayload = io.TypeOf<typeof userCheckInexitentUserResponsePayload>;
+export type UserCheckInexitentUserResponsePayloadData = io.TypeOf<typeof userCheckInexitentUserResponsePayloadData>;
 
-export const userCheckExistentUserResponsePayload = io.type({
+export const userCheckExistentUserResponsePayloadData = io.type({
   status: io.literal('ExistentUser'),
   accessToken: io.string,
 });
-export type UserCheckExistentUserResponsePayload = io.TypeOf<typeof userCheckExistentUserResponsePayload>;
+export type UserCheckExistentUserResponsePayloadData = io.TypeOf<typeof userCheckExistentUserResponsePayloadData>;
 
-export const userCheckResponsePayload = io.union([
+export const userCheckResponsePayload = httpResponsePayload(
+  okHttpResponsePayload(
+    io.union([
+      userCheckInexitentUserResponsePayloadData,
+      userCheckExistentUserResponsePayloadData,
+    ]),
+  ),
   userCheckVerificationFailedResponsePayload,
-  userCheckInexitentUserResponsePayload,
-  userCheckExistentUserResponsePayload,
-]);
+);
 export type UserCheckResponsePayload = io.TypeOf<typeof userCheckResponsePayload>;
 
 
 // Email Verification
 
-export const verifyEmailRequestPayload = io.type({
+const verifyEmailModel = formModel({
   email: io.string,
 });
+
+export const verifyEmailRequestPayload = httpRequestPayloadFromProps(verifyEmailModel);
 export type VerifyEmailRequestPayload = io.TypeOf<typeof verifyEmailRequestPayload>;
 
-export const verifyEmailResponsePayload = io.undefined;
+export const verifyEmailResponsePayload = httpResponsePayload(
+  okHttpResponsePayload(io.undefined),
+  errHttpResponsePayload(
+    io.union([
+      httpInputValidationError(verifyEmailModel),
+      httpGenericError(),
+    ]),
+  ),
+);
+
+// export const verifyEmailResponsePayload = io.undefined;
 export type VerifyEmailResponsePayload = io.TypeOf<typeof verifyEmailResponsePayload>;
 
 // Registration - In case the User Check came negative
 
-export const createUserAccountRequestPayload = io.type({
+const createUserAccountModel = formModel({
   email: io.string,
   firstName: io.string,
   lastName: io.string,
@@ -85,22 +117,32 @@ export const createUserAccountRequestPayload = io.type({
     }),
   ]),
 });
+
+export const createUserAccountRequestPayload = httpRequestPayloadFromProps(createUserAccountModel);
 export type CreateUserAccountRequestPayload = io.TypeOf<typeof createUserAccountRequestPayload>;
 
-export const createUserAccountResponsePayload = io.type({
-  // user: userRecord, // TODO: See if this is needed in this call - it's for ease of access at this point
-  accessToken: io.string,
-});
+export const createUserAccountResponsePayload = httpResponsePayload(
+  okHttpResponsePayloadFromProps({
+    // user: userRecord, // TODO: See if this is needed in this call - it's for ease of access at this point
+    accessToken: io.string,
+  }),
+  errHttpResponsePayload(
+    io.union([
+      httpInputValidationError(createUserAccountModel),
+      httpGenericError(),
+    ]),
+  ),
+);
 export type CreateUserAccountResponsePayload = io.TypeOf<typeof createUserAccountResponsePayload>;
 
-export const guestAuthenticationRequestPayload = io.type({
-  guestUser: io.union([guestUserRecord, io.undefined]),
+export const guestAuthenticationRequestPayload = httpRequestPayloadFromProps({
+  guestUser: io.union([guestUserRecord, io.undefined, io.null]),
 });
 export type GuestAuthenticationRequestPayload = io.TypeOf<
   typeof guestAuthenticationRequestPayload
 >;
 
-export const guestAuthenticationResponsePayload = io.type({
+export const guestAuthenticationResponsePayload = okHttpResponsePayloadFromProps({
   guest: guestUserRecord,
 });
 export type GuestAuthenticationResponsePayload = io.TypeOf<
