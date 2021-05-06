@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessHistory = exports.chessHistoryMove = exports.chessMove = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
+exports.chessHistory = exports.chessHistoryMove = exports.chessMove = exports.activePiecesRecord = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
 var io = require("io-ts");
 var userRecord_1 = require("../../records/userRecord");
 // Taken from chess.js
@@ -165,6 +165,7 @@ exports.capturedPiecesRecord = io.type({
     white: io.record(exports.capturableChessPieceType, io.number),
     black: io.record(exports.capturableChessPieceType, io.number),
 });
+exports.activePiecesRecord = exports.capturedPiecesRecord;
 exports.chessMove = io.intersection([
     io.type({
         from: exports.chessSquare,

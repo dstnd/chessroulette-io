@@ -343,6 +343,23 @@ export declare const capturedPiecesRecord: io.TypeC<{
     }>, io.NumberC>;
 }>;
 export declare type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
+export declare const activePiecesRecord: io.TypeC<{
+    white: io.RecordC<io.KeyofC<{
+        p: undefined;
+        n: undefined;
+        b: undefined;
+        r: undefined;
+        q: undefined;
+    }>, io.NumberC>;
+    black: io.RecordC<io.KeyofC<{
+        p: undefined;
+        n: undefined;
+        b: undefined;
+        r: undefined;
+        q: undefined;
+    }>, io.NumberC>;
+}>;
+export declare type ActivePiecesRecord = io.TypeOf<typeof activePiecesRecord>;
 export declare const chessMove: io.IntersectionC<[io.TypeC<{
     from: io.KeyofC<{
         a8: undefined;

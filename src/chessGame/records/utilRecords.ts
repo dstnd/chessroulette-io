@@ -206,6 +206,9 @@ export const capturedPiecesRecord = io.type({
 });
 export type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
 
+export const activePiecesRecord = capturedPiecesRecord;
+export type ActivePiecesRecord = io.TypeOf<typeof activePiecesRecord>;
+
 export const chessMove = io.intersection([
   io.type({
     from: chessSquare,

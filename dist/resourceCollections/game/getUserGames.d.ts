@@ -487,7 +487,7 @@ export declare namespace GetUserGames {
             state: "stopped";
             timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
             players: [{
-                color: "white";
+                color: "black";
                 user: {
                     id: string;
                     firstName: string;
@@ -496,7 +496,7 @@ export declare namespace GetUserGames {
                     name: string;
                 };
             } | {
-                color: "black";
+                color: "white";
                 user: {
                     id: string;
                     firstName: string;
@@ -505,7 +505,7 @@ export declare namespace GetUserGames {
                     name: string;
                 };
             }, {
-                color: "white";
+                color: "black";
                 user: {
                     id: string;
                     firstName: string;
@@ -514,7 +514,7 @@ export declare namespace GetUserGames {
                     name: string;
                 };
             } | {
-                color: "black";
+                color: "white";
                 user: {
                     id: string;
                     firstName: string;
@@ -551,7 +551,7 @@ export declare namespace GetUserGames {
             state: "finished";
             timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
             players: [{
-                color: "white";
+                color: "black";
                 user: {
                     id: string;
                     firstName: string;
@@ -560,7 +560,7 @@ export declare namespace GetUserGames {
                     name: string;
                 };
             } | {
-                color: "black";
+                color: "white";
                 user: {
                     id: string;
                     firstName: string;
@@ -569,7 +569,7 @@ export declare namespace GetUserGames {
                     name: string;
                 };
             }, {
-                color: "white";
+                color: "black";
                 user: {
                     id: string;
                     firstName: string;
@@ -578,7 +578,7 @@ export declare namespace GetUserGames {
                     name: string;
                 };
             } | {
-                color: "black";
+                color: "white";
                 user: {
                     id: string;
                     firstName: string;
