@@ -7,6 +7,10 @@ var ChessB = require("chess.js");
 // are working differently!
 var ChessConstructor = chess_js_1.Chess || ChessB;
 exports.getNewChessGame = function (pgn) {
-    return new ChessConstructor(pgn);
+    var instance = new ChessConstructor();
+    if (pgn) {
+        instance.load_pgn(pgn);
+    }
+    return instance;
 };
 //# sourceMappingURL=sdk.js.map
