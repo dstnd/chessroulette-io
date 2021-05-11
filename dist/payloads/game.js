@@ -4,7 +4,7 @@ exports.joinedGameUpdatedPayload = exports.gameActionRequestPayload = exports.ga
 var io = require("io-ts");
 var gameRecord_1 = require("../records/gameRecord");
 var chessGame_1 = require("../chessGame");
-var challengeRecord_1 = require("src/records/challengeRecord");
+var challengeRecord_1 = require("../records/challengeRecord");
 exports.gameJoinRequestPayload = io.type({
     kind: io.literal('gameJoinRequest'),
     content: io.undefined,

@@ -1,7 +1,7 @@
 import * as io from 'io-ts';
 import { gameRecord } from '../records/gameRecord';
 import { chessMove } from '../chessGame';
-import { gameSpecsRecord } from 'src/records/challengeRecord';
+import { gameSpecsRecord } from '../records/challengeRecord';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
