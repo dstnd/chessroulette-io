@@ -4,6 +4,7 @@ exports.joinedGameUpdatedPayload = exports.gameActionRequestPayload = exports.ga
 var io = require("io-ts");
 var gameRecord_1 = require("../records/gameRecord");
 var chessGame_1 = require("../chessGame");
+var challengeRecord_1 = require("src/records/challengeRecord");
 exports.gameJoinRequestPayload = io.type({
     kind: io.literal('gameJoinRequest'),
     content: io.undefined,
@@ -34,7 +35,12 @@ exports.gameMoveRequestPayload = io.type({
 });
 exports.gameRematchOfferingRequestPayload = io.type({
     kind: io.literal('gameRematchOfferingRequest'),
-    content: io.undefined,
+    content: io.union([
+        io.type({
+            gameSpecs: challengeRecord_1.gameSpecsRecord,
+        }),
+        io.undefined,
+    ]),
 });
 exports.gameRematchAcceptRequestPayload = io.type({
     kind: io.literal('gameRematchAcceptRequest'),

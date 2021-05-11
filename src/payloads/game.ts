@@ -1,6 +1,7 @@
 import * as io from 'io-ts';
 import { gameRecord } from '../records/gameRecord';
 import { chessMove } from '../chessGame';
+import { gameSpecsRecord } from 'src/records/challengeRecord';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
@@ -46,7 +47,12 @@ export type GameMoveRequestPayload = io.TypeOf<typeof gameMoveRequestPayload>;
 
 export const gameRematchOfferingRequestPayload = io.type({
   kind: io.literal('gameRematchOfferingRequest'),
-  content: io.undefined,
+  content: io.union([
+    io.type({
+      gameSpecs: gameSpecsRecord,
+    }),
+    io.undefined,
+  ]),
 });
 export type GameRematchOfferingRequestPayload = io.TypeOf<typeof gameRematchOfferingRequestPayload>;
 
