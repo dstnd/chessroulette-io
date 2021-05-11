@@ -1,4 +1,5 @@
 import * as io from 'io-ts';
+import { gameSpecsRecord } from '../../records/challengeRecord';
 import { userInfoRecord } from '../../records/userRecord';
 
 // Taken from chess.js
@@ -201,6 +202,7 @@ export const chessGameRematchOffer = io.type({
   type: io.literal('rematch'),
   content: io.type({
     by: chessGameColor,
+    gameSpecs: gameSpecsRecord,
   }),
 });
 export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
