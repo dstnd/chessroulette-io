@@ -5,34 +5,34 @@ export declare function otherChessColor<C extends ChessGameColor>(c: C): C exten
 export declare const getRandomChessColor: () => "white" | "black";
 export declare const getCapturedPiecesState: (history: Move[]) => {
     white: {
+        p: number;
         n: number;
         b: number;
         r: number;
         q: number;
-        p: number;
     };
     black: {
+        p: number;
         n: number;
         b: number;
         r: number;
         q: number;
-        p: number;
     };
 };
 export declare const getCapturedPiecesFromPgn: (pgn: ChessGameState['pgn']) => {
     white: {
+        p: number;
         n: number;
         b: number;
         r: number;
         q: number;
-        p: number;
     };
     black: {
+        p: number;
         n: number;
         b: number;
         r: number;
         q: number;
-        p: number;
     };
 };
 export declare const getActivePieces: (history: Move[]) => ActivePiecesRecord;

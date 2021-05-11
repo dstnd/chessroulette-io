@@ -22,7 +22,7 @@ const playerB: UserInfoRecord = {
 
 const pendingGame = actions.prepareGame({
   players: [playerA, playerB],
-  timeLimit: 'blitz',
+  timeLimit: 'blitz5',
   preferredColor: 'white',
 }) as ChessGameStatePending;
 
@@ -66,7 +66,7 @@ describe('Invalid Moves', () => {
         black: 300000,
         white: 300000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -123,7 +123,7 @@ describe('Invalid Moves', () => {
         black: 300 * 1000,
         white: 300 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -179,7 +179,7 @@ describe('Invalid Moves', () => {
         black: 300 * 1000,
         white: 300 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -229,7 +229,7 @@ describe('Valid Moves on "started" game', () => {
         black: 300000,
         white: 300000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -292,7 +292,7 @@ describe('Valid Moves on "started" game', () => {
         white: 300000,
         black: 295 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -389,7 +389,7 @@ describe('Valid Moves on "started" game', () => {
         white: 287 * 1000,
         black: 278 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -465,7 +465,7 @@ describe('Time Running out', () => {
         white: 0,
         black: 295 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: 'black',
     };
 

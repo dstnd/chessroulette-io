@@ -190,10 +190,18 @@ export declare type ChessGameStateFen = io.TypeOf<typeof chessGameStateFen>;
 export declare const chessGameStatePgn: io.StringC;
 export declare type ChessGameStatePgn = io.TypeOf<typeof chessGameStatePgn>;
 export declare const chessGameTimeLimit: io.KeyofC<{
-    bullet: null;
+    bullet30: null;
+    bullet1: null;
+    blitz2: null;
+    blitz3: null;
+    blitz5: null;
+    rapid10: null;
+    rapid15: null;
+    rapid20: null;
+    rapid30: null;
+    rapid45: null;
+    rapid60: null;
     untimed: null;
-    blitz: null;
-    rapid: null;
 }>;
 export declare type ChessGameTimeLimit = io.TypeOf<typeof chessGameTimeLimit>;
 export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{

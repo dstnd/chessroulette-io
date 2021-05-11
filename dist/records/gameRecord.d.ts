@@ -3,10 +3,18 @@ import { ChessGameState } from '../chessGame';
 export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -58,10 +66,18 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
     lastActivityAt: io.UndefinedC;
 }>, io.TypeC<{
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     state: io.LiteralC<"started">;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
@@ -284,10 +300,18 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
 }>, io.TypeC<{
     state: io.LiteralC<"finished">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -513,10 +537,18 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
 }>, io.TypeC<{
     state: io.LiteralC<"neverStarted">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -569,10 +601,18 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
 }>, io.TypeC<{
     state: io.LiteralC<"stopped">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -810,10 +850,18 @@ export declare type GameRecordFromGameState<GameState extends ChessGameState> = 
 export declare const gameRecordPending: io.IntersectionC<[io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -871,10 +919,18 @@ export declare const gameRecordPending: io.IntersectionC<[io.TypeC<{
 export declare type GameRecordPending = io.TypeOf<typeof gameRecordPending>;
 export declare const gameRecordStarted: io.IntersectionC<[io.TypeC<{
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     state: io.LiteralC<"started">;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
@@ -1103,10 +1159,18 @@ export declare type GameRecordStarted = io.TypeOf<typeof gameRecordStarted>;
 export declare const gameRecordNeverStarted: io.IntersectionC<[io.TypeC<{
     state: io.LiteralC<"neverStarted">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -1165,10 +1229,18 @@ export declare type GameRecordNeverStarted = io.TypeOf<typeof gameRecordNeverSta
 export declare const gameRecordStopped: io.IntersectionC<[io.TypeC<{
     state: io.LiteralC<"stopped">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -1400,10 +1472,18 @@ export declare type GameRecordStopped = io.TypeOf<typeof gameRecordStopped>;
 export declare const gameRecordFinished: io.IntersectionC<[io.TypeC<{
     state: io.LiteralC<"finished">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -1635,10 +1715,18 @@ export declare type GameRecordFinished = io.TypeOf<typeof gameRecordFinished>;
 export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.IntersectionC<[io.UnionC<[io.TypeC<{
     state: io.LiteralC<"pending">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -1690,10 +1778,18 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
     lastActivityAt: io.UndefinedC;
 }>, io.TypeC<{
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     state: io.LiteralC<"started">;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
@@ -1916,10 +2012,18 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
 }>, io.TypeC<{
     state: io.LiteralC<"finished">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -2145,10 +2249,18 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
 }>, io.TypeC<{
     state: io.LiteralC<"neverStarted">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
@@ -2201,10 +2313,18 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
 }>, io.TypeC<{
     state: io.LiteralC<"stopped">;
     timeLimit: io.KeyofC<{
-        bullet: null;
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
         untimed: null;
-        blitz: null;
-        rapid: null;
     }>;
     players: io.TupleC<[io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;

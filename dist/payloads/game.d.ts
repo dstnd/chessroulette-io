@@ -382,10 +382,18 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
     content: io.IntersectionC<[io.UnionC<[io.TypeC<{
         state: io.LiteralC<"pending">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -437,10 +445,18 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
         lastActivityAt: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         state: io.LiteralC<"started">;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
@@ -663,10 +679,18 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
     }>, io.TypeC<{
         state: io.LiteralC<"finished">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -892,10 +916,18 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
     }>, io.TypeC<{
         state: io.LiteralC<"neverStarted">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -948,10 +980,18 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;

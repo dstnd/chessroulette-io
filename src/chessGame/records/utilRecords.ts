@@ -149,10 +149,18 @@ export const chessGameStatePgn = io.string;
 export type ChessGameStatePgn = io.TypeOf<typeof chessGameStatePgn>;
 
 export const chessGameTimeLimit = io.keyof({
-  bullet: null,
+  bullet30: null,
+  bullet1: null,
+  blitz2: null,
+  blitz3: null,
+  blitz5: null,
+  rapid10: null,
+  rapid15: null,
+  rapid20: null,
+  rapid30: null,
+  rapid45: null,
+  rapid60: null,
   untimed: null,
-  blitz: null,
-  rapid: null,
   // day: null,
 });
 export type ChessGameTimeLimit = io.TypeOf<typeof chessGameTimeLimit>;

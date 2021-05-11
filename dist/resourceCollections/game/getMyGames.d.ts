@@ -4,10 +4,18 @@ export declare namespace GetMyGames {
     const resource: Resource<io.UnionC<[io.UndefinedC, io.NullC, io.VoidC, io.TypeC<{}>]>, io.ArrayC<io.IntersectionC<[io.UnionC<[io.TypeC<{
         state: io.LiteralC<"pending">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -59,10 +67,18 @@ export declare namespace GetMyGames {
         lastActivityAt: io.UndefinedC;
     }>, io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         state: io.LiteralC<"started">;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
@@ -285,10 +301,18 @@ export declare namespace GetMyGames {
     }>, io.TypeC<{
         state: io.LiteralC<"finished">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -514,10 +538,18 @@ export declare namespace GetMyGames {
     }>, io.TypeC<{
         state: io.LiteralC<"neverStarted">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -570,10 +602,18 @@ export declare namespace GetMyGames {
     }>, io.TypeC<{
         state: io.LiteralC<"stopped">;
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         players: io.TupleC<[io.UnionC<[io.TypeC<{
             color: io.LiteralC<"black">;
@@ -805,9 +845,9 @@ export declare namespace GetMyGames {
         content: io.UndefinedC;
     }>, void | {} | null | undefined, (({
         state: "pending";
-        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
+        timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -816,7 +856,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -825,7 +865,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -834,7 +874,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -859,10 +899,10 @@ export declare namespace GetMyGames {
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     }) | ({
-        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
-        state: "started";
+        state: "neverStarted";
+        timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -871,7 +911,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -880,7 +920,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -889,7 +929,62 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
+            color: "black";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        }];
+        timeLeft: {
+            white: number;
+            black: number;
+        };
+        pgn: undefined;
+        history: undefined;
+        winner: undefined;
+        lastMoveBy: undefined;
+        lastMoveAt: undefined;
+        startedAt: undefined;
+        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+    } & {
+        id: string;
+        createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+    }) | ({
+        timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
+        state: "started";
+        players: [{
             color: "white";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        } | {
+            color: "black";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        }, {
+            color: "white";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        } | {
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -924,9 +1019,9 @@ export declare namespace GetMyGames {
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     }) | ({
         state: "finished";
-        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
+        timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -935,7 +1030,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -944,7 +1039,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -953,7 +1048,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -987,65 +1082,10 @@ export declare namespace GetMyGames {
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     }) | ({
-        state: "neverStarted";
-        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
-        players: [{
-            color: "black";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        } | {
-            color: "white";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        }, {
-            color: "black";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        } | {
-            color: "white";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        }];
-        timeLeft: {
-            white: number;
-            black: number;
-        };
-        pgn: undefined;
-        history: undefined;
-        winner: undefined;
-        lastMoveBy: undefined;
-        lastMoveAt: undefined;
-        startedAt: undefined;
-        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-    } & {
-        id: string;
-        createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-        updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-    }) | ({
         state: "stopped";
-        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
+        timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
         players: [{
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -1054,7 +1094,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;
@@ -1063,7 +1103,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         }, {
-            color: "black";
+            color: "white";
             user: {
                 id: string;
                 firstName: string;
@@ -1072,7 +1112,7 @@ export declare namespace GetMyGames {
                 name: string;
             };
         } | {
-            color: "white";
+            color: "black";
             user: {
                 id: string;
                 firstName: string;

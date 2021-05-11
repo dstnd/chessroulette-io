@@ -19,7 +19,7 @@ var playerB = {
 };
 var pendingGame = gameActions_1.actions.prepareGame({
     players: [playerA, playerB],
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     preferredColor: 'white',
 });
 describe('Invalid Moves', function () {
@@ -59,7 +59,7 @@ describe('Invalid Moves', function () {
                 black: 300000,
                 white: 300000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: undefined,
         };
         expect(actualAsBlackFirst).toEqual(expected);
@@ -111,7 +111,7 @@ describe('Invalid Moves', function () {
                 black: 300 * 1000,
                 white: 300 * 1000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: undefined,
         };
         expect(actual).toEqual(expected);
@@ -162,7 +162,7 @@ describe('Invalid Moves', function () {
                 black: 300 * 1000,
                 white: 300 * 1000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: undefined,
         };
         expect(actual).toEqual(expected);
@@ -208,7 +208,7 @@ describe('Valid Moves on "started" game', function () {
                 black: 300000,
                 white: 300000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: undefined,
         };
         expect(actual).toEqual(expected);
@@ -266,7 +266,7 @@ describe('Valid Moves on "started" game', function () {
                 white: 300000,
                 black: 295 * 1000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: undefined,
         };
         expect(actual).toEqual(expected);
@@ -356,7 +356,7 @@ describe('Valid Moves on "started" game', function () {
                 white: 287 * 1000,
                 black: 278 * 1000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: undefined,
         };
         expect(b2).toEqual(expected);
@@ -426,7 +426,7 @@ describe('Time Running out', function () {
                 white: 0,
                 black: 295 * 1000,
             },
-            timeLimit: 'blitz',
+            timeLimit: 'blitz5',
             winner: 'black',
         };
         expect(w2).toEqual(expected);

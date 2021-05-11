@@ -2,10 +2,18 @@ import * as io from 'io-ts';
 export declare const baseCreateChallengeRequest: io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -20,10 +28,18 @@ export declare const baseCreateChallengeRequest: io.TypeC<{
 export declare const createPublicChallengeRequest: io.IntersectionC<[io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -43,10 +59,18 @@ export declare type CreatePublicChallengeRequest = io.TypeOf<typeof createPublic
 export declare const createPrivateChallengeRequest: io.IntersectionC<[io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -66,10 +90,18 @@ export declare type CreatePrivateChallengeRequest = io.TypeOf<typeof createPriva
 export declare const createChallengeRequest: io.UnionC<[io.IntersectionC<[io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -87,10 +119,18 @@ export declare const createChallengeRequest: io.UnionC<[io.IntersectionC<[io.Typ
 }>]>, io.IntersectionC<[io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -110,10 +150,18 @@ export declare type CreateChallengeRequest = io.TypeOf<typeof createChallengeReq
 export declare const createChallengeResponse: io.UnionC<[io.IntersectionC<[io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -132,10 +180,18 @@ export declare const createChallengeResponse: io.UnionC<[io.IntersectionC<[io.Ty
 }>]>, io.IntersectionC<[io.TypeC<{
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -166,10 +222,18 @@ export declare const quickPairingRequest: io.TypeC<{
     userId: io.StringC;
     gameSpecs: io.TypeC<{
         timeLimit: io.KeyofC<{
-            bullet: null;
+            bullet30: null;
+            bullet1: null;
+            blitz2: null;
+            blitz3: null;
+            blitz5: null;
+            rapid10: null;
+            rapid15: null;
+            rapid20: null;
+            rapid30: null;
+            rapid45: null;
+            rapid60: null;
             untimed: null;
-            blitz: null;
-            rapid: null;
         }>;
         preferredColor: io.UnionC<[io.KeyofC<{
             black: null;
@@ -544,10 +608,18 @@ export declare const quickPairingPendingResponse: io.TypeC<{
     challenge: io.UnionC<[io.IntersectionC<[io.TypeC<{
         gameSpecs: io.TypeC<{
             timeLimit: io.KeyofC<{
-                bullet: null;
+                bullet30: null;
+                bullet1: null;
+                blitz2: null;
+                blitz3: null;
+                blitz5: null;
+                rapid10: null;
+                rapid15: null;
+                rapid20: null;
+                rapid30: null;
+                rapid45: null;
+                rapid60: null;
                 untimed: null;
-                blitz: null;
-                rapid: null;
             }>;
             preferredColor: io.UnionC<[io.KeyofC<{
                 black: null;
@@ -566,10 +638,18 @@ export declare const quickPairingPendingResponse: io.TypeC<{
     }>]>, io.IntersectionC<[io.TypeC<{
         gameSpecs: io.TypeC<{
             timeLimit: io.KeyofC<{
-                bullet: null;
+                bullet30: null;
+                bullet1: null;
+                blitz2: null;
+                blitz3: null;
+                blitz5: null;
+                rapid10: null;
+                rapid15: null;
+                rapid20: null;
+                rapid30: null;
+                rapid45: null;
+                rapid60: null;
                 untimed: null;
-                blitz: null;
-                rapid: null;
             }>;
             preferredColor: io.UnionC<[io.KeyofC<{
                 black: null;
@@ -949,10 +1029,18 @@ export declare const quickPairingResponse: io.UnionC<[io.TypeC<{
     challenge: io.UnionC<[io.IntersectionC<[io.TypeC<{
         gameSpecs: io.TypeC<{
             timeLimit: io.KeyofC<{
-                bullet: null;
+                bullet30: null;
+                bullet1: null;
+                blitz2: null;
+                blitz3: null;
+                blitz5: null;
+                rapid10: null;
+                rapid15: null;
+                rapid20: null;
+                rapid30: null;
+                rapid45: null;
+                rapid60: null;
                 untimed: null;
-                blitz: null;
-                rapid: null;
             }>;
             preferredColor: io.UnionC<[io.KeyofC<{
                 black: null;
@@ -971,10 +1059,18 @@ export declare const quickPairingResponse: io.UnionC<[io.TypeC<{
     }>]>, io.IntersectionC<[io.TypeC<{
         gameSpecs: io.TypeC<{
             timeLimit: io.KeyofC<{
-                bullet: null;
+                bullet30: null;
+                bullet1: null;
+                blitz2: null;
+                blitz3: null;
+                blitz5: null;
+                rapid10: null;
+                rapid15: null;
+                rapid20: null;
+                rapid30: null;
+                rapid45: null;
+                rapid60: null;
                 untimed: null;
-                blitz: null;
-                rapid: null;
             }>;
             preferredColor: io.UnionC<[io.KeyofC<{
                 black: null;

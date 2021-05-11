@@ -28,7 +28,7 @@ const playerB: UserInfoRecord = {
 test('creates an empty game with random color', () => {
   const actual = actions.prepareGame({
     players: [playerA, playerB],
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
   });
 
   const expected = {
@@ -48,7 +48,7 @@ test('creates an empty game with random color', () => {
       black: 300000,
       white: 300000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -58,7 +58,7 @@ test('creates an empty game with random color', () => {
 test('creates an empty game with preferred color', () => {
   const actual = actions.prepareGame({
     players: [playerA, playerB],
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     preferredColor: 'black',
   });
 
@@ -82,7 +82,7 @@ test('creates an empty game with preferred color', () => {
       black: 300000,
       white: 300000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -92,7 +92,7 @@ test('creates an empty game with preferred color', () => {
 test('creates a game with preferred color and given empty history', () => {
   const actual = actions.prepareGame({
     players: [playerA, playerB],
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     preferredColor: 'black',
   });
 
@@ -116,7 +116,7 @@ test('creates a game with preferred color and given empty history', () => {
       black: 300 * 1000,
       white: 300 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -145,7 +145,7 @@ test('creates a game with preferred color and given history as started game', ()
 
   const actual = actions.prepareGame({
     players: [playerA, playerB],
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     preferredColor: 'black',
     history: startedGameHistory,
     lastMoveAt: now,
@@ -173,7 +173,7 @@ test('creates a game with preferred color and given history as started game', ()
       white: 300 * 1000,
       black: 295 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -223,7 +223,7 @@ test('creates a "finished" game with preferred color and given history', () => {
 
   const actual = actions.prepareGame({
     players: [playerA, playerB],
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     preferredColor: 'black',
     history: finishedGameHistory,
     lastMoveAt: now,
@@ -251,7 +251,7 @@ test('creates a "finished" game with preferred color and given history', () => {
       white: 291 * 1000,
       black: 295 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: 'white',
   };
 

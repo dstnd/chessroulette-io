@@ -28,7 +28,7 @@ const playerB: UserInfoRecord = {
 
 const pendingGame = actions.prepareGame({
   players: [playerA, playerB],
-  timeLimit: 'blitz',
+  timeLimit: 'blitz5',
   preferredColor: 'white',
 });
 
@@ -53,7 +53,7 @@ test('returns the same state for a pending game', () => {
       black: 300000,
       white: 300000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -120,7 +120,7 @@ test('returns the same state for a started game that still has time left', () =>
       white: 300 * 1000,
       black: 285 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -185,7 +185,7 @@ test('returns the "finished" state for a started game that does NOT have any tim
       white: 0,
       black: 285 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: 'black',
   };
 
