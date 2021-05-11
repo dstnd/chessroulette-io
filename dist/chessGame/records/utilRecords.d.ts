@@ -303,6 +303,30 @@ export declare const chessGameDrawOffer: io.TypeC<{
     }>;
 }>;
 export declare type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
+export declare const gameSpecsRecord: io.TypeC<{
+    timeLimit: io.KeyofC<{
+        bullet30: null;
+        bullet1: null;
+        blitz2: null;
+        blitz3: null;
+        blitz5: null;
+        rapid10: null;
+        rapid15: null;
+        rapid20: null;
+        rapid30: null;
+        rapid45: null;
+        rapid60: null;
+        untimed: null;
+    }>;
+    preferredColor: io.UnionC<[io.KeyofC<{
+        black: null;
+    }>, io.KeyofC<{
+        white: null;
+    }>, io.KeyofC<{
+        random: null;
+    }>]>;
+}>;
+export declare type GameSpecsRecord = io.TypeOf<typeof gameSpecsRecord>;
 export declare const chessGameRematchOffer: io.TypeC<{
     type: io.LiteralC<"rematch">;
     content: io.TypeC<{

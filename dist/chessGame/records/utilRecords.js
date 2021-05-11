@@ -1,8 +1,7 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessHistory = exports.chessHistoryMove = exports.chessMove = exports.activePiecesRecord = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
+exports.chessHistory = exports.chessHistoryMove = exports.chessMove = exports.activePiecesRecord = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.gameSpecsRecord = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
 var io = require("io-ts");
-var challengeRecord_1 = require("../../records/challengeRecord");
 var userRecord_1 = require("../../records/userRecord");
 // Taken from chess.js
 /**
@@ -163,12 +162,16 @@ exports.chessGameDrawOffer = io.type({
         by: exports.chessGameColor,
     }),
 });
+exports.gameSpecsRecord = io.type({
+    timeLimit: exports.chessGameTimeLimit,
+    preferredColor: exports.chessPreferredColorOption,
+});
 exports.chessGameRematchOffer = io.type({
     type: io.literal('rematch'),
     content: io.type({
         by: exports.chessGameColor,
         gameSpecs: io.union([
-            challengeRecord_1.gameSpecsRecord,
+            exports.gameSpecsRecord,
             io.undefined,
         ]),
     }),

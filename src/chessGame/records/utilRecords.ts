@@ -1,5 +1,4 @@
 import * as io from 'io-ts';
-import { gameSpecsRecord } from '../../records/challengeRecord';
 import { userInfoRecord } from '../../records/userRecord';
 
 // Taken from chess.js
@@ -197,6 +196,12 @@ export const chessGameDrawOffer = io.type({
   }),
 });
 export type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
+
+export const gameSpecsRecord = io.type({
+  timeLimit: chessGameTimeLimit,
+  preferredColor: chessPreferredColorOption,
+});
+export type GameSpecsRecord = io.TypeOf<typeof gameSpecsRecord>;
 
 export const chessGameRematchOffer = io.type({
   type: io.literal('rematch'),
