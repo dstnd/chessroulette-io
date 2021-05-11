@@ -576,7 +576,7 @@ export declare const quickPairingMatchedResponse: io.TypeC<{
                     }>, io.KeyofC<{
                         black: null;
                     }>]>;
-                    gameSpecs: io.TypeC<{
+                    gameSpecs: io.UnionC<[io.TypeC<{
                         timeLimit: io.KeyofC<{
                             bullet30: null;
                             bullet1: null;
@@ -598,7 +598,7 @@ export declare const quickPairingMatchedResponse: io.TypeC<{
                         }>, io.KeyofC<{
                             random: null;
                         }>]>;
-                    }>;
+                    }>, io.UndefinedC]>;
                 }>;
             }>]>;
         }>]>]>;
@@ -1022,7 +1022,7 @@ export declare const quickPairingResponse: io.UnionC<[io.TypeC<{
                     }>, io.KeyofC<{
                         black: null;
                     }>]>;
-                    gameSpecs: io.TypeC<{
+                    gameSpecs: io.UnionC<[io.TypeC<{
                         timeLimit: io.KeyofC<{
                             bullet30: null;
                             bullet1: null;
@@ -1044,7 +1044,7 @@ export declare const quickPairingResponse: io.UnionC<[io.TypeC<{
                         }>, io.KeyofC<{
                             random: null;
                         }>]>;
-                    }>;
+                    }>, io.UndefinedC]>;
                 }>;
             }>]>;
         }>]>]>;
@@ -1469,7 +1469,7 @@ export declare const challengeAcceptedPayload: io.TypeC<{
                         }>, io.KeyofC<{
                             black: null;
                         }>]>;
-                        gameSpecs: io.TypeC<{
+                        gameSpecs: io.UnionC<[io.TypeC<{
                             timeLimit: io.KeyofC<{
                                 bullet30: null;
                                 bullet1: null;
@@ -1491,7 +1491,7 @@ export declare const challengeAcceptedPayload: io.TypeC<{
                             }>, io.KeyofC<{
                                 random: null;
                             }>]>;
-                        }>;
+                        }>, io.UndefinedC]>;
                     }>;
                 }>]>;
             }>]>]>;

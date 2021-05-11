@@ -2,7 +2,7 @@ import { ChessGameColor, ChessColorWhite, ChessColorBlack, ChessGameState, Activ
 import { Move } from 'chess.js';
 import { SimplePGN } from '../pgnUtil';
 export declare function otherChessColor<C extends ChessGameColor>(c: C): C extends ChessColorWhite ? ChessColorBlack : ChessColorWhite;
-export declare const getRandomChessColor: () => "white" | "black";
+export declare const getRandomChessColor: () => "black" | "white";
 export declare const getCapturedPiecesState: (history: Move[]) => {
     white: {
         p: number;
@@ -44,6 +44,6 @@ export declare const chessHistoryToSimplePgn: (history: ({
     promotion?: "n" | "b" | "r" | "q" | undefined;
 } & {
     san: string;
-    color: "white" | "black";
+    color: "black" | "white";
     clock: number;
 })[]) => SimplePGN;

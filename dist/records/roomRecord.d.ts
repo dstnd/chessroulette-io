@@ -29,7 +29,7 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
             }>, io.KeyofC<{
                 black: null;
             }>]>;
-            gameSpecs: io.TypeC<{
+            gameSpecs: io.UnionC<[io.TypeC<{
                 timeLimit: io.KeyofC<{
                     bullet30: null;
                     bullet1: null;
@@ -51,7 +51,7 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
                 }>, io.KeyofC<{
                     random: null;
                 }>]>;
-            }>;
+            }>, io.UndefinedC]>;
         }>;
     }>]>;
 }>]>;
@@ -79,7 +79,7 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
             }>, io.KeyofC<{
                 black: null;
             }>]>;
-            gameSpecs: io.TypeC<{
+            gameSpecs: io.UnionC<[io.TypeC<{
                 timeLimit: io.KeyofC<{
                     bullet30: null;
                     bullet1: null;
@@ -101,7 +101,7 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
                 }>, io.KeyofC<{
                     random: null;
                 }>]>;
-            }>;
+            }>, io.UndefinedC]>;
         }>;
     }>]>;
 }>]>]>;
@@ -440,7 +440,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -462,7 +462,7 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -818,7 +818,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -840,7 +840,7 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -1198,7 +1198,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -1220,7 +1220,7 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -1578,7 +1578,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -1600,7 +1600,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -1647,7 +1647,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -1669,7 +1669,7 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>;
@@ -2004,7 +2004,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -2026,7 +2026,7 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;

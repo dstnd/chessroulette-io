@@ -341,7 +341,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -363,7 +363,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -719,7 +719,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -741,7 +741,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -1099,7 +1099,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -1121,7 +1121,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -1479,7 +1479,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -1501,7 +1501,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -1859,7 +1859,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 }>, io.KeyofC<{
                     black: null;
                 }>]>;
-                gameSpecs: io.TypeC<{
+                gameSpecs: io.UnionC<[io.TypeC<{
                     timeLimit: io.KeyofC<{
                         bullet30: null;
                         bullet1: null;
@@ -1881,7 +1881,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                     }>, io.KeyofC<{
                         random: null;
                     }>]>;
-                }>;
+                }>, io.UndefinedC]>;
             }>;
         }>]>;
     }>]>]>;
@@ -2239,7 +2239,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     }>, io.KeyofC<{
                         black: null;
                     }>]>;
-                    gameSpecs: io.TypeC<{
+                    gameSpecs: io.UnionC<[io.TypeC<{
                         timeLimit: io.KeyofC<{
                             bullet30: null;
                             bullet1: null;
@@ -2261,7 +2261,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         }>, io.KeyofC<{
                             random: null;
                         }>]>;
-                    }>;
+                    }>, io.UndefinedC]>;
                 }>;
             }>]>;
         }>]>]>;
@@ -2629,7 +2629,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         }>, io.KeyofC<{
                             black: null;
                         }>]>;
-                        gameSpecs: io.TypeC<{
+                        gameSpecs: io.UnionC<[io.TypeC<{
                             timeLimit: io.KeyofC<{
                                 bullet30: null;
                                 bullet1: null;
@@ -2651,7 +2651,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                             }>, io.KeyofC<{
                                 random: null;
                             }>]>;
-                        }>;
+                        }>, io.UndefinedC]>;
                     }>;
                 }>]>;
             }>]>]>;

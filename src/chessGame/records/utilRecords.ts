@@ -202,7 +202,10 @@ export const chessGameRematchOffer = io.type({
   type: io.literal('rematch'),
   content: io.type({
     by: chessGameColor,
-    gameSpecs: gameSpecsRecord,
+    gameSpecs: io.union([
+      gameSpecsRecord,
+      io.undefined,
+    ]),
   }),
 });
 export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;

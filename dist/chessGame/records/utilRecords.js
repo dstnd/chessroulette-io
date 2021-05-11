@@ -167,7 +167,10 @@ exports.chessGameRematchOffer = io.type({
     type: io.literal('rematch'),
     content: io.type({
         by: exports.chessGameColor,
-        gameSpecs: challengeRecord_1.gameSpecsRecord,
+        gameSpecs: io.union([
+            challengeRecord_1.gameSpecsRecord,
+            io.undefined,
+        ]),
     }),
 });
 exports.chessGameOffer = io.union([exports.chessGameDrawOffer, exports.chessGameRematchOffer]);
