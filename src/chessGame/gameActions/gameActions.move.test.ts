@@ -10,6 +10,18 @@ const playerA: UserInfoRecord = {
   lastName: 'Tal',
   avatarId: '12',
   name: 'Mikhael Tal',
+  isGuest: false,
+  profilePicUrl: '',
+  username: 'mikhael.tal',
+  country: {
+    name: 'Latvia',
+    code: 'LV',
+    languages: ['russian'],
+    flagEmoji: '',
+    flagEmojiU: '',
+    phone: '',
+    currency: '',
+  },
 };
 
 const playerB: UserInfoRecord = {
@@ -18,6 +30,18 @@ const playerB: UserInfoRecord = {
   lastName: 'Botvinik',
   avatarId: '11',
   name: 'Mikhael Botvinik',
+  isGuest: false,
+  profilePicUrl: '',
+  username: 'mikhael.botvinik',
+  country: {
+    name: 'Russia',
+    code: 'RU',
+    languages: ['russian'],
+    flagEmoji: '',
+    flagEmojiU: '',
+    phone: '',
+    currency: '',
+  },
 };
 
 const pendingGame = actions.prepareGame({

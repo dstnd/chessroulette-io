@@ -105,7 +105,7 @@ describe('chessHistoryToSimplePgn', () => {
   });
 });
 
-describe.only('getCapturedPiecesFromPgn', () => {
+describe('getCapturedPiecesFromPgn', () => {
   const initialActivePieces = {
     white: { p: 8, n: 2, b: 2, r: 2, q: 1 },
     black: { p: 8, n: 2, b: 2, r: 2, q: 1 },

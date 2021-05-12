@@ -2,7 +2,7 @@ import * as io from 'io-ts';
 import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
 export declare namespace GuestAuthentication {
     const resource: Resource<io.TypeC<{
-        guestUser: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        guestUser: io.UnionC<[io.IntersectionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -10,10 +10,11 @@ export declare namespace GuestAuthentication {
             name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+        }>]>, io.TypeC<{
             sid: io.StringC;
         }>]>, io.NullC]>;
     }>, io.TypeC<{
-        guest: io.IntersectionC<[io.TypeC<{
+        guest: io.IntersectionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -21,6 +22,7 @@ export declare namespace GuestAuthentication {
             name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+        }>]>, io.TypeC<{
             sid: io.StringC;
         }>]>;
     }>, io.TypeC<{
@@ -35,6 +37,7 @@ export declare namespace GuestAuthentication {
             name: string;
         } & {
             isGuest: true;
+        } & {
             sid: string;
         }) | null;
     }, {
@@ -46,6 +49,7 @@ export declare namespace GuestAuthentication {
             name: string;
         } & {
             isGuest: true;
+        } & {
             sid: string;
         };
     }, {

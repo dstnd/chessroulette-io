@@ -14,6 +14,18 @@ var playerA = {
     lastName: 'Tal',
     avatarId: '12',
     name: 'Mikhael Tal',
+    isGuest: false,
+    profilePicUrl: '',
+    username: 'mikhael.tal',
+    country: {
+        name: 'Latvia',
+        code: 'LV',
+        languages: ['russian'],
+        flagEmoji: '',
+        flagEmojiU: '',
+        phone: '',
+        currency: '',
+    },
 };
 var playerB = {
     id: '2',
@@ -21,6 +33,18 @@ var playerB = {
     lastName: 'Botvinik',
     avatarId: '11',
     name: 'Mikhael Botvinik',
+    isGuest: false,
+    profilePicUrl: '',
+    username: 'mikhael.botvinik',
+    country: {
+        name: 'Russia',
+        code: 'RU',
+        languages: ['russian'],
+        flagEmoji: '',
+        flagEmojiU: '',
+        phone: '',
+        currency: '',
+    },
 };
 test('creates an empty game with random color', function () {
     var actual = gameActions_1.actions.prepareGame({
