@@ -3767,7 +3767,7 @@ export declare namespace GetUserGames {
             state: "stopped";
             timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
             players: [{
-                color: "black";
+                color: "white";
                 user: ({
                     id: string;
                     firstName: string;
@@ -3797,7 +3797,7 @@ export declare namespace GetUserGames {
                     } | undefined;
                 });
             } | {
-                color: "white";
+                color: "black";
                 user: ({
                     id: string;
                     firstName: string;
@@ -3827,7 +3827,7 @@ export declare namespace GetUserGames {
                     } | undefined;
                 });
             }, {
-                color: "black";
+                color: "white";
                 user: ({
                     id: string;
                     firstName: string;
@@ -3857,7 +3857,7 @@ export declare namespace GetUserGames {
                     } | undefined;
                 });
             } | {
-                color: "white";
+                color: "black";
                 user: ({
                     id: string;
                     firstName: string;
@@ -3899,11 +3899,11 @@ export declare namespace GetUserGames {
                 promotion?: "n" | "b" | "r" | "q" | undefined;
             } & {
                 san: string;
-                color: "black" | "white";
+                color: "white" | "black";
                 clock: number;
             })[];
-            winner: "black" | "white" | "1/2";
-            lastMoveBy: "black" | "white";
+            winner: "white" | "black" | "1/2";
+            lastMoveBy: "white" | "black";
             lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
             startedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
             lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
@@ -3915,7 +3915,7 @@ export declare namespace GetUserGames {
             state: "finished";
             timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
             players: [{
-                color: "black";
+                color: "white";
                 user: ({
                     id: string;
                     firstName: string;
@@ -3945,7 +3945,7 @@ export declare namespace GetUserGames {
                     } | undefined;
                 });
             } | {
-                color: "white";
+                color: "black";
                 user: ({
                     id: string;
                     firstName: string;
@@ -3975,7 +3975,7 @@ export declare namespace GetUserGames {
                     } | undefined;
                 });
             }, {
-                color: "black";
+                color: "white";
                 user: ({
                     id: string;
                     firstName: string;
@@ -4005,7 +4005,7 @@ export declare namespace GetUserGames {
                     } | undefined;
                 });
             } | {
-                color: "white";
+                color: "black";
                 user: ({
                     id: string;
                     firstName: string;
@@ -4047,11 +4047,11 @@ export declare namespace GetUserGames {
                 promotion?: "n" | "b" | "r" | "q" | undefined;
             } & {
                 san: string;
-                color: "black" | "white";
+                color: "white" | "black";
                 clock: number;
             })[];
-            winner: "black" | "white" | "1/2";
-            lastMoveBy: "black" | "white";
+            winner: "white" | "black" | "1/2";
+            lastMoveBy: "white" | "black";
             lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
             startedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
             lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;

@@ -101,6 +101,14 @@ export declare type ChessSquare = io.TypeOf<typeof chessSquare>;
 export declare const chessPlayerWhite: io.TypeC<{
     color: io.LiteralC<"white">;
     user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -109,6 +117,14 @@ export declare const chessPlayerWhite: io.TypeC<{
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
     }>]>, io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -384,6 +400,14 @@ export declare type ChessPlayerWhite = io.TypeOf<typeof chessPlayerWhite>;
 export declare const chessPlayerBlack: io.TypeC<{
     color: io.LiteralC<"black">;
     user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -392,6 +416,14 @@ export declare const chessPlayerBlack: io.TypeC<{
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
     }>]>, io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -667,6 +699,14 @@ export declare type ChessPlayerBlack = io.TypeOf<typeof chessPlayerBlack>;
 export declare const chessPlayer: io.UnionC<[io.TypeC<{
     color: io.LiteralC<"black">;
     user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -675,6 +715,14 @@ export declare const chessPlayer: io.UnionC<[io.TypeC<{
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
     }>]>, io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -948,6 +996,14 @@ export declare const chessPlayer: io.UnionC<[io.TypeC<{
 }>, io.TypeC<{
     color: io.LiteralC<"white">;
     user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -956,6 +1012,14 @@ export declare const chessPlayer: io.UnionC<[io.TypeC<{
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
     }>]>, io.IntersectionC<[io.TypeC<{
+        /**
+         * - "p" for Pawn
+         * - "n" for Knight
+         * - "b" for Bishop
+         * - "r" for Rook
+         * - "q" for Queen
+         * - "k" for King
+         */
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -1232,6 +1296,14 @@ export declare const chessPlayers: io.TypeC<{
     white: io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -1240,6 +1312,14 @@ export declare const chessPlayers: io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -1514,6 +1594,14 @@ export declare const chessPlayers: io.TypeC<{
     black: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -1522,6 +1610,14 @@ export declare const chessPlayers: io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -1840,6 +1936,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
     home: io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -1848,6 +1952,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2122,6 +2234,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
     away: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2130,6 +2250,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2405,6 +2533,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
     home: io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2413,6 +2549,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2687,6 +2831,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
     away: io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2695,6 +2847,14 @@ export declare const chessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2972,6 +3132,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
     home: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -2980,6 +3148,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -3253,6 +3429,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -3261,6 +3445,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -3538,6 +3730,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
     away: io.UnionC<[io.TypeC<{
         color: io.LiteralC<"black">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -3546,6 +3746,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -3819,6 +4027,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
     }>, io.TypeC<{
         color: io.LiteralC<"white">;
         user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -3827,6 +4043,14 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
         }>]>, io.IntersectionC<[io.TypeC<{
+            /**
+             * - "p" for Pawn
+             * - "n" for Knight
+             * - "b" for Bishop
+             * - "r" for Rook
+             * - "q" for Queen
+             * - "k" for King
+             */
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;

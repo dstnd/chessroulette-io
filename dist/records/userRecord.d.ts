@@ -1,4 +1,4 @@
-import * as io from "io-ts";
+import * as io from 'io-ts';
 export declare const guestUserInfoRecord: io.IntersectionC<[io.TypeC<{
     id: io.StringC;
     firstName: io.StringC;
