@@ -285,6 +285,7 @@ export declare const partialChessPlayersBySide: io.UnionC<[io.TypeC<{
 }>]>;
 export declare type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySide>;
 export declare const chessGameDrawOffer: io.TypeC<{
+    id: io.StringC;
     type: io.LiteralC<"draw">;
     content: io.TypeC<{
         byUser: io.TypeC<{
@@ -310,6 +311,7 @@ export declare const chessGameDrawOffer: io.TypeC<{
 }>;
 export declare type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
 export declare const chessGameRematchOffer: io.TypeC<{
+    id: io.StringC;
     type: io.LiteralC<"rematch">;
     content: io.TypeC<{
         byUser: io.TypeC<{
@@ -335,6 +337,7 @@ export declare const chessGameRematchOffer: io.TypeC<{
 }>;
 export declare type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
 export declare const chessGameOffer: io.UnionC<[io.TypeC<{
+    id: io.StringC;
     type: io.LiteralC<"draw">;
     content: io.TypeC<{
         byUser: io.TypeC<{
@@ -358,6 +361,7 @@ export declare const chessGameOffer: io.UnionC<[io.TypeC<{
         }>]>;
     }>;
 }>, io.TypeC<{
+    id: io.StringC;
     type: io.LiteralC<"rematch">;
     content: io.TypeC<{
         byUser: io.TypeC<{

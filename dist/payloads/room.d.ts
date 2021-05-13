@@ -325,6 +325,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
         gameId: io.StringC;
     }>, io.PartialC<{
         offer: io.UnionC<[io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -348,6 +349,7 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 }>]>;
             }>;
         }>, io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -708,6 +710,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
         gameId: io.StringC;
     }>, io.PartialC<{
         offer: io.UnionC<[io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -731,6 +734,7 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                 }>]>;
             }>;
         }>, io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -1093,6 +1097,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
         gameId: io.StringC;
     }>, io.PartialC<{
         offer: io.UnionC<[io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -1116,6 +1121,7 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 }>]>;
             }>;
         }>, io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -1478,6 +1484,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
         gameId: io.StringC;
     }>, io.PartialC<{
         offer: io.UnionC<[io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -1501,6 +1508,7 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                 }>]>;
             }>;
         }>, io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -1863,6 +1871,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
         gameId: io.StringC;
     }>, io.PartialC<{
         offer: io.UnionC<[io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -1886,6 +1895,7 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 }>]>;
             }>;
         }>, io.TypeC<{
+            id: io.StringC;
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
                 byUser: io.TypeC<{
@@ -2248,6 +2258,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
             gameId: io.StringC;
         }>, io.PartialC<{
             offer: io.UnionC<[io.TypeC<{
+                id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
                     byUser: io.TypeC<{
@@ -2271,6 +2282,7 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                     }>]>;
                 }>;
             }>, io.TypeC<{
+                id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
                     byUser: io.TypeC<{
@@ -2643,6 +2655,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                 gameId: io.StringC;
             }>, io.PartialC<{
                 offer: io.UnionC<[io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2666,6 +2679,7 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         }>]>;
                     }>;
                 }>, io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{

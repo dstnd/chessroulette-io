@@ -149,6 +149,7 @@ exports.partialChessPlayersBySide = io.union([
     }),
 ]);
 exports.chessGameDrawOffer = io.type({
+    id: io.string,
     type: io.literal('draw'),
     content: io.type({
         byUser: userRecord_1.userInfoRecord,
@@ -158,6 +159,7 @@ exports.chessGameDrawOffer = io.type({
     }),
 });
 exports.chessGameRematchOffer = io.type({
+    id: io.string,
     type: io.literal('rematch'),
     content: io.type({
         byUser: userRecord_1.userInfoRecord,

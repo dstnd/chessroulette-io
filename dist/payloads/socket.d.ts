@@ -952,6 +952,7 @@ export declare const iamResponsePayload: io.TypeC<{
                 gameId: io.StringC;
             }>, io.PartialC<{
                 offer: io.UnionC<[io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -975,6 +976,7 @@ export declare const iamResponsePayload: io.TypeC<{
                         }>]>;
                     }>;
                 }>, io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2026,6 +2028,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 gameId: io.StringC;
             }>, io.PartialC<{
                 offer: io.UnionC<[io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2049,6 +2052,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                         }>]>;
                     }>;
                 }>, io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2465,6 +2469,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 gameId: io.StringC;
             }>, io.PartialC<{
                 offer: io.UnionC<[io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2488,6 +2493,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                         }>]>;
                     }>;
                 }>, io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2863,6 +2869,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 gameId: io.StringC;
             }>, io.PartialC<{
                 offer: io.UnionC<[io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -2886,6 +2893,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                         }>]>;
                     }>;
                 }>, io.TypeC<{
+                    id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
                         byUser: io.TypeC<{
@@ -4846,6 +4854,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             gameId: io.StringC;
         }>, io.PartialC<{
             offer: io.UnionC<[io.TypeC<{
+                id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
                     byUser: io.TypeC<{
@@ -4869,6 +4878,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     }>]>;
                 }>;
             }>, io.TypeC<{
+                id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
                     byUser: io.TypeC<{
@@ -5534,6 +5544,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             gameId: io.StringC;
         }>, io.PartialC<{
             offer: io.UnionC<[io.TypeC<{
+                id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
                     byUser: io.TypeC<{
@@ -5557,6 +5568,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     }>]>;
                 }>;
             }>, io.TypeC<{
+                id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
                     byUser: io.TypeC<{

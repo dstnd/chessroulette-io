@@ -182,6 +182,7 @@ export const partialChessPlayersBySide = io.union([
 export type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySide>;
 
 export const chessGameDrawOffer = io.type({
+  id: io.string,
   type: io.literal('draw'),
   content: io.type({
     byUser: userInfoRecord,
@@ -194,6 +195,7 @@ export const chessGameDrawOffer = io.type({
 export type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
 
 export const chessGameRematchOffer = io.type({
+  id: io.string,
   type: io.literal('rematch'),
   content: io.type({
     byUser: userInfoRecord,
