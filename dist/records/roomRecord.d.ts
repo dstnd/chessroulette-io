@@ -15,6 +15,8 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
     offer: io.UnionC<[io.TypeC<{
         type: io.LiteralC<"draw">;
         content: io.TypeC<{
+            byUserId: io.StringC;
+            toUserId: io.StringC;
             by: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -24,6 +26,8 @@ export declare const roomPlayActivityRecord: io.IntersectionC<[io.TypeC<{
     }>, io.TypeC<{
         type: io.LiteralC<"rematch">;
         content: io.TypeC<{
+            byUserId: io.StringC;
+            toUserId: io.StringC;
             by: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -42,6 +46,8 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
     offer: io.UnionC<[io.TypeC<{
         type: io.LiteralC<"draw">;
         content: io.TypeC<{
+            byUserId: io.StringC;
+            toUserId: io.StringC;
             by: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -51,6 +57,8 @@ export declare const roomActivityRecord: io.UnionC<[io.TypeC<{
     }>, io.TypeC<{
         type: io.LiteralC<"rematch">;
         content: io.TypeC<{
+            byUserId: io.StringC;
+            toUserId: io.StringC;
             by: io.UnionC<[io.KeyofC<{
                 white: null;
             }>, io.KeyofC<{
@@ -380,6 +388,8 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
         offer: io.UnionC<[io.TypeC<{
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -389,6 +399,8 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
         }>, io.TypeC<{
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -735,6 +747,8 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
         offer: io.UnionC<[io.TypeC<{
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -744,6 +758,8 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
         }>, io.TypeC<{
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1092,6 +1108,8 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
         offer: io.UnionC<[io.TypeC<{
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1101,6 +1119,8 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
         }>, io.TypeC<{
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1449,6 +1469,8 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
         offer: io.UnionC<[io.TypeC<{
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1458,6 +1480,8 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
         }>, io.TypeC<{
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1495,6 +1519,8 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
         offer: io.UnionC<[io.TypeC<{
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1504,6 +1530,8 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
         }>, io.TypeC<{
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1829,6 +1857,8 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
         offer: io.UnionC<[io.TypeC<{
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{
@@ -1838,6 +1868,8 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
         }>, io.TypeC<{
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                byUserId: io.StringC;
+                toUserId: io.StringC;
                 by: io.UnionC<[io.KeyofC<{
                     white: null;
                 }>, io.KeyofC<{

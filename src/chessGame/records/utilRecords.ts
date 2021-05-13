@@ -184,6 +184,10 @@ export type PartialChessPlayersBySide = io.TypeOf<typeof partialChessPlayersBySi
 export const chessGameDrawOffer = io.type({
   type: io.literal('draw'),
   content: io.type({
+    byUserId: io.string,
+    toUserId: io.string,
+    
+    // @deprecate in favor of the avove
     by: chessGameColor,
   }),
 });
@@ -192,6 +196,10 @@ export type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
 export const chessGameRematchOffer = io.type({
   type: io.literal('rematch'),
   content: io.type({
+    byUserId: io.string,
+    toUserId: io.string,
+    
+    // @deprecate in favor of the avove
     by: chessGameColor,
   }),
 });
