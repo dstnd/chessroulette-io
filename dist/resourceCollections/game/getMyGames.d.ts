@@ -859,61 +859,6 @@ export declare namespace GetMyGames {
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     }) | ({
-        state: "neverStarted";
-        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
-        players: [{
-            color: "white";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        } | {
-            color: "black";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        }, {
-            color: "white";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        } | {
-            color: "black";
-            user: {
-                id: string;
-                firstName: string;
-                lastName: string;
-                avatarId: string;
-                name: string;
-            };
-        }];
-        timeLeft: {
-            white: number;
-            black: number;
-        };
-        pgn: undefined;
-        history: undefined;
-        winner: undefined;
-        lastMoveBy: undefined;
-        lastMoveAt: undefined;
-        startedAt: undefined;
-        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-    } & {
-        id: string;
-        createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-        updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-    }) | ({
         timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
         state: "started";
         players: [{
@@ -1036,6 +981,61 @@ export declare namespace GetMyGames {
         lastMoveBy: "white" | "black";
         lastMoveAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         startedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+    } & {
+        id: string;
+        createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+    }) | ({
+        state: "neverStarted";
+        timeLimit: "bullet" | "untimed" | "blitz" | "rapid";
+        players: [{
+            color: "white";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        } | {
+            color: "black";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        }, {
+            color: "white";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        } | {
+            color: "black";
+            user: {
+                id: string;
+                firstName: string;
+                lastName: string;
+                avatarId: string;
+                name: string;
+            };
+        }];
+        timeLeft: {
+            white: number;
+            black: number;
+        };
+        pgn: undefined;
+        history: undefined;
+        winner: undefined;
+        lastMoveBy: undefined;
+        lastMoveAt: undefined;
+        startedAt: undefined;
         lastActivityAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
     } & {
         id: string;

@@ -151,8 +151,8 @@ exports.partialChessPlayersBySide = io.union([
 exports.chessGameDrawOffer = io.type({
     type: io.literal('draw'),
     content: io.type({
-        byUserId: io.string,
-        toUserId: io.string,
+        byUser: userRecord_1.userInfoRecord,
+        toUser: userRecord_1.userInfoRecord,
         // @deprecate in favor of the avove
         by: exports.chessGameColor,
     }),
@@ -160,8 +160,8 @@ exports.chessGameDrawOffer = io.type({
 exports.chessGameRematchOffer = io.type({
     type: io.literal('rematch'),
     content: io.type({
-        byUserId: io.string,
-        toUserId: io.string,
+        byUser: userRecord_1.userInfoRecord,
+        toUser: userRecord_1.userInfoRecord,
         // @deprecate in favor of the avove
         by: exports.chessGameColor,
     }),

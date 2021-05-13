@@ -32,17 +32,14 @@ export declare class Resource<RequestPayloadCodec extends BaseRequestPayloadCode
     private get allPossibleErrorsCodec();
     request(requestPayload: RequestPayload, senderFn: (requestPayload: RequestPayload) => Promise<{
         data: unknown;
-    }>): AsyncResultWrapper<ResponseOkPayload, {
+    }>): AsyncResultWrapper<ResponseOkPayload, ResponseErrPayload | {
         type: "BadRequestError";
         content: undefined;
     } | {
-        type: "BadResponseError";
+        type: "BadEncodingError";
         content: undefined;
     } | {
-        type: "ServerError";
-        content: string | undefined;
-    } | {
-        type: "BadEncodingError";
+        type: "BadResponseError";
         content: undefined;
     } | {
         type: "NetworkError";
@@ -50,7 +47,10 @@ export declare class Resource<RequestPayloadCodec extends BaseRequestPayloadCode
     } | {
         type: "BadErrorEncodingError";
         content: undefined;
-    } | ResponseErrPayload>;
+    } | {
+        type: "ServerError";
+        content: string | undefined;
+    }>;
     private getResponseError;
     parseRequest(data: unknown): AsyncResultWrapper<RequestPayload, {
         type: "BadRequestError";
