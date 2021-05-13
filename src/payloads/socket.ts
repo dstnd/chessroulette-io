@@ -12,6 +12,7 @@ import {
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
   leaveRoomRequestPayload,
+  joinedRoomAndGameUpdatedPayload,
 } from './room';
 import { statsSocketPayload } from './stats';
 import { challengeRecord } from '../records/challengeRecord';
@@ -114,6 +115,7 @@ export const socketPayload = io.union([
   joinRoomSuccessPayload,
   joinRoomFailurePayload,
   leaveRoomRequestPayload,
+  joinedRoomUpdatedPayload,
 
   // Chat
   broadcastChatMessagePayload,
@@ -122,9 +124,11 @@ export const socketPayload = io.union([
   gameActionRequestPayload,
   joinedGameUpdatedPayload,
 
+  // Room & Game
+  joinedRoomAndGameUpdatedPayload,
+
   // Stats
   statsSocketPayload,
   myStatsPayload,
-  joinedRoomUpdatedPayload,
 ]);
 export type SocketPayload = io.TypeOf<typeof socketPayload>;
