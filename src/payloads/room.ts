@@ -1,5 +1,5 @@
 import * as io from 'io-ts';
-import { gameRecord } from 'src/records/gameRecord';
+import { gameRecord } from '../records/gameRecord';
 import { peerRecord } from '../records/peerRecord';
 import { 
   roomRecord,
