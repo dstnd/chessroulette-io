@@ -185,6 +185,7 @@ export const chessGameDrawOffer = io.type({
   id: io.string,
   type: io.literal('draw'),
   content: io.type({
+    gameId: io.string,
     byUser: userInfoRecord,
     toUser: userInfoRecord,
     
@@ -198,6 +199,7 @@ export const chessGameRematchOffer = io.type({
   id: io.string,
   type: io.literal('rematch'),
   content: io.type({
+    gameId: io.string,
     byUser: userInfoRecord,
     toUser: userInfoRecord,
     

@@ -955,6 +955,7 @@ export declare const iamResponsePayload: io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -979,6 +980,7 @@ export declare const iamResponsePayload: io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -2031,6 +2033,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -2055,6 +2058,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -2472,6 +2476,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -2496,6 +2501,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -2872,6 +2878,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -2896,6 +2903,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -3570,6 +3578,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -3594,6 +3603,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -4942,6 +4952,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -4966,6 +4977,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -6431,6 +6443,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -6455,6 +6468,7 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;

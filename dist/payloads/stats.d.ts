@@ -317,6 +317,7 @@ export declare const roomsStatsPayload: io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -341,6 +342,7 @@ export declare const roomsStatsPayload: io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -1313,6 +1315,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -1337,6 +1340,7 @@ export declare const statsSocketPayload: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;

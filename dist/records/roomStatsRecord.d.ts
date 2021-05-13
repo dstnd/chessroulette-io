@@ -315,6 +315,7 @@ export declare const roomStatsRecord: io.IntersectionC<[io.IntersectionC<[io.Typ
             id: io.StringC;
             type: io.LiteralC<"draw">;
             content: io.TypeC<{
+                gameId: io.StringC;
                 byUser: io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;
@@ -339,6 +340,7 @@ export declare const roomStatsRecord: io.IntersectionC<[io.IntersectionC<[io.Typ
             id: io.StringC;
             type: io.LiteralC<"rematch">;
             content: io.TypeC<{
+                gameId: io.StringC;
                 byUser: io.TypeC<{
                     id: io.StringC;
                     firstName: io.StringC;

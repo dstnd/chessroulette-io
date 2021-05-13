@@ -499,6 +499,7 @@ export declare const quickPairingMatchedResponse: io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -523,6 +524,7 @@ export declare const quickPairingMatchedResponse: io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -936,6 +938,7 @@ export declare const quickPairingResponse: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"draw">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -960,6 +963,7 @@ export declare const quickPairingResponse: io.UnionC<[io.TypeC<{
                 id: io.StringC;
                 type: io.LiteralC<"rematch">;
                 content: io.TypeC<{
+                    gameId: io.StringC;
                     byUser: io.TypeC<{
                         id: io.StringC;
                         firstName: io.StringC;
@@ -1374,6 +1378,7 @@ export declare const challengeAcceptedPayload: io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"draw">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;
@@ -1398,6 +1403,7 @@ export declare const challengeAcceptedPayload: io.TypeC<{
                     id: io.StringC;
                     type: io.LiteralC<"rematch">;
                     content: io.TypeC<{
+                        gameId: io.StringC;
                         byUser: io.TypeC<{
                             id: io.StringC;
                             firstName: io.StringC;

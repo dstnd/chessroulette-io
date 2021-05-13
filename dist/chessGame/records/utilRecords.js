@@ -152,6 +152,7 @@ exports.chessGameDrawOffer = io.type({
     id: io.string,
     type: io.literal('draw'),
     content: io.type({
+        gameId: io.string,
         byUser: userRecord_1.userInfoRecord,
         toUser: userRecord_1.userInfoRecord,
         // @deprecate in favor of the avove
@@ -162,6 +163,7 @@ exports.chessGameRematchOffer = io.type({
     id: io.string,
     type: io.literal('rematch'),
     content: io.type({
+        gameId: io.string,
         byUser: userRecord_1.userInfoRecord,
         toUser: userRecord_1.userInfoRecord,
         // @deprecate in favor of the avove
