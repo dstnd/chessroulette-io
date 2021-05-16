@@ -34,7 +34,12 @@ exports.gameMoveRequestPayload = io.type({
 });
 exports.gameRematchOfferingRequestPayload = io.type({
     kind: io.literal('gameRematchOfferingRequest'),
-    content: io.undefined,
+    content: io.union([
+        io.type({
+            gameSpecs: chessGame_1.gameSpecsRecord,
+        }),
+        io.undefined,
+    ]),
 });
 exports.gameRematchAcceptRequestPayload = io.type({
     kind: io.literal('gameRematchAcceptRequest'),

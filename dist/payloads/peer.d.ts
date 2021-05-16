@@ -5,7 +5,7 @@ export declare const registerPeerRequestPayload: io.TypeC<{
 export declare type RegisterPeerRequestPayload = io.TypeOf<typeof registerPeerRequestPayload>;
 export declare const registerPeerResponsePayload: io.IntersectionC<[io.TypeC<{
     id: io.StringC;
-    user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+    user: io.UnionC<[io.IntersectionC<[io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -13,16 +13,7 @@ export declare const registerPeerResponsePayload: io.IntersectionC<[io.TypeC<{
         name: io.StringC;
     }>, io.TypeC<{
         isGuest: io.LiteralC<false>;
-        email: io.StringC;
         profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
-        externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
-            facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
-                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
-            }>]>;
-            lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
-                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
-            }>]>;
-        }>]>;
         username: io.StringC;
         country: io.UnionC<[io.TypeC<{
             name: io.StringC;
@@ -284,7 +275,17 @@ export declare const registerPeerResponsePayload: io.IntersectionC<[io.TypeC<{
                 ZW: null;
             }>;
         }>, io.UndefinedC]>;
-    }>]>, io.IntersectionC<[io.TypeC<{
+    }>]>, io.TypeC<{
+        email: io.StringC;
+        externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+            facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+            }>]>;
+            lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+            }>]>;
+        }>]>;
+    }>]>, io.IntersectionC<[io.IntersectionC<[io.TypeC<{
         id: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
@@ -292,6 +293,7 @@ export declare const registerPeerResponsePayload: io.IntersectionC<[io.TypeC<{
         name: io.StringC;
     }>, io.TypeC<{
         isGuest: io.LiteralC<true>;
+    }>]>, io.TypeC<{
         sid: io.StringC;
     }>]>]>;
 }>, io.UnionC<[io.TypeC<{
@@ -308,7 +310,7 @@ export declare const myStatsPayload: io.TypeC<{
     kind: io.LiteralC<"myStats">;
     content: io.IntersectionC<[io.TypeC<{
         id: io.StringC;
-        user: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        user: io.UnionC<[io.IntersectionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -316,16 +318,7 @@ export declare const myStatsPayload: io.TypeC<{
             name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<false>;
-            email: io.StringC;
             profilePicUrl: io.UnionC<[io.StringC, io.UndefinedC]>;
-            externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
-                facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
-                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
-                }>]>;
-                lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
-                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
-                }>]>;
-            }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
                 name: io.StringC;
@@ -587,7 +580,17 @@ export declare const myStatsPayload: io.TypeC<{
                     ZW: null;
                 }>;
             }>, io.UndefinedC]>;
-        }>]>, io.IntersectionC<[io.TypeC<{
+        }>]>, io.TypeC<{
+            email: io.StringC;
+            externalAccounts: io.UnionC<[io.UndefinedC, io.TypeC<{
+                facebook: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+            }>]>;
+        }>]>, io.IntersectionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -595,6 +598,7 @@ export declare const myStatsPayload: io.TypeC<{
             name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+        }>]>, io.TypeC<{
             sid: io.StringC;
         }>]>]>;
     }>, io.UnionC<[io.TypeC<{

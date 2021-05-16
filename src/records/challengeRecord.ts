@@ -1,15 +1,11 @@
 import * as io from 'io-ts';
 import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 import * as ChessGame from '../chessGame';
+import { gameSpecsRecord } from '../chessGame';
 
-export const gameSpecsRecord = io.type({
-  timeLimit: ChessGame.chessGameTimeLimit,
-  preferredColor: ChessGame.chessPreferredColorOption,
-});
-export type GameSpecsRecord = io.TypeOf<typeof gameSpecsRecord>;
 
 export const baseChallengeRecord = io.type({
-  gameSpecs: gameSpecsRecord,
+  gameSpecs: ChessGame.gameSpecsRecord,
   id: io.string,
   createdBy: io.string,
   createdAt: isoDateTimeFromIsoString,

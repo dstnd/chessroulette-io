@@ -14,6 +14,18 @@ var playerA = {
     lastName: 'Tal',
     avatarId: '12',
     name: 'Mikhael Tal',
+    isGuest: false,
+    profilePicUrl: '',
+    username: 'mikhael.tal',
+    country: {
+        name: 'Latvia',
+        code: 'LV',
+        languages: ['russian'],
+        flagEmoji: '',
+        flagEmojiU: '',
+        phone: '',
+        currency: '',
+    },
 };
 var playerB = {
     id: '2',
@@ -21,11 +33,23 @@ var playerB = {
     lastName: 'Botvinik',
     avatarId: '11',
     name: 'Mikhael Botvinik',
+    isGuest: false,
+    profilePicUrl: '',
+    username: 'mikhael.botvinik',
+    country: {
+        name: 'Russia',
+        code: 'RU',
+        languages: ['russian'],
+        flagEmoji: '',
+        flagEmojiU: '',
+        phone: '',
+        currency: '',
+    },
 };
 test('creates an empty game with random color', function () {
     var actual = gameActions_1.actions.prepareGame({
         players: [playerA, playerB],
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
     });
     var expected = {
         lastMoveAt: undefined,
@@ -44,7 +68,7 @@ test('creates an empty game with random color', function () {
             black: 300000,
             white: 300000,
         },
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         winner: undefined,
     };
     expect(actual).toEqual(expected);
@@ -52,7 +76,7 @@ test('creates an empty game with random color', function () {
 test('creates an empty game with preferred color', function () {
     var actual = gameActions_1.actions.prepareGame({
         players: [playerA, playerB],
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         preferredColor: 'black',
     });
     var expected = {
@@ -75,7 +99,7 @@ test('creates an empty game with preferred color', function () {
             black: 300000,
             white: 300000,
         },
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         winner: undefined,
     };
     expect(actual).toEqual(expected);
@@ -83,7 +107,7 @@ test('creates an empty game with preferred color', function () {
 test('creates a game with preferred color and given empty history', function () {
     var actual = gameActions_1.actions.prepareGame({
         players: [playerA, playerB],
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         preferredColor: 'black',
     });
     var expected = {
@@ -106,7 +130,7 @@ test('creates a game with preferred color and given empty history', function () 
             black: 300 * 1000,
             white: 300 * 1000,
         },
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         winner: undefined,
     };
     expect(actual).toEqual(expected);
@@ -131,7 +155,7 @@ test('creates a game with preferred color and given history as started game', fu
     var now = io_ts_isodatetime_1.toISODateTime(new Date());
     var actual = gameActions_1.actions.prepareGame({
         players: [playerA, playerB],
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         preferredColor: 'black',
         history: startedGameHistory,
         lastMoveAt: now,
@@ -158,7 +182,7 @@ test('creates a game with preferred color and given history as started game', fu
             white: 300 * 1000,
             black: 295 * 1000,
         },
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         winner: undefined,
     };
     expect(actual).toEqual(expected);
@@ -204,7 +228,7 @@ test('creates a "finished" game with preferred color and given history', functio
     var now = io_ts_isodatetime_1.toISODateTime(new Date());
     var actual = gameActions_1.actions.prepareGame({
         players: [playerA, playerB],
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         preferredColor: 'black',
         history: finishedGameHistory,
         lastMoveAt: now,
@@ -231,7 +255,7 @@ test('creates a "finished" game with preferred color and given history', functio
             white: 291 * 1000,
             black: 295 * 1000,
         },
-        timeLimit: 'blitz',
+        timeLimit: 'blitz5',
         winner: 'white',
     };
     expect(actual).toEqual(expected);

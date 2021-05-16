@@ -149,10 +149,18 @@ export const chessGameStatePgn = io.string;
 export type ChessGameStatePgn = io.TypeOf<typeof chessGameStatePgn>;
 
 export const chessGameTimeLimit = io.keyof({
-  bullet: null,
+  bullet30: null,
+  bullet1: null,
+  blitz2: null,
+  blitz3: null,
+  blitz5: null,
+  rapid10: null,
+  rapid15: null,
+  rapid20: null,
+  rapid30: null,
+  rapid45: null,
+  rapid60: null,
   untimed: null,
-  blitz: null,
-  rapid: null,
   // day: null,
 });
 export type ChessGameTimeLimit = io.TypeOf<typeof chessGameTimeLimit>;
@@ -195,6 +203,12 @@ export const chessGameDrawOffer = io.type({
 });
 export type ChessGameDrawOffer = io.TypeOf<typeof chessGameDrawOffer>;
 
+export const gameSpecsRecord = io.type({
+  timeLimit: chessGameTimeLimit,
+  preferredColor: chessPreferredColorOption,
+});
+export type GameSpecsRecord = io.TypeOf<typeof gameSpecsRecord>;
+
 export const chessGameRematchOffer = io.type({
   id: io.string,
   type: io.literal('rematch'),
@@ -205,6 +219,10 @@ export const chessGameRematchOffer = io.type({
     
     // @deprecate in favor of the avove
     by: chessGameColor,
+    gameSpecs: io.union([
+      gameSpecsRecord,
+      io.undefined,
+    ]),
   }),
 });
 export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
@@ -217,6 +235,9 @@ export const capturedPiecesRecord = io.type({
   black: io.record(capturableChessPieceType, io.number),
 });
 export type CapturedPiecesRecord = io.TypeOf<typeof capturedPiecesRecord>;
+
+export const activePiecesRecord = capturedPiecesRecord;
+export type ActivePiecesRecord = io.TypeOf<typeof activePiecesRecord>;
 
 export const chessMove = io.intersection([
   io.type({

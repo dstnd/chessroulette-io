@@ -10,6 +10,18 @@ const playerA: UserInfoRecord = {
   lastName: 'Tal',
   avatarId: '12',
   name: 'Mikhael Tal',
+  isGuest: false,
+  profilePicUrl: '',
+  username: 'mikhael.tal',
+  country: {
+    name: 'Latvia',
+    code: 'LV',
+    languages: ['russian'],
+    flagEmoji: '',
+    flagEmojiU: '',
+    phone: '',
+    currency: '',
+  },
 };
 
 const playerB: UserInfoRecord = {
@@ -18,11 +30,23 @@ const playerB: UserInfoRecord = {
   lastName: 'Botvinik',
   avatarId: '11',
   name: 'Mikhael Botvinik',
+  isGuest: false,
+  profilePicUrl: '',
+  username: 'mikhael.botvinik',
+  country: {
+    name: 'Russia',
+    code: 'RU',
+    languages: ['russian'],
+    flagEmoji: '',
+    flagEmojiU: '',
+    phone: '',
+    currency: '',
+  },
 };
 
 const pendingGame = actions.prepareGame({
   players: [playerA, playerB],
-  timeLimit: 'blitz',
+  timeLimit: 'blitz5',
   preferredColor: 'white',
 }) as ChessGameStatePending;
 
@@ -66,7 +90,7 @@ describe('Invalid Moves', () => {
         black: 300000,
         white: 300000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -123,7 +147,7 @@ describe('Invalid Moves', () => {
         black: 300 * 1000,
         white: 300 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -179,7 +203,7 @@ describe('Invalid Moves', () => {
         black: 300 * 1000,
         white: 300 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -229,7 +253,7 @@ describe('Valid Moves on "started" game', () => {
         black: 300000,
         white: 300000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -292,7 +316,7 @@ describe('Valid Moves on "started" game', () => {
         white: 300000,
         black: 295 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -389,7 +413,7 @@ describe('Valid Moves on "started" game', () => {
         white: 287 * 1000,
         black: 278 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: undefined,
     };
 
@@ -465,7 +489,7 @@ describe('Time Running out', () => {
         white: 0,
         black: 295 * 1000,
       },
-      timeLimit: 'blitz',
+      timeLimit: 'blitz5',
       winner: 'black',
     };
 
