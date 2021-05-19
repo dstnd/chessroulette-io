@@ -33,7 +33,7 @@ export declare const gameChallengeOfferingRequestPayload: io.TypeC<{
         }>;
     }>;
 }>;
-export declare type GameChallengeRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
+export declare type GameChallengeOfferingRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
 export declare const gameChallengeAcceptRequestPayload: io.TypeC<{
     kind: io.LiteralC<"gameChallengeAcceptRequest">;
     content: io.UndefinedC;

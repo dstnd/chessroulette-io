@@ -15,7 +15,7 @@ export const gameChallengeOfferingRequestPayload = io.type({
     gameSpecs: gameSpecsRecord,
   }),
 });
-export type GameChallengeRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
+export type GameChallengeOfferingRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
 
 export const gameChallengeAcceptRequestPayload = io.type({
   kind: io.literal('gameChallengeAcceptRequest'),
