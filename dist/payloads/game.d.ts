@@ -4,6 +4,46 @@ export declare const gameJoinRequestPayload: io.TypeC<{
     content: io.UndefinedC;
 }>;
 export declare type GameJoinRequestPayload = io.TypeOf<typeof gameJoinRequestPayload>;
+export declare const gameChallengeOfferingRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameChallengeOfferingRequest">;
+    content: io.TypeC<{
+        toUserId: io.StringC;
+        gameSpecs: io.TypeC<{
+            timeLimit: io.KeyofC<{
+                bullet30: null;
+                bullet1: null;
+                blitz2: null;
+                blitz3: null;
+                blitz5: null;
+                rapid10: null;
+                rapid15: null;
+                rapid20: null;
+                rapid30: null;
+                rapid45: null;
+                rapid60: null;
+                untimed: null;
+            }>;
+            preferredColor: io.UnionC<[io.KeyofC<{
+                black: null;
+            }>, io.KeyofC<{
+                white: null;
+            }>, io.KeyofC<{
+                random: null;
+            }>]>;
+        }>;
+    }>;
+}>;
+export declare type GameChallengeRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
+export declare const gameChallengeAcceptRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameChallengeAcceptRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameChallengeAcceptRequestPayload = io.TypeOf<typeof gameChallengeAcceptRequestPayload>;
+export declare const gameChallengeDenyRequestPayload: io.TypeC<{
+    kind: io.LiteralC<"gameChallengeDenyRequest">;
+    content: io.UndefinedC;
+}>;
+export declare type GameChallengeDenyRequestPayload = io.TypeOf<typeof gameChallengeDenyRequestPayload>;
 export declare const gameDrawOfferingRequestPayload: io.TypeC<{
     kind: io.LiteralC<"gameDrawOfferingRequest">;
     content: io.UndefinedC;
@@ -422,6 +462,40 @@ export declare const gameActionRequestPayload: io.UnionC<[io.TypeC<{
     content: io.UndefinedC;
 }>, io.TypeC<{
     kind: io.LiteralC<"gameStatusCheckRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameChallengeOfferingRequest">;
+    content: io.TypeC<{
+        toUserId: io.StringC;
+        gameSpecs: io.TypeC<{
+            timeLimit: io.KeyofC<{
+                bullet30: null;
+                bullet1: null;
+                blitz2: null;
+                blitz3: null;
+                blitz5: null;
+                rapid10: null;
+                rapid15: null;
+                rapid20: null;
+                rapid30: null;
+                rapid45: null;
+                rapid60: null;
+                untimed: null;
+            }>;
+            preferredColor: io.UnionC<[io.KeyofC<{
+                black: null;
+            }>, io.KeyofC<{
+                white: null;
+            }>, io.KeyofC<{
+                random: null;
+            }>]>;
+        }>;
+    }>;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameChallengeAcceptRequest">;
+    content: io.UndefinedC;
+}>, io.TypeC<{
+    kind: io.LiteralC<"gameChallengeDenyRequest">;
     content: io.UndefinedC;
 }>]>;
 export declare type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;

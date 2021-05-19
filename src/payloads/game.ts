@@ -8,6 +8,27 @@ export const gameJoinRequestPayload = io.type({
 });
 export type GameJoinRequestPayload = io.TypeOf<typeof gameJoinRequestPayload>;
 
+export const gameChallengeOfferingRequestPayload = io.type({
+  kind: io.literal('gameChallengeOfferingRequest'),
+  content: io.type({
+    toUserId: io.string,
+    gameSpecs: gameSpecsRecord,
+  }),
+});
+export type GameChallengeRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
+
+export const gameChallengeAcceptRequestPayload = io.type({
+  kind: io.literal('gameChallengeAcceptRequest'),
+  content: io.undefined,
+});
+export type GameChallengeAcceptRequestPayload = io.TypeOf<typeof gameChallengeAcceptRequestPayload>;
+
+export const gameChallengeDenyRequestPayload = io.type({
+  kind: io.literal('gameChallengeDenyRequest'),
+  content: io.undefined,
+});
+export type GameChallengeDenyRequestPayload = io.TypeOf<typeof gameChallengeDenyRequestPayload>;
+
 export const gameDrawOfferingRequestPayload = io.type({
   kind: io.literal('gameDrawOfferingRequest'),
   content: io.undefined,
@@ -92,6 +113,9 @@ export const gameActionRequestPayload = io.union([
   gameRematchOfferingRequestPayload,
   gameOfferingCancelRequestPayload,
   gameStatusCheckRequestPayload,
+  gameChallengeOfferingRequestPayload,
+  gameChallengeAcceptRequestPayload,
+  gameChallengeDenyRequestPayload,
 ]);
 
 export type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;

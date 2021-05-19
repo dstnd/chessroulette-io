@@ -196,7 +196,7 @@ export const chessGameDrawOffer = io.type({
     gameId: io.string,
     byUser: userInfoRecord,
     toUser: userInfoRecord,
-    
+
     // @deprecate in favor of the avove
     by: chessGameColor,
   }),
@@ -216,18 +216,30 @@ export const chessGameRematchOffer = io.type({
     gameId: io.string,
     byUser: userInfoRecord,
     toUser: userInfoRecord,
-    
+
     // @deprecate in favor of the avove
     by: chessGameColor,
-    gameSpecs: io.union([
-      gameSpecsRecord,
-      io.undefined,
-    ]),
+    gameSpecs: io.union([gameSpecsRecord, io.undefined]),
   }),
 });
 export type ChessGameRematchOffer = io.TypeOf<typeof chessGameRematchOffer>;
 
-export const chessGameOffer = io.union([chessGameDrawOffer, chessGameRematchOffer]);
+export const chessGameChallengeOffer = io.type({
+  id: io.string,
+  type: io.literal('challenge'),
+  content: io.type({
+    byUser: userInfoRecord,
+    toUser: userInfoRecord,
+    gameSpecs: gameSpecsRecord,
+  }),
+});
+export type ChessGameChallengeOffer = io.TypeOf<typeof chessGameChallengeOffer>;
+
+export const chessGameOffer = io.union([
+  chessGameDrawOffer,
+  chessGameRematchOffer,
+  chessGameChallengeOffer,
+]);
 export type ChessGameOffer = io.TypeOf<typeof chessGameOffer>;
 
 export const capturedPiecesRecord = io.type({

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.chessHistory = exports.chessHistoryMove = exports.chessMove = exports.activePiecesRecord = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameRematchOffer = exports.gameSpecsRecord = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
+exports.chessHistory = exports.chessHistoryMove = exports.chessMove = exports.activePiecesRecord = exports.capturedPiecesRecord = exports.chessGameOffer = exports.chessGameChallengeOffer = exports.chessGameRematchOffer = exports.gameSpecsRecord = exports.chessGameDrawOffer = exports.partialChessPlayersBySide = exports.chessPlayersBySide = exports.chessGameTimeLimit = exports.chessGameStatePgn = exports.chessGameStateFen = exports.chessPreferredColorOption = exports.chessGameColor = exports.chessColorBlack = exports.chessColorWhite = exports.chessPlayers = exports.chessPlayer = exports.chessPlayerBlack = exports.chessPlayerWhite = exports.chessSquare = exports.capturableChessPieceType = exports.promotionalChessPieceType = exports.chessPieceType = void 0;
 var io = require("io-ts");
 var userRecord_1 = require("../../records/userRecord");
 // Taken from chess.js
@@ -180,13 +180,23 @@ exports.chessGameRematchOffer = io.type({
         toUser: userRecord_1.userInfoRecord,
         // @deprecate in favor of the avove
         by: exports.chessGameColor,
-        gameSpecs: io.union([
-            exports.gameSpecsRecord,
-            io.undefined,
-        ]),
+        gameSpecs: io.union([exports.gameSpecsRecord, io.undefined]),
     }),
 });
-exports.chessGameOffer = io.union([exports.chessGameDrawOffer, exports.chessGameRematchOffer]);
+exports.chessGameChallengeOffer = io.type({
+    id: io.string,
+    type: io.literal('challenge'),
+    content: io.type({
+        byUser: userRecord_1.userInfoRecord,
+        toUser: userRecord_1.userInfoRecord,
+        gameSpecs: exports.gameSpecsRecord,
+    }),
+});
+exports.chessGameOffer = io.union([
+    exports.chessGameDrawOffer,
+    exports.chessGameRematchOffer,
+    exports.chessGameChallengeOffer,
+]);
 exports.capturedPiecesRecord = io.type({
     white: io.record(exports.capturableChessPieceType, io.number),
     black: io.record(exports.capturableChessPieceType, io.number),
