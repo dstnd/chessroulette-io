@@ -1,4 +1,5 @@
 import * as io from 'io-ts';
+import { gameRecord } from '../records/gameRecord';
 import { peerRecord } from '../records/peerRecord';
 import { 
   roomRecord,
@@ -51,6 +52,15 @@ export const joinedRoomUpdatedPayload = io.type({
   content: roomRecord,
 });
 export type JoinedRoomUpdatedPayload = io.TypeOf<typeof joinedRoomUpdatedPayload>;
+
+export const joinedRoomAndGameUpdatedPayload = io.type({
+  kind: io.literal('joinedRoomAndGameUpdated'),
+  content: io.type({
+    room: roomRecord,
+    game: gameRecord,
+  }),
+});
+export type JoinedRoomAndGameUpdatedPayload = io.TypeOf<typeof joinedRoomAndGameUpdatedPayload>;
 
 // This is different b/c the client is like a client request
 //  while the others are server responses. 

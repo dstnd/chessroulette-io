@@ -1,8 +1,7 @@
-import * as io from "io-ts";
-import { country } from "./locationRecords";
-// import { lichessUserRecord } from "./lichessRecords";
+import * as io from 'io-ts';
+import { country } from './locationRecords';
 
-export const userInfoRecord = io.type({
+const basicUserInfoRecord = io.type({
   id: io.string,
   firstName: io.string,
   lastName: io.string,
@@ -12,14 +11,26 @@ export const userInfoRecord = io.type({
   // @deprecate in favor of the more explicit first/last name
   name: io.string,
 });
-export type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
 
-// export const userExternalAccountOpts = io.type({
-//   externalAccountType: io.literal('lichess'),
-//   externalAccountId: io.string,
-//   externalAccountInfo: lichessUserRecord,
-// });
-// export type UserExternalAccountOpts = io.TypeOf<typeof userExternalAccountOpts>;
+export const guestUserInfoRecord = io.intersection([
+  basicUserInfoRecord,
+  io.type({
+    isGuest: io.literal(true),
+  }),
+]);
+
+export const registeredUserInfoRecord = io.intersection([
+  basicUserInfoRecord,
+  io.type({
+    isGuest: io.literal(false),
+    profilePicUrl: io.union([io.string, io.undefined]),
+    username: io.string,
+    country: io.union([country, io.undefined]),
+  }),
+]);
+
+export const userInfoRecord = io.union([guestUserInfoRecord, registeredUserInfoRecord]);
+export type UserInfoRecord = io.TypeOf<typeof userInfoRecord>;
 
 export const userExternalAccountRecord = io.type({
   userId: io.union([io.undefined, io.string]),
@@ -35,26 +46,18 @@ export const userExternalAccountByVendorMap = io.type({
 export type UserExternalAccountByVendorMap = io.TypeOf<typeof userExternalAccountByVendorMap>;
 
 export const registeredUserRecord = io.intersection([
-  userInfoRecord,
+  registeredUserInfoRecord,
   io.type({
-    isGuest: io.literal(false),
     email: io.string,
-    profilePicUrl: io.union([io.string, io.undefined]),
     externalAccounts: io.union([io.undefined, userExternalAccountByVendorMap]),
-
-    username: io.string,
-    country: io.union([country, io.undefined]),
   }),
 ]);
 
 export type RegisteredUserRecord = io.TypeOf<typeof registeredUserRecord>;
 
-
 export const guestUserRecord = io.intersection([
-  userInfoRecord,
+  guestUserInfoRecord,
   io.type({
-    isGuest: io.literal(true),
-
     // ServerId - This is needed to be able to maintain stale/fresh guests
     //  when the server flushes the DB
     sid: io.string,

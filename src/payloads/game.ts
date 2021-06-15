@@ -1,12 +1,33 @@
 import * as io from 'io-ts';
 import { gameRecord } from '../records/gameRecord';
-import { chessMove } from '../chessGame';
+import { chessMove, gameSpecsRecord } from '../chessGame';
 
 export const gameJoinRequestPayload = io.type({
   kind: io.literal('gameJoinRequest'),
   content: io.undefined,
 });
 export type GameJoinRequestPayload = io.TypeOf<typeof gameJoinRequestPayload>;
+
+export const gameChallengeOfferingRequestPayload = io.type({
+  kind: io.literal('gameChallengeOfferingRequest'),
+  content: io.type({
+    toUserId: io.string,
+    gameSpecs: gameSpecsRecord,
+  }),
+});
+export type GameChallengeOfferingRequestPayload = io.TypeOf<typeof gameChallengeOfferingRequestPayload>;
+
+export const gameChallengeAcceptRequestPayload = io.type({
+  kind: io.literal('gameChallengeAcceptRequest'),
+  content: io.undefined,
+});
+export type GameChallengeAcceptRequestPayload = io.TypeOf<typeof gameChallengeAcceptRequestPayload>;
+
+export const gameChallengeDenyRequestPayload = io.type({
+  kind: io.literal('gameChallengeDenyRequest'),
+  content: io.undefined,
+});
+export type GameChallengeDenyRequestPayload = io.TypeOf<typeof gameChallengeDenyRequestPayload>;
 
 export const gameDrawOfferingRequestPayload = io.type({
   kind: io.literal('gameDrawOfferingRequest'),
@@ -46,7 +67,12 @@ export type GameMoveRequestPayload = io.TypeOf<typeof gameMoveRequestPayload>;
 
 export const gameRematchOfferingRequestPayload = io.type({
   kind: io.literal('gameRematchOfferingRequest'),
-  content: io.undefined,
+  content: io.union([
+    io.type({
+      gameSpecs: gameSpecsRecord,
+    }),
+    io.undefined,
+  ]),
 });
 export type GameRematchOfferingRequestPayload = io.TypeOf<typeof gameRematchOfferingRequestPayload>;
 
@@ -87,6 +113,9 @@ export const gameActionRequestPayload = io.union([
   gameRematchOfferingRequestPayload,
   gameOfferingCancelRequestPayload,
   gameStatusCheckRequestPayload,
+  gameChallengeOfferingRequestPayload,
+  gameChallengeAcceptRequestPayload,
+  gameChallengeDenyRequestPayload,
 ]);
 
 export type GameActionRequestPayload = io.TypeOf<typeof gameActionRequestPayload>;

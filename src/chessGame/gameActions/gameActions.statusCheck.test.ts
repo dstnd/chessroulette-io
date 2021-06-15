@@ -16,6 +16,18 @@ const playerA: UserInfoRecord = {
   lastName: 'Tal',
   avatarId: '12',
   name: 'Mikhael Tal',
+  isGuest: false,
+  profilePicUrl: '',
+  username: 'mikhael.tal',
+  country: {
+    name: 'Latvia',
+    code: 'LV',
+    languages: ['russian'],
+    flagEmoji: '',
+    flagEmojiU: '',
+    phone: '',
+    currency: '',
+  },
 };
 
 const playerB: UserInfoRecord = {
@@ -24,11 +36,23 @@ const playerB: UserInfoRecord = {
   lastName: 'Botvinik',
   avatarId: '11',
   name: 'Mikhael Botvinik',
+  isGuest: false,
+  profilePicUrl: '',
+  username: 'mikhael.botvinik',
+  country: {
+    name: 'Russia',
+    code: 'RU',
+    languages: ['russian'],
+    flagEmoji: '',
+    flagEmojiU: '',
+    phone: '',
+    currency: '',
+  },
 };
 
 const pendingGame = actions.prepareGame({
   players: [playerA, playerB],
-  timeLimit: 'blitz',
+  timeLimit: 'blitz5',
   preferredColor: 'white',
 });
 
@@ -53,7 +77,7 @@ test('returns the same state for a pending game', () => {
       black: 300000,
       white: 300000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -120,7 +144,7 @@ test('returns the same state for a started game that still has time left', () =>
       white: 300 * 1000,
       black: 285 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: undefined,
   };
 
@@ -185,7 +209,7 @@ test('returns the "finished" state for a started game that does NOT have any tim
       white: 0,
       black: 285 * 1000,
     },
-    timeLimit: 'blitz',
+    timeLimit: 'blitz5',
     winner: 'black',
   };
 

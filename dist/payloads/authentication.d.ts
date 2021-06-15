@@ -243,7 +243,7 @@ export declare type CreateUserAccountResponsePayload = io.TypeOf<typeof createUs
 export declare const guestAuthenticationRequestPayload: io.TypeC<{
     protocol: io.LiteralC<"http">;
     data: io.TypeC<{
-        guestUser: io.UnionC<[io.IntersectionC<[io.TypeC<{
+        guestUser: io.UnionC<[io.IntersectionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -251,6 +251,7 @@ export declare const guestAuthenticationRequestPayload: io.TypeC<{
             name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+        }>]>, io.TypeC<{
             sid: io.StringC;
         }>]>, io.UndefinedC, io.NullC]>;
     }>;
@@ -260,7 +261,7 @@ export declare const guestAuthenticationResponsePayload: io.TypeC<{
     protocol: io.LiteralC<"http">;
     ok: io.LiteralC<true>;
     data: io.TypeC<{
-        guest: io.IntersectionC<[io.TypeC<{
+        guest: io.IntersectionC<[io.IntersectionC<[io.TypeC<{
             id: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
@@ -268,6 +269,7 @@ export declare const guestAuthenticationResponsePayload: io.TypeC<{
             name: io.StringC;
         }>, io.TypeC<{
             isGuest: io.LiteralC<true>;
+        }>]>, io.TypeC<{
             sid: io.StringC;
         }>]>;
     }>;

@@ -1,15 +1,12 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.quickPairingRecord = exports.challengeRecord = exports.privateChallengeRecord = exports.publicChallengeRecord = exports.baseChallengeRecord = exports.gameSpecsRecord = void 0;
+exports.quickPairingRecord = exports.challengeRecord = exports.privateChallengeRecord = exports.publicChallengeRecord = exports.baseChallengeRecord = void 0;
 var io = require("io-ts");
 var io_ts_isodatetime_1 = require("io-ts-isodatetime");
 var ChessGame = require("../chessGame");
-exports.gameSpecsRecord = io.type({
-    timeLimit: ChessGame.chessGameTimeLimit,
-    preferredColor: ChessGame.chessPreferredColorOption,
-});
+var chessGame_1 = require("../chessGame");
 exports.baseChallengeRecord = io.type({
-    gameSpecs: exports.gameSpecsRecord,
+    gameSpecs: ChessGame.gameSpecsRecord,
     id: io.string,
     createdBy: io.string,
     createdAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
@@ -32,7 +29,7 @@ exports.challengeRecord = io.union([
     exports.privateChallengeRecord,
 ]);
 exports.quickPairingRecord = io.type({
-    gameSpecs: exports.gameSpecsRecord,
+    gameSpecs: chessGame_1.gameSpecsRecord,
     createdBy: io.string,
     createdAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
     slug: io.string,
