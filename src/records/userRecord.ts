@@ -1,5 +1,5 @@
-import * as io from "io-ts";
-import { country } from "./locationRecords";
+import * as io from 'io-ts';
+import { country } from './locationRecords';
 // import { lichessUserRecord } from "./lichessRecords";
 
 export const userInfoRecord = io.type({
@@ -30,6 +30,7 @@ export type UserExternalAccountRecord = io.TypeOf<typeof userExternalAccountReco
 export const userExternalAccountByVendorMap = io.type({
   facebook: io.union([io.undefined, userExternalAccountRecord]),
   lichess: io.union([io.undefined, userExternalAccountRecord]),
+  twitch: io.union([io.undefined, userExternalAccountRecord]),
 });
 
 export type UserExternalAccountByVendorMap = io.TypeOf<typeof userExternalAccountByVendorMap>;
@@ -48,7 +49,6 @@ export const registeredUserRecord = io.intersection([
 ]);
 
 export type RegisteredUserRecord = io.TypeOf<typeof registeredUserRecord>;
-
 
 export const guestUserRecord = io.intersection([
   userInfoRecord,
