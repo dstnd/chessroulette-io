@@ -6,7 +6,13 @@ import * as ChessB from 'chess.js';
 const ChessConstructor = ChessA || ChessB;
 
 export const getNewChessGame = (pgn?: string) => {
-  return new ChessConstructor(pgn) as ChessInstance;
+  const instance = new ChessConstructor() as ChessInstance;
+
+  if (pgn) {
+    instance.load_pgn(pgn);
+  }
+
+  return instance;
 };
 
 export type { ChessInstance } from 'chess.js';

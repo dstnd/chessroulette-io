@@ -1,6 +1,7 @@
 import * as io from 'io-ts';
 import { roomRecord } from '../records/roomRecord';
-import { challengeRecord, gameSpecsRecord } from '../records/challengeRecord';
+import { challengeRecord } from '../records/challengeRecord';
+import { gameSpecsRecord } from '../chessGame';
 
 // HTTP
 

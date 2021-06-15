@@ -4,9 +4,10 @@ exports.challengeAcceptedPayload = exports.quickPairingResponse = exports.quickP
 var io = require("io-ts");
 var roomRecord_1 = require("../records/roomRecord");
 var challengeRecord_1 = require("../records/challengeRecord");
+var chessGame_1 = require("../chessGame");
 // HTTP
 exports.baseCreateChallengeRequest = io.type({
-    gameSpecs: challengeRecord_1.gameSpecsRecord,
+    gameSpecs: chessGame_1.gameSpecsRecord,
     userId: io.string,
 });
 exports.createPublicChallengeRequest = io.intersection([
@@ -38,7 +39,7 @@ exports.acceptChallengeRequest = io.type({
 });
 exports.quickPairingRequest = io.type({
     userId: io.string,
-    gameSpecs: challengeRecord_1.gameSpecsRecord,
+    gameSpecs: chessGame_1.gameSpecsRecord,
 });
 exports.quickPairingMatchedResponse = io.type({
     matched: io.literal(true),

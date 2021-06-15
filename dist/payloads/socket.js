@@ -92,14 +92,16 @@ exports.socketPayload = io.union([
     room_1.joinRoomSuccessPayload,
     room_1.joinRoomFailurePayload,
     room_1.leaveRoomRequestPayload,
+    room_1.joinedRoomUpdatedPayload,
     // Chat
     chat_1.broadcastChatMessagePayload,
     // Game Actions
     game_1.gameActionRequestPayload,
     game_1.joinedGameUpdatedPayload,
+    // Room & Game
+    room_1.joinedRoomAndGameUpdatedPayload,
     // Stats
     stats_1.statsSocketPayload,
     peer_1.myStatsPayload,
-    room_1.joinedRoomUpdatedPayload,
 ]);
 //# sourceMappingURL=socket.js.map

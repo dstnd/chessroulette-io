@@ -1,4 +1,4 @@
-import { chessHistoryToSimplePgn } from './util';
+import { chessHistoryToSimplePgn, getActivePieces, simplePGNtoMoves } from './util';
 
 export const hours = (int: number) => int * minutes(60);
 export const minutes = (int: number) => int * seconds(60);
@@ -102,5 +102,52 @@ describe('chessHistoryToSimplePgn', () => {
     const expected = '1. e4 f6 2. d4 g5 3. Qh5#';
 
     expect(actual).toBe(expected);
+  });
+});
+
+describe('getCapturedPiecesFromPgn', () => {
+  const initialActivePieces = {
+    white: { p: 8, n: 2, b: 2, r: 2, q: 1 },
+    black: { p: 8, n: 2, b: 2, r: 2, q: 1 },
+  };
+
+  test('No captures/No Promotions', () => {
+    const actual = getActivePieces([]);
+
+    const expected = initialActivePieces;
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('One Captured Pawn', () => {
+    const actual = getActivePieces(simplePGNtoMoves('1. e4 d5 2. exd5'));
+
+    const expected = {
+      ...initialActivePieces,
+      black: {
+        ...initialActivePieces.black,
+        p: initialActivePieces.white.p - 1,
+      }
+    };
+
+    expect(actual).toEqual(expected);
+  });
+
+  test('Captures and Promotions', () => {
+    const actual = getActivePieces(simplePGNtoMoves('1. e4 d5 2. exd5 Nf6 3. d6 e5 4. d7+ Ke7 5. dxc8=Q'));
+
+    const expected = {
+      white: {
+        ...initialActivePieces.white,
+        q: initialActivePieces.white.q + 1,
+      },
+      black: {
+        ...initialActivePieces.black,
+        p: initialActivePieces.white.p - 1,
+        b: initialActivePieces.white.b - 1,
+      }
+    };
+
+    expect(actual).toEqual(expected);
   });
 });
