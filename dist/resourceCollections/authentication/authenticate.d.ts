@@ -10,6 +10,7 @@ export declare namespace Authenticate {
         vendor: io.KeyofC<{
             facebook: null;
             lichess: null;
+            twitch: null;
         }>;
         accessToken: io.StringC;
     }>]>, io.UnionC<[io.TypeC<{
@@ -19,6 +20,7 @@ export declare namespace Authenticate {
             vendor: io.KeyofC<{
                 facebook: null;
                 lichess: null;
+                twitch: null;
             }>;
             user: io.UnionC<[io.TypeC<{
                 email: io.StringC;
@@ -56,6 +58,12 @@ export declare namespace Authenticate {
                 firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
                 lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
                 name: io.UnionC<[io.StringC, io.UndefinedC]>;
+            }>, io.TypeC<{
+                id: io.StringC;
+                email: io.StringC;
+                firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
+                lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
+                name: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>]>;
         }>]>;
     }>, io.TypeC<{
@@ -67,6 +75,7 @@ export declare namespace Authenticate {
         vendor: io.KeyofC<{
             facebook: null;
             lichess: null;
+            twitch: null;
         }>;
     }>]>, io.TypeC<{
         type: io.LiteralC<"VerificationFailed">;
@@ -77,13 +86,13 @@ export declare namespace Authenticate {
         verificationCode: string;
     } | {
         type: "external";
-        vendor: "facebook" | "lichess";
+        vendor: "facebook" | "lichess" | "twitch";
         accessToken: string;
     }, {
         status: "InexistentUser";
         verificationToken: string;
         external: {
-            vendor: "facebook" | "lichess";
+            vendor: "facebook" | "lichess" | "twitch";
             user: {
                 email: string;
                 id: string;
@@ -120,6 +129,12 @@ export declare namespace Authenticate {
                 firstName: string | undefined;
                 lastName: string | undefined;
                 name: string | undefined;
+            } | {
+                id: string;
+                email: string;
+                firstName: string | undefined;
+                lastName: string | undefined;
+                name: string | undefined;
             };
         } | undefined;
     } | {
@@ -128,7 +143,7 @@ export declare namespace Authenticate {
     } | {
         status: "InexistentExternalUserMatchesExistentUser:Email";
         email: string;
-        vendor: "facebook" | "lichess";
+        vendor: "facebook" | "lichess" | "twitch";
     }, {
         type: "VerificationFailed";
         content: undefined;
