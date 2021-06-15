@@ -1,4 +1,4 @@
-import * as io from "io-ts";
+import * as io from 'io-ts';
 export declare const userInfoRecord: io.TypeC<{
     id: io.StringC;
     firstName: io.StringC;
@@ -18,6 +18,9 @@ export declare const userExternalAccountByVendorMap: io.TypeC<{
     lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
     }>]>;
+    twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+    }>]>;
 }>;
 export declare type UserExternalAccountByVendorMap = io.TypeOf<typeof userExternalAccountByVendorMap>;
 export declare const registeredUserRecord: io.IntersectionC<[io.TypeC<{
@@ -35,6 +38,9 @@ export declare const registeredUserRecord: io.IntersectionC<[io.TypeC<{
             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
         }>]>;
         lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+        }>]>;
+        twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
         }>]>;
     }>]>;
@@ -327,6 +333,9 @@ export declare const userRecord: io.UnionC<[io.IntersectionC<[io.TypeC<{
             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
         }>]>;
         lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+        }>]>;
+        twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
         }>]>;
     }>]>;

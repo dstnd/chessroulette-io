@@ -90,6 +90,9 @@ export declare const roomRecord: io.IntersectionC<[io.TypeC<{
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
             }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
@@ -443,6 +446,9 @@ export declare const publicRoomRecord: io.IntersectionC<[io.IntersectionC<[io.Ty
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
@@ -802,6 +808,9 @@ export declare const privateRoomRecord: io.IntersectionC<[io.IntersectionC<[io.T
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
             }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
@@ -1157,6 +1166,9 @@ export declare const roomWithPlayActivityRecord: io.IntersectionC<[io.Intersecti
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
@@ -1537,6 +1549,9 @@ export declare const roomWithNoActivityRecord: io.IntersectionC<[io.Intersection
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;

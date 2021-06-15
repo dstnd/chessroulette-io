@@ -2,6 +2,7 @@ import * as io from 'io-ts';
 export declare const externalVendor: io.KeyofC<{
     facebook: null;
     lichess: null;
+    twitch: null;
 }>;
 export declare type ExternalVendor = io.TypeOf<typeof externalVendor>;
 export declare const userCheckInternalAccountRequestPayload: io.TypeC<{
@@ -20,6 +21,7 @@ export declare const userCheckExternalAccountRequestPayload: io.TypeC<{
         vendor: io.KeyofC<{
             facebook: null;
             lichess: null;
+            twitch: null;
         }>;
         accessToken: io.StringC;
     }>;
@@ -39,6 +41,7 @@ export declare const userCheckRequestPayload: io.UnionC<[io.TypeC<{
         vendor: io.KeyofC<{
             facebook: null;
             lichess: null;
+            twitch: null;
         }>;
         accessToken: io.StringC;
     }>;
@@ -61,6 +64,7 @@ export declare const userCheckInexitentUserResponsePayloadData: io.TypeC<{
         vendor: io.KeyofC<{
             facebook: null;
             lichess: null;
+            twitch: null;
         }>;
         user: io.UnionC<[io.TypeC<{
             email: io.StringC;
@@ -98,6 +102,12 @@ export declare const userCheckInexitentUserResponsePayloadData: io.TypeC<{
             firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
             lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
             name: io.UnionC<[io.StringC, io.UndefinedC]>;
+        }>, io.TypeC<{
+            id: io.StringC;
+            email: io.StringC;
+            firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
+            lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
+            name: io.UnionC<[io.StringC, io.UndefinedC]>;
         }>]>;
     }>]>;
 }>;
@@ -116,6 +126,7 @@ export declare const userCheckResponsePayload: io.UnionC<[io.TypeC<{
             vendor: io.KeyofC<{
                 facebook: null;
                 lichess: null;
+                twitch: null;
             }>;
             user: io.UnionC<[io.TypeC<{
                 email: io.StringC;
@@ -147,6 +158,12 @@ export declare const userCheckResponsePayload: io.UnionC<[io.TypeC<{
                         rating: io.NumberC;
                     }>;
                 }>;
+            }>, io.TypeC<{
+                id: io.StringC;
+                email: io.StringC;
+                firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
+                lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
+                name: io.UnionC<[io.StringC, io.UndefinedC]>;
             }>, io.TypeC<{
                 id: io.StringC;
                 email: io.StringC;
@@ -205,6 +222,7 @@ export declare const createUserAccountRequestPayload: io.TypeC<{
             vendor: io.KeyofC<{
                 facebook: null;
                 lichess: null;
+                twitch: null;
             }>;
             accessToken: io.StringC;
         }>]>;
@@ -230,6 +248,7 @@ export declare const createUserAccountResponsePayload: io.UnionC<[io.TypeC<{
                 vendor: io.KeyofC<{
                     facebook: null;
                     lichess: null;
+                    twitch: null;
                 }>;
                 accessToken: io.StringC;
             }>]>;

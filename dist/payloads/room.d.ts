@@ -37,6 +37,9 @@ export declare const createRoomResponse: io.IntersectionC<[io.TypeC<{
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
             }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
@@ -390,6 +393,9 @@ export declare const publicRoomResponsePayload: io.IntersectionC<[io.Intersectio
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
@@ -749,6 +755,9 @@ export declare const privateRoomResponsePayload: io.IntersectionC<[io.Intersecti
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
             }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
@@ -1104,6 +1113,9 @@ export declare const publicRoomsResponsePayload: io.ArrayC<io.IntersectionC<[io.
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;
@@ -1463,6 +1475,9 @@ export declare const roomResponsePayload: io.IntersectionC<[io.TypeC<{
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
             }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
@@ -1818,6 +1833,9 @@ export declare const joinedRoomUpdatedPayload: io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                     lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                 }>]>;
@@ -2187,6 +2205,9 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                             userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                         }>]>;
+                        twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                            userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                        }>]>;
                     }>]>;
                     username: io.StringC;
                     country: io.UnionC<[io.TypeC<{
@@ -2533,6 +2554,9 @@ export declare const joinRoomSuccessPayload: io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                     lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                        userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                    }>]>;
+                    twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                         userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                     }>]>;
                 }>]>;

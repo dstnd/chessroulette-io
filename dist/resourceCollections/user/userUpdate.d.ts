@@ -273,6 +273,9 @@ export declare namespace UserUpdate {
             lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                 userId: io.UnionC<[io.UndefinedC, io.StringC]>;
             }>]>;
+            twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+            }>]>;
         }>]>;
         username: io.StringC;
         country: io.UnionC<[io.TypeC<{
@@ -557,6 +560,9 @@ export declare namespace UserUpdate {
                 userId: string | undefined;
             } | undefined;
             lichess: {
+                userId: string | undefined;
+            } | undefined;
+            twitch: {
                 userId: string | undefined;
             } | undefined;
         } | undefined;

@@ -17,6 +17,9 @@ export declare namespace GetUser {
             lichess: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
                 userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
             }>]>;
+            twitch: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+                userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
+            }>]>;
         }>]>;
         username: import("io-ts").StringC;
         country: import("io-ts").UnionC<[import("io-ts").TypeC<{
@@ -295,6 +298,9 @@ export declare namespace GetUser {
                 userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
             }>]>;
             lichess: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
+                userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
+            }>]>;
+            twitch: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").TypeC<{
                 userId: import("io-ts").UnionC<[import("io-ts").UndefinedC, import("io-ts").StringC]>;
             }>]>;
         }>]>;
@@ -577,6 +583,9 @@ export declare namespace GetUser {
                 userId: string | undefined;
             } | undefined;
             lichess: {
+                userId: string | undefined;
+            } | undefined;
+            twitch: {
                 userId: string | undefined;
             } | undefined;
         } | undefined;

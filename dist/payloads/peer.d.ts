@@ -22,6 +22,9 @@ export declare const registerPeerResponsePayload: io.IntersectionC<[io.TypeC<{
             lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                 userId: io.UnionC<[io.UndefinedC, io.StringC]>;
             }>]>;
+            twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+            }>]>;
         }>]>;
         username: io.StringC;
         country: io.UnionC<[io.TypeC<{
@@ -323,6 +326,9 @@ export declare const myStatsPayload: io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
             }>]>;

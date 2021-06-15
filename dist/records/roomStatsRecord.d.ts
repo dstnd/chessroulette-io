@@ -24,6 +24,9 @@ export declare const roomStatsRecord: io.IntersectionC<[io.IntersectionC<[io.Typ
                 lichess: io.UnionC<[io.UndefinedC, io.TypeC<{
                     userId: io.UnionC<[io.UndefinedC, io.StringC]>;
                 }>]>;
+                twitch: io.UnionC<[io.UndefinedC, io.TypeC<{
+                    userId: io.UnionC<[io.UndefinedC, io.StringC]>;
+                }>]>;
             }>]>;
             username: io.StringC;
             country: io.UnionC<[io.TypeC<{
