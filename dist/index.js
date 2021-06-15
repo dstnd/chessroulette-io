@@ -14,6 +14,8 @@ exports.Resources = exports.metadata = void 0;
 __exportStar(require("./records/userRecord"), exports);
 __exportStar(require("./records/roomStatsRecord"), exports);
 __exportStar(require("./records/peerRecord"), exports);
+__exportStar(require("./records/facebookRecords"), exports);
+__exportStar(require("./records/twitchRecords"), exports);
 __exportStar(require("./records/lichessRecords"), exports);
 __exportStar(require("./records/roomRecord"), exports);
 __exportStar(require("./records/challengeRecord"), exports);

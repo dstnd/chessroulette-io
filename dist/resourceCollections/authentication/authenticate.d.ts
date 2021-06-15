@@ -94,6 +94,18 @@ export declare namespace Authenticate {
         external: {
             vendor: "facebook" | "lichess" | "twitch";
             user: {
+                id: string;
+                email: string;
+                firstName: string | undefined;
+                lastName: string | undefined;
+                name: string | undefined;
+            } | {
+                id: string;
+                email: string;
+                firstName: string | undefined;
+                lastName: string | undefined;
+                name: string | undefined;
+            } | {
                 email: string;
                 id: string;
                 username: string;
@@ -123,18 +135,6 @@ export declare namespace Authenticate {
                         rating: number;
                     } | undefined;
                 };
-            } | {
-                id: string;
-                email: string;
-                firstName: string | undefined;
-                lastName: string | undefined;
-                name: string | undefined;
-            } | {
-                id: string;
-                email: string;
-                firstName: string | undefined;
-                lastName: string | undefined;
-                name: string | undefined;
             };
         } | undefined;
     } | {
