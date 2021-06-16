@@ -1,4 +1,8 @@
 import * as io from 'io-ts';
+export declare const twitchAuthenticationRedirectUrlResponsePayload: io.TypeC<{
+    redirectUrl: io.StringC;
+}>;
+export declare type TwitchAuthenticationRedirectUrlPayload = io.TypeOf<typeof twitchAuthenticationRedirectUrlResponsePayload>;
 export declare const verifyTwitchUserRequestPayload: io.TypeC<{
     token: io.StringC;
 }>;
@@ -12,4 +16,4 @@ export declare const verifyTwitchUserResponsePayload: io.TypeC<{
         name: io.UnionC<[io.StringC, io.UndefinedC]>;
     }>;
 }>;
-export declare type VerifyLichessUserResponsePayload = io.TypeOf<typeof verifyTwitchUserResponsePayload>;
+export declare type VerifyTwitchUserResponsePayload = io.TypeOf<typeof verifyTwitchUserResponsePayload>;
