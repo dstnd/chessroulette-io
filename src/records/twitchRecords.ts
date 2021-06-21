@@ -1,11 +1,12 @@
 import * as io from 'io-ts';
+import { isoDateTimeFromIsoString } from 'io-ts-isodatetime';
 
 export const twitchUserRecord = io.type({
   id: io.string,
   email: io.string,
-  firstName: io.union([io.string, io.undefined]),
-  lastName: io.union([io.string, io.undefined]),
-  name: io.union([io.string, io.undefined]),
+  display_name: io.string,
+  profile_image_url: io.string,
+  created_at: isoDateTimeFromIsoString,
 });
 
 export type TwitchUserRecord = io.TypeOf<typeof twitchUserRecord>;
