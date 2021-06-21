@@ -6,7 +6,7 @@ export const twitchUserRecord = io.type({
   email: io.string,
   display_name: io.string,
   profile_image_url: io.string,
-  created_at: isoDateTimeFromIsoString,
+  //created_at: isoDateTimeFromIsoString,
 });
 
 export type TwitchUserRecord = io.TypeOf<typeof twitchUserRecord>;
