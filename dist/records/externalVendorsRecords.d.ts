@@ -29,20 +29,17 @@ export declare const externalUserRecord: io.UnionC<[io.TypeC<{
             rating: io.NumberC;
         }>;
     }>;
-    vendor: io.LiteralC<"lichess">;
 }>, io.TypeC<{
     id: io.StringC;
     email: io.StringC;
     firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
     lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
     name: io.UnionC<[io.StringC, io.UndefinedC]>;
-    vendor: io.LiteralC<"facebook">;
 }>, io.TypeC<{
     id: io.StringC;
     email: io.StringC;
     display_name: io.StringC;
     profile_image_url: io.StringC;
     created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-    vendor: io.LiteralC<"twitch">;
 }>]>;
 export declare type ExternalUserRecord = io.TypeOf<typeof externalUserRecord>;

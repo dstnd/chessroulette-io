@@ -5,6 +5,5 @@ export declare const twitchUserRecord: io.TypeC<{
     display_name: io.StringC;
     profile_image_url: io.StringC;
     created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-    vendor: io.LiteralC<"twitch">;
 }>;
 export declare type TwitchUserRecord = io.TypeOf<typeof twitchUserRecord>;

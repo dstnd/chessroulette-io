@@ -52,21 +52,18 @@ export declare namespace Authenticate {
                         rating: io.NumberC;
                     }>;
                 }>;
-                vendor: io.LiteralC<"lichess">;
             }>, io.TypeC<{
                 id: io.StringC;
                 email: io.StringC;
                 firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
                 lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
                 name: io.UnionC<[io.StringC, io.UndefinedC]>;
-                vendor: io.LiteralC<"facebook">;
             }>, io.TypeC<{
                 id: io.StringC;
                 email: io.StringC;
                 display_name: io.StringC;
                 profile_image_url: io.StringC;
                 created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-                vendor: io.LiteralC<"twitch">;
             }>]>;
         }>]>;
     }>, io.TypeC<{
@@ -89,27 +86,25 @@ export declare namespace Authenticate {
         verificationCode: string;
     } | {
         type: "external";
-        vendor: "facebook" | "twitch" | "lichess";
+        vendor: "facebook" | "lichess" | "twitch";
         accessToken: string;
     }, {
         status: "InexistentUser";
         verificationToken: string;
         external: {
-            vendor: "facebook" | "twitch" | "lichess";
+            vendor: "facebook" | "lichess" | "twitch";
             user: {
                 id: string;
                 email: string;
                 firstName: string | undefined;
                 lastName: string | undefined;
                 name: string | undefined;
-                vendor: "facebook";
             } | {
                 id: string;
                 email: string;
                 display_name: string;
                 profile_image_url: string;
                 created_at: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
-                vendor: "twitch";
             } | {
                 email: string;
                 id: string;
@@ -140,7 +135,6 @@ export declare namespace Authenticate {
                         rating: number;
                     } | undefined;
                 };
-                vendor: "lichess";
             };
         } | undefined;
     } | {
@@ -149,7 +143,7 @@ export declare namespace Authenticate {
     } | {
         status: "InexistentExternalUserMatchesExistentUser:Email";
         email: string;
-        vendor: "facebook" | "twitch" | "lichess";
+        vendor: "facebook" | "lichess" | "twitch";
     }, {
         type: "VerificationFailed";
         content: undefined;

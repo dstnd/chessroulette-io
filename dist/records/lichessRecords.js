@@ -19,6 +19,5 @@ exports.lichessUserRecord = io.type({
         puzzle: exports.lichessRatingRecord,
         rapid: exports.lichessRatingRecord,
     }),
-    vendor: io.literal('lichess'),
 });
 //# sourceMappingURL=lichessRecords.js.map

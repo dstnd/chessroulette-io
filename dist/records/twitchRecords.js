@@ -9,6 +9,5 @@ exports.twitchUserRecord = io.type({
     display_name: io.string,
     profile_image_url: io.string,
     created_at: io_ts_isodatetime_1.isoDateTimeFromIsoString,
-    vendor: io.literal('twitch'),
 });
 //# sourceMappingURL=twitchRecords.js.map

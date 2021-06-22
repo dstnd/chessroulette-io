@@ -5,6 +5,5 @@ export declare const facebookUserRecord: io.TypeC<{
     firstName: io.UnionC<[io.StringC, io.UndefinedC]>;
     lastName: io.UnionC<[io.StringC, io.UndefinedC]>;
     name: io.UnionC<[io.StringC, io.UndefinedC]>;
-    vendor: io.LiteralC<"facebook">;
 }>;
 export declare type FacebookUserRecord = io.TypeOf<typeof facebookUserRecord>;
