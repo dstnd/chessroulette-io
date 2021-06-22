@@ -12,3 +12,4 @@ export * from './stats';
 export * from './challenge';
 export * from './chat';
 export * from './authentication';
+export * from './vendors';
