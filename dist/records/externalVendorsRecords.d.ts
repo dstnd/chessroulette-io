@@ -40,5 +40,6 @@ export declare const externalUserRecord: io.UnionC<[io.TypeC<{
     email: io.StringC;
     display_name: io.StringC;
     profile_image_url: io.StringC;
+    created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
 }>]>;
 export declare type ExternalUserRecord = io.TypeOf<typeof externalUserRecord>;

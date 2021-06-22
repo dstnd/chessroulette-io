@@ -56,6 +56,7 @@ var createUserAccountModel = http_1.formModel({
     email: io.string,
     firstName: io.string,
     lastName: io.string,
+    username: io.string,
     external: io.union([
         io.undefined,
         io.type({

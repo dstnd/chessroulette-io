@@ -107,6 +107,7 @@ export declare const userCheckInexitentUserResponsePayloadData: io.TypeC<{
             email: io.StringC;
             display_name: io.StringC;
             profile_image_url: io.StringC;
+            created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         }>]>;
     }>]>;
 }>;
@@ -168,6 +169,7 @@ export declare const userCheckResponsePayload: io.UnionC<[io.TypeC<{
                 email: io.StringC;
                 display_name: io.StringC;
                 profile_image_url: io.StringC;
+                created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             }>]>;
         }>]>;
     }>, io.TypeC<{
@@ -216,6 +218,7 @@ export declare const createUserAccountRequestPayload: io.TypeC<{
         email: io.StringC;
         firstName: io.StringC;
         lastName: io.StringC;
+        username: io.StringC;
         external: io.UnionC<[io.UndefinedC, io.TypeC<{
             vendor: io.KeyofC<{
                 facebook: null;
@@ -242,6 +245,7 @@ export declare const createUserAccountResponsePayload: io.UnionC<[io.TypeC<{
             email: io.StringC;
             firstName: io.StringC;
             lastName: io.StringC;
+            username: io.StringC;
             external: io.UnionC<[io.UndefinedC, io.TypeC<{
                 vendor: io.KeyofC<{
                     facebook: null;

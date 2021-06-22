@@ -63,6 +63,7 @@ export declare namespace Authenticate {
                 email: io.StringC;
                 display_name: io.StringC;
                 profile_image_url: io.StringC;
+                created_at: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             }>]>;
         }>]>;
     }>, io.TypeC<{
@@ -103,6 +104,7 @@ export declare namespace Authenticate {
                 email: string;
                 display_name: string;
                 profile_image_url: string;
+                created_at: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
             } | {
                 email: string;
                 id: string;
