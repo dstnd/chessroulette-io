@@ -38,6 +38,7 @@ export declare const verifyLichessUserResponsePayload: io.TypeC<{
                 rating: io.NumberC;
             }>;
         }>;
+        vendor: io.LiteralC<"lichess">;
     }>;
 }>;
 export declare type VerifyLichessUserResponsePayload = io.TypeOf<typeof verifyLichessUserResponsePayload>;

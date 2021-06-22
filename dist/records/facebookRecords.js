@@ -8,5 +8,6 @@ exports.facebookUserRecord = io.type({
     firstName: io.union([io.string, io.undefined]),
     lastName: io.union([io.string, io.undefined]),
     name: io.union([io.string, io.undefined]),
+    vendor: io.literal('facebook'),
 });
 //# sourceMappingURL=facebookRecords.js.map

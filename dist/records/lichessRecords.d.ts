@@ -34,5 +34,6 @@ export declare const lichessUserRecord: io.TypeC<{
             rating: io.NumberC;
         }>;
     }>;
+    vendor: io.LiteralC<"lichess">;
 }>;
 export declare type LichessUserRecord = io.TypeOf<typeof lichessUserRecord>;

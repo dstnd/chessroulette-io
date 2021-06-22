@@ -25,6 +25,7 @@ export const lichessUserRecord = io.type({
     puzzle: lichessRatingRecord,
     rapid: lichessRatingRecord,
   }),
+  vendor: io.literal('lichess'),
 });
 
 export type LichessUserRecord = io.TypeOf<typeof lichessUserRecord>;

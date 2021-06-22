@@ -6,5 +6,6 @@ export const facebookUserRecord = io.type({
   firstName: io.union([io.string, io.undefined]),
   lastName: io.union([io.string, io.undefined]),
   name: io.union([io.string, io.undefined]),
+  vendor: io.literal('facebook'),
 });
 export type FacebookUserRecord = io.TypeOf<typeof facebookUserRecord>;
