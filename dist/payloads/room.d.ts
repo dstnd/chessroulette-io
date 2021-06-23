@@ -24440,6 +24440,10 @@ export declare const joinedRoomAndGameUpdatedPayload: io.TypeC<{
             id: io.StringC;
             createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            _guestGame: io.TypeC<{
+                mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
+                colorAssignment: io.ArrayC<io.StringC>;
+            }>;
         }>]>;
     }>;
 }>;

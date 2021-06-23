@@ -7912,6 +7912,10 @@ export declare namespace GetMyGames {
         id: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        _guestGame: io.TypeC<{
+            mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
+            colorAssignment: io.ArrayC<io.StringC>;
+        }>;
     }>]>>, io.TypeC<{
         type: io.LiteralC<"BadRequestError">;
         content: io.UndefinedC;
@@ -8054,6 +8058,10 @@ export declare namespace GetMyGames {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        _guestGame: {
+            mode: "userVsGuest" | "guestVsGuest";
+            colorAssignment: string[];
+        };
     }) | ({
         state: "neverStarted";
         timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
@@ -8193,6 +8201,10 @@ export declare namespace GetMyGames {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        _guestGame: {
+            mode: "userVsGuest" | "guestVsGuest";
+            colorAssignment: string[];
+        };
     }) | ({
         timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
         state: "started";
@@ -8341,6 +8353,10 @@ export declare namespace GetMyGames {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        _guestGame: {
+            mode: "userVsGuest" | "guestVsGuest";
+            colorAssignment: string[];
+        };
     }) | ({
         state: "finished";
         timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
@@ -8489,6 +8505,10 @@ export declare namespace GetMyGames {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        _guestGame: {
+            mode: "userVsGuest" | "guestVsGuest";
+            colorAssignment: string[];
+        };
     }) | ({
         state: "stopped";
         timeLimit: "bullet30" | "bullet1" | "blitz2" | "blitz3" | "blitz5" | "rapid10" | "rapid15" | "rapid20" | "rapid30" | "rapid45" | "rapid60" | "untimed";
@@ -8637,6 +8657,10 @@ export declare namespace GetMyGames {
         id: string;
         createdAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
         updatedAt: import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand;
+        _guestGame: {
+            mode: "userVsGuest" | "guestVsGuest";
+            colorAssignment: string[];
+        };
     }))[], {
         type: "BadRequestError";
         content: undefined;
