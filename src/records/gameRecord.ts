@@ -16,10 +16,13 @@ export const gameRecord = io.intersection([
     id: io.string,
     createdAt: isoDateTimeFromIsoString,
     updatedAt: isoDateTimeFromIsoString,
-    _guestGame: io.type({
-      mode: io.union([io.literal('userVsGuest'), io.literal('guestVsGuest')]),
-      colorAssignment: io.array(io.string),
-    }),
+    _guestGame: io.union([
+      io.type({
+        mode: io.union([io.literal('userVsGuest'), io.literal('guestVsGuest')]),
+        colorAssignment: io.array(io.string),
+      }),
+      io.null,
+    ]),
   }),
 ]);
 

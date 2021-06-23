@@ -8412,10 +8412,10 @@ export declare const joinedGameUpdatedPayload: io.TypeC<{
         id: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-        _guestGame: io.TypeC<{
+        _guestGame: io.UnionC<[io.TypeC<{
             mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
             colorAssignment: io.ArrayC<io.StringC>;
-        }>;
+        }>, io.NullC]>;
     }>]>;
 }>;
 export declare type JoinedGameUpdatedPayload = io.TypeOf<typeof joinedGameUpdatedPayload>;
