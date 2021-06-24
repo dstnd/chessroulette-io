@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.GetCollaboratorsByPlatform = void 0;
 var io = require("io-ts");
-var resource_1 = require("../../sdk/resource");
-var collaboratorRecord_1 = require("src/records/collaboratorRecord");
 var NumberFromString_1 = require("io-ts-types/lib/NumberFromString");
+var resource_1 = require("../../sdk/resource");
+var collaboratorRecord_1 = require("../../records/collaboratorRecord");
 var GetCollaboratorsByPlatform;
 (function (GetCollaboratorsByPlatform) {
     var request = io.type({

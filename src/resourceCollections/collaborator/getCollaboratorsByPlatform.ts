@@ -1,7 +1,7 @@
 import * as io from 'io-ts';
-import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf, withPaginatorResponse } from '../../sdk/resource';
-import { collaboratorPlatform, collaboratorRecord } from 'src/records/collaboratorRecord';
 import { NumberFromString } from 'io-ts-types/lib/NumberFromString';
+import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf, withPaginatorResponse } from '../../sdk/resource';
+import { collaboratorPlatform, collaboratorRecord } from '../../records/collaboratorRecord';
 
 export namespace GetCollaboratorsByPlatform {
   const request = io.type({
