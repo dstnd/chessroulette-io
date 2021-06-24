@@ -1,13 +1,16 @@
 import * as io from 'io-ts';
-import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf } from '../../sdk/resource';
+import { ErrResponseOf, OkResponseOf, RequestOf, Resource, ResponseOf, withPaginatorResponse } from '../../sdk/resource';
 import { collaboratorPlatform, collaboratorRecord } from 'src/records/collaboratorRecord';
+import { NumberFromString } from 'io-ts-types/lib/NumberFromString';
 
 export namespace GetCollaboratorsByPlatform {
   const request = io.type({
     platform: collaboratorPlatform,
+    pageSize: NumberFromString,
+    currentIndex: NumberFromString,
   });
 
-  export const response = io.array(collaboratorRecord);
+  const response = withPaginatorResponse(collaboratorRecord);
 
   export const resource = new Resource(request, response);
 
