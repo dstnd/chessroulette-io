@@ -10,6 +10,7 @@ export * from './records/chatRecords';
 export * from './records/externalVendorsRecords';
 export * from './records/gameRecord';
 export * from './records/locationRecords';
+export * from './records/collaboratorRecord';
 export * from './payloads';
 export * from './sdk/io';
 export * from './chessGame';

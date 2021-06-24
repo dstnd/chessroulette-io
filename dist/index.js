@@ -23,6 +23,7 @@ __exportStar(require("./records/chatRecords"), exports);
 __exportStar(require("./records/externalVendorsRecords"), exports);
 __exportStar(require("./records/gameRecord"), exports);
 __exportStar(require("./records/locationRecords"), exports);
+__exportStar(require("./records/collaboratorRecord"), exports);
 __exportStar(require("./payloads"), exports);
 __exportStar(require("./sdk/io"), exports);
 __exportStar(require("./chessGame"), exports);
