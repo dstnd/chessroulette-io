@@ -8,9 +8,9 @@ exports.collaboratorPlatform = io.keyof({
 exports.collaboratorRecord = io.type({
     email: io.string,
     platform: exports.collaboratorPlatform,
-    profileUrl: io.string,
-    profilePicUrl: io.string,
     featuringRank: io.number,
+    profileUrl: io.union([io.string, io.string]),
+    profilePicUrl: io.union([io.undefined, io.string]),
     extra: io.union([io.undefined, io.type({})]),
 });
 //# sourceMappingURL=collaboratorRecord.js.map

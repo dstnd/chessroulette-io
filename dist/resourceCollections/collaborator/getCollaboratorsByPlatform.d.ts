@@ -13,9 +13,9 @@ export declare namespace GetCollaboratorsByPlatform {
             platform: io.KeyofC<{
                 Twitch: boolean;
             }>;
-            profileUrl: io.StringC;
-            profilePicUrl: io.StringC;
             featuringRank: io.NumberC;
+            profileUrl: io.UnionC<[io.StringC, io.StringC]>;
+            profilePicUrl: io.UnionC<[io.UndefinedC, io.StringC]>;
             extra: io.UnionC<[io.UndefinedC, io.TypeC<{}>]>;
         }>>;
         itemsTotal: io.NumberC;
@@ -31,9 +31,9 @@ export declare namespace GetCollaboratorsByPlatform {
         items: {
             email: string;
             platform: "Twitch";
-            profileUrl: string;
-            profilePicUrl: string;
             featuringRank: number;
+            profileUrl: string;
+            profilePicUrl: string | undefined;
             extra: {} | undefined;
         }[];
         itemsTotal: number;
