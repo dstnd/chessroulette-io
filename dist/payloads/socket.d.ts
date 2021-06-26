@@ -21729,6 +21729,10 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
         id: io.StringC;
         createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
         updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+        _guestGame: io.UnionC<[io.TypeC<{
+            mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
+            colorAssignment: io.ArrayC<io.StringC>;
+        }>, io.NullC]>;
     }>]>;
 }>, io.TypeC<{
     kind: io.LiteralC<"joinedRoomAndGameUpdated">;
@@ -32004,6 +32008,10 @@ export declare const socketPayload: io.UnionC<[io.TypeC<{
             id: io.StringC;
             createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
             updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
+            _guestGame: io.UnionC<[io.TypeC<{
+                mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
+                colorAssignment: io.ArrayC<io.StringC>;
+            }>, io.NullC]>;
         }>]>;
     }>;
 }>, io.UnionC<[io.TypeC<{
