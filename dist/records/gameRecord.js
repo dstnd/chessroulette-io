@@ -10,6 +10,13 @@ exports.gameRecord = io.intersection([
         id: io.string,
         createdAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
         updatedAt: io_ts_isodatetime_1.isoDateTimeFromIsoString,
+        _guestGame: io.union([
+            io.type({
+                mode: io.union([io.literal('userVsGuest'), io.literal('guestVsGuest')]),
+                colorAssignment: io.array(io.string),
+            }),
+            io.null,
+        ]),
     }),
 ]);
 exports.gameRecordFromGameState = function (gameStateCodec) {
