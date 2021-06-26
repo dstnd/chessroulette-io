@@ -7911,10 +7911,6 @@ export declare const gameRecord: io.IntersectionC<[io.UnionC<[io.TypeC<{
     id: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-    _guestGame: io.UnionC<[io.TypeC<{
-        mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
-        colorAssignment: io.ArrayC<io.StringC>;
-    }>, io.NullC]>;
 }>]>;
 export declare type GameRecord = io.TypeOf<typeof gameRecord>;
 export declare const gameRecordFromGameState: <TCodec extends io.Mixed>(gameStateCodec: TCodec) => io.IntersectionC<[TCodec, io.TypeC<{
@@ -23771,10 +23767,6 @@ export declare const gameRecordWithoutPlayerInfo: io.IntersectionC<[io.Intersect
     id: io.StringC;
     createdAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
     updatedAt: io.Type<import("io-ts-isodatetime/dist/lib/ISODateTime").ISODateTimeBrand, string, unknown>;
-    _guestGame: io.UnionC<[io.TypeC<{
-        mode: io.UnionC<[io.LiteralC<"userVsGuest">, io.LiteralC<"guestVsGuest">]>;
-        colorAssignment: io.ArrayC<io.StringC>;
-    }>, io.NullC]>;
 }>]>, io.TypeC<{
     players: io.StringC;
 }>]>;
