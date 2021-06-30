@@ -9,8 +9,9 @@ export declare const collaboratorRecord: io.TypeC<{
         Twitch: boolean;
     }>;
     featuringRank: io.NumberC;
-    profileUrl: io.UnionC<[io.StringC, io.StringC]>;
+    profileUrl: io.UnionC<[io.UndefinedC, io.StringC]>;
     profilePicUrl: io.UnionC<[io.UndefinedC, io.StringC]>;
+    about: io.UnionC<[io.StringC, io.UndefinedC]>;
     extra: io.UnionC<[io.UndefinedC, io.TypeC<{}>]>;
 }>;
 export declare type CollaboratorRecord = io.TypeOf<typeof collaboratorRecord>;

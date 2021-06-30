@@ -9,8 +9,9 @@ exports.collaboratorRecord = io.type({
     email: io.string,
     platform: exports.collaboratorPlatform,
     featuringRank: io.number,
-    profileUrl: io.union([io.string, io.string]),
+    profileUrl: io.union([io.undefined, io.string]),
     profilePicUrl: io.union([io.undefined, io.string]),
+    about: io.union([io.string, io.undefined]),
     extra: io.union([io.undefined, io.type({})]),
 });
 //# sourceMappingURL=collaboratorRecord.js.map
