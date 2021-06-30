@@ -9,7 +9,7 @@ export declare const collaboratorRecord: io.TypeC<{
         Twitch: boolean;
     }>;
     featuringRank: io.NumberC;
-    profileUrl: io.UnionC<[io.UndefinedC, io.StringC]>;
+    profileUrl: io.StringC;
     profilePicUrl: io.UnionC<[io.UndefinedC, io.StringC]>;
     about: io.UnionC<[io.StringC, io.UndefinedC]>;
     extra: io.UnionC<[io.UndefinedC, io.TypeC<{}>]>;
