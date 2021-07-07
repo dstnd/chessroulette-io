@@ -11,6 +11,7 @@ import {
   BadRequestError,
 } from './errors';
 import { isBadEncodingError, isBadRequestError, isPayloadOfCodec, isResourceFailureHandledError } from './util';
+import { formatValidationErrors } from 'io-ts-reporters';
 
 
 type BaseRequestPayloadCodec = io.Mixed;
@@ -107,7 +108,8 @@ export class Resource<
           } as const);
 
           console.error('[Resource].request() BadEncodingError', error);
-          console.info('  [Resource].request() BadEncodingError > Result', result);
+          console.info('[Resource].request() BadEncodingError > Result', result);
+          console.info('[Resource].request() BadEncodingError > Nice Error', formatValidationErrors(result.val));
 
           return error;
         }
@@ -116,7 +118,7 @@ export class Resource<
           const error = this.getResponseError(result.val);
 
           console.error('[Resource].request() Response Error', error);
-          console.info('  [Resource].request() Response Error > Result', result);
+          console.info('[Resource].request() Response Error > Result', result);
 
           return error;
         }

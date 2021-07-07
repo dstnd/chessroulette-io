@@ -43,6 +43,7 @@ var io_1 = require("../io");
 var ts_results_1 = require("ts-results");
 var errors_1 = require("./errors");
 var util_1 = require("./util");
+var io_ts_reporters_1 = require("io-ts-reporters");
 var responseAsOkResult = function (data) { return io.type({
     ok: io.literal(true),
     data: data,
@@ -113,13 +114,14 @@ var Resource = /** @class */ (function () {
                                 content: undefined,
                             });
                             console.error('[Resource].request() BadEncodingError', error);
-                            console.info('  [Resource].request() BadEncodingError > Result', result);
+                            console.info('[Resource].request() BadEncodingError > Result', result);
+                            console.info('[Resource].request() BadEncodingError > Nice Error', io_ts_reporters_1.formatValidationErrors(result.val));
                             return [2 /*return*/, error];
                         }
                         if (!result.val.ok) {
                             error = this.getResponseError(result.val);
                             console.error('[Resource].request() Response Error', error);
-                            console.info('  [Resource].request() Response Error > Result', result);
+                            console.info('[Resource].request() Response Error > Result', result);
                             return [2 /*return*/, error];
                         }
                         return [2 /*return*/, new ts_results_1.Ok(result.val.data)];

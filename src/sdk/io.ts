@@ -2,6 +2,7 @@ import * as PayloadCodecs from '../payloads';
 import { isLeft, Left, Right, Either } from 'fp-ts/lib/Either';
 import { Err, Ok, Result } from 'ts-results';
 import * as ioTs from 'io-ts';
+import reporter from 'io-ts-reporters';
 import {
   ErrHttpResponsePayloadOfType,
   HttpGenericErrorCodec,
